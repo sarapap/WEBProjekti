@@ -5,31 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/styles.css" rel="stylesheet">
-    <title>Document</title>
-    <script src="kakku.js" defer></script>
+    <title>Ravintola X</title>
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+    <script src="page1.js" defer></script>
 </head>
 
 <body>
-    <div class="container">
-        <nav>
-            <ul>
-                <li><a href="page1.html">Home</a></li>
-                <li><a href="page2.html">Cakes</a></li>
-                <li><a href="page3.html">Contact us</a></li>
-            </ul>
-        </nav>
-        <main>
-            <h1>CompanyX</h1>
-            <figure>
-                <img>
-                <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolor id inventore
-                    provident
-                    quaerat quis repudiandae saepe! Ad aliquid, cupiditate, deserunt eum impedit maiores nostrum officia
-                    quisquam sit tempora tenetur!</figcaption>
-            </figure>
-        </main>
-
-    </div>
+    <header>
+        <img src="../css/kuvat/cake.png" alt="restaurant" style="width:50px;height:50px;">
+        <h1>Ravintola X</h1>
+    </header>
+    <nav class="navbarClass" id="navbar">
+        <a href="page1.html" class="navItem">Etusivu</a>
+        <a href="page2.html" class="navItem">About Us</a>
+        <div class="dropdown">
+            <button class="dropdown-toggle" id="menuButton">
+                Menu
+            </button>
+            <div class="dropdown-menu" id="menuDropdown">
+                <a class="dropdown-item" href="#">Kakut</a>
+                <a class="dropdown-item" href="#">Kahvi</a>
+                <a class="dropdown-item" href="#">Lämmintä ruokaa</a>
+            </div>
+        </div>
+        <a href="page4.html" class="navItem">Tilaukset</a>
+        <a href="page5.html" class="navItem">Ota yhteyttä</a>
+        <a href="page6.html" class="navItem">Varaa pöytä</a>
+    </nav>
 </body>
 
 </html>
