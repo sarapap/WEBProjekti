@@ -1,7 +1,9 @@
+
 body {
     font-family: 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
+
 }
 
 /* title */
@@ -26,7 +28,7 @@ header {
     margin-left: 600px;
 }
 
-.icons {
+.logo {
     text-align: right;
 }
 
@@ -56,6 +58,21 @@ header {
     background-image: url('kuvat/shoppingcart.png');
     background-size: cover;
 }
+
+
+main {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.login,
+      .register {
+          flex-basis: 45%; /* Määrittää sarakkeen leveyden */
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+      }
 
 /* navigation bar */
 
@@ -151,7 +168,83 @@ nav {
 }
 
 .button1 .button2 {
-    margin-top: 20px;
-    padding: 5px;
-    cursor: pointer;
+  background-color:rgb(165, 169, 141);
+  border: 0.2rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  padding: 2rem, 3rem;
+  font-size: medium;
+  height: 3rem;
+  width: 4rem;
+  float: right;
 }
+
+ html {
+            box-sizing: border-box;
+            font-size: 17px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+
+        form {
+            margin: 1rem;
+        }
+
+        input, nutton, select {
+            font-size: irem;
+            padding: 0.25rem;
+        }
+
+        #name {
+            border: 1px solid #123456;
+        }
+
+        @media (max-width: 500px){
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+            input {
+                margin-bottom: 0.5rem;
+            }
+            button {
+                margin-top: 0.5rem;
+            }
+            input, button {
+                appearance: 0.5rem;
+            }
+        }
+
+        @media (min-width: 500.1px){
+            form {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                grid-gap: 2rem;
+            }
+            .checkbox-container {
+                grid-column: 2 / -1;
+            }
+
+            button[type="submit"] {
+                order: 2;
+            }
+
+        }
+        @media (min-width: 601px) and (max-width: 1024px) {
+            /* Add styles here */
+        }
+
+        /* Large screens */
+        @media (min-width: 1025px) {
+            /* Add styles here */
+        }
+
+        button[type="submit"] {
+            background-color: #0a00ff;
+            border: none;
+            border-radius: 0.5rem;
+            color: white;
+        }
