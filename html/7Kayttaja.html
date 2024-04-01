@@ -46,22 +46,125 @@
         <a href="6Poytavaraus.html" class="navItem">Varaa pöytä</a>
     </nav>
 
+
     <main>
-        <div class="login" id="login-id">
-            <form class="login-form">
-                <label for="login-username"><b>Käyttäjätunnus</b></label>
-                <input type="text" name="login-username" id="login-username" placeholder="Syötä käyttäjätunnus"
-                    required />
+      <div class="login" id="login-id">
+        <form class="login-form">
+          <label for="login-username"><b>Käyttäjätunnus</b></label>
+          <input type="text" name="login-username" id="login-username" placeholder="Syötä käyttäjätunnus"
+              required />
 
-                <label for="login-password"><b>Salasana</b></label>
-                <input type="password" name="login-password" id="login-password" placeholder="Syötä salasana"
-                    required />
+          <label for="login-password"><b>Salasana</b></label>
+          <input type="password" name="login-password" id="login-password" placeholder="Syötä salasana"
+              required />
 
-                <button id="button1" type="submit">Kirjaudu</button>
-                <p class="kayttajaP">Jos sinulla ei ole vielä käyttäjää, voit rekisteröityä tästä.</p>
-                <button id="button2" type="submit">Rekisteröidy</button>
-            </form>
-        </div>
+          <button id="button1" type="submit">Kirjaudu</button>
+        </form>
+      </div>
+
+      <div class="register" id="register-id">
+
+        <p class="kayttajaP">Jos sinulla ei ole vielä käyttäjää, voit rekisteröityä tästä.</p><br>
+        <p>LLiity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi. Liittyminen on maksutonta. </p>
+        <form action="https://10.120.32.94/test/form-submission/" method="post">
+          <label for="firstname">Etunimi *</label>
+            <input
+                type="text" name="firstname"
+                id="firstname"
+                placeholder="Etunimi"
+                required autofocus
+            />
+
+            <label for="lastname">Etunimi *</label>
+            <input
+                type="text" name="lastname"
+                id="lastname"
+                placeholder="Sukunimi"
+                required autofocus
+            />
+
+            <label for="name">Käyttäjätunnus:*</label>
+            <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Käyttäjätunnus"
+                required autofocus
+            />
+
+            <label for="password">
+                Password *
+            </label>
+                <input class="myPasswordField"
+                name="password"
+                type="password"
+                id="password"
+                placeholder="Password"
+                required autofocus
+            />
+
+            <label for="email">
+                Email *
+            </label>
+            <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required autofocus
+            />
+
+            <label for="email">
+              Puh *
+            </label>
+            <input
+            type="phone"
+            id="phone"
+            name="phone"
+            placeholder="Puhelinumero"
+            required autofocus
+            />
+
+            <label for="today">
+              Päivämäärä
+            </label>
+            <input
+            type="date"
+            name="date"
+            id="today"
+            />
+
+            <label for="allergia">Ruoka-allergia:</label>
+            <textarea name="allergia" id="allergia"></textarea>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="accept-1" name="accept" value="1">
+                <label for="accept-1">Hyväksyt verkkokaupan ehdot</label><br>
+                <input type="checkbox" id="accept-2" name="accept" value="1">
+                <label for="accept-2">Minulle saa lähettää markkinointiviestejä sähköpostitse</label>
+
+            </div>
+
+            <div>
+
+            </div>
+
+            <div class="checkBox-container">
+
+                Alennus ryhmä: <br/>
+                <input type="radio" id="opiskelija" name="status" value="1">
+                <label for="opiskelija">Opiskelija</label>
+                <input type="radio" id="ope" name="status" value="1">
+                <label for="elakelainen">Eläkeläinen</label>
+
+            </div>
+
+            <button type="submit" >Rekisteröidy</button>
+            <button type="reset">Tyhjennä lomake</button>
+
+
+        </form>
+      </div>
     </main>
 </body>
 
