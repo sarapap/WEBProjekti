@@ -1,33 +1,55 @@
 body {
     font-family: 'Times New Roman', Times, serif;
-    margin: 0;
-    padding: 0;
+    margin: auto;
+    width: 80%;
+    height: 80%;
+    padding: 10px;
+}
+
+.container {
+    width: 100%;
 }
 
 /* title */
 
-h1 {
-    padding: 10px;
-}
-
 header {
-    background-color: rgb(231, 200, 204);
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.top-link__icon[data-v-007d9333] {
+    width: 12px;
+    height: 12px;
+    margin-right: var(--spacing-small)
+}
 
 .title {
     text-align: center;
     display: flex;
     align-items: center;
-    margin-left: 600px;
+    margin-left: 100px;
 }
 
 .icons {
     text-align: right;
+    width: 100%;
+    display: inline-block;
+    background: none;
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 20px;
+}
+
+.cakeImg {
+    box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
 }
 
 .suosikit {
@@ -59,25 +81,44 @@ header {
 
 /* navigation bar */
 
+a {
+    text-decoration: none;
+    color: #df810f;
+    font-size: bold;
+}
+
 nav {
-    background-color: rgb(198, 161, 166);
-    padding: 10px;
+    background-color: rgb(192, 160, 122);
+    padding: 10px 3px 10px 3px;
     text-align: center;
     display: flex;
 }
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    justify-content: right;
+}
+
+nav li {
+    margin-left: 20px;
+}
+
 
 .navItem {
     display: inline-block;
     color: #fff;
     padding: 0 10px;
     text-decoration: none;
-    margin-left: 140px;
+    margin-left: 100px;
     text-shadow: 1px 1px 1px black;
 }
 
 .navItem:hover {
     text-decoration: none;
-    color: #fff;
+    color: #dfd7cd;
 }
 
 .dropdown-menu {
