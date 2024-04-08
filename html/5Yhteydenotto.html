@@ -7,7 +7,7 @@
     <link href="../css/5Yhteydenotto.css" rel="stylesheet">
     <title>Ravintola X</title>
     <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
-    <script src="5Yhteydenotto.js" defer></script>
+    <script src="5Yhteydenotto.js" type="module"></script>
 </head>
 
 <body>
@@ -58,9 +58,31 @@
     </nav>
 
     <main>
-        <footer>
-            <h3>CONTACT US</h3>
-        </footer>
+        <div class="contact-info">
+            <h3>YHTEYSTIEDOT</h3>
+            <p class="contact">Osoite: <br> Myllypurontie 1</p>
+            <p class="contact">00920 Helsinki <br> Suomi </p>
+            <p class="contact">Sähköposti: info@metropolia.fi</p>
+            <p class="contact">Puhelinnumero: <br> 09 74245000</p>
+        </div>
+
+        <div class="kartta-container">
+            <div id="map" style="width: 450px; height: 250px;"></div>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+        </div>
+
+        <div class="socials">
+            <a href="https://www.instagram.com/">
+                <span class="instagram" style="background-image: url('../css/kuvat/instagram.png')"></span>
+            </a>
+            <a href="https://www.facebook.com/">
+                <span class="facebook" style="background-image: url('../css/kuvat/facebook.png')"></span>
+            </a>
+            <a href="https://twitter.com/">
+                <span class="twitter" style="background-image: url('../css/kuvat/twitter.png')"></span>
+            </a>
+        </div>
     </main>
 </body>
 

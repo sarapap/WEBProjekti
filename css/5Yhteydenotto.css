@@ -164,3 +164,54 @@ nav li {
         font-size: 15px;
     }
 }
+
+
+/* main */
+
+.socials p,
+.socials a {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 10px;
+}
+
+.socials {
+    margin-top: 50px;
+    padding-left: 150px;
+}
+
+.instagram,
+.facebook,
+.twitter {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    margin-right: 50px;
+}
+
+h3 {
+    text-shadow: 1px 1px 1px gray;
+}
+
+main {
+    border: 1px solid rgb(179, 149, 149);
+    box-shadow: 0 15px 25px 0 rgb(179, 149, 149);
+    background-color: white;
+    padding: 0px 100px 0px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    margin: 20px;
+}
+
+.kartta-container {
+    height: 100px;
+    margin: 0px 0px 100px 180px;
+}
+
+#map {
+    border: 1px solid rgb(179, 149, 149);
+    box-shadow: 0 15px 25px 0 rgb(179, 149, 149);
+}
