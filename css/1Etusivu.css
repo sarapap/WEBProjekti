@@ -1,8 +1,7 @@
 body {
     font-family: 'Times New Roman', Times, serif;
     margin: auto;
-    width: 80%;
-    height: 80%;
+    width: 90%;
     padding: 10px;
 }
 
@@ -10,11 +9,7 @@ body {
     width: 100%;
 }
 
-/* title */
-
 header {
-    padding: 20px;
-    display: flex;
     justify-content: space-between;
     align-items: center;
 }
@@ -34,9 +29,13 @@ header {
 
 .icons {
     text-align: right;
+    display: flex;
     width: 100%;
     display: inline-block;
     background: none;
+    justify-content: right;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .image-container {
@@ -45,11 +44,16 @@ header {
 }
 
 .logo {
-    margin-right: 20px;
+  width:100%;
+  height:240px;
+  padding-right: 30px;
+  margin-right: 20px;
 }
 
 .cakeImg {
     box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
+    width: 80%;
+    height: 300px;
 }
 
 .suosikit {
@@ -90,8 +94,9 @@ a {
 nav {
     background-color: rgb(192, 160, 122);
     padding: 10px 3px 10px 3px;
-    text-align: center;
     display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
 }
 
 nav ul {
@@ -100,25 +105,31 @@ nav ul {
     display: flex;
     list-style: none;
     justify-content: right;
-}
+} */
 
 nav li {
     margin-left: 20px;
 }
 
-
 .navItem {
     display: inline-block;
     color: #fff;
-    padding: 0 10px;
-    text-decoration: none;
-    margin-left: 100px;
     text-shadow: 1px 1px 1px black;
+    flex-grow: 1;
+    text-align: center;
+    position: relative;
 }
 
 .navItem:hover {
     text-decoration: none;
     color: #dfd7cd;
+}
+
+.dropdown {
+  flex-grow: 1; /* Tämä laajentaa dropdown-elementin samalle leveydelle kuin muut navItem-elementit */
+  display: flex;
+  justify-content: center; /* Keskittää dropdownin sisällön */
+  position: relative;
 }
 
 .dropdown-menu {
@@ -127,6 +138,8 @@ nav li {
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    top:100%;
+    left:0;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -140,7 +153,6 @@ nav li {
     cursor: pointer;
     font-size: 16px;
     font-family: 'Times New Roman', Times, serif;
-    margin-left: 120px;
     text-shadow: 1px 1px 1px black;
 }
 
@@ -156,37 +168,35 @@ nav li {
 }
 
 .dropdown-menu a:hover {
-    background-color: #f1f1f1;
-}
-
-@media screen and (max-width:330px) {
-    #logo {
-        font-size: 15px;
-    }
+    background-color: #eceae9;;
 }
 
 /* etusivu */
-
 .etusivu {
-    width: 100%;
-    height: 88.5vh;
+    width: 90%;
     display: flex;
-    margin: 50px;
+    min-height: 100vh;
+    margin: 20px 0px 20px 0px;
+
 }
 
 .aside1 {
-    width: 80%;
-    height: 100%;
+    height: auto;
     background-color: rgb(233, 220, 204);
     color: rgb(83, 78, 78);
     text-align: center;
     font-size: 20px;
     box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
-}
+    width: 70%;
+    height: 100%;
+    padding: 10px;
 
+}
 .aside2 {
-    padding: 20px;
-    width: 26%;
+    padding-left: 5%;
+    width: 25%;
+    height: 100%;
+
 }
 
 .order {
@@ -197,6 +207,7 @@ nav li {
     padding: 10px;
     border-radius: 1rem;
     font-size: large;
+    margin-top: 10px;
 }
 
 .content p {
@@ -223,6 +234,32 @@ nav li {
     margin: 10px;
 }
 
+/* footer */
+.changecontent2::after {
+  content: "Tervetuloa kakkukahveille!";
+  color: rgb(192, 160, 122);
+  animation: changetext2 10s infinite linear;
+  margin: 10px;
+  font-weight: bold;
+}
+
+footer {
+  margin: 25px 10px 0px 25px;
+  padding: 5px;
+  text-align: center;
+  background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
+  box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
+
+}
+
+.footer {
+  margin: 0px 0px 0px 20px;
+  text-align: left;
+  color: #827777;
+  font-size: small;
+}
+
+
 @keyframes changetext {
     0% {
         content: "Herkullisia kakkuja";
@@ -237,75 +274,81 @@ nav li {
     }
 }
 
-/* footer */
+@media screen and (min-width:801px) {
+  .etusivu {
+    height: auto;
+    display: flex;
+  }
 
-.changecontent2::after {
-    content: "Tervetuloa kakkukahveille!";
-    color: rgb(192, 160, 122);
-    animation: changetext2 10s infinite linear;
-    margin: 10px;
-    font-weight: bold;
+  .cakeImg {
+    width:  80%
+  }
+
+  .aside1 {
+    width: 70%;
+    height: auto;
+  }
+  .aside2 {
+        width: 25%;
+        height: auto;
+  }
+  video {
+    width: 90%;
+  }
+  .footer-container {
+    margin: 0;
+  }
 }
 
-footer {
-    margin: 25px 10px 0px 25px;
-    padding: 5px;
+@media screen and (max-width:800px) {
+  .etusivu {
+    min-height: 100vh;
+    display: block;
+  }
+
+  video {
+    width: 90%;
+  }
+
+  .icons ul li {
+    display: block;
     text-align: center;
-    background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
-    box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
+    margin-bottom: 10px;
+  }
+
+  .icons ul li a {
+    display: block;
+    padding: 5px;
+  }
+
+  .logo {
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  .cakeImg {
+    margin-top: 0;
+  }
+
+  .aside1,
+  .aside2 {
+        width: 100%;
+        margin-bottom: 40px;
+        height: auto;
+  }
+
+  .footer-container {
+    margin: 0;
+  }
 }
 
-.footer {
-    margin: 0px 0px 0px 20px;
-    text-align: left;
-    color: #827777;
-    font-size: small;
+@media screen and (max-width:330px) {
+  .content h2 {
+    font-size: 30px;
+  }
 }
-
-@keyframes changetext2 {
-    20% {
-        content: "Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi!";
-    }
-
-    40% {
-        content: "Liittyminen on maksutonta";
-    }
-
-    60% {
-        content: "Luo unelmiesi kakku!";
-    }
-
-    80% {
-        content: "Kotiinkuljetus alkaen 2,95€";
-    }
-
-    100% {
-        content: "Tervetuloa kakkukahveille!";
-    }
-}
-
-/* media */
-
-@media screen and (max-width:860px) {
-    .etusivu {
-        height: 120vh;
-    }
-}
-
-@media screen and (max-width:560px) {
-    .etusivu {
-        height: 100vh;
-    }
-}
-
 @media screen and (max-width:330px) {
     .content h2 {
         font-size: 30px;
-    }
-}
-
-@media screen and (max-width:330px) {
-    .content h2 {
-        height: 100vh;
     }
 }
