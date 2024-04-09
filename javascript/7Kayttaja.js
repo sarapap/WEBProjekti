@@ -1,4 +1,4 @@
-
+'use strict';
 
 
 // // kun painaa registeroidy button, niin tulee registeri formi ikkuna

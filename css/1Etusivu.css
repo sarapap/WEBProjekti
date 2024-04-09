@@ -44,10 +44,10 @@ header {
 }
 
 .logo {
-  width:90%;
-  height:240px;
-  padding: 7% 0;
-  margin-right: 20px;
+    width: 90%;
+    height: 240px;
+    padding: 7% 0;
+    margin-right: 20px;
 }
 
 .cakeImg {
@@ -105,9 +105,9 @@ nav ul {
     display: flex;
     list-style: none;
     justify-content: right;
-} */
+}
 
-nav li {
+*/ nav li {
     margin-left: 20px;
 }
 
@@ -126,10 +126,12 @@ nav li {
 }
 
 .dropdown {
-  flex-grow: 1; /* Tämä laajentaa dropdown-elementin samalle leveydelle kuin muut navItem-elementit */
-  display: flex;
-  justify-content: center; /* Keskittää dropdownin sisällön */
-  position: relative;
+    flex-grow: 1;
+    /* Tämä laajentaa dropdown-elementin samalle leveydelle kuin muut navItem-elementit */
+    display: flex;
+    justify-content: center;
+    /* Keskittää dropdownin sisällön */
+    position: relative;
 }
 
 .dropdown-menu {
@@ -138,8 +140,8 @@ nav li {
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    top:100%;
-    left:0;
+    top: 100%;
+    left: 0;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -168,7 +170,8 @@ nav li {
 }
 
 .dropdown-menu a:hover {
-    background-color: #eceae9;;
+    background-color: #eceae9;
+    ;
 }
 
 /* etusivu */
@@ -192,6 +195,7 @@ nav li {
     padding: 10px;
 
 }
+
 .aside2 {
     padding-left: 5%;
     width: 25%;
@@ -236,27 +240,27 @@ nav li {
 
 /* footer */
 .changecontent2::after {
-  content: "Tervetuloa kakkukahveille!";
-  color: rgb(192, 160, 122);
-  animation: changetext2 10s infinite linear;
-  margin: 10px;
-  font-weight: bold;
+    content: "Tervetuloa kakkukahveille!";
+    color: rgb(192, 160, 122);
+    animation: changetext2 10s infinite linear;
+    margin: 10px;
+    font-weight: bold;
 }
 
 footer {
-  margin: 25px 10px 0px 25px;
-  padding: 5px;
-  text-align: center;
-  background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
-  box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
+    margin: 25px 10px 0px 25px;
+    padding: 5px;
+    text-align: center;
+    background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
+    box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
 
 }
 
 .footer {
-  margin: 0px 0px 0px 20px;
-  text-align: left;
-  color: #827777;
-  font-size: small;
+    margin: 0px 0px 0px 20px;
+    text-align: left;
+    color: #827777;
+    font-size: small;
 }
 
 
@@ -275,78 +279,76 @@ footer {
 }
 
 @media screen and (min-width:801px) {
-  .etusivu {
-    height: auto;
-    display: flex;
-  }
+    .etusivu {
+        height: auto;
+        display: flex;
+    }
 
-  .cakeImg {
-    width:  80%
-  }
+    .cakeImg {
+        width: 80%
+    }
 
-  .aside1 {
-    width: 70%;
-    height: auto;
-  }
-  .aside2 {
+    .aside1 {
+        width: 70%;
+        height: auto;
+    }
+
+    .aside2 {
         width: 25%;
         height: auto;
-  }
-  video {
-    width: 90%;
-  }
-  .footer-container {
-    margin: 0;
-  }
+    }
+
+    video {
+        width: 90%;
+    }
+
+    .footer-container {
+        margin: 0;
+    }
 }
 
 @media screen and (max-width:800px) {
-  .etusivu {
-    min-height: 100vh;
-    display: block;
-  }
+    .etusivu {
+        min-height: 100vh;
+        display: block;
+    }
 
-  video {
-    width: 90%;
-  }
+    video {
+        width: 90%;
+    }
 
-  .icons ul li {
-    display: block;
-    text-align: center;
-    margin-bottom: 10px;
-  }
+    .icons ul li {
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
 
-  .icons ul li a {
-    display: block;
-    padding: 5px;
-  }
+    .icons ul li a {
+        display: block;
+        padding: 5px;
+    }
 
-  .logo {
-    position: static;
-    margin-bottom: 20px;
-  }
+    .logo {
+        position: static;
+        margin-bottom: 20px;
+    }
 
-  .cakeImg {
-    margin-top: 0;
-  }
+    .cakeImg {
+        margin-top: 0;
+    }
 
-  .aside1,
-  .aside2 {
+    .aside1,
+    .aside2 {
         width: 100%;
         margin-bottom: 40px;
         height: auto;
-  }
+    }
 
-  .footer-container {
-    margin: 0;
-  }
+    .footer-container {
+        margin: 0;
+    }
 }
 
-@media screen and (max-width:330px) {
-  .content h2 {
-    font-size: 30px;
-  }
-}
 @media screen and (max-width:330px) {
     .content h2 {
         font-size: 30px;

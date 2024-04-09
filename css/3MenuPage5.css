@@ -167,16 +167,16 @@ nav li {
 
 /* main */
 
-.salty-section {
+.drinks-section {
     padding: 20px;
 }
 
-.salty-section h2 {
+.drinks-section h2 {
     font-size: 24px;
     margin-bottom: 10px;
 }
 
-#saltySearch {
+#drinkSearch {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
@@ -199,44 +199,44 @@ nav li {
     border-radius: 5px;
 }
 
-.salty-category {
+.drink-category {
     margin-bottom: 30px;
 }
 
-.salty-category h3 {
+.drink-category h3 {
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-.salty-list {
+.drink-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
 }
 
-.salty-item {
+.drink-item {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
 }
 
-.salty-item img {
+.drink-item img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
 }
 
-.salty-item h4 {
+.drink-item h4 {
     font-size: 16px;
     margin-top: 10px;
 }
 
-.salty-item p {
+.drink-item p {
     margin-top: 5px;
     color: #666;
 }
 
-.salty-item button {
+.drink-item button {
     display: block;
     width: 100%;
     padding: 8px;
@@ -248,7 +248,7 @@ nav li {
     cursor: pointer;
 }
 
-.salty-item button:hover {
+.drink-item button:hover {
     background-color: rgb(208, 194, 178);
 }
 
