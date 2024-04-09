@@ -57,6 +57,7 @@ header {
 
 .logo {
     margin-right: 20px;
+    opacity: 1;
 }
 
 .cakeImg {
@@ -101,7 +102,7 @@ a {
 
 nav {
     background-color: rgb(192, 160, 122);
-    padding: 10px 3px 10px 3px;
+    padding: 20px 3px 20px 3px;
     text-align: center;
     display: flex;
 }
@@ -187,7 +188,9 @@ nav li {
 }
 
 .logo-container {
-    margin-bottom: 20px;
+    margin: 20px 0px 20px 0px;
+    padding: 10px 415px 10px 415px;
+    background-image: url('kuvat/background.jpeg');
 }
 
 main {
@@ -235,4 +238,44 @@ section {
     background-color: #c0c0c0;
     padding: 50px;
     box-sizing: border-box;
+}
+
+/* footer */
+
+.changecontent::after {
+    content: "Tervetuloa kakkukahveille!";
+    color: rgb(192, 160, 122);
+    animation: changetext 10s infinite linear;
+    margin: 10px;
+    font-weight: bold;
+}
+
+footer {
+    margin: 25px 10px 0px 25px;
+    padding: 5px;
+    text-align: center;
+    background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
+    box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
+}
+
+@keyframes changetext {
+    20% {
+        content: "Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi!";
+    }
+
+    40% {
+        content: "Liittyminen on maksutonta";
+    }
+
+    60% {
+        content: "Luo unelmiesi kakku!";
+    }
+
+    80% {
+        content: "Kotiinkuljetus alkaen 2,95€";
+    }
+
+    100% {
+        content: "Tervetuloa kakkukahveille!";
+    }
 }

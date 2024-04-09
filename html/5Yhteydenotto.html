@@ -35,7 +35,11 @@
             </nav>
             <div class="image-container">
                 <a href="1Etusivu.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
-                <img src="../css/kuvat/cakepic.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
+                <div class="kartta-container">
+                    <div id="map" style="width: 800px; height: 300px;"></div>
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+                </div>
             </div>
         </div>
     </header>
@@ -74,12 +78,6 @@
             </div>
         </div>
 
-        <div class="kartta-container">
-            <div id="map" style="width: 450px; height: 250px;"></div>
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-        </div>
-
         <div class="socials">
             <a href="https://www.instagram.com/">
                 <span class="instagram" style="background-image: url('../css/kuvat/instagram.png')"></span>
@@ -92,6 +90,12 @@
             </a>
         </div>
     </main>
+
+    <footer>
+        <p>&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
+        </div>
+    </footer>
 </body>
 
 </html>

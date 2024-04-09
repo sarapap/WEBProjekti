@@ -197,19 +197,19 @@ h3 {
 }
 
 main {
-    border: 1px solid rgb(179, 149, 149);
-    box-shadow: 0 15px 25px 0 rgb(179, 149, 149);
-    background-color: white;
+    border: 1px solid rgb(184, 170, 170);
+    box-shadow: 0 15px 25px 0 rgb(184, 170, 170);
     padding: 0px 100px 0px 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 500px;
     margin: 20px;
+    background-image: url(kuvat/background.png);
 }
 
 .contact {
-    padding: 4px;
+    padding: 10px;
 }
 
 .contact-info {
@@ -229,10 +229,50 @@ main {
 
 .kartta-container {
     height: 100px;
-    margin: 0px 0px 100px 180px;
+    margin: 0px 0px 200px 0px;
 }
 
 #map {
-    border: 1px solid rgb(179, 149, 149);
-    box-shadow: 0 15px 25px 0 rgb(179, 149, 149);
+    border: 1px solid rgb(184, 170, 170);
+    box-shadow: 0 15px 25px 0 rgb(184, 170, 170);
+}
+
+/* footer */
+
+.changecontent::after {
+    content: "Tervetuloa kakkukahveille!";
+    color: rgb(192, 160, 122);
+    animation: changetext 10s infinite linear;
+    margin: 10px;
+    font-weight: bold;
+}
+
+footer {
+    margin: 25px 10px 0px 25px;
+    padding: 5px;
+    text-align: center;
+    background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
+    box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
+}
+
+@keyframes changetext {
+    20% {
+        content: "Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi!";
+    }
+
+    40% {
+        content: "Liittyminen on maksutonta";
+    }
+
+    60% {
+        content: "Luo unelmiesi kakku!";
+    }
+
+    80% {
+        content: "Kotiinkuljetus alkaen 2,95€";
+    }
+
+    100% {
+        content: "Tervetuloa kakkukahveille!";
+    }
 }
