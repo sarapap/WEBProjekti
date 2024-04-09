@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/6Poytavaraus.css" rel="stylesheet">
+    <link href="../css/3MenuPage3.css" rel="stylesheet">
     <title>S&A CAFE</title>
     <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
-    <script src="6Poytavaraus.js" defer></script>
+    <script src="3MenuPage3.js" defer></script>
 </head>
 
 <body>
@@ -35,7 +35,7 @@
             </nav>
             <div class="image-container">
                 <a href="1Etusivu.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
-                <img src="../css/kuvat/cakepic.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
+                <img src="../css/kuvat/cupcakes.jpg" width="800px" height="300px" class="cakeImg" alt="cupcakes">
             </div>
         </div>
     </header>
@@ -48,14 +48,67 @@
             </button>
             <div class="dropdown-menu" id="menuDropdown">
                 <a class="dropdown-item" href="3MenuPage1.html">Kakut</a>
-                <a class="dropdown-item" href="3MenuPage2.html">Kahvi</a>
-                <a class="dropdown-item" href="3MenuPage3.html">Lämmintä ruokaa</a>
+                <a class="dropdown-item" href="3MenuPage2.html">Suolaista</a>
+                <a class="dropdown-item" href="3MenuPage3.html">Makeaa</a>
+                <a class="dropdown-item" href="3MenuPage4.html">Lämmintä ruokaa</a>
+                <a class="dropdown-item" href="3MenuPage5.html">Juotavaa</a>
             </div>
         </div>
         <a href="4Tilaukset.html" class="navItem">Tilaukset</a>
         <a href="5Yhteydenotto.html" class="navItem">Ota yhteyttä</a>
         <a href="6Poytavaraus.html" class="navItem">Varaa pöytä</a>
     </nav>
+
+    <div class="sweets-section">
+        <h2>MAKEAT LEIVONNAISET</h2>
+
+        <input type="text" id="sweetSearch" placeholder="Etsi makeaa...">
+        <div class="filter-options">
+            <label for="sweetType">Valitse tyyppi:</label>
+            <select id="sweetType">
+                <option value="kaikki">Kaikki</option>
+                <option value="leivonnaiset">Leivonnaiset</option>
+                <option value="muut_makeat">Muut makeat</option>
+                <!-- Lisää -->
+            </select>
+        </div>
+
+        <div class="sweet-category">
+            <h3>Leivonnaiset</h3>
+            <div class="sweet-list">
+                <div class="sweet-item">
+                    <img src="leivos1.jpg" alt="Leivos 1">
+                    <h4>Mansikkatorttu</h4>
+                    <p>Täytetty tuoreilla mansikoilla ja kermaisella täytteellä.</p>
+                    <button>Lisää ostoskoriin</button>
+                </div>
+                <!-- Lisää-->
+            </div>
+        </div>
+
+        <div class="sweet-category">
+            <h3>Muut makeat</h3>
+            <div class="sweet-list">
+                <div class="sweet-item">
+                    <img src="makealeivos.jpg" alt="Makea leivos">
+                    <h4>Makea leivos</h4>
+                    <p>-</p>
+                    <button>Lisää ostoskoriin</button>
+                </div>
+                <!-- Lisää-->
+            </div>
+        </div>
+
+        <!-- Lisää -->
+
+    </div>
+
+    <footer>
+        <p>&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
+        </div>
+    </footer>
 </body>
+
 
 </html>

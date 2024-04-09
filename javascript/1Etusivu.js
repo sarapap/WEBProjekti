@@ -1,4 +1,4 @@
-'use script';
+'use strict';
 
 document.addEventListener("DOMContentLoaded", function () {
     const menuButton = document.getElementById("menuButton");

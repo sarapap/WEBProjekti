@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/3MenuPage5.css" rel="stylesheet">
+    <title>S&A CAFE</title>
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+    <script src="3MenuPage5.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav class="icons">
+                <ul>
+                    <li>
+                        <a href="7Kayttaja.html">
+                            <span class="käyttäjä"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit.html">
+                            <span class="suosikit"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori.html">
+                            <span class="ostoskori"></span>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div class="image-container">
+                <a href="1Etusivu.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+                <img src="../css/kuvat/coffee.jpg" width="800px" height="300px" class="cakeImg" alt="coffee">
+            </div>
+        </div>
+    </header>
+    <nav class="navbarClass" id="navbar">
+        <a href="1Etusivu.html" class="navItem">Etusivu</a>
+        <a href="2AboutUs.html" class="navItem">About Us</a>
+        <div class="dropdown">
+            <button class="dropdown-toggle" id="menuButton">
+                Menu
+            </button>
+            <div class="dropdown-menu" id="menuDropdown">
+                <a class="dropdown-item" href="3MenuPage1.html">Kakut</a>
+                <a class="dropdown-item" href="3MenuPage2.html">Suolaista</a>
+                <a class="dropdown-item" href="3MenuPage3.html">Makeaa</a>
+                <a class="dropdown-item" href="3MenuPage4.html">Lämmintä ruokaa</a>
+                <a class="dropdown-item" href="3MenuPage5.html">Juotavaa</a>
+            </div>
+        </div>
+        <a href="4Tilaukset.html" class="navItem">Tilaukset</a>
+        <a href="5Yhteydenotto.html" class="navItem">Ota yhteyttä</a>
+        <a href="6Poytavaraus.html" class="navItem">Varaa pöytä</a>
+    </nav>
+
+    <div class="drinks-section">
+        <h2>JUOMAVALIKOIMA</h2>
+
+        <input type="text" id="drinkSearch" placeholder="Etsi juomaa...">
+        <div class="filter-options">
+            <label for="drinkType">Valitse tyyppi:</label>
+            <select id="drinkType">
+                <option value="kaikki">Kaikki</option>
+                <option value="lämmin_kahvi">Lämmin kahvi</option>
+                <option value="jääkahvi">Jääkahvi</option>
+                <option value="tee">Tee</option>
+                <option value="virvoitusjuomat">Virvoitusjuomat</option>
+                <!-- Lisää -->
+            </select>
+        </div>
+
+        <div class="drink-category">
+            <h3>Lämmin kahvi</h3>
+            <div class="drink-list">
+                <div class="drink-item">
+                    <img src="lammin_kahvi1.jpg" alt="Lämmin kahvi 1">
+                    <h4>Kahvi Latte</h4>
+                    <p>Tuore espresso, höyrytetty maito ja maitovaahto.</p>
+                    <button>Lisää ostoskoriin</button>
+                </div>
+                <div class="drink-item">
+                    <img src="lammin_kahvi2.jpg" alt="Lämmin kahvi 2">
+                    <h4>Cappuccino</h4>
+                    <p>Vahva espresso ja kermainen maitovaahto.</p>
+                    <button>Lisää ostoskoriin</button>
+                </div>
+                <!-- Lisää -->
+            </div>
+        </div>
+
+        <div class="drink-category">
+            <h3>Jääkahvi</h3>
+            <div class="drink-list">
+                <div class="drink-item">
+                    <img src="jaakahvi1.jpg" alt="Jääkahvi 1">
+                    <h4>Frappuccino</h4>
+                    <p>Vaniljainen jääkahvi kermavaahdolla.</p>
+                    <button>Lisää ostoskoriin</button>
+                </div>
+                <div class="drink-item">
+                    <img src="jaakahvi2.jpg" alt="Jääkahvi 2">
+                    <h4>Kylmäkahvi</h4>
+                    <p>Tuoreet kahvipavut jäävedessä.</p>
+                    <button>Lisää ostoskoriin</button>
+                </div>
+                <!-- Lisää -->
+            </div>
+        </div>
+        <div class="drink-category">
+            <h3>Teet</h3>
+            <div class="drink-list">
+                <div class="drink-item">
+                    <img src="tee1.jpg" alt="Tee 1">
+                    <h4>Kamomilla</h4>
+                    <p>-</p>
+                    <button>Lisää ostoskoriin</button>
+                </div>
+                <div class="drink-item">
+                    <img src="tee2.jpg" alt="Tee 2">
+                    <h4>Rooibos</h4>
+                    <p>-</p>
+                    <button>Lisää ostoskoriin</button>
+                </div>
+                <!-- Lisää -->
+            </div>
+            <div class="drink-category">
+                <h3>Virvoitusjuomat</h3>
+                <div class="drink-list">
+                    <div class="drink-item">
+                        <img src="Virvoitusjuomat1.jpg" alt="Virvoitusjuomat 1">
+                        <h4>Coca Cola</h4>
+                        <p>-</p>
+                        <button>Lisää ostoskoriin</button>
+                    </div>
+                    <div class="drink-item">
+                        <img src="Virvoitusjuomat2.jpg" alt="Virvoitusjuomat 2">
+                        <h4>Pepsi</h4>
+                        <p>-</p>
+                        <button>Lisää ostoskoriin</button>
+                    </div>
+                    <!-- Lisää -->
+                </div>
+
+                <!-- Lisää  -->
+
+            </div>
+
+
+
+            <footer>
+                <p>&copy; S&A CAFE 2024</p>
+                <div class="changecontent">
+                </div>
+            </footer>
+</body>
+
+
+
+</html>

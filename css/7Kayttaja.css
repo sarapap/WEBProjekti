@@ -169,8 +169,7 @@ nav li {
 
 .login-form {
     font-family: 'Times New Roman', Times, serif;
-    border: 2px solid rgb(192, 160, 122);
-    box-shadow: 0 8px 20px 0 rgb(192, 160, 122);
+    box-shadow: 0 4px 10px 0 rgb(157, 137, 114);
     padding: 50px 150px 100px 150px;
     background-color: rgb(222, 204, 182);
     display: flex;

@@ -164,3 +164,131 @@ nav li {
         font-size: 15px;
     }
 }
+
+/* main */
+
+.salty-section {
+    padding: 20px;
+}
+
+.salty-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#saltySearch {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.filter-options {
+    margin-bottom: 20px;
+}
+
+.filter-options label {
+    font-weight: bold;
+}
+
+.filter-options select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.salty-category {
+    margin-bottom: 30px;
+}
+
+.salty-category h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.salty-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.salty-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.salty-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.salty-item h4 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.salty-item p {
+    margin-top: 5px;
+    color: #666;
+}
+
+.salty-item button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    background-color: rgb(192, 160, 122);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.salty-item button:hover {
+    background-color: rgb(208, 194, 178);
+}
+
+
+/* footer */
+
+.changecontent::after {
+    content: "Tervetuloa kakkukahveille!";
+    color: rgb(192, 160, 122);
+    animation: changetext 10s infinite linear;
+    margin: 10px;
+    font-weight: bold;
+}
+
+footer {
+    margin: 25px 10px 0px 25px;
+    padding: 5px;
+    text-align: center;
+    background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
+    box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
+}
+
+@keyframes changetext {
+    20% {
+        content: "Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi!";
+    }
+
+    40% {
+        content: "Liittyminen on maksutonta";
+    }
+
+    60% {
+        content: "Luo unelmiesi kakku!";
+    }
+
+    80% {
+        content: "Kotiinkuljetus alkaen 2,95€";
+    }
+
+    100% {
+        content: "Tervetuloa kakkukahveille!";
+    }
+}
