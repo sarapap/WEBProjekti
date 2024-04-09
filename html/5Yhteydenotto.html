@@ -5,27 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/5Yhteydenotto.css" rel="stylesheet">
-    <title>Ravintola X</title>
+    <title>S&A CAFE</title>
     <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
-    <script src="5Yhteydenotto.js" defer></script>
+    <script src="5Yhteydenotto.js" type="module"></script>
 </head>
 
 <body>
     <header>
-        <div class="title">
-            <img src="../css/kuvat/cake.png" alt="restaurant" style="width:50px;height:50px;">
-            <h1>Ravintola X</h1>
-        </div>
-        <div class="icons">
-            <a href="7Kayttaja.html">
-                <span class="käyttäjä"></span>
-            </a>
-            <a href="8Suosikit.html">
-                <span class="suosikit"></span>
-            </a>
-            <a href="9Ostoskori.html">
-                <span class="ostoskori"></span>
-            </a>
+        <div>
+            <nav class="icons">
+                <ul>
+                    <li>
+                        <a href="7Kayttaja.html">
+                            <span class="käyttäjä"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit.html">
+                            <span class="suosikit"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori.html">
+                            <span class="ostoskori"></span>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div class="image-container">
+                <a href="1Etusivu.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+                <img src="../css/kuvat/cakepic.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
+            </div>
         </div>
     </header>
     <nav class="navbarClass" id="navbar">
@@ -47,9 +58,39 @@
     </nav>
 
     <main>
-        <footer>
-            <h3>CONTACT US</h3>
-        </footer>
+        <div class="contact-info">
+            <h3>YHTEYSTIEDOT</h3>
+            <div class="contact-item">
+                <img src="../css/kuvat/location.png" width="20px" height="20px" class="loc" alt="location">
+                <p class="contact">Osoite: <br> Myllypurontie 1 <br>00920 Helsinki <br>Suomi</p>
+            </div>
+            <div class="contact-item">
+                <img src="../css/kuvat/email.png" width="20px" height="20px" class="email" alt="email">
+                <p class="contact">Sähköposti: info@metropolia.fi</p>
+            </div>
+            <div class="contact-item">
+                <img src="../css/kuvat/phone.png" width="20px" height="20px" class="phone" alt="phone">
+                <p class="contact">Puhelinnumero: <br> 09 74245000</p>
+            </div>
+        </div>
+
+        <div class="kartta-container">
+            <div id="map" style="width: 450px; height: 250px;"></div>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+        </div>
+
+        <div class="socials">
+            <a href="https://www.instagram.com/">
+                <span class="instagram" style="background-image: url('../css/kuvat/instagram.png')"></span>
+            </a>
+            <a href="https://www.facebook.com/">
+                <span class="facebook" style="background-image: url('../css/kuvat/facebook.png')"></span>
+            </a>
+            <a href="https://twitter.com/">
+                <span class="twitter" style="background-image: url('../css/kuvat/twitter.png')"></span>
+            </a>
+        </div>
     </main>
 </body>
 
