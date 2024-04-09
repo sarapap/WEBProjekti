@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/3MenuPage2.css" rel="stylesheet">
+    <link href="../css/3MenuPage1.css" rel="stylesheet">
     <title>S&A CAFE</title>
     <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
-    <script src="3MenuPage2.html" defer></script>
+    <script src="3MenuPage2.js" defer></script>
 </head>
 
 <body>
@@ -56,6 +56,48 @@
         <a href="5Yhteydenotto.html" class="navItem">Ota yhteyttä</a>
         <a href="6Poytavaraus.html" class="navItem">Varaa pöytä</a>
     </nav>
+
+    <div class="cake-section">
+        <h2>VALIKOIMA - Kakut</h2>
+        <input type="text" id="cakeSearch" placeholder="Etsi kakkua...">
+        <div class="filter-options">
+            <label for="cakeType">Valitse tyyppi:</label>
+            <select id="cakeType">
+                <option value="kaikki">Kaikki</option>
+                <option value="suklaakakut">Suklaakakut</option>
+                <option value="mansikkakakut">Mansikkakakut</option>
+                <option value="vaniljakakut">Vaniljakakut</option>
+            </select>
+        </div>
+
+        <div class="cake-list">
+            <div class="cake-item">
+                <img src="kuva1.jpg" alt="Kakku 1">
+                <h3>Kakku 1</h3>
+                <p>Kuvaus kakusta 1</p>
+                <button>Lisää ostoskoriin</button>
+            </div>
+            <div class="cake-item">
+                <img src="kuva2.jpg" alt="Kakku 2">
+                <h3>Kakku 2</h3>
+                <p>Kuvaus kakusta 2</p>
+                <button>Lisää ostoskoriin</button>
+            </div>
+            <div class="cake-item">
+                <img src="kuva3.jpg" alt="Kakku 3">
+                <h3>Kakku 3</h3>
+                <p>Kuvaus kakusta 3</p>
+                <button>Lisää ostoskoriin</button>
+            </div>
+            <div class="cake-item">
+                <img src="kuva4.jpg" alt="Kakku 4">
+                <h3>Kakku 4</h3>
+                <p>Kuvaus kakusta 4</p>
+                <button>Lisää ostoskoriin</button>
+            </div>
+            <!-- Lisää kakkuja -->
+        </div>
+    </div>
 </body>
 
 </html>
