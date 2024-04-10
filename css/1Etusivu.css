@@ -240,7 +240,7 @@ nav ul {
 
 /* footer */
 .changecontent2::after {
-    content: "Tervetuloa kakkukahveille!";
+
     color: rgb(192, 160, 122);
     animation: changetext2 10s infinite linear;
     margin: 10px;
