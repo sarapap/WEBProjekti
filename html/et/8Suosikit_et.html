@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/8Suosikit.css" rel="stylesheet">
+    <title>S&A CAFE</title>
+    <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+    <script src="/javascript/8Suosikit.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav class="icons">
+                <ul>
+                    <li>
+                        <label for="kieli">Keel: </label>
+                        <select id="kieli" onchange="changeLanguage(this.value)">
+                            <option value="FI">Soome</option>
+                            <option value="EN">Inglise</option>
+                            <option value="CN">Hiina</option>
+                            <option value="ET" selected>Eesti</option>
+                            <option value="SV">Rootsi</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="7Kayttaja_et.html">
+                            <span class="kasutaja"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_et.html">
+                            <span class="lemmikud"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_et.html">
+                            <span class="ostukorv"></span>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div class="image-container">
+                <a href="1Etusivu_et.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+                <img src="../../css/kuvat/cakepic.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
+            </div>
+        </div>
+    </header>
+    <nav class="navbarClass" id="navbar">
+        <a href="1Etusivu_et.html" class="navItem">Esileht</a>
+        <a href="2AboutUs_et.html" class="navItem">Meist</a>
+        <div class="dropdown">
+            <button class="dropdown-toggle" id="menuButton">
+                Menüü
+            </button>
+            <div class="dropdown-menu" id="menuDropdown">
+                <a class="dropdown-item" href="3MenuPage1_et.html">Koogid</a>
+                <a class="dropdown-item" href="3MenuPage2_et.html">Soolane</a>
+                <a class="dropdown-item" href="3MenuPage3_et.html">Magus</a>
+                <a class="dropdown-item" href="3MenuPage4_et.html">Soojendav toit</a>
+                <a class="dropdown-item" href="3MenuPage5_et.html">Jook</a>
+            </div>
+        </div>
+        <a href="5Yhteydenotto_et.html" class="navItem">Võta meiega ühendust</a>
+        <a href="6Poytavaraus_et.html" class="navItem">Laua broneerimine</a>
+    </nav>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/3MenuPage4.css" rel="stylesheet">
+    <title>S&A CAFE</title>
+    <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+    <script src="/javascript/3MenuPage4.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav class="icons">
+                <ul>
+                    <li>
+                        <label for="kieli">请选择语言: </label>
+                        <select id="kieli" onchange="changeLanguage(this.value)">
+                            <option value="FI">芬兰语</option>
+                            <option value="EN">英语</option>
+                            <option value="CN" selected>中文</option>
+                            <option value="ET">Viro</option>
+                            <option value="SV">Ruotsi</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="7Kayttaja_cn.html">
+                            <span class="käyttäjä"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_cn.html">
+                            <span class="suosikit"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_cn.html">
+                            <span class="ostoskori"></span>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div class="image-container">
+                <a href="1Etusivu_cn.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+                <img src="../../css/kuvat/warmfood.jpg" width="800px" height="300px" class="cakeImg" alt="warmfood">
+            </div>
+        </div>
+    </header>
+    <nav class="navbarClass" id="navbar">
+        <a href="1Etusivu_cn.html" class="navItem">Etusivu</a>
+        <a href="2AboutUs_cn.html" class="navItem">About Us</a>
+        <div class="dropdown">
+            <button class="dropdown-toggle" id="menuButton">
+                Menu
+            </button>
+            <div class="dropdown-menu" id="menuDropdown">
+                <a class="dropdown-item" href="3MenuPage1_cn.html">Kakut</a>
+                <a class="dropdown-item" href="3MenuPage2_cn.html">Suolaista</a>
+                <a class="dropdown-item" href="3MenuPage3_cn.html">Makeaa</a>
+                <a class="dropdown-item" href="3MenuPage4_cn.html">Lämmintä ruokaa</a>
+                <a class="dropdown-item" href="3MenuPage5_cn.html">Juotavaa</a>
+            </div>
+        </div>
+        <a href="5Yhteydenotto_cn.html" class="navItem">Ota yhteyttä</a>
+        <a href="6Poytavaraus_cn.html" class="navItem">Varaa pöytä</a>
+    </nav>
+
+    <div class="hot-food-section">
+        <h2>LÄMPIMÄT RUUAT</h2>
+
+        <input type="text" id="hotFoodSearch" placeholder="Etsi lämmintä ruokaa...">
+        <div class="filter-options">
+            <label for="hotFoodType">Valitse tyyppi:</label>
+            <select id="hotFoodType">
+                <option value="kaikki">Kaikki</option>
+                <option value="kana">Kanaruuat</option>
+                <option value="muut_ruuat">Muut lämpimät ruuat</option>
+                <!-- Lisää -->
+            </select>
+        </div>
+
+        <div class="hot-food-category">
+            <h3>Kanaruuat</h3>
+            <div class="hot-food-list">
+                <div class="hot-food-item">
+                    <img src="kanacurry.jpg" alt="Kanacurry">
+                    <h4>Kanacurry</h4>
+                    <p>-</p>
+                    <button>Lisää ostoskoriin</button>
+                </div>
+                <!-- Lisää -->
+            </div>
+        </div>
+
+        <div class="hot-food-category">
+            <h3>Muut lämpimät ruuat</h3>
+            <div class="hot-food-list">
+                <div class="hot-food-item">
+                    <img src="lasagne.jpg" alt="Lasagne">
+                    <h4>Lasagne</h4>
+                    <p>Talon omaa lasagnea</p>
+                    <button>Lisää ostoskoriin</button>
+                </div>
+                <!-- Lisää-->
+            </div>
+        </div>
+
+        <!-- Lisää-->
+
+    </div>
+
+
+    <footer>
+        <p>&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
+        </div>
+    </footer>
+</body>
+
+</html>

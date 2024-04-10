@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/3MenuPage4.css" rel="stylesheet">
+    <link href="../../css/3MenuPage4.css" rel="stylesheet">
     <title>S&A CAFE</title>
-    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
-    <script src="3MenuPage4.js" defer></script>
+    <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+    <script src="/javascript/3MenuPage4.js" defer></script>
 </head>
 
 <body>
@@ -15,6 +15,16 @@
         <div>
             <nav class="icons">
                 <ul>
+                    <li>
+                        <label for="kieli">Valitse kieli: </label>
+                        <select id="kieli" onchange="changeLanguage(this.value)">
+                            <option value="FI" selected>Suomi</option>
+                            <option value="EN">Englanti</option>
+                            <option value="CN">Kiina</option>
+                            <option value="ET">Viro</option>
+                            <option value="SV">Ruotsi</option>
+                        </select>
+                    </li>
                     <li>
                         <a href="7Kayttaja.html">
                             <span class="käyttäjä"></span>
@@ -34,8 +44,8 @@
 
             </nav>
             <div class="image-container">
-                <a href="1Etusivu.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
-                <img src="../css/kuvat/warmfood.jpg" width="800px" height="300px" class="cakeImg" alt="warmfood">
+                <a href="1Etusivu.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+                <img src="../../css/kuvat/warmfood.jpg" width="800px" height="300px" class="cakeImg" alt="warmfood">
             </div>
         </div>
     </header>

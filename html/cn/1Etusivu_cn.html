@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cn">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../css/1Etusivu.css" rel="stylesheet">
+  <link href="../../css/1Etusivu.css" rel="stylesheet">
   <title>S&A CAFE</title>
-  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
-  <script src="1Etusivu.js" defer></script>
+  <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <script src="/javascript/1Etusivu.js" defer></script>
 </head>
 
 <body>
@@ -18,23 +18,25 @@
           <li>
             <label for="kieli">请选择语言: </label>
             <select id="kieli" onchange="changeLanguage(this.value)">
-                <option value="FI">Suomi</option>
-                <option value="EN">Englanti</option>
-                <option value="CN">Kiina</option>
+              <option value="FI">芬兰语</option>
+              <option value="EN">英语</option>
+              <option value="CN" selected>中文</option>
+              <option value="ET">Viro</option>
+              <option value="SV">Ruotsi</option>
             </select>
           </li>
           <li>
-            <a href="7Kayttaja.html">
+            <a href="7Kayttaja_cn.html">
               <span class="käyttäjä"></span>
             </a>
           </li>
           <li>
-            <a href="8Suosikit.html">
+            <a href="8Suosikit_cn.html">
               <span class="suosikit"></span>
             </a>
           </li>
           <li>
-            <a href="9Ostoskori.html">
+            <a href="9Ostoskori_cn.html">
               <span class="ostoskori"></span>
             </a>
           </li>
@@ -46,47 +48,48 @@
   <main>
 
     <div class="image-container">
-      <a href="1Etusivu.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
-      <img src="../css/kuvat/cakepic.jpg" class="cakeImg" alt="cakes">
+      <a href="1Etusivu_cn.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+      <img src="../../css/kuvat/cakepic.jpg" class="cakeImg" alt="cakes">
     </div>
 
     <nav id="navbar">
-      <a href="1Etusivu.html" class="navItem">Etusivu</a>
-      <a href="2AboutUs.html" class="navItem">About Us</a>
+      <a href="1Etusivu_cn.html" class="navItem">首页</a>
+      <a href="2AboutUs_cn.html" class="navItem">关于我们</a>
       <div class="dropdown">
         <button class="dropdown-toggle" id="menuButton">
-          Menu
+          菜单
         </button>
         <div class="dropdown-menu" id="menuDropdown">
-          <a class="dropdown-item" href="3MenuPage1.html">Kakut</a>
-          <a class="dropdown-item" href="3MenuPage2.html">Kahvi</a>
-          <a class="dropdown-item" href="3MenuPage3.html">Lämmintä ruokaa</a>
+          <a class="dropdown-item" href="3MenuPage1_cn.html">Kakut</a>
+          <a class="dropdown-item" href="3MenuPage2_cn.html">Suolaista</a>
+          <a class="dropdown-item" href="3MenuPage3_cn.html">Makeaa</a>
+          <a class="dropdown-item" href="3MenuPage4_cn.html">Lämmintä ruokaa</a>
+          <a class="dropdown-item" href="3MenuPage5_cn.html">Juotavaa</a>
         </div>
       </div>
-      <a href="5Yhteydenotto.html" class="navItem">Ota yhteyttä</a>
-      <a href="6Poytavaraus.html" class="navItem">Varaa pöytä</a>
+      <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
+      <a href="6Poytavaraus_cn.html" class="navItem">预定</a>
     </nav>
 
     <!-- etusivu-->
 
     <div class="etusivu">
       <aside class="aside1">
-        <h2>Tervetuloa S&A Kahvilaan!</h2>
+        <h2>欢迎光临 &nbsp;&nbsp; S&A KAFE!</h2>
 
-        <p class="kuvaus">Tule nauttimaan herkullisista kakuistamme, laadukkaasta kahvista ja kevyistä
-          ruokavaihtoehdoistamme. <br>
-          Koe ainutlaatuinen kahvilamme tunnelma paikan päällä tai tilaa herkut suoraan kotiovellesi! <br>
+        <p class="kuvaus">快来享受我们精美的蛋糕，高质量醇香浓郁的咖啡和自然健康的轻美食。 <br>
+          可以直接在现场体验我们独特的咖啡馆氛围或直接订购美味佳肴! <br>
         </p>
         <video width="800" controls>
-          <source src="../css/kuvat/video.m4v" type="video/mp4">
+          <source src="../../css/kuvat/video.m4v" type="video/mp4">
           Your browser does not support HTML5 video.
         </video>
       </aside>
 
       <aside class="aside2">
         <p>
-          <a href="3MenuPage1.html" class="order">Tee tilaus!</a><br><br>
-          <h2>Menu: <span class="changecontent"></span></h2>
+          <a href="3MenuPage1_cn.html" class="order">Tee tilaus!</a><br><br>
+        <h2>Menu: <span class="changecontent"></span></h2>
         </p>
 
         <article>
@@ -114,10 +117,11 @@
       <div class="changecontent2">
       </div>
       <div class="footer">
-        <a href="paakayttaja.html">Pääkäyttäjän Tietohallinta</a>
+        <a href="10Paakayttaja_cn.html">Pääkäyttäjän Tietohallinta</a>
       </div>
     </footer>
 
   </main>
 </body>
+
 </html>

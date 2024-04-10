@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/6Poytavaraus.css" rel="stylesheet">
+    <title>S&A CAFE</title>
+    <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+    <script src="/javascript/6Poytavaraus.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav class="icons">
+                <ul>
+                    <li>
+                        <label for="kieli">Select language: </label>
+                        <select id="kieli" onchange="changeLanguage(this.value)">
+                            <option value="FI">Finnish</option>
+                            <option value="EN" selected>English</option>
+                            <option value="CN">Chinese</option>
+                            <option value="ET">Estonian</option>
+                            <option value="SV">Swedish</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="7Kayttaja_en.html">
+                            <span class="käyttäjä"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_en.html">
+                            <span class="suosikit"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_en.html">
+                            <span class="ostoskori"></span>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div class="image-container">
+                <a href="1Etusivu_en.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-image"></a>
+                <img src="../../css/kuvat/cakepic.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
+            </div>
+        </div>
+    </header>
+    <nav class="navbarClass" id="navbar">
+        <a href="1Etusivu_en.html" class="navItem">Home</a>
+        <a href="2AboutUs_en.html" class="navItem">About Us</a>
+        <div class="dropdown">
+            <button class="dropdown-toggle" id="menuButton">
+                Menu
+            </button>
+            <div class="dropdown-menu" id="menuDropdown">
+                <a class="dropdown-item" href="3MenuPage1_en.html">Cakes</a>
+                <a class="dropdown-item" href="3MenuPage2_en.html">Savory</a>
+                <a class="dropdown-item" href="3MenuPage3_en.html">Sweet</a>
+                <a class="dropdown-item" href="3MenuPage4_en.html">Hot Food</a>
+                <a class="dropdown-item" href="3MenuPage5_en.html">Drinks</a>
+            </div>
+        </div>
+        <a href="5Yhteydenotto_en.html" class="navItem">Contact Us</a>
+        <a href="6Poytavaraus_en.html" class="navItem">Reserve a Table</a>
+    </nav>
+
+    <footer>
+        <p>&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
+        </div>
+    </footer>
+</body>
+
+</html>

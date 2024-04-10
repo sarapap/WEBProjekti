@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/7Kayttaja.css" rel="stylesheet">
+    <title>S&A CAFE</title>
+    <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+    <script src="/javascript/7Kayttaja.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav class="icons">
+                <ul>
+                    <li>
+                        <label for="kieli">Select language: </label>
+                        <select id="kieli" onchange="changeLanguage(this.value)">
+                            <option value="FI">Finnish</option>
+                            <option value="EN" selected>English</option>
+                            <option value="CN">Chinese</option>
+                            <option value="ET">Estonian</option>
+                            <option value="SV">Swedish</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="7Kayttaja_en.html">
+                            <span class="käyttäjä"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_en.html">
+                            <span class="suosikit"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_en.html">
+                            <span class="ostoskori"></span>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div class="image-container">
+                <a href="1Etusivu_en.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-image"></a>
+                <img src="../../css/kuvat/cakepic.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
+            </div>
+        </div>
+    </header>
+    <nav class="navbarClass" id="navbar">
+        <a href="1Etusivu_en.html" class="navItem">Home</a>
+        <a href="2AboutUs_en.html" class="navItem">About Us</a>
+        <div class="dropdown">
+            <button class="dropdown-toggle" id="menuButton">
+                Menu
+            </button>
+            <div class="dropdown-menu" id="menuDropdown">
+                <a class="dropdown-item" href="3MenuPage1_en.html">Cakes</a>
+                <a class="dropdown-item" href="3MenuPage2_en.html">Savory</a>
+                <a class="dropdown-item" href="3MenuPage3_en.html">Sweet</a>
+                <a class="dropdown-item" href="3MenuPage4_en.html">Hot Food</a>
+                <a class="dropdown-item" href="3MenuPage5_en.html">Drinks</a>
+            </div>
+        </div>
+        <a href="5Yhteydenotto_en.html" class="navItem">Contact Us</a>
+        <a href="6Poytavaraus_en.html" class="navItem">Reserve a Table</a>
+    </nav>
+
+
+    <main>
+        <div class="login" id="login-id">
+            <form class="login-form">
+                <label for="login-username"><b>Username</b></label>
+                <input type="text" name="login-username" id="login-username" placeholder="Enter username" required />
+
+                <label for="login-password"><b>Password</b></label>
+                <input type="password" name="login-password" id="login-password" placeholder="Enter password"
+                    required />
+
+                <button id="button1" type="submit">Log in</button>
+            </form>
+        </div>
+
+        <div class="register" id="register-id">
+
+            <p class="kayttajaP">If you don't have an account yet, you can register here.</p>
+            <p>Join our loyalty program and get a 15% discount on your first order. Membership is free. </p> <br>
+            <form action="https://10.120.32.94/test/form-submission/" method="post">
+                <label for="firstname">First Name *</label>
+                <input type="text" name="firstname" id="firstname" placeholder="First Name" required autofocus />
+
+                <label for="lastname">Last Name *</label>
+                <input type="text" name="lastname" id="lastname" placeholder="Last Name" required autofocus />
+
+                <label for="name">Username *</label>
+                <input type="text" name="name" id="name" placeholder="Username" required autofocus />
+
+                <label for="password">
+                    Password *
+                </label>
+                <input class="myPasswordField" name="password" type="password" id="password" placeholder="Password"
+                    required autofocus />
+
+                <label for="email">
+                    Email *
+                </label>
+                <input type="email" id="email" name="email" placeholder="Email" required autofocus />
+
+                <label for="email">
+                    Phone Number *
+                </label>
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number" required autofocus />
+
+                <label for="today">
+                    Date of Birth
+                </label>
+                <input type="date" name="date" id="today" />
+
+                <label for="allergia">Food Allergies:</label>
+                <textarea name="allergia" id="allergia"></textarea>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="accept-1" name="accept" value="1">
+                    <label for="accept-1">I accept the terms and conditions of the online store</label><br>
+                    <input type="checkbox" id="accept-2" name="accept" value="1">
+                    <label for="accept-2">I agree to receive marketing emails</label>
+
+                </div>
+
+                <div class="checkBox-container">
+
+                    Discount group: <br />
+                    <input type="radio" id="opiskelija" name="status" value="1">
+                    <label for="opiskelija">Student</label>
+                    <input type="radio" id="ope" name="status" value="1">
+                    <label for="elakelainen">Senior Citizen</label>
+
+                </div>
+
+                <button type="submit">Register</button>
+                <button type="reset">Clear Form</button>
+
+
+            </form>
+        </div>
+    </main>
+
+
+</body>
+
+</html>
