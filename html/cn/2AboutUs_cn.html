@@ -11,59 +11,68 @@
     <script src="/javascript/2AboutUs.js" defer></script>
 </head>
 
-<body>
-    <header>
-        <div>
-            <nav class="icons">
-                <ul>
-                    <li>
-                        <label for="kieli">请选择语言: </label>
-                        <select id="kieli" onchange="changeLanguage(this.value)">
-                            <option value="FI">芬兰语</option>
-                            <option value="EN">英语</option>
-                            <option value="CN" selected>中文</option>
-                            <option value="ET">Viro</option>
-                            <option value="SV">Ruotsi</option>
-                        </select>
-                    </li>
-                    <li>
-                        <a href="7Kayttaja_cn.html">
-                            <span class="käyttäjä"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="8Suosikit_cn.html">
-                            <span class="suosikit"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="9Ostoskori_cn.html">
-                            <span class="ostoskori"></span>
-                        </a>
-                    </li>
-                </ul>
 
-            </nav>
+<body>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li>
+            <label for="kieli">请选择语言: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI">芬兰语</option>
+              <option value="EN">英语</option>
+              <option value="CN" selected>中文</option>
+              <option value="ET">爱沙尼亚语</option>
+              <option value="SV">瑞典语</option>
+            </select>
+          </li>
+          <li>
+            <a href="7Kayttaja_cn.html">
+              <span class="käyttäjä"></span>
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit_cn.html">
+              <span class="suosikit"></span>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori_cn.html">
+              <span class="ostoskori"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+  <main>
+
+    <div class="image-container">
+      <a href="1Etusivu_cn.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+      <img src="../../css/kuvat/cakepic.jpg" class="cakeImg" alt="cakes">
+    </div>
+
+    <nav id="navbar">
+      <a href="1Etusivu_cn.html" class="navItem">首页</a>
+      <a href="2AboutUs_cn.html" class="navItem">关于我们</a>
+      <div class="dropdown">
+        <button class="dropdown-toggle" id="menuButton">
+          菜单
+        </button>
+        <div class="dropdown-menu" id="menuDropdown">
+          <a class="dropdown-item" href="3MenuPage1_cn.html">糕点</a>
+          <a class="dropdown-item" href="3MenuPage2_cn.html">咸味点心</a>
+          <a class="dropdown-item" href="3MenuPage3_cn.html">甜食</a>
+          <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
+          <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
         </div>
-    </header>
-    <nav class="navbarClass" id="navbar">
-        <a href="1Etusivu_cn.html" class="navItem">Etusivu</a>
-        <a href="2AboutUs_cn.html" class="navItem">About Us</a>
-        <div class="dropdown">
-            <button class="dropdown-toggle" id="menuButton">
-                Menu
-            </button>
-            <div class="dropdown-menu" id="menuDropdown">
-                <a class="dropdown-item" href="3MenuPage1_cn.html">Kakut</a>
-                <a class="dropdown-item" href="3MenuPage2_cn.html">Suolaista</a>
-                <a class="dropdown-item" href="3MenuPage3_cn.html">Makeaa</a>
-                <a class="dropdown-item" href="3MenuPage4_cn.html">Lämmintä ruokaa</a>
-                <a class="dropdown-item" href="3MenuPage5_cn.html">Juotavaa</a>
-            </div>
-        </div>
-        <a href="5Yhteydenotto_cn.html" class="navItem">Ota yhteyttä</a>
-        <a href="6Poytavaraus_cn.html" class="navItem">Varaa pöytä</a>
+      </div>
+      <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
+      <a href="6Poytavaraus_cn.html" class="navItem">预定</a>
     </nav>
+
 
     <div class="container">
         <div class="logo-container">
