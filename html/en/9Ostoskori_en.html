@@ -2,72 +2,137 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../css/9Ostoskori.css" rel="stylesheet">
-    <title>S&A CAFE</title>
-    <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
-    <script src="/javascript/default.js" defer></script>
-    <script src="/javascript/9Ostoskori.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../css/9Ostoskori.css" rel="stylesheet">
+  <title>S&A CAFE</title>
+  <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <script src="/javascript/default.js" defer></script>
+  <script src="/javascript/9Ostoskori.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <div>
-            <nav class="icons">
-                <ul>
-                    <li class="kieli">
-                        <label for="kieli">Select language: </label>
-                        <select id="kieli" onchange="changeLanguage(this.value)">
-                            <option value="FI">Finnish</option>
-                            <option value="EN" selected>English</option>
-                            <option value="CN">Chinese</option>
-                            <option value="ET">Estonian</option>
-                            <option value="SV">Swedish</option>
-                        </select>
-                    </li>
-                    <li>
-                        <a href="7Kayttaja_en.html">
-                            <span class="käyttäjä"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="8Suosikit_en.html">
-                            <span class="suosikit"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="9Ostoskori_en.html">
-                            <span class="ostoskori"></span>
-                        </a>
-                    </li>
-                </ul>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">Valitse kieli: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI" selected>Suomi</option>
+              <option value="EN">Englanti</option>
+              <option value="CN">Kiina</option>
+              <option value="ET">Viro</option>
+              <option value="SV">Ruotsi</option>
+            </select>
+          </li>
+          <li>
+            <a href="7Kayttaja.html">
+              <span class="käyttäjä"></span>
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit.html">
+              <span class="suosikit"></span>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori.html">
+              <span class="ostoskori"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-            </nav>
-            <div class="image-container">
-                <a href="1Etusivu_en.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-image"></a>
-                <img src="../../css/kuvat/cakepic.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
-            </div>
+  <main>
+    <div class="image-container">
+      <a href="1Etusivu.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+      <img src="../../css/kuvat/cakepic.jpg" class="cakeImg" alt="cakes">
+    </div>
+
+    <nav id="navbar">
+      <a href="1Etusivu.html" class="navItem">Etusivu</a>
+      <a href="2AboutUs.html" class="navItem">About Us</a>
+      <div class="dropdown">
+        <button class="dropdown-toggle" id="menuButton">
+          Menu
+        </button>
+        <div class="dropdown-menu" id="menuDropdown">
+          <a class="dropdown-item" href="3MenuPage1.html">Kakut</a>
+          <a class="dropdown-item" href="3MenuPage2.html">Suolaista</a>
+          <a class="dropdown-item" href="3MenuPage3.html">Makeaa</a>
+          <a class="dropdown-item" href="3MenuPage4.html">Lämmintä ruokaa</a>
+          <a class="dropdown-item" href="3MenuPage5.html">Juotavaa</a>
         </div>
-    </header>
-    <nav class="navbarClass" id="navbar">
-        <a href="1Etusivu_en.html" class="navItem">Home</a>
-        <a href="2AboutUs_en.html" class="navItem">About Us</a>
-        <div class="dropdown">
-            <button class="dropdown-toggle" id="menuButton">
-                Menu
-            </button>
-            <div class="dropdown-menu" id="menuDropdown">
-                <a class="dropdown-item" href="3MenuPage1_en.html">Cakes</a>
-                <a class="dropdown-item" href="3MenuPage2_en.html">Savory</a>
-                <a class="dropdown-item" href="3MenuPage3_en.html">Sweet</a>
-                <a class="dropdown-item" href="3MenuPage4_en.html">Hot Food</a>
-                <a class="dropdown-item" href="3MenuPage5_en.html">Drinks</a>
-            </div>
-        </div>
-        <a href="5Yhteydenotto_en.html" class="navItem">Contact Us</a>
-        <a href="6Poytavaraus_en.html" class="navItem">Reserve a Table</a>
+      </div>
+      <a href="5Yhteydenotto.html" class="navItem">Ota yhteyttä</a>
+      <a href="6Poytavaraus.html" class="navItem">Varaa pöytä</a>
     </nav>
-</body>
+    <div>
+      <h1><div class="changetext"></div></h1>
+    </div>
 
+    <div class="table">
+      <h1>Oskoskori</h1>
+      <table>
+        <tr>
+          <th>Valitse</th>
+          <th>Tuote kuva</th>
+          <th>Tuote nimi</th>
+          <th>Hinta</th>
+          <th>Määrä</th>
+          <th class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Roskakori"></th>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="valinta" value="kakku"></td>
+          <td><img src="" alt="">Tuote kuva</td>
+          <td>Kakku</td>
+          <td>5€</td>
+          <td><input type="number" name="maara" value="1" min="1" max="10"></td>
+          <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Roskakori"></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="valinta" value="leivos"></td>
+          <td><img src="" alt="">Tuote kuva</td>
+          <td>Leivos</td>
+          <td>3€</td>
+          <td><input type="number" name="maara" value="1" min="1" max="10"></td>
+          <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Roskakori"></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="valinta" value="juoma"></td>
+          <td><img src="" alt="">Tuote kuva</td>
+          <td>Juoma</td>
+          <td>2€</td>
+          <td><input type="number" name="maara" value="1" min="1" max="10"></td>
+          <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Roskakori"></td>
+        </tr>
+        <tr>
+          <td><td></td></td>
+          <td>Yhdessä</td>
+          <td>10€</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+    <div class="div-class">
+      <button type = "submit" class="pay_btn">Maksaa</button>
+    </div>
+
+    <footer class="footer-container">
+      <p class="footerP">&copy; S&A CAFE 2024</p>
+      <div class="changecontent2">
+      </div>
+      <div class="footer">
+        <a href="paakayttaja.html">Pääkäyttäjän Tietohallinta</a><br>
+        <p></p>
+        <a href="palaute.html">Palute</a>
+      </div>
+    </footer>
+
+  </main>
+</body>
 </html>
