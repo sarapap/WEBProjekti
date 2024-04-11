@@ -1,8 +1,7 @@
 body {
     font-family: 'Times New Roman', Times, serif;
     margin: auto;
-    width: 80%;
-    height: 80%;
+    width: 90%;
     padding: 10px;
 }
 
@@ -10,11 +9,7 @@ body {
     width: 100%;
 }
 
-/* title */
-
 header {
-    padding: 20px;
-    display: flex;
     justify-content: space-between;
     align-items: center;
 }
@@ -34,9 +29,13 @@ header {
 
 .icons {
     text-align: right;
+    display: flex;
     width: 100%;
     display: inline-block;
     background: none;
+    justify-content: right;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .image-container {
@@ -45,11 +44,16 @@ header {
 }
 
 .logo {
+    width: 90%;
+    height: 240px;
+    padding: 7% 0;
     margin-right: 20px;
 }
 
 .cakeImg {
     box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
+    width: 80%;
+    height: 300px;
 }
 
 .suosikit {
@@ -79,6 +83,19 @@ header {
     background-size: cover;
 }
 
+.kieli {
+    margin: 7px -10px 0px 0px;
+}
+
+#kieli {
+    background-color: rgb(192, 160, 122);
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 /* navigation bar */
 
 a {
@@ -90,8 +107,9 @@ a {
 nav {
     background-color: rgb(192, 160, 122);
     padding: 10px 3px 10px 3px;
-    text-align: center;
     display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
 }
 
 nav ul {
@@ -106,19 +124,25 @@ nav li {
     margin-left: 20px;
 }
 
-
 .navItem {
     display: inline-block;
     color: #fff;
-    padding: 0 10px;
-    text-decoration: none;
-    margin-left: 100px;
     text-shadow: 1px 1px 1px black;
+    flex-grow: 1;
+    text-align: center;
+    position: relative;
 }
 
 .navItem:hover {
     text-decoration: none;
     color: #dfd7cd;
+}
+
+.dropdown {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
 }
 
 .dropdown-menu {
@@ -127,6 +151,8 @@ nav li {
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    top: 100%;
+    left: 0;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -140,7 +166,6 @@ nav li {
     cursor: pointer;
     font-size: 16px;
     font-family: 'Times New Roman', Times, serif;
-    margin-left: 120px;
     text-shadow: 1px 1px 1px black;
 }
 
@@ -156,8 +181,11 @@ nav li {
 }
 
 .dropdown-menu a:hover {
-    background-color: #f1f1f1;
+    background-color: #eceae9;
+    ;
 }
+
+/* media */
 
 @media screen and (max-width:330px) {
     #logo {

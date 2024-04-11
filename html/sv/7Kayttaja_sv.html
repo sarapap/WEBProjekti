@@ -16,14 +16,14 @@
         <div>
             <nav class="icons">
                 <ul>
-                    <li>
-                        <label for="kieli">请选择语言: </label>
+                    <li class="kieli">
+                        <label for="kieli">Välj språk: </label>
                         <select id="kieli" onchange="changeLanguage(this.value)">
-                            <option value="FI">芬兰语</option>
-                            <option value="EN">英语</option>
-                            <option value="CN">中文</option>
-                            <option value="ET">Viro</option>
-                            <option value="SV">Ruotsi</option>
+                            <option value="FI">Finska</option>
+                            <option value="EN">Engelska</option>
+                            <option value="CN">Kinesiska</option>
+                            <option value="ET">Estniska</option>
+                            <option value="SV" selected>Svenska</option>
                         </select>
                     </li>
                     <li>
@@ -45,90 +45,86 @@
 
             </nav>
             <div class="image-container">
-                <a href="1Etusivu_sv.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
-                <img src="../../css/kuvat/cakepic.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
+                <a href="1Etusivu_sv.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logobild"></a>
+                <img src="../../css/kuvat/cakepic.jpg" width="800px" height="300px" class="cakeImg" alt="tårtor">
             </div>
         </div>
     </header>
     <nav class="navbarClass" id="navbar">
-        <a href="1Etusivu_sv.html" class="navItem">Etusivu</a>
-        <a href="2AboutUs_sv.html" class="navItem">About Us</a>
+        <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
+        <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
         <div class="dropdown">
             <button class="dropdown-toggle" id="menuButton">
-                Menu
+                Meny
             </button>
             <div class="dropdown-menu" id="menuDropdown">
-                <a class="dropdown-item" href="3MenuPage1_sv.html">Kakut</a>
-                <a class="dropdown-item" href="3MenuPage2_sv.html">Suolaista</a>
-                <a class="dropdown-item" href="3MenuPage3_sv.html">Makeaa</a>
-                <a class="dropdown-item" href="3MenuPage4_sv.html">Lämmintä ruokaa</a>
-                <a class="dropdown-item" href="3MenuPage5_sv.html">Juotavaa</a>
+                <a class="dropdown-item" href="3MenuPage1_sv.html">Tårtor</a>
+                <a class="dropdown-item" href="3MenuPage2_sv.html">Salt</a>
+                <a class="dropdown-item" href="3MenuPage3_sv.html">Sött</a>
+                <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
+                <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
             </div>
         </div>
-        <a href="5Yhteydenotto_sv.html" class="navItem">Ota yhteyttä</a>
-        <a href="6Poytavaraus_sv.html" class="navItem">Varaa pöytä</a>
+        <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
+        <a href="6Poytavaraus_sv.html" class="navItem">Boka bord</a>
     </nav>
-
 
     <main>
         <div class="login" id="login-id">
             <form class="login-form">
-                <label for="login-username"><b>Käyttäjätunnus</b></label>
-                <input type="text" name="login-username" id="login-username" placeholder="Syötä käyttäjätunnus"
-                    required />
+                <label for="login-username"><b>Användarnamn</b></label>
+                <input type="text" name="login-username" id="login-username" placeholder="Ange användarnamn" required />
 
-                <label for="login-password"><b>Salasana</b></label>
-                <input type="password" name="login-password" id="login-password" placeholder="Syötä salasana"
-                    required />
+                <label for="login-password"><b>Lösenord</b></label>
+                <input type="password" name="login-password" id="login-password" placeholder="Ange lösenord" required />
 
-                <button id="button1" type="submit">Kirjaudu</button>
+                <button id="button1" type="submit">Logga in</button>
             </form>
         </div>
 
         <div class="register" id="register-id">
 
-            <p class="kayttajaP">Jos sinulla ei ole vielä käyttäjää, voit rekisteröityä tästä.</p>
-            <p>Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi. Liittyminen on
-                maksutonta. </p> <br>
+            <p class="kayttajaP">Om du inte har ett konto ännu, kan du registrera dig här.</p>
+            <p>Bli stamkund och få 15 % rabatt på din första beställning. Registrering är kostnadsfri. </p> <br>
             <form action="https://10.120.32.94/test/form-submission/" method="post">
-                <label for="firstname">Etunimi *</label>
-                <input type="text" name="firstname" id="firstname" placeholder="Etunimi" required autofocus />
+                <label for="firstname">Förnamn *</label>
+                <input type="text" name="firstname" id="firstname" placeholder="Förnamn" required autofocus />
 
-                <label for="lastname">Sukunimi *</label>
-                <input type="text" name="lastname" id="lastname" placeholder="Sukunimi" required autofocus />
+                <label for="lastname">Efternamn *</label>
+                <input type="text" name="lastname" id="lastname" placeholder="Efternamn" required autofocus />
 
-                <label for="name">Käyttäjätunnus *</label>
-                <input type="text" name="name" id="name" placeholder="Käyttäjätunnus" required autofocus />
+                <label for="name">Användarnamn *</label>
+                <input type="text" name="name" id="name" placeholder="Användarnamn" required autofocus />
 
                 <label for="password">
-                    Salasana *
+                    Lösenord *
                 </label>
-                <input class="myPasswordField" name="password" type="password" id="password" placeholder="Salasana"
+                <input class="myPasswordField" name="password" type="password" id="password" placeholder="Lösenord"
                     required autofocus />
 
                 <label for="email">
-                    Sähköposti *
+                    E-post *
                 </label>
-                <input type="email" id="email" name="email" placeholder="Sähköposti" required autofocus />
+                <input type="email" id="email" name="email" placeholder="E-post" required autofocus />
 
                 <label for="email">
-                    Puhelinnumero *
+                    Telefonnummer *
                 </label>
-                <input type="phone" id="phone" name="phone" placeholder="Puhelinnumero" required autofocus />
+                <input type="phone" id="phone" name="phone" placeholder="Telefonnummer" required autofocus />
 
                 <label for="today">
-                    Syntymäaika
+                    Födelsedatum
                 </label>
                 <input type="date" name="date" id="today" />
 
-                <label for="allergia">Ruoka-allergiat:</label>
+                <label for="allergia">Matallergier:</label>
                 <textarea name="allergia" id="allergia"></textarea>
 
                 <div class="checkbox-container">
                     <input type="checkbox" id="accept-1" name="accept" value="1">
-                    <label for="accept-1">Hyväksyt verkkokaupan ehdot</label><br>
+                    <label for="accept-1">Godkänn villkoren för onlinebutiken</label><br>
                     <input type="checkbox" id="accept-2" name="accept" value="1">
-                    <label for="accept-2">Minulle saa lähettää markkinointiviestejä sähköpostitse</label>
+                    <label for="accept-2">Jag godkänner att jag får marknadsföringsmeddelanden via e-post</label>
 
                 </div>
 
@@ -138,16 +134,16 @@
 
                 <div class="checkBox-container">
 
-                    Alennus ryhmä: <br />
+                    Rabattgrupp: <br />
                     <input type="radio" id="opiskelija" name="status" value="1">
-                    <label for="opiskelija">Opiskelija</label>
+                    <label for="opiskelija">Studerande</label>
                     <input type="radio" id="ope" name="status" value="1">
-                    <label for="elakelainen">Eläkeläinen</label>
+                    <label for="elakelainen">Pensionär</label>
 
                 </div>
 
-                <button type="submit">Rekisteröidy</button>
-                <button type="reset">Tyhjennä lomake</button>
+                <button type="submit">Registrera</button>
+                <button type="reset">Rensa formulär</button>
 
 
             </form>

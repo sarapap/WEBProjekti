@@ -83,6 +83,19 @@ header {
     background-size: cover;
 }
 
+.kieli {
+    margin: 7px -10px 0px 0px;
+}
+
+#kieli {
+    background-color: rgb(192, 160, 122);
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 /* navigation bar */
 
 a {
@@ -107,7 +120,7 @@ nav ul {
     justify-content: right;
 }
 
-*/ nav li {
+nav li {
     margin-left: 20px;
 }
 
@@ -127,10 +140,8 @@ nav ul {
 
 .dropdown {
     flex-grow: 1;
-    /* Tämä laajentaa dropdown-elementin samalle leveydelle kuin muut navItem-elementit */
     display: flex;
     justify-content: center;
-    /* Keskittää dropdownin sisällön */
     position: relative;
 }
 
@@ -230,22 +241,7 @@ nav ul {
     font-size: 17px;
 }
 
-.changecontent::after {
-    content: '';
-    color: rgb(192, 160, 122);
-    animation: changetext 10s infinite linear;
-    font-weight: bold;
-    margin: 10px;
-}
-
 /* footer */
-.changecontent2::after {
-
-    color: rgb(192, 160, 122);
-    animation: changetext2 10s infinite linear;
-    margin: 10px;
-    font-weight: bold;
-}
 
 footer {
     margin: 25px 10px 0px 25px;
@@ -263,20 +259,7 @@ footer {
     font-size: small;
 }
 
-
-@keyframes changetext {
-    0% {
-        content: "Herkullisia kakkuja";
-    }
-
-    50% {
-        content: "Kylmää tai lämmintä juotavaa";
-    }
-
-    100% {
-        content: "Lämmintä ruokaa ja naposteltavaa";
-    }
-}
+/* media */
 
 @media screen and (min-width:801px) {
     .etusivu {

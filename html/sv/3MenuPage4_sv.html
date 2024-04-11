@@ -7,6 +7,39 @@
     <link href="../../css/3MenuPage4.css" rel="stylesheet">
     <title>S&A CAFE</title>
     <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+
+    <style>
+        .changecontent::after {
+            content: "Välkommen till kak- och kaffemorgon!";
+            color: rgb(192, 160, 122);
+            animation: changetext2 10s infinite linear;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        @keyframes changetext2 {
+            20% {
+                content: "Bli stamkund och få 15% rabatt på din första beställning!";
+            }
+
+            40% {
+                content: "Medlemskap är gratis";
+            }
+
+            60% {
+                content: "Skapa din drömkaka!";
+            }
+
+            80% {
+                content: "Hemleverans från 2,95€";
+            }
+
+            100% {
+                content: "Välkommen till kak- och kaffemorgon!";
+            }
+        }
+    </style>
+
     <script src="/javascript/default.js" defer></script>
     <script src="/javascript/3MenuPage4.js" defer></script>
 </head>
@@ -16,14 +49,14 @@
         <div>
             <nav class="icons">
                 <ul>
-                    <li>
-                        <label for="kieli">请选择语言: </label>
+                    <li class="kieli">
+                        <label for="kieli">Välj språk: </label>
                         <select id="kieli" onchange="changeLanguage(this.value)">
-                            <option value="FI">芬兰语</option>
-                            <option value="EN">英语</option>
-                            <option value="CN">中文</option>
-                            <option value="ET">Viro</option>
-                            <option value="SV">Ruotsi</option>
+                            <option value="FI">Finska</option>
+                            <option value="EN">Engelska</option>
+                            <option value="CN">Kinesiska</option>
+                            <option value="ET">Estniska</option>
+                            <option value="SV" selected>Svenska</option>
                         </select>
                     </li>
                     <li>
@@ -51,59 +84,59 @@
         </div>
     </header>
     <nav class="navbarClass" id="navbar">
-        <a href="1Etusivu_sv.html" class="navItem">Etusivu</a>
-        <a href="2AboutUs_sv.html" class="navItem">About Us</a>
+        <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
+        <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
         <div class="dropdown">
             <button class="dropdown-toggle" id="menuButton">
-                Menu
+                Meny
             </button>
             <div class="dropdown-menu" id="menuDropdown">
-                <a class="dropdown-item" href="3MenuPage1_sv.html">Kakut</a>
-                <a class="dropdown-item" href="3MenuPage2_sv.html">Suolaista</a>
-                <a class="dropdown-item" href="3MenuPage3_sv.html">Makeaa</a>
-                <a class="dropdown-item" href="3MenuPage4_sv.html">Lämmintä ruokaa</a>
-                <a class="dropdown-item" href="3MenuPage5_sv.html">Juotavaa</a>
+                <a class="dropdown-item" href="3MenuPage1_sv.html">Tårtor</a>
+                <a class="dropdown-item" href="3MenuPage2_sv.html">Salt</a>
+                <a class="dropdown-item" href="3MenuPage3_sv.html">Sötsaker</a>
+                <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
+                <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
             </div>
         </div>
-        <a href="5Yhteydenotto_sv.html" class="navItem">Ota yhteyttä</a>
-        <a href="6Poytavaraus_sv.html" class="navItem">Varaa pöytä</a>
+        <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
+        <a href="6Poytavaraus_sv.html" class="navItem">Boka bord</a>
     </nav>
 
     <div class="hot-food-section">
-        <h2>LÄMPIMÄT RUUAT</h2>
+        <h2>VARM MAT</h2>
 
-        <input type="text" id="hotFoodSearch" placeholder="Etsi lämmintä ruokaa...">
+        <input type="text" id="hotFoodSearch" placeholder="Sök efter varm mat...">
         <div class="filter-options">
-            <label for="hotFoodType">Valitse tyyppi:</label>
+            <label for="hotFoodType">Välj typ:</label>
             <select id="hotFoodType">
-                <option value="kaikki">Kaikki</option>
-                <option value="kana">Kanaruuat</option>
-                <option value="muut_ruuat">Muut lämpimät ruuat</option>
+                <option value="kaikki">Alla</option>
+                <option value="kana">Kycklingrätter</option>
+                <option value="muut_ruuat">Andra varma rätter</option>
                 <!-- Lisää -->
             </select>
         </div>
 
         <div class="hot-food-category">
-            <h3>Kanaruuat</h3>
+            <h3>Kycklingrätter</h3>
             <div class="hot-food-list">
                 <div class="hot-food-item">
-                    <img src="kanacurry.jpg" alt="Kanacurry">
-                    <h4>Kanacurry</h4>
+                    <img src="kanacurry.jpg" alt="Kycklingcurry">
+                    <h4>Kycklingcurry</h4>
                     <p>-</p>
-                    <button>Lisää ostoskoriin</button>
+                    <button>Lägg till i varukorgen</button>
                 </div>
                 <!-- Lisää -->
             </div>
         </div>
 
         <div class="hot-food-category">
-            <h3>Muut lämpimät ruuat</h3>
+            <h3>Andra varma rätter</h3>
             <div class="hot-food-list">
                 <div class="hot-food-item">
                     <img src="lasagne.jpg" alt="Lasagne">
                     <h4>Lasagne</h4>
-                    <p>Talon omaa lasagnea</p>
-                    <button>Lisää ostoskoriin</button>
+                    <p>Husets egen lasagne</p>
+                    <button>Lägg till i varukorgen</button>
                 </div>
                 <!-- Lisää-->
             </div>

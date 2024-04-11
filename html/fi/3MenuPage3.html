@@ -7,6 +7,41 @@
     <link href="../../css/3MenuPage3.css" rel="stylesheet">
     <title>S&A CAFE</title>
     <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+
+    <style>
+        /* footer */
+
+        .changecontent::after {
+            content: "Tervetuloa kakkukahveille!";
+            color: rgb(192, 160, 122);
+            animation: changetext2 10s infinite linear;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        @keyframes changetext {
+            20% {
+                content: "Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi!";
+            }
+
+            40% {
+                content: "Liittyminen on maksutonta";
+            }
+
+            60% {
+                content: "Luo unelmiesi kakku!";
+            }
+
+            80% {
+                content: "Kotiinkuljetus alkaen 2,95€";
+            }
+
+            100% {
+                content: "Tervetuloa kakkukahveille!";
+            }
+        }
+    </style>
+
     <script src="/javascript/default.js" defer></script>
     <script src="/javascript/3MenuPage3.js" defer></script>
 </head>
@@ -16,7 +51,7 @@
         <div>
             <nav class="icons">
                 <ul>
-                    <li>
+                    <li class="kieli">
                         <label for="kieli">Valitse kieli: </label>
                         <select id="kieli" onchange="changeLanguage(this.value)">
                             <option value="FI" selected>Suomi</option>
@@ -46,7 +81,7 @@
             </nav>
             <div class="image-container">
                 <a href="1Etusivu.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
-                <img src="../../css/kuvat/cupcakes.jpg" width="800px" height="300px" class="cakeImg" alt="cupcakes">
+                <img src="../../css/kuvat/sweet.jpg" width="800px" height="300px" class="cakeImg" alt="cupcakes">
             </div>
         </div>
     </header>
