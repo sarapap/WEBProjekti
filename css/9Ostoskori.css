@@ -1,194 +1,359 @@
 body {
-    font-family: 'Times New Roman', Times, serif;
-    margin: auto;
-    width: 90%;
-    padding: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  margin: auto;
+  width: 90%;
+  padding: 10px;
 }
 
 .container {
-    width: 100%;
+  width: 100%;
 }
 
 header {
-    justify-content: space-between;
-    align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .top-link__icon[data-v-007d9333] {
-    width: 12px;
-    height: 12px;
-    margin-right: var(--spacing-small)
+  width: 12px;
+  height: 12px;
+  margin-right: var(--spacing-small)
 }
 
 .title {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    margin-left: 100px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-left: 100px;
 }
 
 .icons {
-    text-align: right;
-    display: flex;
-    width: 100%;
-    display: inline-block;
-    background: none;
-    justify-content: right;
-    margin-top: 0;
-    padding-top: 0;
+  text-align: right;
+  display: flex;
+  width: 100%;
+  display: inline-block;
+  background: none;
+  justify-content: right;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .image-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-    width: 90%;
-    height: 240px;
-    padding: 7% 0;
-    margin-right: 20px;
+width:90%;
+height:240px;
+padding: 7% 0;
+margin-right: 20px;
 }
 
 .cakeImg {
-    box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
-    width: 80%;
-    height: 300px;
+  box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
+  width: 80%;
+  height: 300px;
 }
 
 .suosikit {
-    display: inline-block;
-    width: 30px;
-    height: 25px;
-    margin: 7px;
-    background-image: url('kuvat/heart.png');
-    background-size: cover;
+  display: inline-block;
+  width: 30px;
+  height: 25px;
+  margin: 7px;
+  background-image: url('kuvat/heart.png');
+  background-size: cover;
 }
 
 .käyttäjä {
-    display: inline-block;
-    width: 35px;
-    height: 27px;
-    margin: 7px;
-    background-image: url('kuvat/usericon.png');
-    background-size: cover;
+  display: inline-block;
+  width: 35px;
+  height: 27px;
+  margin: 7px;
+  background-image: url('kuvat/usericon.png');
+  background-size: cover;
 }
 
 .ostoskori {
-    display: inline-block;
-    width: 31px;
-    height: 27px;
-    margin: 7px;
-    background-image: url('kuvat/shoppingcart.png');
-    background-size: cover;
-}
-
-.kieli {
-    margin: 7px -10px 0px 0px;
-}
-
-#kieli {
-    background-color: rgb(192, 160, 122);
-    color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px;
-    font-family: 'Times New Roman', Times, serif;
+  display: inline-block;
+  width: 31px;
+  height: 27px;
+  margin: 7px;
+  background-image: url('kuvat/shoppingcart.png');
+  background-size: cover;
 }
 
 /* navigation bar */
 
 a {
-    text-decoration: none;
-    color: #df810f;
-    font-size: bold;
+  text-decoration: none;
+  color: #df810f;
+  font-size: bold;
 }
 
 nav {
-    background-color: rgb(192, 160, 122);
-    padding: 10px 3px 10px 3px;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
+  background-color: rgb(192, 160, 122);
+  padding: 10px 3px 10px 3px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
 }
 
 nav ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    list-style: none;
-    justify-content: right;
-}
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  justify-content: right;
+} */
 
 nav li {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
+
 .navItem {
-    display: inline-block;
-    color: #fff;
-    text-shadow: 1px 1px 1px black;
-    flex-grow: 1;
-    text-align: center;
-    position: relative;
+  display: inline-block;
+  color: #fff;
+  text-shadow: 1px 1px 1px black;
+  flex-grow: 1;
+  text-align: center;
+  position: relative;
 }
 
 .navItem:hover {
-    text-decoration: none;
-    color: #dfd7cd;
+  text-decoration: none;
+  color: #dfd7cd;
 }
 
 .dropdown {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    position: relative;
+flex-grow: 1; /* Tämä laajentaa dropdown-elementin samalle leveydelle kuin muut navItem-elementit */
+display: flex;
+justify-content: center; /* Keskittää dropdownin sisällön */
+position: relative;
 }
 
 .dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    top: 100%;
-    left: 0;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  top:100%;
+  left:0;
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block;
+  display: block;
 }
 
 .dropdown-toggle {
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    font-family: 'Times New Roman', Times, serif;
-    text-shadow: 1px 1px 1px black;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
+  text-shadow: 1px 1px 1px black;
 }
 
 .dropdown-toggle:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .dropdown-menu a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
 .dropdown-menu a:hover {
-    background-color: #eceae9;
-    ;
+  background-color: #eceae9;;
 }
 
-/* media */
+/* table */
 
+.content p {
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.content h2 {
+  font-size: 50px;
+  text-shadow: 1px 1px 1px black;
+  margin-bottom: 40px;
+}
+
+.changecontent::after {
+  content: '';
+  color: rgb(192, 160, 122);
+  animation: changetext 10s infinite linear;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.table {
+  width: 80%;
+  margin: auto;
+}
+
+.table h1 {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 40px;
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table table th, .table table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.table table th {
+  background-color: #f2f2f2;
+}
+
+.table table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table table tr {
+  background-color: rgb(233, 220, 204);
+  color: rgb(83, 78, 78);
+  text-align: center;
+  font-size: 20px;
+  box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
+  width: 90%;
+  height: 100%;
+  padding: 10px;
+}
+
+.delete-btn img {
+  display: inline-block;
+  width: 15px;
+  height: 22px;
+  background-image: url('kuvat/roskakori.png');
+  background-size: cover;
+
+}
+.delete-btn {
+  display: flex;
+  justify-content: center;
+  height: 100%; /* Varmista, että kuvake täyttää koko solun */
+}
+
+.pay_btn {
+  width: 140px;
+  height: 48px;
+  background-color: rgb(217, 124, 48);
+  color: white;
+  padding: 10px;
+  border-radius: 1rem;
+  font-size: large;
+  margin-top: 10px;
+  border: none;
+  box-shadow: 0 15px 25px 0 rgba(117, 115, 111, 0.939)
+}
+
+.div-class {
+  text-align: right;
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+
+/* footer */
+
+.changecontent::after {
+content: "Tervetuloa kakkukahveille!";
+color: rgb(192, 160, 122);
+animation: changetext2 10s infinite linear;
+margin: 10px;
+font-weight: bold;
+}
+
+.div-class {
+  text-align: right;
+}
+
+footer {
+margin: 25px 10px 0px 25px;
+padding: 5px;
+text-align: center;
+background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
+box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
+}
+
+.footer{
+margin: 20px 0px 0px 20px;
+text-align: left;
+color: #827777;
+font-size: small;
+}
+
+@media screen and (min-width:801px) {
+.table {
+  height: auto;
+  width: 90%;
+  padding-bottom: 5%;
+}
+
+.cakeImg {
+  width:  80%
+}
+
+.footer-container {
+  margin: 0;
+}
+}
+
+@media screen and (max-width:800px) {
+  .table {
+    width: 100%;
+    padding-bottom: 5%;
+  }
+
+.icons ul li {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.icons ul li a {
+  display: block;
+  padding: 5px;
+}
+
+.logo {
+  position: static;
+  margin-bottom: 20px;
+}
+
+.cakeImg {
+  margin-top: 0;
+}
+
+.footer-container {
+  margin: 0;
+}
+}
+
+@media screen and (max-width:534px) {
+  .table {
+    width: 100%;
+    padding-bottom: 5%;
+  }
+.content h2 {
+  font-size: 30px;
+}
+}
 @media screen and (max-width:330px) {
-    #logo {
-        font-size: 15px;
-    }
+  .content h2 {
+      font-size: 20px;
+  }
 }
