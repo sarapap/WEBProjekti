@@ -11,65 +11,120 @@
   <script src="/javascript/9Ostoskori.js" defer></script>
 </head>
 
+<style>
+  .changecontent::after {
+      content: '';
+      color: rgb(192, 160, 122);
+      animation: changetext 10s infinite linear;
+      font-weight: bold;
+      margin: 10px;
+  }
+
+  @keyframes changetext {
+      0% {
+          content: "Läckra kakor";
+      }
+
+      50% {
+          content: "Kalla eller varma drycker";
+      }
+
+      100% {
+          content: "Varm mat och snacks";
+      }
+  }
+
+  /* footer */
+
+  .changecontent2::after {
+      content: "Välkommen till kak- och kaffemorgon!";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
+  }
+
+  @keyframes changetext2 {
+      20% {
+          content: "Bli stamkund och få 15% rabatt på din första beställning!";
+      }
+
+      40% {
+          content: "Medlemskap är gratis";
+      }
+
+      60% {
+          content: "Skapa din drömkaka!";
+      }
+
+      80% {
+          content: "Hemleverans från 2,95€";
+      }
+
+      100% {
+          content: "Välkommen till kak- och kaffemorgon!";
+      }
+  }
+</style>
+
 <body>
   <header>
-    <div>
-      <nav class="icons">
-        <ul>
-          <li class="kieli">
-            <label for="kieli">Valitse kieli: </label>
-            <select id="kieli" onchange="changeLanguage(this.value)">
-              <option value="FI" selected>Suomi</option>
-              <option value="EN">Englanti</option>
-              <option value="CN">Kiina</option>
-              <option value="ET">Viro</option>
-              <option value="SV">Ruotsi</option>
-            </select>
-          </li>
-          <li>
-            <a href="7Kayttaja.html">
-              <span class="käyttäjä"></span>
-            </a>
-          </li>
-          <li>
-            <a href="8Suosikit.html">
-              <span class="suosikit"></span>
-            </a>
-          </li>
-          <li>
-            <a href="9Ostoskori.html">
-              <span class="ostoskori"></span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+      <div>
+          <nav class="icons">
+              <ul>
+                  <li class="kieli">
+                      <label for="kieli">Välj språk: </label>
+                      <select id="kieli" onchange="changeLanguage(this.value)">
+                          <option value="FI">Finska</option>
+                          <option value="EN">Engelska</option>
+                          <option value="CN">Kinesiska</option>
+                          <option value="ET">Estniska</option>
+                          <option value="SV" selected>Svenska</option>
+                      </select>
+                  </li>
+                  <li>
+                      <a href="7Kayttaja_sv.html">
+                          <span class="käyttäjä"></span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="8Suosikit_sv.html">
+                          <span class="suosikit"></span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="9Ostoskori_sv.html">
+                          <span class="ostoskori"></span>
+                      </a>
+                  </li>
+              </ul>
 
-  <main>
-    <div class="image-container">
-      <a href="1Etusivu.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
-      <img src="../../css/kuvat/cakepic.jpg" class="cakeImg" alt="cakes">
-    </div>
-
-    <nav id="navbar">
-      <a href="1Etusivu.html" class="navItem">Etusivu</a>
-      <a href="2AboutUs.html" class="navItem">About Us</a>
-      <div class="dropdown">
-        <button class="dropdown-toggle" id="menuButton">
-          Menu
-        </button>
-        <div class="dropdown-menu" id="menuDropdown">
-          <a class="dropdown-item" href="3MenuPage1.html">Kakut</a>
-          <a class="dropdown-item" href="3MenuPage2.html">Suolaista</a>
-          <a class="dropdown-item" href="3MenuPage3.html">Makeaa</a>
-          <a class="dropdown-item" href="3MenuPage4.html">Lämmintä ruokaa</a>
-          <a class="dropdown-item" href="3MenuPage5.html">Juotavaa</a>
-        </div>
+          </nav>
+          <div class="image-container">
+              <a href="1Etusivu_sv.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+              <img src="../../css/kuvat/cakepic.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
+          </div>
       </div>
-      <a href="5Yhteydenotto.html" class="navItem">Ota yhteyttä</a>
-      <a href="6Poytavaraus.html" class="navItem">Varaa pöytä</a>
-    </nav>
+  </header>
+  <nav class="navbarClass" id="navbar">
+      <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
+      <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
+      <div class="dropdown">
+          <button class="dropdown-toggle" id="menuButton">
+              Meny
+          </button>
+          <div class="dropdown-menu" id="menuDropdown">
+              <a class="dropdown-item" href="3MenuPage1_sv.html">Tårtor</a>
+              <a class="dropdown-item" href="3MenuPage2_sv.html">Salt</a>
+              <a class="dropdown-item" href="3MenuPage3_sv.html">Sött</a>
+              <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
+              <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
+          </div>
+      </div>
+      <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
+      <a href="6Poytavaraus_sv.html" class="navItem">Boka bord</a>
+  </nav>
+
     <div>
       <h1><div class="changetext"></div></h1>
     </div>
@@ -127,7 +182,7 @@
       <div class="changecontent2">
       </div>
       <div class="footer">
-        <a href="paakayttaja.html">Pääkäyttäjän Tietohallinta</a><br>
+        <a href="paakayttaja.html">Huvudadministratörens IT-hantering</a><br>
         <p></p>
         <a href="palaute.html">Palute</a>
       </div>
