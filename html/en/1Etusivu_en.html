@@ -7,6 +7,63 @@
     <link href="../../css/1Etusivu.css" rel="stylesheet">
     <title>S&A CAFE</title>
     <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+
+    <style>
+        .changecontent::after {
+            content: '';
+            color: rgb(192, 160, 122);
+            animation: changetext 10s infinite linear;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        @keyframes changetext {
+            0% {
+                content: "Delicious cakes";
+            }
+
+            50% {
+                content: "Cold or warm drinks";
+            }
+
+            100% {
+                content: "Warm food and snacks";
+            }
+        }
+
+        /* footer */
+
+        .changecontent2::after {
+            content: "Welcome to enjoy cake and coffee!";
+            color: rgb(192, 160, 122);
+            animation: changetext2 10s infinite linear;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        @keyframes changetext2 {
+            20% {
+                content: "Join our loyalty program and get 15% off your first order!";
+            }
+
+            40% {
+                content: "Membership is free";
+            }
+
+            60% {
+                content: "Create your dream cake!";
+            }
+
+            80% {
+                content: "Home delivery starting from €2.95";
+            }
+
+            100% {
+                content: "Welcome to enjoy cake and coffee!";
+            }
+        }
+    </style>
+
     <script src="/javascript/default.js" defer></script>
     <script src="/javascript/1Etusivu.js" defer></script>
 </head>

@@ -7,6 +7,39 @@
     <link href="../../css/2AboutUs.css" rel="stylesheet">
     <title>S&A CAFE</title>
     <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+
+    <style>
+        .changecontent::after {
+            content: "Välkommen till kak- och kaffemorgon!";
+            color: rgb(192, 160, 122);
+            animation: changetext2 10s infinite linear;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        @keyframes changetext2 {
+            20% {
+                content: "Bli stamkund och få 15% rabatt på din första beställning!";
+            }
+
+            40% {
+                content: "Medlemskap är gratis";
+            }
+
+            60% {
+                content: "Skapa din drömkaka!";
+            }
+
+            80% {
+                content: "Hemleverans från 2,95€";
+            }
+
+            100% {
+                content: "Välkommen till kak- och kaffemorgon!";
+            }
+        }
+    </style>
+
     <script src="/javascript/default.js" defer></script>
     <script src="/javascript/2AboutUs.js" defer></script>
 </head>
@@ -17,13 +50,13 @@
             <nav class="icons">
                 <ul>
                     <li>
-                        <label for="kieli">Valitse kieli: </label>
+                        <label for="kieli">Välj språk: </label>
                         <select id="kieli">
-                            <option value="FI">Suomi</option>
-                            <option value="EN">Englanti</option>
-                            <option value="CN">Kiina</option>
-                            <option value="ET">Viro</option>
-                            <option value="SV">Ruotsi</option>
+                            <option value="FI">Finska</option>
+                            <option value="EN">Engelska</option>
+                            <option value="CN">Kinesiska</option>
+                            <option value="ET">Estniska</option>
+                            <option value="SV" selected>Svenska</option>
                         </select>
                     </li>
                     <li>
@@ -47,22 +80,22 @@
         </div>
     </header>
     <nav id="navbar">
-        <a href="1Etusivu_sv.html" class="navItem">Etusivu</a>
-        <a href="2AboutUs_sv.html" class="navItem">About Us</a>
+        <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
+        <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
         <div class="dropdown">
             <button class="dropdown-toggle" id="menuButton">
-                Menu
+                Meny
             </button>
             <div class="dropdown-menu" id="menuDropdown">
-                <a class="dropdown-item" href="3MenuPage1_sv.html">Kakut</a>
-                <a class="dropdown-item" href="3MenuPage2_sv.html">Suolaista</a>
-                <a class="dropdown-item" href="3MenuPage3_sv.html">Makeaa</a>
-                <a class="dropdown-item" href="3MenuPage4_sv.html">Lämmintä ruokaa</a>
-                <a class="dropdown-item" href="3MenuPage5_sv.html">Juotavaa</a>
+                <a class="dropdown-item" href="3MenuPage1_sv.html">Tårtor</a>
+                <a class="dropdown-item" href="3MenuPage2_sv.html">Salt</a>
+                <a class="dropdown-item" href="3MenuPage3_sv.html">Sötsaker</a>
+                <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
+                <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
             </div>
         </div>
-        <a href="5Yhteydenotto_sv.html" class="navItem">Ota yhteyttä</a>
-        <a href="6Poytavaraus_sv.html" class="navItem">Varaa pöytä</a>
+        <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
+        <a href="6Poytavaraus_sv.html" class="navItem">Boka bord</a>
     </nav>
 
     <div class="container">
@@ -73,47 +106,46 @@
 
         <main>
             <section class="about">
-                <h2>Meistä</h2>
+                <h2>Om oss</h2>
                 <p>
-                    Olemme kaksi intohimoista leipuria ja ruoanlaiton rakastajaa, jotka yhdistivät voimansa luodakseen
-                    paikan, jossa jokainen voi nauttia herkullisista makuelämyksistä ja lämpimästä ilmapiiristä.
-                    Kahvilamme on erikoistunut kakkujen ja muiden leivonnaisten valmistukseen,
-                    unohtamatta lämpimän ruoan herkkuja – meillä jokainen maku löytää takuulla jotain ihastuttavaa.
+                    Vi är två passionerade bagare och matälskare som samlade våra krafter för att skapa
+                    en plats där alla kan njuta av läckra smakupplevelser och en varm atmosfär.
+                    Vårt café är specialiserat på att tillverka tårtor och andra bakverk,
+                    utan att glömma bort godheterna i varm mat – hos oss hittar varje smak säkert något underbart.
                 </p>
             </section>
 
             <section class="selection">
-                <h2>Valikoima</h2>
+                <h2>Utval</h2>
                 <p>
-                    Tarjoamme laajan valikoiman herkullisia kakkuja ja leivonnaisia, jotka ovat täynnä makua ja
-                    rakkautta.
-                    Valitse mieleisesi juoma laajasta juomavalikoimastamme ja nauti tuoreesta kahvista tai muusta
-                    virkistävästä juomasta.
+                    Vi erbjuder ett brett utbud av läckra tårtor och bakverk, som är fulla av smak och
+                    kärlek.
+                    Välj din favoritdryck från vårt stora dryckesutbud och njut av färskt kaffe eller annan
+                    uppfriskande dryck.
                 </p>
             </section>
 
             <section class="specialties">
-                <h2>Erikoisuudet</h2>
+                <h2>Specialiteter</h2>
                 <p>
-                    Erikoisuuksiimme kuuluu "custom" kakkujen luominen – toteutamme unelmiesi kakun oli kyseessä sitten
-                    syntymäpäivä, häät tai mikä tahansa juhla.
+                    Våra specialiteter inkluderar att skapa "custom" tårtor – vi förverkligar din drömtårta,
+                    vare sig det är en födelsedag, bröllop eller någon annan fest.
                 </p>
             </section>
 
             <section class="services">
-                <h2>Palvelut</h2>
+                <h2>Tjänster</h2>
                 <p>
-                    Tarjoamme monipuolisia palveluita, kuten tilan vuokrausta yksityistilaisuuksiin,
-                    kotiinkuljetuspalvelua ja mahdollisuuden noutaa herkut mukaan.
+                    Vi erbjuder olika tjänster, inklusive uthyrning av lokaler för privata tillställningar,
+                    hemleveransservice och möjlighet att hämta godsakerna med sig.
                 </p>
             </section>
 
             <section class="contact">
-                <h2>Ota yhteyttä</h2>
+                <h2>Kontakta oss</h2>
                 <p>
-                    Haluatko tilata "custom" kakun tai varata tilaisuuden? Ota rohkeasti yhteyttä meihin sähköpostitse
-                    tai
-                    puhelimitse <a href="5Yhteydenotto_sv.html">tämän linkin kautta</a>.
+                    Vill du beställa en "custom" tårta eller boka en tillställning? Tveka inte att kontakta oss via
+                    e-post eller telefon <a href="5Yhteydenotto_sv.html">genom denna länk</a>.
                 </p>
             </section>
         </main>

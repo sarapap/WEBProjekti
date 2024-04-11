@@ -1,8 +1,7 @@
 body {
     font-family: 'Times New Roman', Times, serif;
     margin: auto;
-    width: 80%;
-    height: 80%;
+    width: 90%;
     padding: 10px;
 }
 
@@ -10,11 +9,7 @@ body {
     width: 100%;
 }
 
-/* title */
-
 header {
-    padding: 20px;
-    display: flex;
     justify-content: space-between;
     align-items: center;
 }
@@ -34,21 +29,14 @@ header {
 
 .icons {
     text-align: right;
+    display: flex;
     width: 100%;
     display: inline-block;
     background: none;
+    justify-content: right;
+    margin-top: 0;
+    padding-top: 0;
 }
-
-.icons ul {
-    margin-left: 900px;
-}
-
-.käyttäjä,
-.suosikit,
-.ostoskori {
-    float: right;
-}
-
 
 .image-container {
     display: flex;
@@ -56,12 +44,16 @@ header {
 }
 
 .logo {
+    width: 90%;
+    height: 240px;
+    padding: 7% 0;
     margin-right: 20px;
-    opacity: 1;
 }
 
 .cakeImg {
     box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
+    width: 80%;
+    height: 300px;
 }
 
 .suosikit {
@@ -91,7 +83,6 @@ header {
     background-size: cover;
 }
 
-
 /* navigation bar */
 
 a {
@@ -102,9 +93,10 @@ a {
 
 nav {
     background-color: rgb(192, 160, 122);
-    padding: 20px 3px 20px 3px;
-    text-align: center;
+    padding: 10px 3px 10px 3px;
     display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
 }
 
 nav ul {
@@ -115,23 +107,31 @@ nav ul {
     justify-content: right;
 }
 
-nav li {
+*/ nav li {
     margin-left: 20px;
 }
-
 
 .navItem {
     display: inline-block;
     color: #fff;
-    padding: 0 10px;
-    text-decoration: none;
-    margin-left: 100px;
     text-shadow: 1px 1px 1px black;
+    flex-grow: 1;
+    text-align: center;
+    position: relative;
 }
 
 .navItem:hover {
     text-decoration: none;
     color: #dfd7cd;
+}
+
+.dropdown {
+    flex-grow: 1;
+    /* Tämä laajentaa dropdown-elementin samalle leveydelle kuin muut navItem-elementit */
+    display: flex;
+    justify-content: center;
+    /* Keskittää dropdownin sisällön */
+    position: relative;
 }
 
 .dropdown-menu {
@@ -140,6 +140,8 @@ nav li {
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    top: 100%;
+    left: 0;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -153,7 +155,6 @@ nav li {
     cursor: pointer;
     font-size: 16px;
     font-family: 'Times New Roman', Times, serif;
-    margin-left: 120px;
     text-shadow: 1px 1px 1px black;
 }
 
@@ -169,13 +170,8 @@ nav li {
 }
 
 .dropdown-menu a:hover {
-    background-color: #f1f1f1;
-}
-
-@media screen and (max-width:330px) {
-    #logo {
-        font-size: 15px;
-    }
+    background-color: #eceae9;
+    ;
 }
 
 /* main */
@@ -242,14 +238,6 @@ section {
 
 /* footer */
 
-.changecontent::after {
-    content: "Tervetuloa kakkukahveille!";
-    color: rgb(192, 160, 122);
-    animation: changetext 10s infinite linear;
-    margin: 10px;
-    font-weight: bold;
-}
-
 footer {
     margin: 25px 10px 0px 25px;
     padding: 5px;
@@ -258,24 +246,83 @@ footer {
     box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
 }
 
-@keyframes changetext {
-    20% {
-        content: "Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi!";
+/* media */
+
+/* media */
+
+@media screen and (min-width:801px) {
+    .etusivu {
+        height: auto;
+        display: flex;
     }
 
-    40% {
-        content: "Liittyminen on maksutonta";
+    .cakeImg {
+        width: 80%
     }
 
-    60% {
-        content: "Luo unelmiesi kakku!";
+    .aside1 {
+        width: 70%;
+        height: auto;
     }
 
-    80% {
-        content: "Kotiinkuljetus alkaen 2,95€";
+    .aside2 {
+        width: 25%;
+        height: auto;
     }
 
-    100% {
-        content: "Tervetuloa kakkukahveille!";
+    video {
+        width: 90%;
+    }
+
+    .footer-container {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .etusivu {
+        min-height: 100vh;
+        display: block;
+    }
+
+    video {
+        width: 90%;
+    }
+
+    .icons ul li {
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .icons ul li a {
+        display: block;
+        padding: 5px;
+    }
+
+    .logo {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    .cakeImg {
+        margin-top: 0;
+    }
+
+    .aside1,
+    .aside2 {
+        width: 100%;
+        margin-bottom: 40px;
+        height: auto;
+    }
+
+    .footer-container {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:330px) {
+    .content h2 {
+        font-size: 30px;
     }
 }

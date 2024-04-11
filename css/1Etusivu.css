@@ -230,22 +230,7 @@ nav ul {
     font-size: 17px;
 }
 
-.changecontent::after {
-    content: '';
-    color: rgb(192, 160, 122);
-    animation: changetext 10s infinite linear;
-    font-weight: bold;
-    margin: 10px;
-}
-
 /* footer */
-.changecontent2::after {
-
-    color: rgb(192, 160, 122);
-    animation: changetext2 10s infinite linear;
-    margin: 10px;
-    font-weight: bold;
-}
 
 footer {
     margin: 25px 10px 0px 25px;
@@ -263,20 +248,7 @@ footer {
     font-size: small;
 }
 
-
-@keyframes changetext {
-    0% {
-        content: "Herkullisia kakkuja";
-    }
-
-    50% {
-        content: "Kylmää tai lämmintä juotavaa";
-    }
-
-    100% {
-        content: "Lämmintä ruokaa ja naposteltavaa";
-    }
-}
+/* media */
 
 @media screen and (min-width:801px) {
     .etusivu {
