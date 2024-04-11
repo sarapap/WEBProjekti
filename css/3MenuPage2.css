@@ -47,13 +47,20 @@ header {
     width: 90%;
     height: 240px;
     padding: 7% 0;
-    margin-right: 20px;
+    margin-right: 50px;
 }
 
 .cakeImg {
     box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
-    width: 80%;
+    width: 40%;
     height: 300px;
+}
+
+.cakeImg2 {
+    width: 40%;
+    height: 300px;
+    box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
+    margin-left: 10px;
 }
 
 .suosikit {
@@ -83,6 +90,19 @@ header {
     background-size: cover;
 }
 
+.kieli {
+    margin: 7px -10px 0px 0px;
+}
+
+#kieli {
+    background-color: rgb(192, 160, 122);
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 /* navigation bar */
 
 a {
@@ -107,7 +127,7 @@ nav ul {
     justify-content: right;
 }
 
-*/ nav li {
+nav li {
     margin-left: 20px;
 }
 
@@ -127,10 +147,8 @@ nav ul {
 
 .dropdown {
     flex-grow: 1;
-    /* Tämä laajentaa dropdown-elementin samalle leveydelle kuin muut navItem-elementit */
     display: flex;
     justify-content: center;
-    /* Keskittää dropdownin sisällön */
     position: relative;
 }
 
@@ -273,3 +291,48 @@ footer {
 }
 
 /* media */
+
+
+@media screen and (max-width:1024px) {
+    .icons ul li {
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .icons ul li a {
+        display: block;
+        padding: 5px;
+    }
+
+    .logo {
+        width: 125px;
+    }
+
+    .cakeImg {
+        margin-top: 10px;
+    }
+
+    .footer-container {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:470px) {
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cakeImg {
+        margin-top: 10px;
+        width: 200px;
+        height: 80px;
+    }
+
+    .cakeImg2 {
+        margin-top: 10px;
+        width: 100px;
+        height: 80px;
+    }
+}

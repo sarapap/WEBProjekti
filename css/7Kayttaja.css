@@ -83,6 +83,19 @@ header {
     background-size: cover;
 }
 
+.kieli {
+    margin: 7px -10px 0px 0px;
+}
+
+#kieli {
+    background-color: rgb(192, 160, 122);
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 /* navigation bar */
 
 a {
@@ -107,7 +120,7 @@ nav ul {
     justify-content: right;
 }
 
-*/ nav li {
+nav li {
     margin-left: 20px;
 }
 
@@ -127,10 +140,8 @@ nav ul {
 
 .dropdown {
     flex-grow: 1;
-    /* Tämä laajentaa dropdown-elementin samalle leveydelle kuin muut navItem-elementit */
     display: flex;
     justify-content: center;
-    /* Keskittää dropdownin sisällön */
     position: relative;
 }
 

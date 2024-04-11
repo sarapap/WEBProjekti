@@ -83,6 +83,19 @@ header {
     background-size: cover;
 }
 
+.kieli {
+    margin: 7px -10px 0px 0px;
+}
+
+#kieli {
+    background-color: rgb(192, 160, 122);
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 /* navigation bar */
 
 a {
@@ -107,7 +120,7 @@ nav ul {
     justify-content: right;
 }
 
-*/ nav li {
+nav li {
     margin-left: 20px;
 }
 
@@ -127,10 +140,8 @@ nav ul {
 
 .dropdown {
     flex-grow: 1;
-    /* Tämä laajentaa dropdown-elementin samalle leveydelle kuin muut navItem-elementit */
     display: flex;
     justify-content: center;
-    /* Keskittää dropdownin sisällön */
     position: relative;
 }
 
@@ -248,30 +259,11 @@ footer {
 
 /* media */
 
-/* media */
-
 @media screen and (min-width:801px) {
-    .etusivu {
-        height: auto;
-        display: flex;
-    }
+
 
     .cakeImg {
         width: 80%
-    }
-
-    .aside1 {
-        width: 70%;
-        height: auto;
-    }
-
-    .aside2 {
-        width: 25%;
-        height: auto;
-    }
-
-    video {
-        width: 90%;
     }
 
     .footer-container {
@@ -279,15 +271,7 @@ footer {
     }
 }
 
-@media screen and (max-width:800px) {
-    .etusivu {
-        min-height: 100vh;
-        display: block;
-    }
-
-    video {
-        width: 90%;
-    }
+@media screen and (max-width:1024px) {
 
     .icons ul li {
         display: block;
@@ -301,19 +285,11 @@ footer {
     }
 
     .logo {
-        position: static;
-        margin-bottom: 20px;
+        width: 200px;
     }
 
     .cakeImg {
         margin-top: 0;
-    }
-
-    .aside1,
-    .aside2 {
-        width: 100%;
-        margin-bottom: 40px;
-        height: auto;
     }
 
     .footer-container {
@@ -321,8 +297,20 @@ footer {
     }
 }
 
-@media screen and (max-width:330px) {
-    .content h2 {
-        font-size: 30px;
+@media screen and (max-width:470px) {
+    p {
+        margin-right: 200px;
+    }
+
+    section {
+        width: 200px;
+    }
+
+    .logo-container {
+        padding: 100px;
+    }
+
+    footer {
+        margin: 0;
     }
 }
