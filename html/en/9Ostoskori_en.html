@@ -12,58 +12,35 @@
 </head>
 
 <style>
-  .changecontent::after {
-      content: '';
-      color: rgb(192, 160, 122);
-      animation: changetext 10s infinite linear;
-      font-weight: bold;
-      margin: 5px;
+
+  .changecontent2::after {
+    content: "Welcome to enjoy cake and coffee!";
+    color: rgb(192, 160, 122);
+    animation: changetext2 10s infinite linear;
+    margin: 10px;
+    font-weight: bold;
   }
 
   @keyframes changetext {
-      0% {
-          content: "Delicious cakes";
-      }
+    20% {
+      content: "Join our loyalty program and get 15% off your first order!";
+    }
 
-      50% {
-          content: "Cold or warm drinks";
-      }
+    40% {
+      content: "Membership is free";
+    }
 
-      100% {
-          content: "Warm food and snacks";
-      }
-  }
+    60% {
+      content: "Create your dream cake!";
+    }
 
-  /* footer */
+    80% {
+      content: "Home delivery starting from €2.95";
+    }
 
-  .changecontent2::after {
+    100% {
       content: "Welcome to enjoy cake and coffee!";
-      color: rgb(192, 160, 122);
-      animation: changetext2 10s infinite linear;
-      margin: 10px;
-      font-weight: bold;
-  }
-
-  @keyframes changetext2 {
-      20% {
-          content: "Join our loyalty program and get 15% off your first order!";
-      }
-
-      40% {
-          content: "Membership is free";
-      }
-
-      60% {
-          content: "Create your dream cake!";
-      }
-
-      80% {
-          content: "Home delivery starting from €2.95";
-      }
-
-      100% {
-          content: "Welcome to enjoy cake and coffee!";
-      }
+    }
   }
 </style>
 <body>
@@ -178,13 +155,7 @@
 
     <footer class="footer-container">
       <p class="footerP">&copy; S&A CAFE 2024</p>
-      <div class="changecontent2">
-      </div>
-      <div class="footer">
-        <a href="paakayttaja.html">信息管理</a><br>
-        <p></p>
-        <a href="palaute.html">反馈</a>
-      </div>
+      <div class="changecontent2"></div>
     </footer>
 
   </main>
