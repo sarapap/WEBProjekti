@@ -7,7 +7,7 @@ document.getElementById("kieli").addEventListener("change", function () {
     } else if (selectedLanguage === 'EN') {
         window.location.href = '../en/1Etusivu_en.html';
     } else if (selectedLanguage === 'CN') {
-        window.location.href = "/cn/1Etusivu_cn.html";
+        window.location.href = "../cn/1Etusivu_cn.html";
     }
     else if (selectedLanguage === 'ET') {
         window.location.href = "../et/1Etusivu_et.html";

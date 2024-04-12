@@ -1,5 +1,6 @@
 'use strict';
 
+
 document.addEventListener("DOMContentLoaded", function () {
     const menuButton = document.getElementById("menuButton");
     const menuDropdown = document.getElementById("menuDropdown");
