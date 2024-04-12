@@ -50,15 +50,12 @@ header {
     margin-right: 20px;
 }
 
-.kartta-container {
-    height: 100px;
-    margin: 0px 0px 200px 0px;
-}
 
 #map {
     border: 1px solid rgb(184, 170, 170);
     box-shadow: 0 15px 25px 0 rgb(184, 170, 170);
 }
+
 
 .suosikit {
     display: inline-block;
@@ -281,7 +278,6 @@ footer {
 
     #map {
         margin-top: 10px;
-        width: 100px;
     }
 
     .footer-container {
@@ -295,10 +291,26 @@ footer {
         height: 100px;
     }
 
-    .cakeImg {
-        margin-top: 10px;
-        width: 220px;
+    .contact-info {
+        padding-left: 50px;
+    }
+
+    .socials {
+        margin-left: -150px;
+    }
+}
+
+@media screen and (max-width:280px) {
+    .logo {
+        width: 100px;
         height: 100px;
     }
 
+    .contact-info {
+        padding-left: 60px;
+    }
+
+    .socials {
+        margin-left: -170px;
+    }
 }
