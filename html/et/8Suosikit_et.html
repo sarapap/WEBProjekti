@@ -7,11 +7,68 @@
     <link href="../../css/8Suosikit.css" rel="stylesheet">
     <title>S&A CAFE</title>
     <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
-    <script src="/javascript/default.js" defer></script>
+
+    <style>
+      .changecontent::after {
+          content: '';
+          color: rgb(192, 160, 122);
+          animation: changetext 10s infinite linear;
+          font-weight: bold;
+          margin: 10px;
+      }
+
+      @keyframes changetext {
+          0% {
+              content: "Maitsvad kookid";
+          }
+
+          50% {
+              content: "Külmad või sooja jooke";
+          }
+
+          100% {
+              content: "Sooja toitu ja näksimist";
+          }
+      }
+
+      /* footer */
+
+      .changecontent2::after {
+          content: "Tere tulemast kooki- ja kohvihommikule!";
+          color: rgb(192, 160, 122);
+          animation: changetext2 10s infinite linear;
+          margin: 10px;
+          font-weight: bold;
+      }
+
+      @keyframes changetext2 {
+          20% {
+              content: "Liitu püsikliendiks ja saa 15% soodustust esimeselt tellimuselt!";
+          }
+
+          40% {
+              content: "Liitumine on tasuta";
+          }
+
+          60% {
+              content: "Loo oma unistuste kook!";
+          }
+
+          80% {
+              content: "Kohaletoimetamine alates 2,95€";
+          }
+
+          100% {
+              content: "Tere tulemast kooki- ja kohvihommikule!";
+          }
+      }
+  </style>
+
     <script src="/javascript/8Suosikit.js" defer></script>
 </head>
 
 <body>
+  <main>
     <header>
         <div>
             <nav class="icons">
@@ -68,6 +125,54 @@
         <a href="5Yhteydenotto_et.html" class="navItem">Võta meiega ühendust</a>
         <a href="6Poytavaraus_et.html" class="navItem">Laua broneerimine</a>
     </nav>
+
+    <div class="table">
+      <h1>Suosikit</h1>
+      <table>
+        <tr>
+          <th>Tuote kuva</th>
+          <th>Tuote kuvaus</th>
+          <th>Hinta</th>
+          <th>Pois listasta</th>
+        </tr>
+        <tr>
+         <td>
+            <div >
+            <img src="../../css/kuvat/cake_piece.jpg" alt="tuote Kuva" class="class="image-container"">
+            <i class="fas fa-heart"></i>
+            </div>
+          </td>
+
+          <td>Kakkupala</td>
+          <td>5€</td>
+          <td class="delete-btn"><img src="../../css/kuvat/heart_red.png" alt="Roskakori" style="width: 35px; height: 30px; padding-left: 30px;"></td>
+        </tr>
+      </table>
+
+      <h1>Suosikimme</h1>
+      <div class="image-box table2">
+        <div class="image-container">
+          <img src="../../css/kuvat/cakepic.jpg" alt="Kuva 1">
+          <img src="../../css/kuvat/cake_piece.jpg" alt="Kuva 2">
+
+          <img src="../../css/kuvat/straberry_cake.jpg" alt="Kuva 4">
+          <img src="../../css/kuvat/pink_dream.jpg" alt="Kuva 5">
+        </div>
+        <button class="prev-button">&lt;</button>
+        <button class="next-button">&gt;</button>
+      </div>
+    </div>
+
+    <footer class="footer-container">
+      <p class="footerP">&copy; S&A CAFE 2024</p>
+      <div class="changecontent2"></div>
+      <div class="footer">
+        <a href="paakayttaja.html">Pääkäyttäjän Tietohallinta</a><br>
+        <p></p>
+        <a href="palaute.html">Palute</a>
+      </div>
+    </footer>
+  </main>
 </body>
 
 </html>
