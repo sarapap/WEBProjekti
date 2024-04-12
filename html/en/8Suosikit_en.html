@@ -7,49 +7,46 @@
     <link href="../../css/8Suosikit.css" rel="stylesheet">
     <title>S&A CAFE</title>
     <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
-    <script src="/javascript/default.js" defer></script>
     <script src="/javascript/8Suosikit.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <div>
-            <nav class="icons">
-                <ul>
-                    <li class="kieli">
-                        <label for="kieli">Select language: </label>
-                        <select id="kieli" onchange="changeLanguage(this.value)">
-                            <option value="FI">Finnish</option>
-                            <option value="EN" selected>English</option>
-                            <option value="CN">Chinese</option>
-                            <option value="ET">Estonian</option>
-                            <option value="SV">Swedish</option>
-                        </select>
-                    </li>
-                    <li>
-                        <a href="7Kayttaja_en.html">
-                            <span class="käyttäjä"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="8Suosikit_en.html">
-                            <span class="suosikit"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="9Ostoskori_en.html">
-                            <span class="ostoskori"></span>
-                        </a>
-                    </li>
-                </ul>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">Select language: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI">Finnish</option>
+              <option value="EN" selected>English</option>
+              <option value="CN">Chinese</option>
+              <option value="ET">Estonian</option>
+              <option value="SV">Swedish</option>
+            </select>
+          </li>
+          <li>
+            <a href="7Kayttaja_en.html">
+              <span class="käyttäjä"></span>
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit_en.html">
+              <span class="suosikit"></span>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori_en.html">
+               <span class="ostoskori"></span>
+            </a>
+          </li>
+        </ul>
 
-            </nav>
-            <div class="image-container">
-                <a href="1Etusivu_en.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-image"></a>
-                <img src="../../css/kuvat/cakepic.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
-            </div>
-        </div>
-    </header>
+      </nav>
+    </div>
+  </header>
+
+  <main>
     <nav class="navbarClass" id="navbar">
         <a href="1Etusivu_en.html" class="navItem">Home</a>
         <a href="2AboutUs_en.html" class="navItem">About Us</a>
@@ -68,6 +65,54 @@
         <a href="5Yhteydenotto_en.html" class="navItem">Contact Us</a>
         <a href="6Poytavaraus_en.html" class="navItem">Reserve a Table</a>
     </nav>
-</body>
 
+    <div class="table">
+      <h1>Suosikit</h1>
+      <table>
+        <tr>
+          <th>Tuote kuva</th>
+          <th>Tuote kuvaus</th>
+          <th>Hinta</th>
+          <th>Pois listasta</th>
+        </tr>
+        <tr>
+         <td>
+            <div >
+            <img src="../../css/kuvat/cake_piece.jpg" alt="tuote Kuva" class="class="image-container"">
+            <i class="fas fa-heart"></i>
+            </div>
+          </td>
+
+          <td>Kakkupala</td>
+          <td>5€</td>
+          <td class="delete-btn"><img src="../../css/kuvat/heart_red.png" alt="Roskakori" style="width: 35px; height: 30px; padding-left: 30px;"></td>
+        </tr>
+      </table>
+
+      <h1>Suosikimme</h1>
+      <div class="image-box table2">
+        <div class="image-container">
+          <img src="../../css/kuvat/cakepic.jpg" alt="Kuva 1">
+          <img src="../../css/kuvat/cake_piece.jpg" alt="Kuva 2">
+
+          <img src="../../css/kuvat/straberry_cake.jpg" alt="Kuva 4">
+          <img src="../../css/kuvat/pink_dream.jpg" alt="Kuva 5">
+        </div>
+        <button class="prev-button">&lt;</button>
+        <button class="next-button">&gt;</button>
+      </div>
+    </div>
+
+    <footer class="footer-container">
+      <p class="footerP">&copy; S&A CAFE 2024</p>
+      <div class="changecontent2"></div>
+      <div class="footer">
+        <a href="paakayttaja.html">Pääkäyttäjän Tietohallinta</a><br>
+        <p></p>
+        <a href="palaute.html">Palute</a>
+      </div>
+    </main>
+  </footer>
+
+</body>
 </html>
