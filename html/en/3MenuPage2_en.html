@@ -2,169 +2,169 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../css/3MenuPage2.css" rel="stylesheet">
-    <title>S&A CAFE</title>
-    <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../css/3MenuPage2.css" rel="stylesheet">
+  <title>S&A CAFE</title>
+  <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
 
-    <style>
-        .changecontent::after {
-            content: "Welcome to enjoy cake and coffee!";
-            color: rgb(192, 160, 122);
-            animation: changetext2 10s infinite linear;
-            margin: 10px;
-            font-weight: bold;
-        }
+  <style>
+    .changecontent::after {
+      content: "Welcome to enjoy cake and coffee!";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
+    }
 
-        @keyframes changetext2 {
-            20% {
-                content: "Join our loyalty program and get 15% off your first order!";
-            }
+    @keyframes changetext2 {
+      20% {
+        content: "Join our loyalty program and get 15% off your first order!";
+      }
 
-            40% {
-                content: "Membership is free";
-            }
+      40% {
+        content: "Membership is free";
+      }
 
-            60% {
-                content: "Create your dream cake!";
-            }
+      60% {
+        content: "Create your dream cake!";
+      }
 
-            80% {
-                content: "Home delivery starting from €2.95";
-            }
+      80% {
+        content: "Home delivery starting from €2.95";
+      }
 
-            100% {
-                content: "Welcome to enjoy cake and coffee!";
-            }
-        }
-    </style>
+      100% {
+        content: "Welcome to enjoy cake and coffee!";
+      }
+    }
+  </style>
 
-    <script src="/javascript/default.js" defer></script>
-    <script src="/javascript/3MenuPage2.js" defer></script>
+  <script src="/javascript/default.js" defer></script>
+  <script src="/javascript/3MenuPage2.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <div>
-            <nav class="icons">
-                <ul>
-                    <li class="kieli">
-                        <label for="kieli">Select language: </label>
-                        <select id="kieli" onchange="changeLanguage(this.value)">
-                            <option value="FI">Finnish</option>
-                            <option value="EN" selected>English</option>
-                            <option value="CN">Chinese</option>
-                            <option value="ET">Estonian</option>
-                            <option value="SV">Swedish</option>
-                        </select>
-                    </li>
-                    <li>
-                        <a href="7Kayttaja_en.html">
-                            <span class="käyttäjä"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="8Suosikit_en.html">
-                            <span class="suosikit"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="9Ostoskori_en.html">
-                            <span class="ostoskori"></span>
-                        </a>
-                    </li>
-                </ul>
-
-            </nav>
-            <div class="image-container">
-                <a href="1Etusivu_en.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-image"></a>
-                <img src="../../css/kuvat/pastries.jpg" width="800px" height="300px" class="cakeImg" alt="pastries">
-                <img src="../../css/kuvat/pie.jpg" width="800px" height="300px" class="cakeImg2" alt="pastries">
-            </div>
-        </div>
-    </header>
-    <nav class="navbarClass" id="navbar">
-        <a href="1Etusivu_en.html" class="navItem">Home</a>
-        <a href="2AboutUs_en.html" class="navItem">About Us</a>
-        <div class="dropdown">
-            <button class="dropdown-toggle" id="menuButton">
-                Menu
-            </button>
-            <div class="dropdown-menu" id="menuDropdown">
-                <a class="dropdown-item" href="3MenuPage1_en.html">Cakes</a>
-                <a class="dropdown-item" href="3MenuPage2_en.html">Savory</a>
-                <a class="dropdown-item" href="3MenuPage3_en.html">Sweet</a>
-                <a class="dropdown-item" href="3MenuPage4_en.html">Hot Food</a>
-                <a class="dropdown-item" href="3MenuPage5_en.html">Drinks</a>
-            </div>
-        </div>
-        <a href="5Yhteydenotto_en.html" class="navItem">Contact Us</a>
-        <a href="6Poytavaraus_en.html" class="navItem">Reserve a Table</a>
-    </nav>
-
-    <div class="salty-section">
-        <h2>SAVORY DISHES</h2>
-
-        <input type="text" id="saltySearch" placeholder="Search for savory...">
-        <div class="filter-options">
-            <label for="saltyType">Select type:</label>
-            <select id="saltyType">
-                <option value="kaikki">All</option>
-                <option value="piirakat">Pies</option>
-                <option value="salaatit">Salads</option>
-                <option value="pasteijat">Pastries</option>
-                <!-- Add -->
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">Select language: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI">Finnish</option>
+              <option value="EN" selected>English</option>
+              <option value="CN">Chinese</option>
+              <option value="ET">Estonian</option>
+              <option value="SV">Swedish</option>
             </select>
-        </div>
+          </li>
+          <li>
+            <a href="7Kayttaja_en.html">
+              <span class="käyttäjä"></span>
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit_en.html">
+              <span class="suosikit"></span>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori_en.html">
+              <span class="ostoskori"></span>
+            </a>
+          </li>
+        </ul>
 
-        <div class="salty-category">
-            <h3>Pies</h3>
-            <div class="salty-list">
-                <div class="salty-item">
-                    <img src="piirakka1.jpg" alt="Savory pie 1">
-                    <h4>Spinach-Feta Pie</h4>
-                    <p>Fresh spinach and feta cheese in a delicious pie.</p>
-                    <button>Add to cart</button>
-                </div>
-                <!-- Add -->
-            </div>
-        </div>
-        <div class="salty-category">
-            <h3>Salads</h3>
-            <div class="salty-list">
-                <div class="salty-item">
-                    <img src="salaatti1.jpg" alt="Salad 1">
-                    <h4>Greek Salad</h4>
-                    <p>-</p>
-                    <button>Add to cart</button>
-                </div>
-                <!-- Add -->
-            </div>
-        </div>
-        <div class="salty-category">
-            <h3>Pastries</h3>
-            <div class="salty-list">
-                <div class="salty-item">
-                    <img src="pasteija1.jpg" alt="Pastry 1">
-                    <h4>Ham and Cheese Pastry</h4>
-                    <p>-</p>
-                    <button>Add to cart</button>
-                </div>
-                <!-- Add -->
-            </div>
-        </div>
+      </nav>
+      <div class="image-container">
+        <a href="1Etusivu_en.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-image"></a>
+        <img src="../../css/kuvat/pastries.jpg" width="800px" height="300px" class="cakeImg" alt="pastries">
+        <img src="../../css/kuvat/pie.jpg" width="800px" height="300px" class="cakeImg2" alt="pastries">
+      </div>
+    </div>
+  </header>
+  <nav class="navbarClass" id="navbar">
+    <a href="1Etusivu_en.html" class="navItem">Home</a>
+    <a href="2AboutUs_en.html" class="navItem">About Us</a>
+    <div class="dropdown">
+      <button class="dropdown-toggle" id="menuButton">
+        Menu
+      </button>
+      <div class="dropdown-menu" id="menuDropdown">
+        <a class="dropdown-item" href="3MenuPage1_en.html">Cakes</a>
+        <a class="dropdown-item" href="3MenuPage2_en.html">Savory</a>
+        <a class="dropdown-item" href="3MenuPage3_en.html">Sweet</a>
+        <a class="dropdown-item" href="3MenuPage4_en.html">Hot Food</a>
+        <a class="dropdown-item" href="3MenuPage5_en.html">Drinks</a>
+      </div>
+    </div>
+    <a href="5Yhteydenotto_en.html" class="navItem">Contact Us</a>
+    <a href="6Poytavaraus_en.html" class="navItem">Reserve a Table</a>
+  </nav>
 
+  <div class="salty-section">
+    <h2>SAVORY DISHES</h2>
+
+    <input type="text" id="saltySearch" placeholder="Search for savory...">
+    <div class="filter-options">
+      <label for="saltyType">Select type:</label>
+      <select id="saltyType">
+        <option value="kaikki">All</option>
+        <option value="piirakat">Pies</option>
+        <option value="salaatit">Salads</option>
+        <option value="pasteijat">Pastries</option>
         <!-- Add -->
-
+      </select>
     </div>
 
-
-    <footer>
-        <p>&copy; S&A CAFE 2024</p>
-        <div class="changecontent">
+    <div class="salty-category">
+      <h3>Pies</h3>
+      <div class="salty-list">
+        <div class="salty-item">
+          <img src="piirakka1.jpg" alt="Savory pie 1">
+          <h4>Spinach-Feta Pie</h4>
+          <p>Fresh spinach and feta cheese in a delicious pie.</p>
+          <button>Add to cart</button>
         </div>
-    </footer>
+        <!-- Add -->
+      </div>
+    </div>
+    <div class="salty-category">
+      <h3>Salads</h3>
+      <div class="salty-list">
+        <div class="salty-item">
+          <img src="salaatti1.jpg" alt="Salad 1">
+          <h4>Greek Salad</h4>
+          <p>-</p>
+          <button>Add to cart</button>
+        </div>
+        <!-- Add -->
+      </div>
+    </div>
+    <div class="salty-category">
+      <h3>Pastries</h3>
+      <div class="salty-list">
+        <div class="salty-item">
+          <img src="pasteija1.jpg" alt="Pastry 1">
+          <h4>Ham and Cheese Pastry</h4>
+          <p>-</p>
+          <button>Add to cart</button>
+        </div>
+        <!-- Add -->
+      </div>
+    </div>
+
+    <!-- Add -->
+
+  </div>
+
+
+  <footer>
+    <p>&copy; S&A CAFE 2024</p>
+    <div class="changecontent">
+    </div>
+  </footer>
 </body>
 
 </html>

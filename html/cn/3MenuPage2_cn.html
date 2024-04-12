@@ -9,9 +9,31 @@
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
 
   <style>
+    .changecontent::after {
+      content: '';
+      color: rgb(192, 160, 122);
+      animation: changetext 10s infinite linear;
+      font-weight: bold;
+      margin: 10px;
+    }
+
+    @keyframes changetext {
+      0% {
+        content: "各种口味的美味蛋糕";
+      }
+
+      50% {
+        content: "品种繁多的冷热饮品";
+      }
+
+      100% {
+        content: "以及热食， 还有小零食！";
+      }
+    }
+
     /* footer */
 
-    .changecontent::after {
+    .changecontent2::after {
       content: "Tervetuloa kakkukahveille!";
       color: rgb(192, 160, 122);
       animation: changetext2 10s infinite linear;
@@ -21,23 +43,23 @@
 
     @keyframes changetext2 {
       20% {
-        content: "Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi!";
+        content: "加入会员， 第一次消费可享受15%的折扣!";
       }
 
       40% {
-        content: "Liittyminen on maksutonta";
+        content: "无需手续费";
       }
 
       60% {
-        content: "Luo unelmiesi kakku!";
+        content: "创建你的梦想蛋糕！";
       }
 
       80% {
-        content: "Kotiinkuljetus alkaen 2,95€";
+        content: "运费 2,95€";
       }
 
       100% {
-        content: "Tervetuloa kakkukahveille!";
+        content: "欢迎前来品尝！";
       }
     }
   </style>

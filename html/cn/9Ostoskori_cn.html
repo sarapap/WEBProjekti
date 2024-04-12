@@ -9,60 +9,60 @@
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
 
   <style>
-  .changecontent::after {
-    content: '';
-    color: rgb(192, 160, 122);
-    animation: changetext 10s infinite linear;
-    font-weight: bold;
-    margin: 10px;
-  }
-
-  @keyframes changetext {
-    0% {
-      content: "Herkullisia kakkuja";
+    .changecontent::after {
+      content: '';
+      color: rgb(192, 160, 122);
+      animation: changetext 10s infinite linear;
+      font-weight: bold;
+      margin: 10px;
     }
 
-    50% {
-      content: "Kylmää tai lämmintä juotavaa";
+    @keyframes changetext {
+      0% {
+        content: "各种口味的美味蛋糕";
+      }
+
+      50% {
+        content: "品种繁多的冷热饮品";
+      }
+
+      100% {
+        content: "以及热食， 还有小零食！";
+      }
     }
 
-    100% {
-      content: "Lämmintä ruokaa ja naposteltavaa";
-    }
-  }
+    /* footer */
 
-  /* footer */
-
-  .changecontent2::after {
-    content: "Tervetuloa kakkukahveille!";
-    color: rgb(192, 160, 122);
-    animation: changetext2 10s infinite linear;
-    margin: 10px;
-    font-weight: bold;
-  }
-
-  @keyframes changetext2 {
-    20% {
-      content: "Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi!";
-    }
-
-    40% {
-      content: "Liittyminen on maksutonta";
-    }
-
-    60% {
-      content: "Luo unelmiesi kakku!";
-    }
-
-    80% {
-      content: "Kotiinkuljetus alkaen 2,95€";
-    }
-
-    100% {
+    .changecontent2::after {
       content: "Tervetuloa kakkukahveille!";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
     }
-  }
-</style>
+
+    @keyframes changetext2 {
+      20% {
+        content: "加入会员， 第一次消费可享受15%的折扣!";
+      }
+
+      40% {
+        content: "无需手续费";
+      }
+
+      60% {
+        content: "创建你的梦想蛋糕！";
+      }
+
+      80% {
+        content: "运费 2,95€";
+      }
+
+      100% {
+        content: "欢迎前来品尝！";
+      }
+    }
+  </style>
 
   <script src="/javascript/9Ostoskori.js" defer></script>
 </head>
@@ -128,7 +128,9 @@
       <a href="6Poytavaraus_cn.html" class="navItem">预定</a>
     </nav>
     <div>
-      <h1><div class="changetext"></div></h1>
+      <h1>
+        <div class="changetext"></div>
+      </h1>
     </div>
 
     <div class="table">
@@ -142,6 +144,7 @@
           <th>Määrä</th>
           <th class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Roskakori"></th>
         </tr>
+
         <tr>
           <td><input type="checkbox" name="valinta" value="kakku"></td>
           <td><img src="" alt="">Tuote kuva</td>
@@ -150,6 +153,7 @@
           <td><input type="number" name="maara" value="1" min="1" max="10"></td>
           <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Roskakori"></td>
         </tr>
+
         <tr>
           <td><input type="checkbox" name="valinta" value="leivos"></td>
           <td><img src="" alt="">Tuote kuva</td>
@@ -158,6 +162,7 @@
           <td><input type="number" name="maara" value="1" min="1" max="10"></td>
           <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Roskakori"></td>
         </tr>
+
         <tr>
           <td><input type="checkbox" name="valinta" value="juoma"></td>
           <td><img src="" alt="">Tuote kuva</td>
@@ -166,8 +171,11 @@
           <td><input type="number" name="maara" value="1" min="1" max="10"></td>
           <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Roskakori"></td>
         </tr>
+
         <tr>
-          <td><td></td></td>
+          <td>
+          <td></td>
+          </td>
           <td>Yhdessä</td>
           <td>10€</td>
           <td></td>
@@ -175,8 +183,9 @@
         </tr>
       </table>
     </div>
+
     <div class="div-class">
-      <button type = "submit" class="pay_btn">Maksaa</button>
+      <button type="submit" class="pay_btn">Maksaa</button>
     </div>
 
     <footer class="footer-container">
