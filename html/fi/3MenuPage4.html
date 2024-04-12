@@ -14,7 +14,7 @@
         .changecontent::after {
             content: "Tervetuloa kakkukahveille!";
             color: rgb(192, 160, 122);
-            animation: changetext2 10s infinite linear;
+            animation: changetext 10s infinite linear;
             margin: 10px;
             font-weight: bold;
         }
@@ -52,7 +52,7 @@
             <nav class="icons">
                 <ul>
                     <li class="kieli">
-                      <label for="kieli">Valitse kieli: </label>
+                        <label for="kieli">Valitse kieli: </label>
                         <select id="kieli" onchange="changeLanguage(this.value)">
                             <option value="FI" selected>Suomi</option>
                             <option value="EN">Englanti</option>
