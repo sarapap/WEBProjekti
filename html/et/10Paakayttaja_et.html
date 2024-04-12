@@ -62,68 +62,68 @@
               content: "Tere tulemast kooki- ja kohvihommikule!";
           }
       }
-  </style>
+    </style>
 
-    <script src="/javascript/paakayttaja.js" defer></script>
-</head>
+      <script src="/javascript/default.js" defer></script>
+      <script src="/javascript/9Ostoskori.js" defer></script>
+    </head>
 
-<body>
-    <header>
+    <body>
+      <header>
         <div>
-            <nav class="icons">
-                <ul>
-                    <li class="kieli">
-                        <label for="kieli">Vali keel: </label>
-                        <select id="kieli" onchange="changeLanguage(this.value)">
-                            <option value="FI">Soome</option>
-                            <option value="EN">Inglise</option>
-                            <option value="CN">Hiina</option>
-                            <option value="ET" selected>Eesti</option>
-                            <option value="SV">Rootsi</option>
-                        </select>
-                    </li>
-                    <li>
-                        <a href="7Kayttaja_et.html">
-                            <span class="käyttäjä"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="8Suosikit_et.html">
-                            <span class="suosikit"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="9Ostoskori_et.html">
-                            <span class="ostoskori"></span>
-                        </a>
-                    </li>
-                </ul>
+          <nav class="icons">
+            <ul>
+              <li class="kieli">
+                <label for="kieli">Vali keel: </label>
+                <select id="kieli" onchange="changeLanguage(this.value)">
+                  <option value="FI">Soome</option>
+                  <option value="EN">Inglise</option>
+                  <option value="CN">Hiina</option>
+                  <option value="ET" selected>Eesti</option>
+                  <option value="SV">Rootsi</option>
+                </select>
+              </li>
+              <li>
+                <a href="7Kayttaja_et.html">
+                  <span class="käyttäjä"></span>
+                </a>
+              </li>
+              <li>
+                <a href="8Suosikit_et.html">
+                  <span class="suosikit"></span>
+                </a>
+              </li>
+               <li>
+                <a href="9Ostoskori_et.html">
+                  <span class="ostoskori"></span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
 
-            </nav>
-            <div class="image-container">
-                <a href="1Etusivu_et.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
-                <img src="../../css/kuvat/cakepic.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
-            </div>
+      <main>
+        <div class="image-container">
+          <a href="1Etusivu_et.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+            <img src="../../css/kuvat/cakepic.jpg" class="cakeImg" alt="cakes">
         </div>
-    </header>
-    <nav class="navbarClass" id="navbar">
-        <a href="1Etusivu_et.html" class="navItem">Esileht</a>
-        <a href="2AboutUs_et.html" class="navItem">Meist</a>
-        <div class="dropdown">
-            <button class="dropdown-toggle" id="menuButton">
-                Menüü
-            </button>
+
+        <nav id="navbar">
+          <a href="1Etusivu_et.html" class="navItem">Esileht</a>
+          <a href="2AboutUs_et.html" class="navItem">Meist</a>
+          <div class="dropdown">
+            <button class="dropdown-toggle" id="menuButton">Menüü</button>
             <div class="dropdown-menu" id="menuDropdown">
-                <a class="dropdown-item" href="3MenuPage1_et.html">Koogid</a>
-                <a class="dropdown-item" href="3MenuPage2_et.html">Soolane</a>
-                <a class="dropdown-item" href="3MenuPage3_et.html">Magus</a>
-                <a class="dropdown-item" href="3MenuPage4_et.html">Soojendav toit</a>
-                <a class="dropdown-item" href="3MenuPage5_et.html">Jook</a>
-            </div>
-        </div>
-        <a href="5Yhteydenotto_et.html" class="navItem">Võta meiega ühendust</a>
-        <a href="6Poytavaraus_et.html" class="navItem">Laua broneerimine</a>
-    </nav>
+            <a class="dropdown-item" href="3MenuPage1_et.html">Koogid</a>
+            <a class="dropdown-item" href="3MenuPage2_et.html">Soolane</a>
+            <a class="dropdown-item" href="3MenuPage3_et.html">Magus</a>
+            <a class="dropdown-item" href="3MenuPage4_et.html">Soojendav toit</a>
+            <a class="dropdown-item" href="3MenuPage5_et.html">Jook</a>
+            <a href="5Yhteydenotto_et.html" class="navItem">Võta meiega ühendust</a>
+            <a href="6Poytavaraus_et.html" class="navItem">Laua broneerimine</a>
+          </div>
+        </nav>
 
     <main>
         <div class="login" id="login-id">
