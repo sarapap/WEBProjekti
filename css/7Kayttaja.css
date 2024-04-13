@@ -51,7 +51,7 @@ header {
 }
 
 .cakeImg {
-
+  box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
   width: 80%;
   height: 300px;
 }
@@ -185,18 +185,15 @@ nav li {
   ;
 }
 
-/* main */
-.main {
+/* etusivu */
+.etusivu {
   width: 90%;
   display: flex;
   min-height: 100vh;
   margin: 20px 0px 20px 0px;
-  text-align: center;
-  border-radius: 1rem;
 
 }
 
-/* kirjautuminen */
 .aside1 {
   height: auto;
   background-color: rgb(233, 220, 204);
@@ -204,10 +201,57 @@ nav li {
   text-align: center;
   font-size: 20px;
   box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
+  width: 70%;
   height: 100%;
-  padding: 30px;
-  border-radius: 0.5rem;
-  margin-left: 5%;
+  padding: 10px;
+
+}
+.kuvat {
+  height: 200px;
+  background: none;
+  justify-content: center;
+  display: block;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 50px;
+  height: fit-content;
+}
+
+
+.tiedostot {
+display: inline-block;
+width: 100px;
+height: 100px;
+margin: 7px;
+background-image: url('kuvat/tietosdot.png');
+background-size: cover;
+
+}
+
+.tilaus {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 7px;
+  background-image: url('kuvat/tilaus.png');
+  background-size: cover;
+
+}
+
+.kupongit {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 7px;
+  background-image: url('kuvat/kupongit.png');
+  background-size: cover;
+
+}
+
+.aside1 {
+  text-align: center;
+  font-size: 20px;
+  height: 100%;
+  border-radius: 2rem;
   margin-top: 30px;
 
 }
@@ -220,6 +264,7 @@ nav li {
   border-radius: 10px;
   padding: 20px;
   margin-left: 5%;
+  margin-top: 30px;
 }
 
 .login-form label {
@@ -246,17 +291,9 @@ button {
   color: white;
 }
 
-label {
-  font-family: 'Times New Roman', Times, serif;
-}
-
-p {
-  font-family: 'Times New Roman', Times, serif;
-}
-
 .checkbox-container {
   text-align: left;
-  margin-bottom: 10px;
+  margin-bottom: 10;
 }
 
 .radio-container {
@@ -264,18 +301,55 @@ p {
   margin-top: 10px;
 }
 
-/* media */
 
-@media screen and (min-width: 800px) {
+.content p {
+  font-weight: bold;
+  margin-bottom: 50px;
+}
 
+.content h2 {
+  font-size: 50px;
+  text-shadow: 1px 1px 1px black;
+  margin-bottom: 40px;
+}
+
+.kuvaus {
+  padding: 20px;
+  font-size: 17px;
+}
+
+footer {
+  margin: 25px 10px 0px 25px;
+  padding: 5px;
+  text-align: center;
+  background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
+  box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
+
+}
+
+.footer {
+  margin: 0px 0px 0px 20px;
+  text-align: left;
+  color: #827777;
+  font-size: small;
+}
+
+/* media*/
+
+@media screen and (min-width: 801px) {
+  .main {
+    height: auto;
+    width: 90%;
+    display: flex;
+  }
 
   .aside1 {
-    width: 90%;
+    width: 40%;
     margin-bottom: 2rem;
   }
 
   .aside2 {
-    width: 100%;
+    width: 60%;
     margin-bottom: 10rem;
 
   }
@@ -299,37 +373,11 @@ p {
   }
 }
 
-@media screen and (min-width:801px) {
-  .etusivu {
+@media screen and (max-width:800px) {
+
+  .main {
     height: auto;
     display: flex;
-    flex-direction: row;
-    width: 90%;
-  }
-
-  .cakeImg {
-    width: 80%
-  }
-
-  .aside1 {
-    width: 35%;
-
-  }
-
-  .aside2 {
-    width: 55%;
-    height: auto;
-  }
-
-  .footer-container {
-    margin: 0;
-  }
-}
-
-@media (max-width: 800px) {
-  .main {
-    min-height: 100vh;
-    display: block;
   }
 
   .icons ul li {
@@ -344,33 +392,26 @@ p {
   }
 
   .logo {
-    width: 200px;
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  .cakeImg {
+    width: 80%
   }
 
   .aside1 {
-    width: 90%;
-    margin-bottom: 2rem;
+    width: 35%;
+
   }
 
   .aside2 {
-    width: 100%;
-    margin-bottom: 10rem;
-
+    width: 60%;
+    height: auto;
   }
 
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-  }
-
-  button {
-    margin-top: 0.5rem;
-  }
-
-  input,
-  button {
-    appearance: 0.5rem;
+  .footer-container {
+    margin: 0;
   }
 }
 
