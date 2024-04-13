@@ -266,7 +266,7 @@ p {
 
 /* media */
 
-@media screen and (min-width: 800px) {
+@media screen and (max-width: 800px) {
 
 
   .aside1 {
@@ -281,8 +281,8 @@ p {
   }
 
   form {
-    display: flex;
-    flex-direction: column;
+    display: block;
+
   }
 
   input label {
@@ -306,7 +306,9 @@ p {
     flex-direction: row;
     width: 90%;
   }
-
+  .logo {
+    width:30%;
+  }
   .cakeImg {
     width: 80%
   }

@@ -198,7 +198,7 @@ position: relative;
   display: inline-block;
   width: 150px;
   height: 150px;
-  margin-bottom: 30px;
+  margin: 30px;
 
   background-image: url('kuvat/tietosdot.png');
   background-size: cover;
@@ -308,8 +308,6 @@ footer {
 
   .aside2 {
     width: 60%;
-    margin-bottom: 10rem;
-
   }
 
   form {
@@ -332,10 +330,15 @@ footer {
 }
 
 @media screen and (max-width:800px) {
+  .aside1 {
+    width: 90%;
+    margin-bottom: 2rem;
+  }
 
-  .main {
-    height: auto;
-    display: flex;
+  .aside2 {
+    width: 100%;
+    margin-bottom: 10rem;
+
   }
 
   .icons ul li {
@@ -363,6 +366,11 @@ footer {
 
   }
 
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
   .aside2 {
     width: 60%;
     height: auto;
@@ -373,12 +381,13 @@ footer {
   }
 }
 
-@media (min-width: 500.1px) {
+@media (min-width: 650px) {
   form {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 2rem;
   }
+  .aside1
 
   .checkbox-container {
     grid-column: 2 / -1;
