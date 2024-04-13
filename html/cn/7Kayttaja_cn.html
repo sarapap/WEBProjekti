@@ -206,13 +206,85 @@
 
         </form>
       </div>
+      <main class="main">
+        <div class="aside1" id="login-id">
+          <form action="https://10.120.32.94/test/form-submission/" method="post">
+            <label for="login-username"><b>Käyttäjätunnus</b></label>
+            <input type="text" name="login-username" id="login-username" placeholder="Syötä käyttäjätunnus" required
+              autofocus />
 
-      <footer>
-        <p>&copy; S&A CAFE 2024</p>
-        <div class="changecontent">
+            <label for="login-password"><b>Salasana</b></label>
+            <input type="password" name="login-password" id="login-password" placeholder="Syötä salasana" required
+              autofocus />
+
+            <button id="button1" type="submit">Kirjaudu</button>
+          </form>
         </div>
-      </footer>
-    </main>
+
+        <div class="aside2" id="register-id">
+
+          <p class="kayttajaP">Jos sinulla ei ole vielä käyttäjää, voit rekisteröityä tästä.</p>
+          <p>Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi. Liittyminen on
+            maksutonta. </p>
+          <hr><br>
+          <form action="https://10.120.32.94/test/form-submission/" method="post">
+            <label for="firstname">Etunimi: *</label>
+            <input type="text" name="firstname" id="firstname" placeholder="Etunimi" required autofocus />
+
+            <label for="lastname">Sukunimi: *</label>
+            <input type="text" name="lastname" id="lastname" placeholder="Sukunimi" required autofocus />
+
+            <label for="name">Käyttäjätunnus: *</label>
+            <input type="text" name="name" id="name" placeholder="Käyttäjätunnus" required autofocus />
+
+            <label for="password">
+              Salasana: *
+            </label>
+            <input class="myPasswordField" name="password" type="password" id="password" placeholder="Salasana" required
+              autofocus />
+
+            <label for="email">
+              Sähköposti: *
+            </label>
+            <input type="email" id="email" name="email" placeholder="Sähköposti" required autofocus />
+
+            <label for="email">
+              Puhelinnumero: *
+            </label>
+            <input type="phone" id="phone" name="phone" placeholder="Puhelinnumero" required autofocus />
+
+            <label for="today">
+              Syntymäaika:
+            </label>
+            <input type="date" name="date" id="today" />
+
+            <label for="allergia">Ruoka-allergiat:</label>
+            <textarea name="allergia" id="allergia"></textarea>
+
+            <div class="checkbox-container">
+              <input type="checkbox" id="accept-1" name="accept" value="1">
+              <label for="accept-1">Hyväksyt verkkokaupan ehdot</label><br>
+              <input type="checkbox" id="accept-2" name="accept" value="1">
+              <label for="accept-2">Minulle saa lähettää markkinointiviestejä sähköpostitse</label><br><br>
+              Alennus ryhmä: <br />
+              <input type="radio" id="opiskelija" name="status" value="1">
+              <label for="opiskelija">Opiskelija</label>
+              <input type="radio" id="ope" name="status" value="1">
+              <label for="elakelainen">Eläkeläinen</label>
+            </div>
+
+            <button type="submit">Rekisteröidy</button>
+            <button type="reset">Tyhjennä lomake</button>
+          </form>
+          <footer>
+            <p>&copy; S&A CAFE 2024</p>
+            <div class="changecontent">
+            </div>
+          </footer>
+      </main>
+      <hr>
+
+
 
 </body>
 
