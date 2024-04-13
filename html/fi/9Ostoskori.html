@@ -9,28 +9,6 @@
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
 
   <style>
-    .changecontent::after {
-      content: '';
-      color: rgb(192, 160, 122);
-      animation: changetext 10s infinite linear;
-      font-weight: bold;
-      margin: 10px;
-    }
-
-    @keyframes changetext {
-      0% {
-        content: "Herkullisia kakkuja";
-      }
-
-      50% {
-        content: "Kylmää tai lämmintä juotavaa";
-      }
-
-      100% {
-        content: "Lämmintä ruokaa ja naposteltavaa";
-      }
-    }
-
     /* footer */
 
     .changecontent2::after {
@@ -128,7 +106,9 @@
       <a href="6Poytavaraus.html" class="navItem">Varaa pöytä</a>
     </nav>
     <div>
-      <h1><div class="changetext"></div></h1>
+      <h1>
+        <div class="changetext"></div>
+      </h1>
     </div>
 
     <div class="table">
@@ -167,7 +147,9 @@
           <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Roskakori"></td>
         </tr>
         <tr>
-          <td><td></td></td>
+          <td>
+          <td></td>
+          </td>
           <td>Yhteensä</td>
           <td>10€</td>
           <td></td>
@@ -176,20 +158,16 @@
       </table>
     </div>
     <div class="div-class">
-      <button type = "submit" class="pay_btn">Maksa</button>
+      <button type="submit" class="pay_btn">Maksa</button>
     </div>
 
     <footer class="footer-container">
       <p class="footerP">&copy; S&A CAFE 2024</p>
       <div class="changecontent2">
       </div>
-      <div class="footer">
-        <a href="paakayttaja.html">Pääkäyttäjän Tietohallinta</a><br>
-        <p></p>
-        <a href="palaute.html">Palaute</a>
-      </div>
     </footer>
 
   </main>
 </body>
+
 </html>

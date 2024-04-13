@@ -44,10 +44,10 @@ header {
 }
 
 .logo {
-width:90%;
-height:240px;
-padding: 7% 0;
-margin-right: 20px;
+  width: 90%;
+  height: 240px;
+  padding: 7% 0;
+  margin-right: 20px;
 }
 
 .cakeImg {
@@ -83,6 +83,19 @@ margin-right: 20px;
   background-size: cover;
 }
 
+.kieli {
+  margin: 7px -10px 0px 0px;
+}
+
+#kieli {
+  background-color: rgb(192, 160, 122);
+  color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
 /* navigation bar */
 
 a {
@@ -105,7 +118,7 @@ nav ul {
   display: flex;
   list-style: none;
   justify-content: right;
-} */
+}
 
 nav li {
   margin-left: 20px;
@@ -127,10 +140,12 @@ nav li {
 }
 
 .dropdown {
-flex-grow: 1; /* Tämä laajentaa dropdown-elementin samalle leveydelle kuin muut navItem-elementit */
-display: flex;
-justify-content: center; /* Keskittää dropdownin sisällön */
-position: relative;
+  flex-grow: 1;
+  /* Tämä laajentaa dropdown-elementin samalle leveydelle kuin muut navItem-elementit */
+  display: flex;
+  justify-content: center;
+  /* Keskittää dropdownin sisällön */
+  position: relative;
 }
 
 .dropdown-menu {
@@ -139,8 +154,8 @@ position: relative;
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  top:100%;
-  left:0;
+  top: 100%;
+  left: 0;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -169,7 +184,8 @@ position: relative;
 }
 
 .dropdown-menu a:hover {
-  background-color: #eceae9;;
+  background-color: #eceae9;
+  ;
 }
 
 /* table */
@@ -209,7 +225,8 @@ position: relative;
   border-collapse: collapse;
 }
 
-.table table th, .table table td {
+.table table th,
+.table table td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
@@ -242,10 +259,11 @@ position: relative;
   background-size: cover;
 
 }
+
 .delete-btn {
   display: flex;
   justify-content: center;
-  height: 100%; /* Varmista, että kuvake täyttää koko solun */
+  height: 100%;
 }
 
 .pay_btn {
@@ -256,7 +274,7 @@ position: relative;
   padding: 10px;
   border-radius: 1rem;
   font-size: large;
-  margin-top: 10px;
+  margin-bottom: 20px;
   border: none;
   box-shadow: 0 15px 25px 0 rgba(117, 115, 111, 0.939)
 }
@@ -269,47 +287,30 @@ position: relative;
 
 /* footer */
 
-.changecontent::after {
-content: "Tervetuloa kakkukahveille!";
-color: rgb(192, 160, 122);
-animation: changetext2 10s infinite linear;
-margin: 10px;
-font-weight: bold;
-}
-
-.div-class {
-  text-align: right;
-}
-
 footer {
-margin: 25px 10px 0px 25px;
-padding: 5px;
-text-align: center;
-background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
-box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
+  margin: 25px 10px 0px 25px;
+  padding: 5px;
+  text-align: center;
+  background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
+  box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
 }
 
-.footer{
-margin: 20px 0px 0px 20px;
-text-align: left;
-color: #827777;
-font-size: small;
-}
+/* media */
 
 @media screen and (min-width:801px) {
-.table {
-  height: auto;
-  width: 100%;
-  padding-bottom: 5%;
-}
+  .table {
+    height: auto;
+    width: 100%;
+    padding-bottom: 5%;
+  }
 
-.cakeImg {
-  width:  80%
-}
+  .cakeImg {
+    width: 80%
+  }
 
-.footer-container {
-  margin: 0;
-}
+  .footer-container {
+    margin: 0;
+  }
 }
 
 @media screen and (max-width:800px) {
@@ -318,29 +319,29 @@ font-size: small;
     padding-bottom: 5%;
   }
 
-.icons ul li {
-  display: block;
-  text-align: center;
-  margin-bottom: 10px;
-}
+  .icons ul li {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+  }
 
-.icons ul li a {
-  display: block;
-  padding: 5px;
-}
+  .icons ul li a {
+    display: block;
+    padding: 5px;
+  }
 
-.logo {
-  position: static;
-  margin-bottom: 20px;
-}
+  .logo {
+    position: static;
+    margin-bottom: 20px;
+  }
 
-.cakeImg {
-  margin-top: 0;
-}
+  .cakeImg {
+    margin-top: 0;
+  }
 
-.footer-container {
-  margin: 0;
-}
+  .footer-container {
+    margin: 0;
+  }
 }
 
 @media screen and (max-width:534px) {
@@ -348,12 +349,14 @@ font-size: small;
     width: 100%;
     padding-bottom: 5%;
   }
-.content h2 {
-  font-size: 30px;
+
+  .content h2 {
+    font-size: 30px;
+  }
 }
-}
+
 @media screen and (max-width:330px) {
   .content h2 {
-      font-size: 20px;
+    font-size: 20px;
   }
 }

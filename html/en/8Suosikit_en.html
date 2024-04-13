@@ -2,45 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../css/8Suosikit.css" rel="stylesheet">
-    <title>S&A CAFE</title>
-    <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../css/8Suosikit.css" rel="stylesheet">
+  <title>S&A CAFE</title>
 
-    <style>
-      .changecontent::after {
-          content: "Welcome to enjoy cake and coffee!";
-          color: rgb(192, 160, 122);
-          animation: changetext2 10s infinite linear;
-          margin: 10px;
-          font-weight: bold;
+  <style>
+    .changecontent::after {
+      content: "Welcome to enjoy cake and coffee!";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    @keyframes changetext2 {
+      20% {
+        content: "Join our loyalty program and get 15% off your first order!";
       }
 
-      @keyframes changetext2 {
-          20% {
-              content: "Join our loyalty program and get 15% off your first order!";
-          }
-
-          40% {
-              content: "Membership is free";
-          }
-
-          60% {
-              content: "Create your dream cake!";
-          }
-
-          80% {
-              content: "Home delivery starting from €2.95";
-          }
-
-          100% {
-              content: "Welcome to enjoy cake and coffee!";
-          }
+      40% {
+        content: "Membership is free";
       }
+
+      60% {
+        content: "Create your dream cake!";
+      }
+
+      80% {
+        content: "Home delivery starting from €2.95";
+      }
+
+      100% {
+        content: "Welcome to enjoy cake and coffee!";
+      }
+    }
+  </style>
+
+  <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+
+  <style>
+    .changecontent::after {
+      content: "Welcome to enjoy cake and coffee!";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    @keyframes changetext2 {
+      20% {
+        content: "Join our loyalty program and get 15% off your first order!";
+      }
+
+      40% {
+        content: "Membership is free";
+      }
+
+      60% {
+        content: "Create your dream cake!";
+      }
+
+      80% {
+        content: "Home delivery starting from €2.95";
+      }
+
+      100% {
+        content: "Welcome to enjoy cake and coffee!";
+      }
+    }
   </style>
   <script src="/javascript/default.js"></script>
-    <script src="/javascript/8Suosikit.js" defer></script>
+  <script src="/javascript/8Suosikit.js" defer></script>
 </head>
 
 <body>
@@ -70,7 +103,7 @@
           </li>
           <li>
             <a href="9Ostoskori_en.html">
-               <span class="ostoskori"></span>
+              <span class="ostoskori"></span>
             </a>
           </li>
         </ul>
@@ -81,55 +114,54 @@
 
   <main>
     <nav class="navbarClass" id="navbar">
-        <a href="1Etusivu_en.html" class="navItem">Home</a>
-        <a href="2AboutUs_en.html" class="navItem">About Us</a>
-        <div class="dropdown">
-            <button class="dropdown-toggle" id="menuButton">
-                Menu
-            </button>
-            <div class="dropdown-menu" id="menuDropdown">
-                <a class="dropdown-item" href="3MenuPage1_en.html">Cakes</a>
-                <a class="dropdown-item" href="3MenuPage2_en.html">Savory</a>
-                <a class="dropdown-item" href="3MenuPage3_en.html">Sweet</a>
-                <a class="dropdown-item" href="3MenuPage4_en.html">Hot Food</a>
-                <a class="dropdown-item" href="3MenuPage5_en.html">Drinks</a>
-            </div>
+      <a href="1Etusivu_en.html" class="navItem">Home</a>
+      <a href="2AboutUs_en.html" class="navItem">About Us</a>
+      <div class="dropdown">
+        <button class="dropdown-toggle" id="menuButton">
+          Menu
+        </button>
+        <div class="dropdown-menu" id="menuDropdown">
+          <a class="dropdown-item" href="3MenuPage1_en.html">Cakes</a>
+          <a class="dropdown-item" href="3MenuPage2_en.html">Savory</a>
+          <a class="dropdown-item" href="3MenuPage3_en.html">Sweet</a>
+          <a class="dropdown-item" href="3MenuPage4_en.html">Hot Food</a>
+          <a class="dropdown-item" href="3MenuPage5_en.html">Drinks</a>
         </div>
-        <a href="5Yhteydenotto_en.html" class="navItem">Contact Us</a>
-        <a href="6Poytavaraus_en.html" class="navItem">Reserve a Table</a>
+      </div>
+      <a href="5Yhteydenotto_en.html" class="navItem">Contact Us</a>
+      <a href="6Poytavaraus_en.html" class="navItem">Reserve a Table</a>
     </nav>
 
     <div class="table">
-      <h1>Suosikit</h1>
+      <h1>Favorites</h1>
       <table>
         <tr>
-          <th>Tuote kuva</th>
-          <th>Tuote kuvaus</th>
-          <th>Hinta</th>
-          <th>Pois listasta</th>
+          <th>Product Image</th>
+          <th>Product Description</th>
+          <th>Price</th>
+          <th>Remove from Favorites</th>
         </tr>
         <tr>
-         <td>
-            <div >
-            <img src="../../css/kuvat/cake_piece.jpg" alt="tuote Kuva" class="class="image-container"">
-            <i class="fas fa-heart"></i>
+          <td>
+            <div>
+              <img src="../../css/kuvat/cake_piece.jpg" alt="Product image" class="image-container">
+              <i class="fas fa-heart"></i>
             </div>
           </td>
-
-          <td>Kakkupala</td>
+          <td>Cake slice</td>
           <td>5€</td>
-          <td class="delete-btn"><img src="../../css/kuvat/heart_red.png" alt="Roskakori" style="width: 35px; height: 30px; padding-left: 30px;"></td>
+          <td class="delete-btn"><img src="../../css/kuvat/heart_red.png" alt="Trash can"
+              style="width: 35px; height: 30px; padding-left: 30px;"></td>
         </tr>
       </table>
 
-      <h1>Suosikimme</h1>
+      <h1>Our Favorites</h1>
       <div class="image-box table2">
         <div class="image-container">
-          <img src="../../css/kuvat/cakepic.jpg" alt="Kuva 1">
-          <img src="../../css/kuvat/cake_piece.jpg" alt="Kuva 2">
-
-          <img src="../../css/kuvat/straberry_cake.jpg" alt="Kuva 4">
-          <img src="../../css/kuvat/pink_dream.jpg" alt="Kuva 5">
+          <img src="../../css/kuvat/cakepic.jpg" alt="Image 1">
+          <img src="../../css/kuvat/cake_piece.jpg" alt="Image 2">
+          <img src="../../css/kuvat/straberry_cake.jpg" alt="Image 4">
+          <img src="../../css/kuvat/pink_dream.jpg" alt="Image 5">
         </div>
         <button class="prev-button">&lt;</button>
         <button class="next-button">&gt;</button>
@@ -139,9 +171,10 @@
     <footer class="footer-container">
       <p class="footerP">&copy; S&A CAFE 2024</p>
       <div class="changecontent"></div>
-
     </footer>
-  </main>
+
+
 
 </body>
+
 </html>

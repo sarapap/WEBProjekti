@@ -9,72 +9,71 @@
     <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
 
     <style>
-      .changecontent::after {
-          content: '';
-          color: rgb(192, 160, 122);
-          animation: changetext 10s infinite linear;
-          font-weight: bold;
-          margin: 10px;
-      }
+        .changecontent::after {
+            content: '';
+            color: rgb(192, 160, 122);
+            animation: changetext 10s infinite linear;
+            font-weight: bold;
+            margin: 10px;
+        }
 
-      @keyframes changetext {
-          0% {
-              content: "Maitsvad kookid";
-          }
+        @keyframes changetext {
+            0% {
+                content: "Maitsvad kookid";
+            }
 
-          50% {
-              content: "Külmad või sooja jooke";
-          }
+            50% {
+                content: "Külmad või sooja jooke";
+            }
 
-          100% {
-              content: "Sooja toitu ja näksimist";
-          }
-      }
+            100% {
+                content: "Sooja toitu ja näksimist";
+            }
+        }
 
-      /* footer */
+        /* footer */
 
-      .changecontent2::after {
-          content: "Tere tulemast kooki- ja kohvihommikule!";
-          color: rgb(192, 160, 122);
-          animation: changetext2 10s infinite linear;
-          margin: 10px;
-          font-weight: bold;
-      }
+        .changecontent2::after {
+            content: "Tere tulemast kooki- ja kohvihommikule!";
+            color: rgb(192, 160, 122);
+            animation: changetext2 10s infinite linear;
+            margin: 10px;
+            font-weight: bold;
+        }
 
-      @keyframes changetext2 {
-          20% {
-              content: "Liitu püsikliendiks ja saa 15% soodustust esimeselt tellimuselt!";
-          }
+        @keyframes changetext2 {
+            20% {
+                content: "Liitu püsikliendiks ja saa 15% soodustust esimeselt tellimuselt!";
+            }
 
-          40% {
-              content: "Liitumine on tasuta";
-          }
+            40% {
+                content: "Liitumine on tasuta";
+            }
 
-          60% {
-              content: "Loo oma unistuste kook!";
-          }
+            60% {
+                content: "Loo oma unistuste kook!";
+            }
 
-          80% {
-              content: "Kohaletoimetamine alates 2,95€";
-          }
+            80% {
+                content: "Kohaletoimetamine alates 2,95€";
+            }
 
-          100% {
-              content: "Tere tulemast kooki- ja kohvihommikule!";
-          }
-      }
-  </style>
+            100% {
+                content: "Tere tulemast kooki- ja kohvihommikule!";
+            }
+        }
+    </style>
     <script src="/javascript/default.js" defer></script>
     <script src="/javascript/8Suosikit.js" defer></script>
 </head>
 
 <body>
-  <main>
     <header>
         <div>
             <nav class="icons">
                 <ul>
                     <li class="kieli">
-                        <label for="kieli">Keel: </label>
+                        <label for="kieli">Vali keel: </label>
                         <select id="kieli" onchange="changeLanguage(this.value)">
                             <option value="FI">Soome</option>
                             <option value="EN">Inglise</option>
@@ -85,17 +84,17 @@
                     </li>
                     <li>
                         <a href="11Login_et.html">
-                            <span class="kasutaja"></span>
+                            <span class="käyttäjä"></span>
                         </a>
                     </li>
                     <li>
                         <a href="8Suosikit_et.html">
-                            <span class="lemmikud"></span>
+                            <span class="suosikit"></span>
                         </a>
                     </li>
                     <li>
                         <a href="9Ostoskori_et.html">
-                            <span class="ostukorv"></span>
+                            <span class="ostoskori"></span>
                         </a>
                     </li>
                 </ul>
@@ -103,7 +102,8 @@
             </nav>
         </div>
     </header>
-    <nav class="navbarClass" id="navbar">
+
+    <nav id="navbar">
         <a href="1Etusivu_et.html" class="navItem">Esileht</a>
         <a href="2AboutUs_et.html" class="navItem">Meist</a>
         <div class="dropdown">
@@ -123,51 +123,46 @@
     </nav>
 
     <div class="table">
-      <h1>Suosikit</h1>
-      <table>
-        <tr>
-          <th>Tuote kuva</th>
-          <th>Tuote kuvaus</th>
-          <th>Hinta</th>
-          <th>Pois listasta</th>
-        </tr>
-        <tr>
-         <td>
-            <div >
-              <img src="../../css/kuvat/cake_piece.jpg" alt="tuote Kuva" class="class="image-container"">
-              <i class="fas fa-heart"></i>
+        <h1>Lemmikud</h1>
+        <table>
+            <tr>
+                <th>Toote pilt</th>
+                <th>Toote kirjeldus</th>
+                <th>Hind</th>
+                <th>Eemalda lemmikutest</th>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <img src="../../css/kuvat/cake_piece.jpg" alt="Tootepilt" class="image-container">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </td>
+
+                <td>Küpsise tükk</td>
+                <td>5€</td>
+                <td class="delete-btn"><img src="../../css/kuvat/heart_red.png" alt="Prügikast"
+                        style="width: 35px; height: 30px; padding-left: 30px;"></td>
+            </tr>
+        </table>
+
+        <h1>Meie lemmikud</h1>
+        <div class="image-box table2">
+            <div class="image-container">
+                <img src="../../css/kuvat/cakepic.jpg" alt="Pilt 1">
+                <img src="../../css/kuvat/cake_piece.jpg" alt="Pilt 2">
+                <img src="../../css/kuvat/straberry_cake.jpg" alt="Pilt 4">
+                <img src="../../css/kuvat/pink_dream.jpg" alt="Pilt 5">
             </div>
-          </td>
-
-          <td>Kakkupala</td>
-          <td>5€</td>
-          <td class="delete-btn"><img src="../../css/kuvat/heart_red.png" alt="Roskakori" style="width: 35px; height: 30px; padding-left: 30px;"></td>
-        </tr>
-      </table>
-
-      <h1>Suosikimme</h1>
-      <div class="image-box table2">
-        <div class="image-container">
-          <img src="../../css/kuvat/cakepic.jpg" alt="Kuva 1">
-          <img src="../../css/kuvat/cake_piece.jpg" alt="Kuva 2">
-          <img src="../../css/kuvat/straberry_cake.jpg" alt="Kuva 4">
-          <img src="../../css/kuvat/pink_dream.jpg" alt="Kuva 5">
+            <button class="prev-button">&lt;</button>
+            <button class="next-button">&gt;</button>
         </div>
-        <button class="prev-button">&lt;</button>
-        <button class="next-button">&gt;</button>
-      </div>
     </div>
 
     <footer class="footer-container">
-      <p class="footerP">&copy; S&A CAFE 2024</p>
-      <div class="changecontent2"></div>
-      <div class="footer">
-        <a href="paakayttaja.html">Pääkäyttäjän Tietohallinta</a><br>
-        <p></p>
-        <a href="palaute.html">Palute</a>
-      </div>
+        <p class="footerP">&copy; S&A KAFEE 2024</p>
+        <div class="changecontent2"></div>
     </footer>
 
-  </main>
-</body>
+
 </html>

@@ -9,58 +9,36 @@
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
 
   <style>
-    .changecontent::after {
-        content: '';
-        color: rgb(192, 160, 122);
-        animation: changetext 10s infinite linear;
-        font-weight: bold;
-        margin: 10px;
-    }
-
-    @keyframes changetext {
-        0% {
-            content: "Läckra kakor";
-        }
-
-        50% {
-            content: "Kalla eller varma drycker";
-        }
-
-        100% {
-            content: "Varm mat och snacks";
-        }
-    }
-
     /* footer */
 
-    .changecontent2::after {
-        content: "Välkommen till kak- och kaffemorgon!";
-        color: rgb(192, 160, 122);
-        animation: changetext2 10s infinite linear;
-        margin: 10px;
-        font-weight: bold;
+    .changecontent::after {
+      content: "Välkommen till kak- och kaffemorgon!";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
     }
 
     @keyframes changetext2 {
-        20% {
-            content: "Bli stamkund och få 15% rabatt på din första beställning!";
-        }
+      20% {
+        content: "Bli stamkund och få 15% rabatt på din första beställning!";
+      }
 
-        40% {
-            content: "Medlemskap är gratis";
-        }
+      40% {
+        content: "Medlemskap är gratis";
+      }
 
-        60% {
-            content: "Skapa din drömkaka!";
-        }
+      60% {
+        content: "Skapa din drömkaka!";
+      }
 
-        80% {
-            content: "Hemleverans från 2,95€";
-        }
+      80% {
+        content: "Hemleverans från 2,95€";
+      }
 
-        100% {
-            content: "Välkommen till kak- och kaffemorgon!";
-        }
+      100% {
+        content: "Välkommen till kak- och kaffemorgon!";
+      }
     }
   </style>
 
@@ -70,125 +48,126 @@
 
 <body>
   <header>
-      <div>
-          <nav class="icons">
-              <ul>
-                  <li class="kieli">
-                      <label for="kieli">Välj språk: </label>
-                      <select id="kieli" onchange="changeLanguage(this.value)">
-                          <option value="FI">Finska</option>
-                          <option value="EN">Engelska</option>
-                          <option value="CN">Kinesiska</option>
-                          <option value="ET">Estniska</option>
-                          <option value="SV" selected>Svenska</option>
-                      </select>
-                  </li>
-                  <li>
-                      <a href="11Login_sv.html">
-                          <span class="käyttäjä"></span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="8suosikit_sv.html">
-                          <span class="suosikit"></span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="9Ostoskori_sv.html">
-                          <span class="ostoskori"></span>
-                      </a>
-                  </li>
-              </ul>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">Välj språk: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI">Finska</option>
+              <option value="EN">Engelska</option>
+              <option value="CN">Kinesiska</option>
+              <option value="ET">Estniska</option>
+              <option value="SV" selected>Svenska</option>
+            </select>
+          </li>
+          <li>
+            <a href="11Login_sv.html">
+              <span class="käyttäjä"></span>
+            </a>
+          </li>
+          <li>
+            <a href="8suosikit_sv.html">
+              <span class="suosikit"></span>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori_sv.html">
+              <span class="ostoskori"></span>
+            </a>
+          </li>
+        </ul>
 
-          </nav>
-          <div class="image-container">
-              <a href="1Etusivu_sv.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
-              <img src="../../css/kuvat/cakepic.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
-          </div>
+      </nav>
+      <div class="image-container">
+        <a href="1Etusivu_sv.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+        <img src="../../css/kuvat/cakepic.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
       </div>
+    </div>
   </header>
   <nav class="navbarClass" id="navbar">
-      <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
-      <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
-      <div class="dropdown">
-          <button class="dropdown-toggle" id="menuButton">
-              Meny
-          </button>
-          <div class="dropdown-menu" id="menuDropdown">
-              <a class="dropdown-item" href="3MenuPage1_sv.html">Tårtor</a>
-              <a class="dropdown-item" href="3MenuPage2_sv.html">Salt</a>
-              <a class="dropdown-item" href="3MenuPage3_sv.html">Sött</a>
-              <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
-              <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
-          </div>
+    <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
+    <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
+    <div class="dropdown">
+      <button class="dropdown-toggle" id="menuButton">
+        Meny
+      </button>
+      <div class="dropdown-menu" id="menuDropdown">
+        <a class="dropdown-item" href="3MenuPage1_sv.html">Tårtor</a>
+        <a class="dropdown-item" href="3MenuPage2_sv.html">Salt</a>
+        <a class="dropdown-item" href="3MenuPage3_sv.html">Sött</a>
+        <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
+        <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
       </div>
-      <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
-      <a href="6Poytavaraus_sv.html" class="navItem">Boka bord</a>
+    </div>
+    <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
+    <a href="6Poytavaraus_sv.html" class="navItem">Boka bord</a>
   </nav>
 
-    <div>
-      <h1><div class="changetext"></div></h1>
-    </div>
+  <div>
+    <h1>
+      <div class="changetext"></div>
+    </h1>
+  </div>
 
-    <div class="table">
-      <h1>Oskoskori</h1>
-      <table>
-        <tr>
-          <th>Valitse</th>
-          <th>Tuote kuva</th>
-          <th>Tuote nimi</th>
-          <th>Hinta</th>
-          <th>Määrä</th>
-          <th class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Roskakori"></th>
-        </tr>
-        <tr>
-          <td><input type="checkbox" name="valinta" value="kakku"></td>
-          <td><img src="" alt="">Tuote kuva</td>
-          <td>Kakku</td>
-          <td>5€</td>
-          <td><input type="number" name="maara" value="1" min="1" max="10"></td>
-          <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Roskakori"></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" name="valinta" value="leivos"></td>
-          <td><img src="" alt="">Tuote kuva</td>
-          <td>Leivos</td>
-          <td>3€</td>
-          <td><input type="number" name="maara" value="1" min="1" max="10"></td>
-          <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Roskakori"></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" name="valinta" value="juoma"></td>
-          <td><img src="" alt="">Tuote kuva</td>
-          <td>Juoma</td>
-          <td>2€</td>
-          <td><input type="number" name="maara" value="1" min="1" max="10"></td>
-          <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Roskakori"></td>
-        </tr>
-        <tr>
-          <td><td></td></td>
-          <td>Yhdessä</td>
-          <td>10€</td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
-    </div>
-    <div class="div-class">
-      <button type = "submit" class="pay_btn">Maksaa</button>
-    </div>
+  <div class="table">
+    <h1>Varukorg</h1>
+    <table>
+      <tr>
+        <th>Välj</th>
+        <th>Produktbild</th>
+        <th>Produktnamn</th>
+        <th>Pris</th>
+        <th>Antal</th>
+        <th class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Papperskorgen"></th>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="val" value="kaka"></td>
+        <td><img src="" alt="">Produktbild</td>
+        <td>Kaka</td>
+        <td>5€</td>
+        <td><input type="number" name="antal" value="1" min="1" max="10"></td>
+        <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Papperskorgen"></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="val" value="bakverk"></td>
+        <td><img src="" alt="">Produktbild</td>
+        <td>Bakverk</td>
+        <td>3€</td>
+        <td><input type="number" name="antal" value="1" min="1" max="10"></td>
+        <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Papperskorgen"></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="val" value="dryck"></td>
+        <td><img src="" alt="">Produktbild</td>
+        <td>Dryck</td>
+        <td>2€</td>
+        <td><input type="number" name="antal" value="1" min="1" max="10"></td>
+        <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Papperskorgen"></td>
+      </tr>
+      <tr>
+        <td>
+        <td></td>
+        </td>
+        <td>Tillsammans</td>
+        <td>10€</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  <div class="div-class">
+    <button type="submit" class="pay_btn">Betala</button>
+  </div>
 
-    <footer class="footer-container">
-      <p class="footerP">&copy; S&A CAFE 2024</p>
-      <div class="changecontent2">
-      </div>
-      <div class="footer">
-        <a href="paakayttaja.html">Huvudadministratörens IT-hantering</a><br>
-        <p></p>
-        <a href="palaute.html">Palute</a>
-      </div>
-    </footer>
+
+  <footer class="footer-container">
+    <p class="footerP">&copy; S&A CAFE 2024</p>
+    <div class="changecontent">
+    </div>
+  </footer>
 
   </main>
 </body>
+
 </html>

@@ -4,41 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../../css/7Kayttaja.css" rel="stylesheet">
+  <link href="../../css/11Login.css" rel="stylesheet">
   <title>S&A CAFE</title>
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
-  <style>
-    .changecontent::after {
-      content: "Welcome to enjoy cake and coffee!";
-      color: rgb(192, 160, 122);
-      animation: changetext2 10s infinite linear;
-      margin: 10px;
-      font-weight: bold;
-    }
-
-    @keyframes changetext2 {
-      20% {
-        content: "Join our loyalty program and get 15% off your first order!";
-      }
-
-      40% {
-        content: "Membership is free";
-      }
-
-      60% {
-        content: "Create your dream cake!";
-      }
-
-      80% {
-        content: "Home delivery starting from €2.95";
-      }
-
-      100% {
-        content: "Welcome to enjoy cake and coffee!";
-      }
-    }
-  </style>
-
   <script src="/javascript/default.js" defer></script>
   <script src="/javascript/7Kayttaja.js" defer></script>
 </head>
@@ -101,80 +69,69 @@
     <a href="6Poytavaraus_en.html" class="navItem">Reserve a Table</a>
   </nav>
 
-
-
   <main class="main">
     <div class="aside1" id="login-id">
       <form action="https://10.120.32.94/test/form-submission/" method="post">
-        <label for="login-username"><b>Käyttäjätunnus</b></label>
-        <input type="text" name="login-username" id="login-username" placeholder="Syötä käyttäjätunnus" required
+        <label for="login-username"><b>Username</b></label>
+        <input type="text" name="login-username" id="login-username" placeholder="Enter username" required autofocus />
+
+        <label for="login-password"><b>Password</b></label>
+        <input type="password" name="login-password" id="login-password" placeholder="Enter password" required
           autofocus />
 
-        <label for="login-password"><b>Salasana</b></label>
-        <input type="password" name="login-password" id="login-password" placeholder="Syötä salasana" required
-          autofocus />
-
-        <button id="button1" type="submit">Kirjaudu</button>
+        <button id="button1" type="submit">Log in</button>
       </form>
     </div>
 
     <div class="aside2" id="register-id">
-
-      <p class="kayttajaP">Jos sinulla ei ole vielä käyttäjää, voit rekisteröityä tästä.</p>
-      <p>Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi. Liittyminen on
-        maksutonta. </p>
+      <p class="kayttajaP">If you don't have an account yet, you can register here.</p>
+      <p>Join as a loyal customer and get a 15% discount on your first order. Joining is free.</p>
       <hr><br>
       <form action="https://10.120.32.94/test/form-submission/" method="post">
-        <label for="firstname">Etunimi: *</label>
-        <input type="text" name="firstname" id="firstname" placeholder="Etunimi" required autofocus />
+        <label for="firstname">First Name: *</label>
+        <input type="text" name="firstname" id="firstname" placeholder="First Name" required autofocus />
 
-        <label for="lastname">Sukunimi: *</label>
-        <input type="text" name="lastname" id="lastname" placeholder="Sukunimi" required autofocus />
+        <label for="lastname">Last Name: *</label>
+        <input type="text" name="lastname" id="lastname" placeholder="Last Name" required autofocus />
 
-        <label for="name">Käyttäjätunnus: *</label>
-        <input type="text" name="name" id="name" placeholder="Käyttäjätunnus" required autofocus />
+        <label for="name">Username: *</label>
+        <input type="text" name="name" id="name" placeholder="Username" required autofocus />
 
-        <label for="password">
-          Salasana: *
-        </label>
-        <input class="myPasswordField" name="password" type="password" id="password" placeholder="Salasana" required
+        <label for="password">Password: *</label>
+        <input class="myPasswordField" name="password" type="password" id="password" placeholder="Password" required
           autofocus />
 
-        <label for="email">
-          Sähköposti: *
-        </label>
-        <input type="email" id="email" name="email" placeholder="Sähköposti" required autofocus />
+        <label for="email">Email: *</label>
+        <input type="email" id="email" name="email" placeholder="Email" required autofocus />
 
-        <label for="email">
-          Puhelinnumero: *
-        </label>
-        <input type="phone" id="phone" name="phone" placeholder="Puhelinnumero" required autofocus />
+        <label for="phone">Phone Number: *</label>
+        <input type="phone" id="phone" name="phone" placeholder="Phone Number" required autofocus />
 
-        <label for="today">
-          Syntymäaika:
-        </label>
+        <label for="today">Date of Birth:</label>
         <input type="date" name="date" id="today" />
 
-        <label for="allergia">Ruoka-allergiat:</label>
-        <textarea name="allergia" id="allergia"></textarea>
+        <label for="allergies">Food Allergies:</label>
+        <textarea name="allergies" id="allergies"></textarea>
 
         <div class="checkbox-container">
           <input type="checkbox" id="accept-1" name="accept" value="1">
-          <label for="accept-1">Hyväksyt verkkokaupan ehdot</label><br>
+          <label for="accept-1">I accept the terms of the online store</label><br>
           <input type="checkbox" id="accept-2" name="accept" value="1">
-          <label for="accept-2">Minulle saa lähettää markkinointiviestejä sähköpostitse</label><br><br>
-          Alennus ryhmä: <br />
-          <input type="radio" id="opiskelija" name="status" value="1">
-          <label for="opiskelija">Opiskelija</label>
-          <input type="radio" id="ope" name="status" value="1">
-          <label for="elakelainen">Eläkeläinen</label>
+          <label for="accept-2">You can send me marketing messages via email</label><br><br>
+          Discount group: <br />
+          <input type="radio" id="student" name="status" value="1">
+          <label for="student">Student</label>
+          <input type="radio" id="pensioner" name="status" value="1">
+          <label for="pensioner">Pensioner</label>
         </div>
 
-        <button type="submit">Rekisteröidy</button>
-        <button type="reset">Tyhjennä lomake</button>
+        <button type="submit">Register</button>
+        <button type="reset">Clear form</button>
       </form>
+    </div>
   </main>
   <hr>
+
 
 </body>
 
