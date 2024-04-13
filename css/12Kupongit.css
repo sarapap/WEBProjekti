@@ -44,14 +44,14 @@ header {
 }
 
 .logo {
-  width: 90%;
-  height: 240px;
-  padding: 7% 0;
-  margin-right: 20px;
+width:90%;
+height:240px;
+padding: 7% 0;
+margin-right: 20px;
 }
 
 .cakeImg {
-
+  box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
   width: 80%;
   height: 300px;
 }
@@ -83,19 +83,6 @@ header {
   background-size: cover;
 }
 
-.kieli {
-  margin: 7px -10px 0px 0px;
-}
-
-#kieli {
-  background-color: rgb(192, 160, 122);
-  color: white;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 5px;
-  font-family: 'Times New Roman', Times, serif;
-}
-
 /* navigation bar */
 
 a {
@@ -124,6 +111,7 @@ nav li {
   margin-left: 20px;
 }
 
+
 .navItem {
   display: inline-block;
   color: #fff;
@@ -139,10 +127,10 @@ nav li {
 }
 
 .dropdown {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  position: relative;
+flex-grow: 1;
+display: flex;
+justify-content: center;
+position: relative;
 }
 
 .dropdown-menu {
@@ -151,8 +139,8 @@ nav li {
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  top: 100%;
-  left: 0;
+  top:100%;
+  left:0;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -181,33 +169,66 @@ nav li {
 }
 
 .dropdown-menu a:hover {
-  background-color: #eceae9;
-  ;
+  background-color: #eceae9;;
 }
 
 /* main */
 .main {
   width: 90%;
-  display: flex;
-  min-height: 100vh;
+  display: block;
+  height: 100px;
   margin: 20px 0px 20px 0px;
   text-align: center;
   border-radius: 1rem;
+  margin-top: 20px;;
 
 }
 
-/* kirjautuminen */
+.kuvat {
+  height: 200px;
+  background: none;
+  justify-content: center;
+  display: block;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 50px;
+  height: fit-content;
+}
+
+.tiedostot {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin: 30px;
+
+  background-image: url('kuvat/tietosdot.png');
+  background-size: cover;
+
+}
+
+.tilaus {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  background-image: url('kuvat/tilaus.png');
+  background-size: cover;
+
+}
+
+.kupongit {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background-image: url('kuvat/kupongit.png');
+  background-size: cover;
+
+}
+
 .aside1 {
-  height: auto;
-  background-color: rgb(233, 220, 204);
-  color: rgb(83, 78, 78);
   text-align: center;
   font-size: 20px;
-  box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
   height: 100%;
-  padding: 30px;
-  border-radius: 0.5rem;
-  margin-left: 5%;
+  border-radius: 2rem;
   margin-top: 30px;
 
 }
@@ -220,56 +241,48 @@ nav li {
   border-radius: 10px;
   padding: 20px;
   margin-left: 5%;
-}
-
-.login-form label {
-  margin-left: -2px;
-}
-
-input,
-button,
-select {
-  font-size: irem;
-  padding: 0.25rem;
-
+  margin-top: 30px;
 }
 
 #name {
   border: 1px solid #123456;
 }
 
-button {
-  background-color: rgb(219, 146, 56);
-  border: 1px solid rgb(219, 146, 56);
-  border-radius: 0.5rem;
-  height: 2rem;
-  color: white;
-  cursor: pointer;
+footer {
+  margin: 25px 10px 0px 25px;
+  padding: 5px;
+  text-align: center;
+  background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
+  box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
+
 }
 
-label {
-  font-family: 'Times New Roman', Times, serif;
-}
-
-p {
-  font-family: 'Times New Roman', Times, serif;
-}
-
-.checkbox-container {
+.footer {
+  margin: 0px 0px 0px 20px;
   text-align: left;
-  margin-bottom: 10px;
+  color: #827777;
+  font-size: small;
 }
-
-.radio-container {
-  text-align: left;
-  margin-top: 10px;
-}
-
 /* media */
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 801px) {
+  .main {
+    height: auto;
+    display: flex;
+  }
 
+  .aside1 {
+    width: 40%;
+    margin-bottom: 2rem;
+  }
 
+  .aside2 {
+    width: 60%;
+  }
+
+}
+
+@media screen and (max-width:800px) {
   .aside1 {
     width: 90%;
     margin-bottom: 2rem;
@@ -279,62 +292,6 @@ p {
     width: 100%;
     margin-bottom: 10rem;
 
-  }
-
-  form {
-    display: block;
-
-  }
-
-  input label {
-    margin-bottom: 0.5rem;
-  }
-
-  button {
-    margin-top: 0.5rem;
-  }
-
-  input,
-  button {
-    appearance: 0.5rem;
-  }
-}
-
-@media screen and (min-width:801px) {
-  .etusivu {
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    width: 90%;
-  }
-
-  .logo {
-    width: 90%;
-  }
-
-  .cakeImg {
-    width: 80%
-  }
-
-  .aside1 {
-    width: 35%;
-
-  }
-
-  .aside2 {
-    width: 55%;
-    height: auto;
-  }
-
-  .footer-container {
-    margin: 0;
-  }
-}
-
-@media (max-width: 800px) {
-  .main {
-    min-height: 100vh;
-    display: block;
   }
 
   .icons ul li {
@@ -349,46 +306,30 @@ p {
   }
 
   .logo {
-    width: 200px;
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  .cakeImg {
+    margin-top: 0;
   }
 
   .aside1 {
-    width: 90%;
-    margin-bottom: 2rem;
+    width: 35%;
+
   }
 
   .aside2 {
-    width: 100%;
-    margin-bottom: 10rem;
-
+    width: 60%;
+    height: auto;
   }
 
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-  }
-
-  button {
-    margin-top: 0.5rem;
-  }
-
-  input,
-  button {
-    appearance: 0.5rem;
+  .footer-container {
+    margin: 0;
   }
 }
 
-@media (min-width: 500.1px) {
-  form {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 2rem;
-  }
-
-  .checkbox-container {
-    grid-column: 2 / -1;
-  }
+@media (min-width: 650px) {
 
   button label {
     order: 2;
@@ -409,10 +350,6 @@ p {
   .cakeImg {
     width: 250px;
     height: 100px;
-  }
-
-  form {
-    height: 200px;
   }
 
 }
