@@ -306,9 +306,11 @@ p {
     flex-direction: row;
     width: 90%;
   }
+
   .logo {
-    width:30%;
+    width: 90%;
   }
+
   .cakeImg {
     width: 80%
   }
