@@ -129,87 +129,39 @@
       <a href="6Poytavaraus.html" class="navItem">Varaa pöytä</a>
     </nav>
 
-  <main class="main">
-    <div class="aside1">
-      <ul class="kuvat" style="list-style: none;">
-        <li>
-          <a href="7Kayttaja.html">
-            <span class="tiedostot"></span>
-          </a>
-        <li>
-          <a href="12Tilaus.html">
-            <span class="tilaus"></span>
-          </a>
-        </li>
-        <li><a href="13Kupongit">
-            <span class="kupongit"></span>
+    <main class="main">
+      <div class="aside1">
+        <ul class="kuvat" style="list-style: none;">
+          <li>
+            <a href="7Kayttaja.html">
+              <span class="tiedostot"></span>
+            </a>
+          <li>
+            <a href="12Tilaus.html">
+              <span class="tilaus"></span>
+            </a>
+          </li>
+          <li><a href="13Kupongit">
+              <span class="kupongit"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-          </a>
-        </li>
-      </ul>
-    </div>
+      <div class=aside2 id="omatiedot">
+        <h1>Omat tiedot</h1><br>
+        <p>Tietosdot haetaan tietokannasta. Käyttäjä voi muokkaa ja tallenta.</p>
 
-    <div class= aside2 id ="omatiedot">
-      <h1>Omat tiedot</h1><br>
-      <p>Tietosdot haetaan tietokannasta. Käyttäjä voi muokkaa ja tallenta.</p>
+        <form action="https://10.120.32.94/test/form-submission/" method="post">
 
-      <form action="https://10.120.32.94/test/form-submission/" method="post">
-        <label for="firstname">Etunimi: *</label>
-        <input type="text" name="firstname" id="firstname" placeholder="Etunimi" required autofocus />
-
-        <label for="lastname">Sukunimi: *</label>
-        <input type="text" name="lastname" id="lastname" placeholder="Sukunimi" required autofocus />
-
-        <label for="name">Käyttäjätunnus: *</label>
-        <input type="text" name="name" id="name" placeholder="Käyttäjätunnus" required autofocus />
-
-        <label for="password">
-          Salasana: *
-        </label>
-        <input class="myPasswordField" name="password" type="password" id="password" placeholder="Salasana" required
-          autofocus />
-
-        <label for="email">
-          Sähköposti: *
-        </label>
-        <input type="email" id="email" name="email" placeholder="Sähköposti" required autofocus />
-
-        <label for="email">
-          Puhelinnumero: *
-        </label>
-        <input type="phone" id="phone" name="phone" placeholder="Puhelinnumero" required autofocus />
-
-        <label for="today">
-          Syntymäaika:
-        </label>
-        <input type="date" name="date" id="today" />
-
-        <label for="allergia">Ruoka-allergiat:</label>
-        <textarea name="allergia" id="allergia"></textarea>
-
-
-        <div class="checkbox-container">
-          <input type="checkbox" id="accept-1" name="accept" value="1">
-          <label for="accept-1">Hyväksyt verkkokaupan ehdot</label><br>
-          <input type="checkbox" id="accept-2" name="accept" value="1">
-          <label for="accept-2">Minulle saa lähettää markkinointiviestejä sähköpostitse</label><br><br>
-          Alennus ryhmä: <br />
-          <input type="radio" id="opiskelija" name="status" value="1">
-          <label for="opiskelija">Opiskelija</label>
-          <input type="radio" id="ope" name="status" value="1">
-          <label for="elakelainen">Eläkeläinen</label>
-        </div>
-
-        <button type="submit">Tyhjennä lomake</button>
-        <button type="reset">Tallenna</button>
-      </form>
-    </div>
-  </main>
-  <footer>
-    <p>&copy; S&A CAFE 2024</p>
-    <div class="changecontent">
-    </div>
-</footer>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+      <div class="changecontent">
+      </div>
+    </footer>
 
 </body>
 

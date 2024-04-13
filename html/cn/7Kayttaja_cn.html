@@ -106,7 +106,7 @@
 
     <div class="image-container">
       <a href="1Etusivu_cn.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
-      <img src="../../css/kuvat/cakepic.jpg" class="cakeImg" alt="cakes">
+      <img src="../../css/kuvat/kayttaja_header.jpg" class="cakeImg" alt="cakes">
     </div>
 
     <nav id="navbar">
@@ -129,161 +129,39 @@
     </nav>
 
 
-    <main>
-      <div class="login" id="login-id">
-        <form class="login-form">
-          <label for="login-username"><b>用户名：</b></label>
-          <input type="text" name="login-username" id="login-username" placeholder="输入用户名" required />
-
-          <label for="login-password"><b>密码：</b></label>
-          <input type="password" name="login-password" id="login-password" placeholder="输入密码。。。" required />
-
-          <button id="button1" type="submit">登录</button>
-        </form>
+    <main class="main">
+      <div class="aside1">
+        <ul class="kuvat" style="list-style: none;">
+          <li>
+            <a href="7Kayttaja.html">
+              <span class="tiedostot"></span>
+            </a>
+          <li>
+            <a href="12Tilaus.html">
+              <span class="tilaus"></span>
+            </a>
+          </li>
+          <li><a href="13Kupongit">
+              <span class="kupongit"></span>
+            </a>
+          </li>
+        </ul>
       </div>
 
-      <div class="register" id="register-id">
+      <div class=aside2 id="omatiedot">
+        <h1>Omat tiedot</h1><br>
+        <p>Tietosdot haetaan tietokannasta. Käyttäjä voi muokkaa ja tallenta.</p>
 
-        <p class="kayttajaP">如果您还不是会员，您可以在这里注册。</p>
-        <p>成为忠实的客户，可以从第一订单上获得15％的折扣。 加入是
-          免费。 </p> <br>
         <form action="https://10.120.32.94/test/form-submission/" method="post">
-          <label for="firstname">名: *</label>
-          <input type="text" name="firstname" id="firstname" placeholder="名" required autofocus />
-
-          <label for="lastname">姓: *</label>
-          <input type="text" name="lastname" id="lastname" placeholder="姓" required autofocus />
-
-          <label for="name">用户名: *</label>
-          <input type="text" name="name" id="name" placeholder="用户名" required autofocus />
-
-        <label for="password">
-            密码 : *
-          </label>
-          <input class="myPasswordField" name="password" type="password" id="password" placeholder="密码" required
-            autofocus />
-
-          <label for="email">
-            邮箱 : *
-          </label>
-          <input type="email" id="email" name="email" placeholder="邮箱" required autofocus />
-
-          <label for="email">
-            电话: *
-          </label>
-          <input type="phone" id="phone" name="phone" placeholder="电话" required autofocus />
-
-          <label for="today">
-            出生日期:
-          </label>
-          <input type="date" name="date" id="today" />
-
-          <label for="allergia">食物过敏:</label>
-          <textarea name="allergia" id="allergia"></textarea>
-
-          <div class="checkbox-container">
-            <input type="checkbox" id="accept-1" name="accept" value="1">
-            <label for="accept-1">同意电子商务的条款和条件/label><br>
-            <input type="checkbox" id="accept-2" name="accept" value="1">
-            <label for="accept-2">您可以通过电子邮件向我发送营销消息。</label>
-          </div>
-
-          <div></div>
-
-          <div class="checkBox-container">
-
-            折扣群体: <br />
-            <input type="radio" id="opiskelija" name="status" value="1">
-            <label for="opiskelija">学生</label>
-            <input type="radio" id="ope" name="status" value="1">
-            <label for="elakelainen">退休人员</label>
-
-          </div>
-
-          <button type="submit">注册</button>
-          <button type="reset">清空表格</button>
-
 
         </form>
       </div>
-      <main class="main">
-        <div class="aside1" id="login-id">
-          <form action="https://10.120.32.94/test/form-submission/" method="post">
-            <label for="login-username"><b>Käyttäjätunnus</b></label>
-            <input type="text" name="login-username" id="login-username" placeholder="Syötä käyttäjätunnus" required
-              autofocus />
-
-            <label for="login-password"><b>Salasana</b></label>
-            <input type="password" name="login-password" id="login-password" placeholder="Syötä salasana" required
-              autofocus />
-
-            <button id="button1" type="submit">Kirjaudu</button>
-          </form>
-        </div>
-
-        <div class="aside2" id="register-id">
-
-          <p class="kayttajaP">Jos sinulla ei ole vielä käyttäjää, voit rekisteröityä tästä.</p>
-          <p>Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi. Liittyminen on
-            maksutonta. </p>
-          <hr><br>
-          <form action="https://10.120.32.94/test/form-submission/" method="post">
-            <label for="firstname">Etunimi: *</label>
-            <input type="text" name="firstname" id="firstname" placeholder="Etunimi" required autofocus />
-
-            <label for="lastname">Sukunimi: *</label>
-            <input type="text" name="lastname" id="lastname" placeholder="Sukunimi" required autofocus />
-
-            <label for="name">Käyttäjätunnus: *</label>
-            <input type="text" name="name" id="name" placeholder="Käyttäjätunnus" required autofocus />
-
-            <label for="password">
-              Salasana: *
-            </label>
-            <input class="myPasswordField" name="password" type="password" id="password" placeholder="Salasana" required
-              autofocus />
-
-            <label for="email">
-              Sähköposti: *
-            </label>
-            <input type="email" id="email" name="email" placeholder="Sähköposti" required autofocus />
-
-            <label for="email">
-              Puhelinnumero: *
-            </label>
-            <input type="phone" id="phone" name="phone" placeholder="Puhelinnumero" required autofocus />
-
-            <label for="today">
-              Syntymäaika:
-            </label>
-            <input type="date" name="date" id="today" />
-
-            <label for="allergia">Ruoka-allergiat:</label>
-            <textarea name="allergia" id="allergia"></textarea>
-
-            <div class="checkbox-container">
-              <input type="checkbox" id="accept-1" name="accept" value="1">
-              <label for="accept-1">Hyväksyt verkkokaupan ehdot</label><br>
-              <input type="checkbox" id="accept-2" name="accept" value="1">
-              <label for="accept-2">Minulle saa lähettää markkinointiviestejä sähköpostitse</label><br><br>
-              Alennus ryhmä: <br />
-              <input type="radio" id="opiskelija" name="status" value="1">
-              <label for="opiskelija">Opiskelija</label>
-              <input type="radio" id="ope" name="status" value="1">
-              <label for="elakelainen">Eläkeläinen</label>
-            </div>
-
-            <button type="submit">Rekisteröidy</button>
-            <button type="reset">Tyhjennä lomake</button>
-          </form>
-          <footer>
-            <p>&copy; S&A CAFE 2024</p>
-            <div class="changecontent">
-            </div>
-          </footer>
-      </main>
-      <hr>
-
+    </main>
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+      <div class="changecontent">
+      </div>
+    </footer>
 
 
 </body>

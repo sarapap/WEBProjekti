@@ -78,7 +78,7 @@
       </nav>
       <div class="image-container">
         <a href="1Etusivu_en.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-image"></a>
-        <img src="../../css/kuvat/cakepic.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
+        <img src="../../css/kuvat/kayttaja_header.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
       </div>
     </div>
   </header>
@@ -101,80 +101,39 @@
     <a href="6Poytavaraus_en.html" class="navItem">Reserve a Table</a>
   </nav>
 
-
-
   <main class="main">
-    <div class="aside1" id="login-id">
-      <form action="https://10.120.32.94/test/form-submission/" method="post">
-        <label for="login-username"><b>Käyttäjätunnus</b></label>
-        <input type="text" name="login-username" id="login-username" placeholder="Syötä käyttäjätunnus" required
-          autofocus />
-
-        <label for="login-password"><b>Salasana</b></label>
-        <input type="password" name="login-password" id="login-password" placeholder="Syötä salasana" required
-          autofocus />
-
-        <button id="button1" type="submit">Kirjaudu</button>
-      </form>
+    <div class="aside1">
+      <ul class="kuvat" style="list-style: none;">
+        <li>
+          <a href="7Kayttaja.html">
+            <span class="tiedostot"></span>
+          </a>
+        <li>
+          <a href="12Tilaus.html">
+            <span class="tilaus"></span>
+          </a>
+        </li>
+        <li><a href="13Kupongit">
+            <span class="kupongit"></span>
+          </a>
+        </li>
+      </ul>
     </div>
 
-    <div class="aside2" id="register-id">
+    <div class=aside2 id="omatiedot">
+      <h1>Omat tiedot</h1><br>
+      <p>Tietosdot haetaan tietokannasta. Käyttäjä voi muokkaa ja tallenta.</p>
 
-      <p class="kayttajaP">Jos sinulla ei ole vielä käyttäjää, voit rekisteröityä tästä.</p>
-      <p>Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi. Liittyminen on
-        maksutonta. </p>
-      <hr><br>
       <form action="https://10.120.32.94/test/form-submission/" method="post">
-        <label for="firstname">Etunimi: *</label>
-        <input type="text" name="firstname" id="firstname" placeholder="Etunimi" required autofocus />
 
-        <label for="lastname">Sukunimi: *</label>
-        <input type="text" name="lastname" id="lastname" placeholder="Sukunimi" required autofocus />
-
-        <label for="name">Käyttäjätunnus: *</label>
-        <input type="text" name="name" id="name" placeholder="Käyttäjätunnus" required autofocus />
-
-        <label for="password">
-          Salasana: *
-        </label>
-        <input class="myPasswordField" name="password" type="password" id="password" placeholder="Salasana" required
-          autofocus />
-
-        <label for="email">
-          Sähköposti: *
-        </label>
-        <input type="email" id="email" name="email" placeholder="Sähköposti" required autofocus />
-
-        <label for="email">
-          Puhelinnumero: *
-        </label>
-        <input type="phone" id="phone" name="phone" placeholder="Puhelinnumero" required autofocus />
-
-        <label for="today">
-          Syntymäaika:
-        </label>
-        <input type="date" name="date" id="today" />
-
-        <label for="allergia">Ruoka-allergiat:</label>
-        <textarea name="allergia" id="allergia"></textarea>
-
-        <div class="checkbox-container">
-          <input type="checkbox" id="accept-1" name="accept" value="1">
-          <label for="accept-1">Hyväksyt verkkokaupan ehdot</label><br>
-          <input type="checkbox" id="accept-2" name="accept" value="1">
-          <label for="accept-2">Minulle saa lähettää markkinointiviestejä sähköpostitse</label><br><br>
-          Alennus ryhmä: <br />
-          <input type="radio" id="opiskelija" name="status" value="1">
-          <label for="opiskelija">Opiskelija</label>
-          <input type="radio" id="ope" name="status" value="1">
-          <label for="elakelainen">Eläkeläinen</label>
-        </div>
-
-        <button type="submit">Rekisteröidy</button>
-        <button type="reset">Tyhjennä lomake</button>
       </form>
+    </div>
   </main>
-  <hr>
+  <footer>
+    <p>&copy; S&A CAFE 2024</p>
+    <div class="changecontent">
+    </div>
+  </footer>
 
 </body>
 
