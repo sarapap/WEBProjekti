@@ -51,7 +51,7 @@ header {
 }
 
 .cakeImg {
-
+  box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
   width: 80%;
   height: 300px;
 }
@@ -182,22 +182,15 @@ nav li {
 
 .dropdown-menu a:hover {
   background-color: #eceae9;
-  ;
 }
 
 /* main */
 .main {
   width: 96%;
-  display: flex;
   text-align: center;
   border-radius: 1rem;
   margin-top: 30px;
-
-
-
 }
-
-/* main */
 
 .aside2 {
   padding-left: 5%;
@@ -206,12 +199,11 @@ nav li {
   border: 2px solid #ccc;
   border-radius: 10px;
   padding: 20px;
-
-
   background-color: rgb(229, 219, 206);
 }
+
 .tila1 {
-  border-radius:1rem;
+  border-radius: 1rem;
 }
 
 button {
@@ -222,12 +214,26 @@ button {
   color: white;
   cursor: pointer;
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
 }
 
+.reserve {
+  margin-left: 25px;
+}
+
+/* footer */
+
+footer {
+  margin: 25px 10px 0px 25px;
+  padding: 5px;
+  text-align: center;
+  background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
+  box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
+}
 
 /* media */
 

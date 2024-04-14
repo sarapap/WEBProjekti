@@ -97,11 +97,11 @@
       </div>
     </div>
     <a href="5Yhteydenotto.html" class="navItem">Ota yhteyttä</a>
-    <a href="6Poytavaraus.html" class="navItem">Varaa pöytä</a>
+    <a href="6Poytavaraus.html" class="navItem">Varaa tila</a>
   </nav>
 
   <div class="ajan-section">
-    <h1>Tuotehalinta</h1>
+    <h1>Tuotehallinta</h1>
     <button class="button">Uusi tuote</button>
 
   </div>
@@ -113,9 +113,11 @@
       <label for="cakeType">Valitse tyyppi:</label>
       <select id="cakeType">
         <option value="kaikki">Kaikki</option>
-        <option value="suklaakakut">Kakut</option>
-        <option value="mansikkakakut">Lämmintä ruokaa</option>
-        <option value="vaniljakakut">Juotavaa</option>
+        <option value="select">Kakut</option>
+        <option value="select">Suolaista</option>
+        <option value="select">Makeaa</option>
+        <option value="select">Lämmintä ruokaa</option>
+        <option value="select">Juotavaa</option>
       </select>
     </div>
     <hr>
@@ -123,7 +125,7 @@
     <div>
       <h1>Yritystoiminnan seuranta</h1>
       <h4>Tarkista raportti valitulla ajanjaksolla, esim, päivä. kuukausi jne.</h4>
-      <label for="ajan">Valitse ajan: </label>
+      <label for="ajan">Valitse ajankohta: </label>
       <select id="ajan" onchange="changeLanguage(this.value)">
         <option value="pv" selected>Päivä</option>
         <option value="vko">Viikko</option>
@@ -159,10 +161,12 @@
 
   </div>
   </div>
+
   <footer>
     <p>&copy; S&A CAFE 2024</p>
     <div class="changecontent">
     </div>
   </footer>
 </body>
+
 </html>

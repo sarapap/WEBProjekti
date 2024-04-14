@@ -126,7 +126,7 @@
                 </div>
             </div>
             <a href="5Yhteydenotto_en.html" class="navItem">Contact Us</a>
-            <a href="6Poytavaraus_en.html" class="navItem">Reserve a Table</a>
+            <a href="6Poytavaraus_en.html" class="navItem">Book a venue</a>
         </nav>
 
         <!-- homepage -->
@@ -178,10 +178,39 @@
             <div class="changecontent2">
             </div>
             <div class="footer">
-                <a href="paakayttaja.html">Administrator's Information Management</a><br>
-                <a href="palaute.html">Feedback</a>
+                <a href="10Paakayttaja_en.html">Administrator's Information Management</a><br>
+                <!-- palaute -->
+                <a href="#" id="openModal">Give Feedback</a>
+
+                <dialog id="feedbackModal" class="modal">
+                    <div class="modal-content">
+                        <button id="closeModal">Close</button>
+                        <form id="feedbackForm">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required><br>
+
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required><br>
+
+                            <label for="feedbackType">Feedback Type:</label>
+                            <select id="feedbackType" name="feedbackType">
+                                <option value="" disabled selected>Select...</option>
+                                <option value="general">General Feedback</option>
+                                <option value="question">Question</option>
+                                <option value="suggestion">Suggestion</option>
+                                <option value="problem">Problem</option>
+                                <option value="praise">Praise</option>
+                            </select><br>
+
+                            <label for="message">Message:</label><br>
+                            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+
+                            <input type="submit" value="Send">
+                        </form>
+                    </div>
+                </dialog>
+
             </div>
-        </footer>
         </footer>
 
     </main>

@@ -119,43 +119,43 @@
         </div>
       </div>
       <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
-      <a href="6Poytavaraus_cn.html" class="navItem">预定</a>
+      <a href="6Poytavaraus_cn.html" class="navItem">预订场地</a>
     </nav>
 
 
   <div class="ajan-section">
-    <h1>产品管理</h1>
-    <button class="button">添加新产品</button>
+    <h1>Tuotehalinta</h1>
+    <button class="button">Uusi tuote</button>
 
-  </div>
-  <div>
+    </div>
+    <div>
 
-    <p>编辑或删除产品， 请从搜索产品开始。</p>
-    <input type="text" id="cakeSearch" placeholder="搜索产品...">
+    <p>Tarkista muokkaustiedot etsimällä tuotteita.</p>
+    <input type="text" id="cakeSearch" placeholder="Etsi kakkua...">
     <div class="filter-options">
-      <label for="cakeType">选择产品类型:</label>
+      <label for="cakeType">Valitse tyyppi:</label>
       <select id="cakeType">
-        <option value="kaikki">全部</option>
-        <option value="suklaakakut">糕点</option>
-        <option value="mansikkakakut">热食</option>
-        <option value="vaniljakakut">饮品</option>
+        <option value="kaikki">Kaikki</option>
+        <option value="suklaakakut">Kakut</option>
+        <option value="mansikkakakut">Lämmintä ruokaa</option>
+        <option value="vaniljakakut">Juotavaa</option>
       </select>
     </div>
     <hr>
 
     <div>
-      <h1>业务监控</h1>
-      <h4>可以选择当日报告， 周报告， 月报告 和年报告来监控公司的经营情况。</h4>
-      <label for="ajan">选择时间: </label>
+      <h1>Yritystoiminnan seuranta</h1>
+      <h4>Tarkista raportti valitulla ajanjaksolla, esim, päivä. kuukausi jne.</h4>
+      <label for="ajan">Valitse ajan: </label>
       <select id="ajan" onchange="changeLanguage(this.value)">
-        <option value="pv" selected>日报</option>
-        <option value="vko">周报</option>
-        <option value="kk">月报</option>
-        <option value="v">年报</option>
+        <option value="pv" selected>Päivä</option>
+        <option value="vko">Viikko</option>
+        <option value="kk">Kuukausi</option>
+        <option value="v">Vuosi</option>
       </select>
 
       <table>
-        <p>在这里会显示你所选择的报告。</p>
+        <p>Tähän tulee raportti valitulla ajanjaksolla.</p>
         <tbody id="raportti">
         </tbody>
       </table>
@@ -163,31 +163,30 @@
     <hr>
 
     <div>
-      <h1>反馈</h1>
+      <h1>Palaute</h1>
       <form action="/varauksen-vahvistus" method="post">
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="aloituspvm">开始日期:</label>
+        <label for="aloituspvm">Aloituspäivämäärä:</label>
         <input type="date" id="aloituspvm" name="aloituspvm">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="lopetuspvm">截止日期:</label>
+        <label for="lopetuspvm">Lopetuspäivämäärä:</label>
         <input type="date" id="lopetuspvm" name="lopetuspvm">
-        <button type="submit" class="button2">搜索</button>
+        <button type="submit" class="button2">Hae</button>
       </form>
       <table>
-        <p>这里将会显示反馈内容.</p>
+        <p>Tähän tulee palaute valitulla ajanjaksolla.</p>
         <tbody id="palaute">
         </tbody>
       </table>
     </div>
 
-
-  </div>
-  </div>
-  <footer>
-    <p>&copy; S&A CAFE 2024</p>
-    <div class="changecontent">
     </div>
-  </footer>
+    </div>
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+      <div class="changecontent">
+      </div>
+    </footer>
 
 
 </body>

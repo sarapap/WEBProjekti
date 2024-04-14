@@ -44,159 +44,155 @@
   <script src="/javascript/9Ostoskori.js" defer></script>
 </head>
 
-< <style>
+<style>
   .changecontent::after {
-  content: "Welcome to enjoy cake and coffee!";
-  color: rgb(192, 160, 122);
-  animation: changetext2 10s infinite linear;
-  margin: 10px;
-  font-weight: bold;
+    content: "Welcome to enjoy cake and coffee!";
+    color: rgb(192, 160, 122);
+    animation: changetext2 10s infinite linear;
+    margin: 10px;
+    font-weight: bold;
   }
 
   @keyframes changetext2 {
-  20% {
-  content: "Join our loyalty program and get 15% off your first order!";
+    20% {
+      content: "Join our loyalty program and get 15% off your first order!";
+    }
+
+    40% {
+      content: "Membership is free";
+    }
+
+    60% {
+      content: "Create your dream cake!";
+    }
+
+    80% {
+      content: "Home delivery starting from €2.95";
+    }
+
+    100% {
+      content: "Welcome to enjoy cake and coffee!";
+    }
   }
+</style>
 
-  40% {
-  content: "Membership is free";
-  }
-
-  60% {
-  content: "Create your dream cake!";
-  }
-
-  80% {
-  content: "Home delivery starting from €2.95";
-  }
-
-  100% {
-  content: "Welcome to enjoy cake and coffee!";
-  }
-  }
-  </style>
-
-  <body>
-    <header>
-      <div>
-        <nav class="icons">
-          <ul>
-            <li class="kieli">
-              <label for="kieli">Select language: </label>
-              <select id="kieli" onchange="changeLanguage(this.value)">
-                <option value="FI">Finnish</option>
-                <option value="EN" selected>English</option>
-                <option value="CN">Chinese</option>
-                <option value="ET">Estonian</option>
-                <option value="SV">Swedish</option>
-              </select>
-            </li>
-            <li>
-              <a href="11Login_en.html">
-                <span class="käyttäjä"></span>
-              </a>
-            </li>
-            <li>
-              <a href="8Suosikit_en.html">
-                <span class="suosikit"></span>
-              </a>
-            </li>
-            <li>
-              <a href="9Ostoskori_en.html">
-                <span class="ostoskori"></span>
-              </a>
-            </li>
-          </ul>
-
-        </nav>
-        <div class="image-container">
-          <a href="1Etusivu_en.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-image"></a>
-          <img src="../../css/kuvat/cakepic.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
-        </div>
-      </div>
-    </header>
-    <nav class="navbarClass" id="navbar">
-      <a href="1Etusivu_en.html" class="navItem">Home</a>
-      <a href="2AboutUs_en.html" class="navItem">About Us</a>
-      <div class="dropdown">
-        <button class="dropdown-toggle" id="menuButton">
-          Menu
-        </button>
-        <div class="dropdown-menu" id="menuDropdown">
-          <a class="dropdown-item" href="3MenuPage1_en.html">Cakes</a>
-          <a class="dropdown-item" href="3MenuPage2_en.html">Savory</a>
-          <a class="dropdown-item" href="3MenuPage3_en.html">Sweet</a>
-          <a class="dropdown-item" href="3MenuPage4_en.html">Hot Food</a>
-          <a class="dropdown-item" href="3MenuPage5_en.html">Drinks</a>
-        </div>
-      </div>
-      <a href="5Yhteydenotto_en.html" class="navItem">Contact Us</a>
-      <a href="6Poytavaraus_en.html" class="navItem">Reserve a Table</a>
-    </nav>
-
+<body>
+  <header>
     <div>
-      <h1>
-        <div class="changetext"></div>
-      </h1>
-    </div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">Select language: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI">Finnish</option>
+              <option value="EN" selected>English</option>
+              <option value="CN">Chinese</option>
+              <option value="ET">Estonian</option>
+              <option value="SV">Swedish</option>
+            </select>
+          </li>
+          <li>
+            <a href="11Login_en.html">
+              <span class="käyttäjä"></span>
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit_en.html">
+              <span class="suosikit"></span>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori_en.html">
+              <span class="ostoskori"></span>
+            </a>
+          </li>
+        </ul>
 
-    <div class="table">
-      <h1>Shopping Cart</h1>
-      <table>
-        <tr>
-          <th>Select</th>
-          <th>Product Image</th>
-          <th>Product Name</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th class="delete-btn"><img src="../../css/kuvat/trash_can.png" alt="Trash Can"></th>
-        </tr>
-        <tr>
-          <td><input type="checkbox" name="selection" value="cake"></td>
-          <td><img src="" alt="">Product Image</td>
-          <td>Cake</td>
-          <td>5€</td>
-          <td><input type="number" name="quantity" value="1" min="1" max="10"></td>
-          <td class="delete-btn"><img src="../../css/kuvat/trash_can.png" alt="Trash Can"></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" name="selection" value="pastry"></td>
-          <td><img src="" alt="">Product Image</td>
-          <td>Pastry</td>
-          <td>3€</td>
-          <td><input type="number" name="quantity" value="1" min="1" max="10"></td>
-          <td class="delete-btn"><img src="../../css/kuvat/trash_can.png" alt="Trash Can"></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" name="selection" value="drink"></td>
-          <td><img src="" alt="">Product Image</td>
-          <td>Drink</td>
-          <td>2€</td>
-          <td><input type="number" name="quantity" value="1" min="1" max="10"></td>
-          <td class="delete-btn"><img src="../../css/kuvat/trash_can.png" alt="Trash Can"></td>
-        </tr>
-        <tr>
-          <td>
-          <td></td>
-          </td>
-          <td>Total</td>
-          <td>10€</td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
+      </nav>
     </div>
-    <div class="div-class">
-      <button type="submit" class="pay_btn">Pay</button>
-    </div>
-
-    <footer class="footer-container">
-      <p class="footerP">&copy; S&A CAFE 2024</p>
-      <div class="changecontent">
+  </header>
+  <nav class="navbarClass" id="navbar">
+    <a href="1Etusivu_en.html" class="navItem">Home</a>
+    <a href="2AboutUs_en.html" class="navItem">About Us</a>
+    <div class="dropdown">
+      <button class="dropdown-toggle" id="menuButton">
+        Menu
+      </button>
+      <div class="dropdown-menu" id="menuDropdown">
+        <a class="dropdown-item" href="3MenuPage1_en.html">Cakes</a>
+        <a class="dropdown-item" href="3MenuPage2_en.html">Savory</a>
+        <a class="dropdown-item" href="3MenuPage3_en.html">Sweet</a>
+        <a class="dropdown-item" href="3MenuPage4_en.html">Hot Food</a>
+        <a class="dropdown-item" href="3MenuPage5_en.html">Drinks</a>
       </div>
-    </footer>
-    </main>
+    </div>
+    <a href="5Yhteydenotto_en.html" class="navItem">Contact Us</a>
+    <a href="6Poytavaraus_en.html" class="navItem">Book a venue</a>
+  </nav>
 
-  </body>
+  <div>
+    <h1>
+      <div class="changetext"></div>
+    </h1>
+  </div>
+
+  <div class="table">
+    <h1>Shopping Cart</h1>
+    <table>
+      <tr>
+        <th>Select</th>
+        <th>Product Image</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th class="delete-btn"><img src="../../css/kuvat/trash_can.png" alt="Trash Can"></th>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="selection" value="cake"></td>
+        <td><img src="" alt="">Product Image</td>
+        <td>Cake</td>
+        <td>5€</td>
+        <td><input type="number" name="quantity" value="1" min="1" max="10"></td>
+        <td class="delete-btn"><img src="../../css/kuvat/trash_can.png" alt="Trash Can"></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="selection" value="pastry"></td>
+        <td><img src="" alt="">Product Image</td>
+        <td>Pastry</td>
+        <td>3€</td>
+        <td><input type="number" name="quantity" value="1" min="1" max="10"></td>
+        <td class="delete-btn"><img src="../../css/kuvat/trash_can.png" alt="Trash Can"></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="selection" value="drink"></td>
+        <td><img src="" alt="">Product Image</td>
+        <td>Drink</td>
+        <td>2€</td>
+        <td><input type="number" name="quantity" value="1" min="1" max="10"></td>
+        <td class="delete-btn"><img src="../../css/kuvat/trash_can.png" alt="Trash Can"></td>
+      </tr>
+      <tr>
+        <td>
+        <td></td>
+        </td>
+        <td>Total</td>
+        <td>10€</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  <div class="div-class">
+    <button type="submit" class="pay_btn">Pay</button>
+  </div>
+
+  <footer class="footer-container">
+    <p class="footerP">&copy; S&A CAFE 2024</p>
+    <div class="changecontent">
+    </div>
+  </footer>
+  </main>
+
+</body>
 
 </html>
