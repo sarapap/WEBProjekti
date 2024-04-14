@@ -282,23 +282,51 @@ nav li {
 }
 
 
-.tiedostot{
+.tiedostot_et{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  background-size: cover;
   background-image: url('kuvat/tietosdot_et.png');
 }
-.tilaus{
+.tilaus_et{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  background-size: cover;
   background-image: url('kuvat/tilaus._etpng');
 }
-.kupongit{
+.kupongit_et{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
   background-image: url('kuvat/kupongit_et.png');
 }
 
-.tiedostot{
+.tiedostot_sv{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  background-size: cover;
   background-image: url('kuvat/tietosdot_sv.png');
 }
-.tilaus{
+.tilaus_sv{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  background-size: cover;
   background-image: url('kuvat/tilaus._sv.png');
 }
-.kupongit{
+.kupongit_sv{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
   background-image: url('kuvat/kupongit_sv.png');
 }
 
