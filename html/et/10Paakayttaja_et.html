@@ -121,70 +121,69 @@
         </div>
       </div>
       <a href="5Yhteydenotto_et.html" class="navItem">Võta meiega ühendust</a>
-      <a href="6Poytavaraus_et.html" class="navItem">Laua broneerimine</a>
+      <a href="6Poytavaraus_et.html" class="navItem">Broneeri ruum</a>
     </nav>
 
 
     <div class="ajan-section">
-      <h1>Tuotehalinta</h1>
-      <button class="button">Uusi tuote</button>
-
+      <h1>Tootehaldus</h1>
+      <button class="button">Uus toode</button>
     </div>
-    <div>
 
-      <p>Tarkista muokkaustiedot etsimällä tuotteita.</p>
-      <input type="text" id="cakeSearch" placeholder="Etsi kakkua...">
+    <div>
+      <p>Kontrollige toimetamise üksikasju, otsides tooteid.</p>
+      <input type="text" id="cakeSearch" placeholder="Otsi kooki...">
       <div class="filter-options">
-        <label for="cakeType">Valitse tyyppi:</label>
+        <label for="cakeType">Valige tüüp:</label>
         <select id="cakeType">
-          <option value="kaikki">Kaikki</option>
-          <option value="suklaakakut">Kakut</option>
-          <option value="mansikkakakut">Lämmintä ruokaa</option>
-          <option value="vaniljakakut">Juotavaa</option>
+          <option value="kõik">Kõik</option>
+          <option value="koogid">Koogid</option>
+          <option value="soolane">Soolane</option>
+          <option value="magus">Magus</option>
+          <option value="soe-toit">Soojad toidud</option>
+          <option value="joogid">Joogid</option>
         </select>
       </div>
       <hr>
 
       <div>
-        <h1>Yritystoiminnan seuranta</h1>
-        <h4>Tarkista raportti valitulla ajanjaksolla, esim, päivä. kuukausi jne.</h4>
-        <label for="ajan">Valitse ajan: </label>
-        <select id="ajan" onchange="changeLanguage(this.value)">
-          <option value="pv" selected>Päivä</option>
-          <option value="vko">Viikko</option>
-          <option value="kk">Kuukausi</option>
-          <option value="v">Vuosi</option>
+        <h1>Ärijälgimine</h1>
+        <h4>Kontrollige aruannet valitud perioodil, näiteks päev, kuu jne.</h4>
+        <label for="periood">Valige periood: </label>
+        <select id="periood" onchange="changeLanguage(this.value)">
+          <option value="päev" selected>Päev</option>
+          <option value="nädal">Nädal</option>
+          <option value="kuu">Kuu</option>
+          <option value="aasta">Aasta</option>
         </select>
 
         <table>
-          <p>Tähän tulee raportti valitulla ajanjaksolla.</p>
-          <tbody id="raportti">
+          <p>Raport valitud perioodil kuvatakse siin.</p>
+          <tbody id="raport">
           </tbody>
         </table>
       </div>
       <hr>
 
       <div>
-        <h1>Palaute</h1>
-        <form action="/varauksen-vahvistus" method="post">
+        <h1>Tagasiside</h1>
+        <form action="/broneerimise-kinnitus" method="post">
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <label for="aloituspvm">Aloituspäivämäärä:</label>
-          <input type="date" id="aloituspvm" name="aloituspvm">
+          <label for="algusKuupäev">Alguskuupäev:</label>
+          <input type="date" id="algusKuupäev" name="algusKuupäev">
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <label for="lopetuspvm">Lopetuspäivämäärä:</label>
-          <input type="date" id="lopetuspvm" name="lopetuspvm">
-          <button type="submit" class="button2">Hae</button>
+          <label for="loppKuupäev">Lõppkuupäev:</label>
+          <input type="date" id="loppKuupäev" name="loppKuupäev">
+          <button type="submit" class="button2">Otsi</button>
         </form>
         <table>
-          <p>Tähän tulee palaute valitulla ajanjaksolla.</p>
-          <tbody id="palaute">
+          <p>Tagasiside valitud perioodil kuvatakse siin.</p>
+          <tbody id="tagasiside">
           </tbody>
         </table>
       </div>
-
-
     </div>
-    </div>
+
     <footer>
       <p>&copy; S&A CAFE 2024</p>
       <div class="changecontent">

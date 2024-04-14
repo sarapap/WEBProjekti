@@ -126,7 +126,7 @@
         </div>
       </div>
       <a href="5Yhteydenotto.html" class="navItem">Ota yhteyttä</a>
-      <a href="6Poytavaraus.html" class="navItem">Varaa pöytä</a>
+      <a href="6Poytavaraus.html" class="navItem">Varaa tila</a>
     </nav>
 
     <!-- etusivu-->
@@ -176,8 +176,37 @@
       <div class="changecontent2"></div>
       <div class="footer">
         <a href="10Paakayttaja.html">Pääkäyttäjän Tietohallinta</a><br>
-        <a href="#" id="openModal">Palaute</a>
-        <dialog></dialog>
+
+        <!-- palaute -->
+        <a href="#" id="openModal">Anna palautetta</a>
+
+        <dialog id="feedbackModal" class="modal">
+          <div class="modal-content">
+            <button class="clsbutton" id="closeModal">Sulje</button>
+            <form id="feedbackForm">
+              <label for="name">Nimi:</label>
+              <input type="text" id="name" name="name" required><br>
+
+              <label for="email">Sähköposti:</label>
+              <input type="email" id="email" name="email" required><br>
+
+              <label for="feedbackType">Palautteen tyyppi:</label>
+              <select id="feedbackType" name="feedbackType">
+                <option value="" disabled selected>Valitse...</option>
+                <option value="general">Yleinen palaute</option>
+                <option value="question">Kysymys</option>
+                <option value="suggestion">Ehdotus</option>
+                <option value="problem">Ongelma</option>
+                <option value="praise">Kehut</option>
+              </select><br>
+
+              <label for="message">Viesti:</label><br>
+              <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+
+              <input type="submit" value="Lähetä">
+            </form>
+          </div>
+        </dialog>
       </div>
     </footer>
 

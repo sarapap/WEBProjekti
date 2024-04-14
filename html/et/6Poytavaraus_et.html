@@ -10,31 +10,9 @@
 
 
   <style>
-    .changecontent::after {
-      content: '';
-      color: rgb(192, 160, 122);
-      animation: changetext 10s infinite linear;
-      font-weight: bold;
-      margin: 10px;
-    }
-
-    @keyframes changetext {
-      0% {
-        content: "Maitsvad kookid";
-      }
-
-      50% {
-        content: "Külmad või sooja jooke";
-      }
-
-      100% {
-        content: "Sooja toitu ja näksimist";
-      }
-    }
-
     /* footer */
 
-    .changecontent2::after {
+    .changecontent::after {
       content: "Tere tulemast kooki- ja kohvihommikule!";
       color: rgb(192, 160, 122);
       animation: changetext2 10s infinite linear;
@@ -104,7 +82,7 @@
       </nav>
       <div class="image-container">
         <a href="1Etusivu_et.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
-        <img src="../../css/kuvat/poytavaraus_header.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
+        <img src="../../css/kuvat/tilanvaraus_header.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
       </div>
     </div>
   </header>
@@ -124,32 +102,37 @@
       </div>
     </div>
     <a href="5Yhteydenotto_et.html" class="navItem">Võta meiega ühendust</a>
-    <a href="6Poytavaraus_et.html" class="navItem">Laua broneerimine</a>
+    <a href="6Poytavaraus_et.html" class="navItem">Broneeri ruum</a>
   </nav>
 
+  <div class="reserve">
+    <h1>Broneeri ruum</h1>
+    <p>Valige ruum, mis sobib teie vajadustele kõige paremini! Pakume mitmekesiseid ruume erinevateks otstarveteks.</p>
+  </div>
+  <hr>
   <main class="main">
     <div class="aside2" id="register-id">
-      <h2>Tilan kuvaus</h2>
+      <h2>Ruumi kirjeldus</h2>
       <hr>
       <p></p>
-      <img src="../../css/kuvat/tila2.jpg" alt="tila2" class="tila1">
+      <img src="../../css/kuvat/tila2.jpg" alt="ruum2" class="tila1">
 
       <div>
-        <p>Tämä tila sopii 2 - 4 henkilöille!</p>
+        <p>See ruum sobib 2 kuni 4 inimesele!</p>
         <table border="0.5">
           <tr>
-            <th>Tilan nimi</th>
-            <th>Koko</th>
-            <th>Aika</th>
-            <th>Hinta</th>
-            <th>varaa</th>
+            <th>Ruumi nimi</th>
+            <th>Suurus</th>
+            <th>Aeg</th>
+            <th>Hind</th>
+            <th>Broneeri</th>
           </tr>
           <tr>
-            <td>Tila1</td>
+            <td>Ruum1</td>
             <td>15m<sup>2</sup></td>
             <td>1</td>
             <td>10€</td>
-            <td><button type="submit">Varaa</button></td>
+            <td><button type="submit">Broneeri</button></td>
           </tr>
           <hr>
         </table>
@@ -158,56 +141,56 @@
     </div>
 
     <div class="aside2" id="register-id">
-      <h2>Tilan kuvaus</h2>
+      <h2>Ruumi kirjeldus</h2>
       <hr>
       <p></p>
-      <img src="../../css/kuvat/tila2.jpg" alt="tila2" class="tila1">
+      <img src="../../css/kuvat/tila2.jpg" alt="ruum2" class="tila1">
       <p></p>
       <div>
-        <p>Tämä tila sopii 5 - 9 henkilöille! </p>
+        <p>See ruum sobib 5 kuni 9 inimesele!</p>
         <table border="0.5">
           <tr>
-            <th>Tilan nimi</th>
-            <th>Koko</th>
-            <th>Aika</th>
-            <th>Hinta</th>
-            <th>varaa</th>
+            <th>Ruumi nimi</th>
+            <th>Suurus</th>
+            <th>Aeg</th>
+            <th>Hind</th>
+            <th>Broneeri</th>
           </tr>
           <tr>
-            <td>Tila2</td>
+            <td>Ruum2</td>
             <td>20m<sup>2</sup></td>
-            <td> 1</td>
+            <td>1</td>
             <td>10€</td>
-            <td><button type="submit">Varaa</button></td>
+            <td><button type="submit">Broneeri</button></td>
           </tr>
           <hr>
         </table>
-<hr>
+        <hr>
       </div>
     </div>
 
     <div class="aside2" id="register-id">
-      <h2>Tilan kuvaus</h2>
+      <h2>Ruumi kirjeldus</h2>
       <hr>
       <p></p>
-      <img src="../../css/kuvat/tila2.jpg" alt="tila2" class="tila1">
+      <img src="../../css/kuvat/tila2.jpg" alt="ruum2" class="tila1">
       <p></p>
       <div>
-        <p>Tämä tila sopii 10 - 15 henkilöille!</p>
+        <p>See ruum sobib 10 kuni 15 inimesele!</p>
         <table border="0.8">
           <tr>
             <th>Nimi</th>
-            <th>Koko</th>
-            <th>Aika</th>
-            <th>Hinta</th>
-            <th>varaa</th>
+            <th>Suurus</th>
+            <th>Aeg</th>
+            <th>Hind</th>
+            <th>Broneeri</th>
           </tr>
           <tr>
-            <td>Tila3</td>
+            <td>Ruum3</td>
             <td>25m<sup>2</sup></td>
             <td>1</td>
             <td>15€</td>
-            <td><button type="submit">Varaa</button></td>
+            <td><button type="submit">Broneeri</button></td>
           </tr>
           <hr>
         </table>
@@ -216,6 +199,13 @@
     </div>
   </main>
   <hr>
+
+
+  <footer>
+    <p>&copy; S&A CAFE 2024</p>
+    <div class="changecontent">
+    </div>
+  </footer>
 
 </body>
 

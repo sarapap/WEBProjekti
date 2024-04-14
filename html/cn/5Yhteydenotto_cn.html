@@ -9,28 +9,6 @@
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
 
   <style>
-    .changecontent::after {
-      content: '';
-      color: rgb(192, 160, 122);
-      animation: changetext 10s infinite linear;
-      font-weight: bold;
-      margin: 10px;
-    }
-
-    @keyframes changetext {
-      0% {
-        content: "各种口味的美味蛋糕";
-      }
-
-      50% {
-        content: "品种繁多的冷热饮品";
-      }
-
-      100% {
-        content: "以及热食， 还有小零食！";
-      }
-    }
-
     /* footer */
 
     .changecontent2::after {
@@ -105,72 +83,72 @@
   </header>
 
 
-     <div class="image-container">
-      <a href="1Etusivu_cn.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+  <div class="image-container">
+    <a href="1Etusivu_cn.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
 
 
-      <div class="map-container">
-        <div id="map" style="width: 1050px; height: 300px;"></div>
+    <div class="map-container">
+      <div id="map" style="width: 1050px; height: 300px;"></div>
 
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
     </div>
+  </div>
+
+  <nav id="navbar">
+    <a href="1Etusivu_cn.html" class="navItem">首页</a>
+    <a href="2AboutUs_cn.html" class="navItem">关于我们</a>
+    <div class="dropdown">
+      <button class="dropdown-toggle" id="menuButton">
+        菜单
+      </button>
+      <div class="dropdown-menu" id="menuDropdown">
+        <a class="dropdown-item" href="3MenuPage1_cn.html">糕点</a>
+        <a class="dropdown-item" href="3MenuPage2_cn.html">咸味点心</a>
+        <a class="dropdown-item" href="3MenuPage3_cn.html">甜味点心</a>
+        <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
+        <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
+      </div>
+    </div>
+    <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
+    <a href="6Poytavaraus_cn.html" class="navItem">预订场地</a>
+  </nav></a>
+  </nav>
+
+  <main>
+    <div class="contact-info">
+      <h3>联系信息</h3>
+      <div class="contact-item">
+        <img src="../../css/kuvat/location.png" width="20px" height="20px" class="loc" alt="location">
+        <p class="contact">地址: <br> Myllypurontie 1 <br>00920 赫尔辛基 <br>芬兰</p>
+      </div>
+      <div class="contact-item">
+        <img src="../../css/kuvat/email.png" width="20px" height="20px" class="email" alt="email">
+        <p class="cont.act">邮箱: <br> info@metropolia.fi</p>
+      </div>
+      <div class="contact-item">
+        <img src="../../css/kuvat/phone.png" width="20px" height="20px" class="phone" alt="phone">
+        <p class="contact">电话: <br> 09 74245000</p>
+      </div>
     </div>
 
-    <nav id="navbar">
-      <a href="1Etusivu_cn.html" class="navItem">首页</a>
-      <a href="2AboutUs_cn.html" class="navItem">关于我们</a>
-      <div class="dropdown">
-        <button class="dropdown-toggle" id="menuButton">
-          菜单
-        </button>
-        <div class="dropdown-menu" id="menuDropdown">
-          <a class="dropdown-item" href="3MenuPage1_cn.html">糕点</a>
-          <a class="dropdown-item" href="3MenuPage2_cn.html">咸味点心</a>
-          <a class="dropdown-item" href="3MenuPage3_cn.html">甜味点心</a>
-          <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
-          <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
-        </div>
-      </div>
-      <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
-      <a href="6Poytavaraus_cn.html" class="navItem">预定房间</a>
-    </nav></a>
-    </nav>
+    <div class="socials">
+      <a href="https://www.instagram.com/">
+        <span class="instagram" style="background-image: url('../../css/kuvat/instagram.png')"></span>
+      </a>
+      <a href="https://www.facebook.com/">
+        <span class="facebook" style="background-image: url('../../css/kuvat/facebook.png')"></span>
+      </a>
+      <a href="https://twitter.com/">
+        <span class="twitter" style="background-image: url('../../css/kuvat/twitter.png')"></span>
+      </a>
+    </div>
+  </main>
 
-    <main>
-      <div class="contact-info">
-        <h3>联系信息</h3>
-        <div class="contact-item">
-          <img src="../../css/kuvat/location.png" width="20px" height="20px" class="loc" alt="location">
-          <p class="contact">地址: <br> Myllypurontie 1 <br>00920 赫尔辛基 <br>芬兰</p>
-        </div>
-        <div class="contact-item">
-          <img src="../../css/kuvat/email.png" width="20px" height="20px" class="email" alt="email">
-          <p class="cont.act">邮箱: <br> info@metropolia.fi</p>
-        </div>
-        <div class="contact-item">
-          <img src="../../css/kuvat/phone.png" width="20px" height="20px" class="phone" alt="phone">
-          <p class="contact">电话: <br> 09 74245000</p>
-        </div>
-      </div>
-
-      <div class="socials">
-        <a href="https://www.instagram.com/">
-          <span class="instagram" style="background-image: url('../../css/kuvat/instagram.png')"></span>
-        </a>
-        <a href="https://www.facebook.com/">
-          <span class="facebook" style="background-image: url('../../css/kuvat/facebook.png')"></span>
-        </a>
-        <a href="https://twitter.com/">
-          <span class="twitter" style="background-image: url('../../css/kuvat/twitter.png')"></span>
-        </a>
-      </div>
-    </main>
-
-    <footer>
-      <p>&copy; S&A CAFE 2024</p>
-      <div class="changecontent">
-      </div>
+  <footer>
+    <p>&copy; S&A CAFE 2024</p>
+    <div class="changecontent">
+    </div>
   </footer>
 </body>
 

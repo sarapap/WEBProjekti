@@ -66,7 +66,7 @@
   </style>
 
   <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/9Ostoskori.js" defer></script>
+  <script src="/javascript/1Etusivu.js" defer></script>
 </head>
 
 <body>
@@ -124,7 +124,7 @@
       </div>
     </div>
     <a href="5Yhteydenotto_et.html" class="navItem">Võta meiega ühendust</a>
-    <a href="6Poytavaraus_et.html" class="navItem">Laua broneerimine</a>
+    <a href="6Poytavaraus_et.html" class="navItem">Broneeri ruum</a>
   </nav>
 
   <!-- etusivu-->
@@ -175,7 +175,37 @@
     </div>
     <div class="footer">
       <a href="10Paakayttaja_et.html">Põhikasutaja Informatsioonihaldus</a><br>
-      <a href="palaute.html">Tagasiside</a>
+      <!-- HTML-sivu -->
+      <a href="#" id="openModal">Anna tagasisidet</a>
+
+      <dialog id="feedbackModal" class="modal">
+        <div class="modal-content">
+          <button id="closeModal">Sulge</button>
+          <form id="feedbackForm">
+            <label for="name">Nimi:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">E-post:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="feedbackType">Tagasiside tüüp:</label>
+            <select id="feedbackType" name="feedbackType">
+              <option value="" disabled selected>Vali...</option>
+              <option value="general">Üldine tagasiside</option>
+              <option value="question">Küsimus</option>
+              <option value="suggestion">Ettepanek</option>
+              <option value="problem">Probleem</option>
+              <option value="praise">Kiitus</option>
+            </select><br>
+
+            <label for="message">Sõnum:</label><br>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+
+            <input type="submit" value="Saada">
+          </form>
+        </div>
+      </dialog>
+
     </div>
   </footer>
 

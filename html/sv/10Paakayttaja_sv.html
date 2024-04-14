@@ -47,84 +47,83 @@
     </div>
   </header>
   <nav class="navbarClass" id="navbar">
-    <a href="1Förstasida_sv.html" class="navItem">Framsidan</a>
-    <a href="2OmOss_sv.html" class="navItem">Om oss</a>
+    <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
+    <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
     <div class="dropdown">
       <button class="dropdown-toggle" id="menuButton">
         Meny
       </button>
       <div class="dropdown-menu" id="menuDropdown">
-        <a class="dropdown-item" href="3MenySida1_sv.html">Tårtor</a>
-        <a class="dropdown-item" href="3MenySida2_sv.html">Salt</a>
-        <a class="dropdown-item" href="3MenySida3_sv.html">Sött</a>
-        <a class="dropdown-item" href="3MenySida4_sv.html">Varm mat</a>
-        <a class="dropdown-item" href="3MenySida5_sv.html">Drycker</a>
+        <a class="dropdown-item" href="3MenuPage1_sv.html">Tårtor</a>
+        <a class="dropdown-item" href="3MenuPage2_sv.html">Salt</a>
+        <a class="dropdown-item" href="3MenuPage3_sv.html">Sött</a>
+        <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
+        <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
       </div>
     </div>
-    <a href="5KontaktaOss_sv.html" class="navItem">Kontakta oss</a>
-    <a href="6Bordsbokning_sv.html" class="navItem">Boka bord</a>
+    <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
+    <a href="6Poytavaraus_sv.html" class="navItem">Boka plats</a>
   </nav>
 
   <div class="ajan-section">
-    <h1>Tuotehalinta</h1>
-    <button class="button">Uusi tuote</button>
-
+    <h1>Produkthantering</h1>
+    <button class="button">Ny produkt</button>
   </div>
-  <div>
 
-    <p>Tarkista muokkaustiedot etsimällä tuotteita.</p>
-    <input type="text" id="cakeSearch" placeholder="Etsi kakkua...">
+  <div>
+    <p>Kontrollera redigeringsinformation genom att söka efter produkter.</p>
+    <input type="text" id="cakeSearch" placeholder="Sök efter tårta...">
     <div class="filter-options">
-      <label for="cakeType">Valitse tyyppi:</label>
+      <label for="cakeType">Välj typ:</label>
       <select id="cakeType">
-        <option value="kaikki">Kaikki</option>
-        <option value="suklaakakut">Kakut</option>
-        <option value="mansikkakakut">Lämmintä ruokaa</option>
-        <option value="vaniljakakut">Juotavaa</option>
+        <option value="alla">Alla</option>
+        <option value="tårtor">Tårtor</option>
+        <option value="söta">Söta</option>
+        <option value="heta">Heta rätter</option>
+        <option value="drycker">Drycker</option>
       </select>
     </div>
     <hr>
 
     <div>
-      <h1>Yritystoiminnan seuranta</h1>
-      <h4>Tarkista raportti valitulla ajanjaksolla, esim, päivä. kuukausi jne.</h4>
-      <label for="ajan">Valitse ajan: </label>
-      <select id="ajan" onchange="changeLanguage(this.value)">
-        <option value="pv" selected>Päivä</option>
-        <option value="vko">Viikko</option>
-        <option value="kk">Kuukausi</option>
-        <option value="v">Vuosi</option>
+      <h1>Företagsövervakning</h1>
+      <h4>Kontrollera rapport för vald period, t.ex. dag, månad, etc.</h4>
+      <label for="period">Välj period: </label>
+      <select id="period" onchange="changeLanguage(this.value)">
+        <option value="dag" selected>Dag</option>
+        <option value="vecka">Vecka</option>
+        <option value="månad">Månad</option>
+        <option value="år">År</option>
       </select>
 
       <table>
-        <p>Tähän tulee raportti valitulla ajanjaksolla.</p>
-        <tbody id="raportti">
+        <p>Rapporten för den valda perioden visas här.</p>
+        <tbody id="rapport">
         </tbody>
       </table>
     </div>
     <hr>
 
     <div>
-      <h1>Palaute</h1>
-      <form action="/varauksen-vahvistus" method="post">
+      <h1>Återkoppling</h1>
+      <form action="/bokningsbekräftelse" method="post">
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="aloituspvm">Aloituspäivämäärä:</label>
-        <input type="date" id="aloituspvm" name="aloituspvm">
+        <label for="startDatum">Startdatum:</label>
+        <input type="date" id="startDatum" name="startDatum">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="lopetuspvm">Lopetuspäivämäärä:</label>
-        <input type="date" id="lopetuspvm" name="lopetuspvm">
-        <button type="submit" class="button2">Hae</button>
+        <label for="slutDatum">Slutdatum:</label>
+        <input type="date" id="slutDatum" name="slutDatum">
+        <button type="submit" class="button2">Sök</button>
       </form>
       <table>
-        <p>Tähän tulee palaute valitulla ajanjaksolla.</p>
-        <tbody id="palaute">
+        <p>Återkoppling för den valda perioden visas här.</p>
+        <tbody id="återkoppling">
         </tbody>
       </table>
     </div>
+  </div>
 
 
-  </div>
-  </div>
   <footer>
     <p>&copy; S&A CAFE 2024</p>
     <div class="changecontent">

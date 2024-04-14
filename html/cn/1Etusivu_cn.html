@@ -124,7 +124,7 @@
       </div>
     </div>
     <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
-    <a href="6Poytavaraus_cn.html" class="navItem">预定房间</a>
+    <a href="6Poytavaraus_cn.html" class="navItem">预订场地</a>
   </nav>
 
   <!-- etusivu-->
@@ -173,8 +173,37 @@
     </p>
     <div class="footer">
       <a href="10Paakayttaja_cn.html">信息管理</a><br>
-      <p></p>
-      <a href="palaute.html">反馈</a>
+
+      <!-- palaute -->
+      <a href="#" id="openModal">Anna palautetta</a>
+
+      <dialog id="feedbackModal" class="modal">
+        <div class="modal-content">
+          <button id="closeModal">Sulje</button>
+          <form id="feedbackForm">
+            <label for="name">Nimi:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Sähköposti:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="feedbackType">Palautteen tyyppi:</label>
+            <select id="feedbackType" name="feedbackType">
+              <option value="" disabled selected>Valitse...</option>
+              <option value="general">Yleinen palaute</option>
+              <option value="question">Kysymys</option>
+              <option value="suggestion">Ehdotus</option>
+              <option value="problem">Ongelma</option>
+              <option value="praise">Kehut</option>
+            </select><br>
+
+            <label for="message">Viesti:</label><br>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+
+            <input type="submit" value="Lähetä">
+          </form>
+        </div>
+      </dialog>
     </div>
   </footer>
 
