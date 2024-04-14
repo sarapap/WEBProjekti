@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../css/14Tilanvaraus.css" rel="stylesheet">
+  <title>S&A CAFE</title>
+  <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <script src="/javascript/default.js" defer></script>
+  <script src="/javascript/7Kayttaja.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">Valitse kieli: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI" selected>Suomi</option>
+              <option value="EN">Englanti</option>
+              <option value="CN">Kiina</option>
+              <option value="ET">Viro</option>
+              <option value="SV">Ruotsi</option>
+            </select>
+          </li>
+          <li>
+            <a href="11Login.html">
+              <span class="käyttäjä"></span>
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit.html">
+              <span class="suosikit"></span>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori.html">
+              <span class="ostoskori"></span>
+            </a>
+          </li>
+        </ul>
+
+      </nav>
+      <div class="image-container">
+        <a href="1Etusivu.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+        <img src="../../css/kuvat/tilanvaraus_header.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
+      </div>
+    </div>
+  </header>
+  <nav class="navbarClass" id="navbar">
+    <a href="1Etusivu.html" class="navItem">Etusivu</a>
+    <a href="2AboutUs.html" class="navItem">About Us</a>
+    <div class="dropdown">
+      <button class="dropdown-toggle" id="menuButton">
+        Menu
+      </button>
+      <div class="dropdown-menu" id="menuDropdown">
+        <a class="dropdown-item" href="3MenuPage1.html">Kakut</a>
+        <a class="dropdown-item" href="3MenuPage2.html">Suolaista</a>
+        <a class="dropdown-item" href="3MenuPage3.html">Makeaa</a>
+        <a class="dropdown-item" href="3MenuPage4.html">Lämmintä ruokaa</a>
+        <a class="dropdown-item" href="3MenuPage5.html">Juotavaa</a>
+      </div>
+    </div>
+    <a href="5Yhteydenotto.html" class="navItem">Ota yhteyttä</a>
+    <a href="6Poytavaraus.html" class="navItem">Varaa pöytä</a>
+  </nav>
+
+
+  <main class="main">
+    <div class="aside2" id="register-id">
+      <h2>Tilan kuvaus</h2>
+      <hr>
+      <p></p>
+      <img src="../../css/kuvat/tila2.jpg" alt="tila2" class="tila1">
+
+      <div>
+        <p>Tämä tila sopii 2 - 4 henkilöille!</p>
+        <table border="0.5">
+          <tr>
+            <th>Tilan nimi</th>
+            <th>Koko</th>
+            <th>Aika</th>
+            <th>Hinta</th>
+            <th>varaa</th>
+          </tr>
+          <tr>
+            <td>Tila1</td>
+            <td>15m<sup>2</sup></td>
+            <td>1</td>
+            <td>10€</td>
+            <td><button type="submit">Varaa</button></td>
+          </tr>
+          <hr>
+        </table>
+        <hr>
+      </div>
+    </div>
+
+    <div class="aside2" id="register-id">
+      <h2>Tilan kuvaus</h2>
+      <hr>
+      <p></p>
+      <img src="../../css/kuvat/tila2.jpg" alt="tila2" class="tila1">
+      <p></p>
+      <div>
+        <p>Tämä tila sopii 5 - 9 henkilöille! </p>
+        <table border="0.5">
+          <tr>
+            <th>Tilan nimi</th>
+            <th>Koko</th>
+            <th>Aika</th>
+            <th>Hinta</th>
+            <th>varaa</th>
+          </tr>
+          <tr>
+            <td>Tila2</td>
+            <td>20m<sup>2</sup></td>
+            <td> 1</td>
+            <td>10€</td>
+            <td><button type="submit">Varaa</button></td>
+          </tr>
+          <hr>
+        </table>
+<hr>
+      </div>
+    </div>
+
+    <div class="aside2" id="register-id">
+      <h2>Tilan kuvaus</h2>
+      <hr>
+      <p></p>
+      <img src="../../css/kuvat/tila2.jpg" alt="tila2" class="tila1">
+      <p></p>
+      <div>
+        <p>Tämä tila sopii 10 - 15 henkilöille!</p>
+        <table border="0.8">
+          <tr>
+            <th>Nimi</th>
+            <th>Koko</th>
+            <th>Aika</th>
+            <th>Hinta</th>
+            <th>varaa</th>
+          </tr>
+          <tr>
+            <td>Tila3</td>
+            <td>25m<sup>2</sup></td>
+            <td>1</td>
+            <td>15€</td>
+            <td><button type="submit">Varaa</button></td>
+          </tr>
+          <hr>
+        </table>
+        <hr>
+      </div>
+    </div>
+  </main>
+  <hr>
+
+</body>
+
+</html>
