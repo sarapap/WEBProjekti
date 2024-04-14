@@ -44,10 +44,10 @@ header {
 }
 
 .logo {
-width:90%;
-height:240px;
-padding: 7% 0;
-margin-right: 20px;
+  width: 90%;
+  height: 240px;
+  padding: 7% 0;
+  margin-right: 20px;
 }
 
 .cakeImg {
@@ -81,6 +81,19 @@ margin-right: 20px;
   margin: 7px;
   background-image: url('kuvat/shoppingcart.png');
   background-size: cover;
+}
+
+.kieli {
+  margin: 7px -10px 0px 0px;
+}
+
+#kieli {
+  background-color: rgb(192, 160, 122);
+  color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* navigation bar */
@@ -127,10 +140,10 @@ nav li {
 }
 
 .dropdown {
-flex-grow: 1;
-display: flex;
-justify-content: center;
-position: relative;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 
 .dropdown-menu {
@@ -139,8 +152,8 @@ position: relative;
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  top:100%;
-  left:0;
+  top: 100%;
+  left: 0;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -169,7 +182,8 @@ position: relative;
 }
 
 .dropdown-menu a:hover {
-  background-color: #eceae9;;
+  background-color: #eceae9;
+  ;
 }
 
 /* main */
@@ -180,7 +194,8 @@ position: relative;
   margin: 20px 0px 20px 0px;
   text-align: center;
   border-radius: 1rem;
-  margin-top: 20px;;
+  margin-top: 20px;
+  ;
 
 }
 
@@ -263,6 +278,7 @@ footer {
   color: #827777;
   font-size: small;
 }
+
 /* media */
 
 @media screen and (min-width: 801px) {
