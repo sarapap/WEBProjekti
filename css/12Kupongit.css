@@ -239,7 +239,7 @@ nav li {
 
 }
 
-.tiedostot_cn{
+.tietosdot_cn{
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -263,13 +263,13 @@ nav li {
   background-image: url('kuvat/kupongit_cn.png');
 }
 
-.tiedostot_en{
+.tietosdot_en{
   display: inline-block;
   width: 150px;
   height: 150px;
   margin-bottom: 30px;
   background-size: cover;
-  background-image: url('kuvat/tietosdot.png');
+  background-image: url('kuvat/tietosdot_en.png');
 }
 .tilaus_en{
   display: inline-block;
@@ -277,18 +277,18 @@ nav li {
   height: 150px;
   margin-bottom: 30px;
   background-size: cover;
-  background-image: url('kuvat/tilaus.png');
+  background-image: url('kuvat/tilaus_en.png');
 }
 .kupongit_en{
   display: inline-block;
   width: 150px;
   height: 150px;
   background-size: cover;
-  background-image: url('kuvat/kupongit.png');
+  background-image: url('kuvat/kupongit_en.png');
 }
 
 
-.tiedostot_et{
+.tietosdot_en{
   display: inline-block;
   width: 150px;
   height: 150px;
