@@ -124,38 +124,38 @@
 
 
   <div class="ajan-section">
-    <h1>Tuotehalinta</h1>
-    <button class="button">Uusi tuote</button>
+    <h1>产品管理</h1>
+    <button class="button">添加新产品</button>
 
     </div>
     <div>
 
-    <p>Tarkista muokkaustiedot etsimällä tuotteita.</p>
-    <input type="text" id="cakeSearch" placeholder="Etsi kakkua...">
+    <p>搜索并选定产品， 然后可进行编辑或删除。</p>
+    <input type="text" id="cakeSearch" placeholder="搜索并选定产品...">
     <div class="filter-options">
-      <label for="cakeType">Valitse tyyppi:</label>
+      <label for="cakeType">选择类型:</label>
       <select id="cakeType">
-        <option value="kaikki">Kaikki</option>
-        <option value="suklaakakut">Kakut</option>
-        <option value="mansikkakakut">Lämmintä ruokaa</option>
-        <option value="vaniljakakut">Juotavaa</option>
+        <option value="kaikki">全部</option>
+        <option value="suklaakakut">糕点</option>
+        <option value="mansikkakakut">热食</option>
+        <option value="vaniljakakut">饮品</option>
       </select>
     </div>
     <hr>
 
     <div>
-      <h1>Yritystoiminnan seuranta</h1>
-      <h4>Tarkista raportti valitulla ajanjaksolla, esim, päivä. kuukausi jne.</h4>
-      <label for="ajan">Valitse ajan: </label>
+      <h1>公司商业运营监督</h1>
+      <h4>可选择查看各个时期的运营报告。</h4>
+      <label for="ajan">选择时间段: </label>
       <select id="ajan" onchange="changeLanguage(this.value)">
-        <option value="pv" selected>Päivä</option>
-        <option value="vko">Viikko</option>
-        <option value="kk">Kuukausi</option>
-        <option value="v">Vuosi</option>
+        <option value="pv" selected>日报</option>
+        <option value="vko">周报</option>
+        <option value="kk">月报</option>
+        <option value="v">年报</option>
       </select>
 
       <table>
-        <p>Tähän tulee raportti valitulla ajanjaksolla.</p>
+        <p>您所选择期间的报告会显示在这里。</p>
         <tbody id="raportti">
         </tbody>
       </table>
@@ -163,18 +163,18 @@
     <hr>
 
     <div>
-      <h1>Palaute</h1>
+      <h1>反馈</h1>
       <form action="/varauksen-vahvistus" method="post">
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="aloituspvm">Aloituspäivämäärä:</label>
+        <label for="aloituspvm">开始日期：</label>
         <input type="date" id="aloituspvm" name="aloituspvm">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="lopetuspvm">Lopetuspäivämäärä:</label>
+        <label for="lopetuspvm">截止日期:</label>
         <input type="date" id="lopetuspvm" name="lopetuspvm">
-        <button type="submit" class="button2">Hae</button>
+        <button type="submit" class="button2">搜索</button>
       </form>
       <table>
-        <p>Tähän tulee palaute valitulla ajanjaksolla.</p>
+        <p>您所选择期间的反馈信息会显示在这里.</p>
         <tbody id="palaute">
         </tbody>
       </table>
