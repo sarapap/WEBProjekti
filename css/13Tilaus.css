@@ -326,7 +326,7 @@ nav li {
   height: 150px;
   margin-bottom: 30px;
   background-size: cover;
-  background-image: url('kuvat/tilaus._sv.png');
+  background-image: url('kuvat/tilaus_sv.png');
 }
 .kupongit_sv{
   display: inline-block;
