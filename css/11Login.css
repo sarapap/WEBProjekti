@@ -187,10 +187,10 @@ nav li {
 
 /* main */
 .main {
-  width: 90%;
+  width: 100%;
   display: flex;
   min-height: 100vh;
-  margin: 20px 0px 20px 0px;
+  margin: 20px 0px 20px 10px;
   text-align: center;
   border-radius: 1rem;
 
@@ -198,7 +198,6 @@ nav li {
 
 /* kirjautuminen */
 .aside1 {
-  height: auto;
   background-color: rgb(233, 220, 204);
   color: rgb(83, 78, 78);
   text-align: center;
@@ -207,19 +206,20 @@ nav li {
   height: 100%;
   padding: 30px;
   border-radius: 0.5rem;
-  margin-left: 5%;
+  margin-left: 2%;
   margin-top: 30px;
+
 
 }
 
 .aside2 {
   padding-left: 5%;
-  height: 100%;
   border-radius: 1rem;
   border: 2px solid #ccc;
   border-radius: 10px;
   padding: 20px;
-  margin-left: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .login-form label {
@@ -267,47 +267,11 @@ p {
 
 /* media */
 
-@media screen and (max-width: 800px) {
-
-
-  .aside1 {
-    width: 90%;
-    margin-bottom: 2rem;
-  }
-
-  .aside2 {
-    width: 100%;
-    margin-bottom: 10rem;
-
-  }
-
-  form {
-    display: block;
-
-  }
-
-  input label {
-    margin-bottom: 0.5rem;
-  }
-
-  button {
-    margin-top: 0.5rem;
-  }
-
-  input,
-  button {
-    appearance: 0.5rem;
-  }
-}
-
 @media screen and (min-width:801px) {
-  .etusivu {
-    height: auto;
+  .main {
     display: flex;
-    flex-direction: row;
-    width: 90%;
+    width: 100%;
   }
-
   .logo {
     width: 90%;
   }
@@ -323,7 +287,7 @@ p {
 
   .aside2 {
     width: 55%;
-    height: auto;
+
   }
 
   .footer-container {
@@ -333,8 +297,9 @@ p {
 
 @media (max-width: 800px) {
   .main {
-    min-height: 100vh;
+    height: 100%;
     display: block;
+    width: 90%;
   }
 
   .icons ul li {
@@ -355,11 +320,13 @@ p {
   .aside1 {
     width: 90%;
     margin-bottom: 2rem;
+    height: 100%;
   }
 
   .aside2 {
-    width: 100%;
-    margin-bottom: 10rem;
+    width: 90%;
+    margin-bottom: 2rem;
+    height: 100%;
 
   }
 
@@ -369,6 +336,9 @@ p {
     width: 90%;
   }
 
+  input label {
+    margin: o.5rem 0;
+  }
   button {
     margin-top: 0.5rem;
   }
@@ -411,8 +381,5 @@ p {
     height: 100px;
   }
 
-  form {
-    height: 200px;
-  }
 
 }
