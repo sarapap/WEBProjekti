@@ -209,7 +209,7 @@ nav li {
   height: fit-content;
 }
 
-.tiedostot {
+.tiedot {
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -239,7 +239,7 @@ nav li {
 
 }
 
-.tietosdot_cn{
+.tiedot_cn{
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -263,7 +263,7 @@ nav li {
   background-image: url('kuvat/kupongit_cn.png');
 }
 
-.tietosdot_en{
+.tiedot_en{
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -288,7 +288,7 @@ nav li {
 }
 
 
-.tietosdot_en{
+.tiedot_et{
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -312,7 +312,7 @@ nav li {
   background-image: url('kuvat/kupongit_et.png');
 }
 
-.tiedostot_sv{
+.tiedot_sv{
   display: inline-block;
   width: 150px;
   height: 150px;

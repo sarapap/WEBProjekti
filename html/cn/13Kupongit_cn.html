@@ -2,159 +2,160 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../css/12Kupongit.css" rel="stylesheet">
-    <title>S&A CAFE</title>
-    <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../css/12Kupongit.css" rel="stylesheet">
+  <title>S&A CAFE</title>
+  <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
 
-    <style>
-        .changecontent::after {
-            content: "欢迎前来品尝！";
-            color: rgb(192, 160, 122);
-            animation: changetext2 10s infinite linear;
-            margin: 10px;
-            font-weight: bold;
-        }
+  <style>
+    .changecontent::after {
+      content: "欢迎前来品尝！";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
+    }
 
-        @keyframes changetext {
-            20% {
-                content: "加入会员， 无需手续费！ ";
-            }
+    @keyframes changetext {
+      20% {
+        content: "加入会员， 无需手续费！ ";
+      }
 
-            40% {
-                content: "会员的第一次消费可享受15%的折扣!";
-            }
+      40% {
+        content: "会员的第一次消费可享受15%的折扣!";
+      }
 
-            60% {
-                content: "创建你的梦想蛋糕！";
-            }
+      60% {
+        content: "创建你的梦想蛋糕！";
+      }
 
-            80% {
-                content: "运费 2,95€";
-            }
+      80% {
+        content: "运费 2,95€";
+      }
 
-            100% {
-                content: "欢迎前来品尝！";
-            }
-        }
-    </style>
+      100% {
+        content: "欢迎前来品尝！";
+      }
+    }
+  </style>
 
-    <script src="/javascript/default.js" defer></script>
-    <script src="/javascript/1Etusivu.js" defer></script>
+  <script src="/javascript/default.js" defer></script>
+  <script src="/javascript/1Etusivu.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <div>
-            <nav class="icons">
-                <ul>
-                    <li class="kieli">
-                        <label for="kieli">请选择语言: </label>
-                        <select id="kieli" onchange="changeLanguage(this.value)">
-                            <option value="FI">芬兰语</option>
-                            <option value="EN">英语</option>
-                            <option value="CN" selected>中文</option>
-                            <option value="ET">爱沙尼亚语</option>
-                            <option value="SV">瑞典语</option>
-                        </select>
-                    </li>
-                    <li>
-                        <a href="11login_cn.html">
-                            <span class="käyttäjä"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="8Suosikit_cn.html">
-                            <span class="suosikit"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="9Ostoskori_cn.html">
-                            <span class="ostoskori"></span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">请选择语言: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI">芬兰语</option>
+              <option value="EN">英语</option>
+              <option value="CN" selected>中文</option>
+              <option value="ET">爱沙尼亚语</option>
+              <option value="SV">瑞典语</option>
+            </select>
+          </li>
+          <li>
+            <a href="11login_cn.html">
+              <span class="käyttäjä"></span>
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit_cn.html">
+              <span class="suosikit"></span>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori_cn.html">
+              <span class="ostoskori"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+  <main>
+
+    <div class="image-container">
+      <a href="1Etusivu_cn.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+      <img src="../../css/kuvat/coupon.jpg" class="cakeImg" alt="cakes">
+    </div>
+
+    <nav id="navbar">
+      <a href="1Etusivu_cn.html" class="navItem">首页</a>
+      <a href="2AboutUs_cn.html" class="navItem">关于我们</a>
+      <div class="dropdown">
+        <button class="dropdown-toggle" id="menuButton">菜单 </button>
+        <div class="dropdown-menu" id="menuDropdown">
+          <a class="dropdown-item" href="3MenuPage1_cn.html">糕点</a>
+          <a class="dropdown-item" href="3MenuPage2_cn.html">咸味点心</a>
+          <a class="dropdown-item" href="3MenuPage3_cn.html">甜味点心</a>
+          <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
+          <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
         </div>
+      </div>
+      <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
+      <a href="6Poytavaraus_cn.html" class="navItem">预订场地</a>
+    </nav>
 
-    </header>
-    <main>
+    <main class="main">
+      <div class="aside1">
+        <ul class="kuvat" style="list-style: none;">
+          <li>
+            <a href="7Kayttaja_cn.html">
+              <span class="tiedot_cn"></span>
+            </a>
+          </li>
+          <li>
+            <a href="12Tilaus_cn.html">
+              <span class="tilaus_cn"></span>
+            </a>
+          </li>
+          <li><a href="13Kupongit_cn.html">
+              <span class="kupongit_cn"></span>
 
-        <div class="image-container">
-            <a href="1Etusivu_cn.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
-            <img src="../../css/kuvat/coupon.jpg" class="cakeImg" alt="cakes">
-        </div>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-        <nav id="navbar">
-            <a href="1Etusivu_cn.html" class="navItem">首页</a>
-            <a href="2AboutUs_cn.html" class="navItem">关于我们</a>
-            <div class="dropdown">
-                <button class="dropdown-toggle" id="menuButton">菜单 </button>
-                <div class="dropdown-menu" id="menuDropdown">
-                    <a class="dropdown-item" href="3MenuPage1_cn.html">糕点</a>
-                    <a class="dropdown-item" href="3MenuPage2_cn.html">咸味点心</a>
-                    <a class="dropdown-item" href="3MenuPage3_cn.html">甜味点心</a>
-                    <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
-                    <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
-                </div>
-            </div>
-            <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
-            <a href="6Poytavaraus_cn.html" class="navItem">预订场地</a>
-        </nav>
+      <div class=aside2 id="omatiedot">
+        <h1>您的打折卡</h1><br>
 
-        <main class="main">
-            <div class="aside1">
-                <ul class="kuvat" style="list-style: none;">
-                    <li>
-                        <a href="7Kayttaja_cn.html">
-                            <span class="tietosdot_cn"></span>
-                        </a>
-                    <li>
-                        <a href="12Tilaus_cn.html">
-                            <span class="tilaus_cn"></span>
-                        </a>
-                    </li>
-                    <li><a href="13Kupongit_cn.html">
-                            <span class="kupongit_cn"></span>
+        <form action="https://10.120.32.94/test/form-submission/" method="post" id="omatiedot">
+          <table>
+            <tbody id="kupongit_table">
+              <tr>
+                <td>
+                  <img src="../../css/kuvat/ensi_tilaus_cn.png" style="width: 70%;">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="../../css/kuvat/opiskelia_elakelainen_cn.png" style="width: 70%;">
+                </td>
 
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class=aside2 id="omatiedot">
-                <h1>您的打折卡</h1><br>
-
-                <form action="https://10.120.32.94/test/form-submission/" method="post" id="omatiedot">
-                    <table>
-                        <tbody id="kupongit_table">
-                            <tr>
-                                <td>
-                                    <img src="../../css/kuvat/ensi_tilaus_cn.png" style="width: 70%;">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="../../css/kuvat/opiskelia_elakelainen_cn.png" style="width: 70%;">
-                                </td>
-
-                            </tr>
+              </tr>
 
 
-                        </tbody>
+            </tbody>
 
 
-                    </table>
+          </table>
 
-                </form>
-            </div>
-        </main>
-        <footer class="footer-container">
-            <p class="footerP">&copy; S&A CAFE 2024</p>
-            <div class="changecontent">
-            </div>
-        </footer>
+        </form>
+      </div>
+    </main>
+    <footer class="footer-container">
+      <p class="footerP">&copy; S&A CAFE 2024</p>
+      <div class="changecontent">
+      </div>
+    </footer>
 </body>
 
 </html>
