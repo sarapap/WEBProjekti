@@ -1,4 +1,3 @@
-
 'use strict';
 
 document.getElementById("kieli").addEventListener("change", function () {

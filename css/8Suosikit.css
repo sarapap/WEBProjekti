@@ -142,10 +142,8 @@ nav li {
 
 .dropdown {
   flex-grow: 1;
-  /* Tämä laajentaa dropdown-elementin samalle leveydelle kuin muut navItem-elementit */
   display: flex;
   justify-content: center;
-  /* Keskittää dropdownin sisällön */
   position: relative;
 }
 
@@ -186,7 +184,7 @@ nav li {
 
 .dropdown-menu a:hover {
   background-color: #eceae9;
-  ;
+
 }
 
 /* table */
