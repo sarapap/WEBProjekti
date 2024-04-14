@@ -175,26 +175,26 @@
       <a href="10Paakayttaja_cn.html">信息管理</a><br>
 
       <!-- palaute -->
-      <a href="#" id="openModal">Anna palautetta</a>
+      <a href="#" id="openModal">给予反馈</a>
 
       <dialog id="feedbackModal" class="modal">
         <div class="modal-content">
-          <button id="closeModal">Sulje</button>
+          <button id="closeModal">关闭</button>
           <form id="feedbackForm">
-            <label for="name">Nimi:</label>
-            <input type="text" id="name" name="name" required><br>
+            <label for="name">名字:</label>
+            <input type="text" id="name" name="name" ><br>
 
-            <label for="email">Sähköposti:</label>
-            <input type="email" id="email" name="email" required><br>
+            <label for="email">邮箱:</label>
+            <input type="email" id="email" name="email" ><br>
 
-            <label for="feedbackType">Palautteen tyyppi:</label>
+            <label for="feedbackType">选择类别:</label>
             <select id="feedbackType" name="feedbackType">
-              <option value="" disabled selected>Valitse...</option>
-              <option value="general">Yleinen palaute</option>
-              <option value="question">Kysymys</option>
-              <option value="suggestion">Ehdotus</option>
-              <option value="problem">Ongelma</option>
-              <option value="praise">Kehut</option>
+              <option value="" disabled selected>选择...</option>
+              <option value="general">寻常事件</option>
+              <option value="question">提问</option>
+              <option value="suggestion">建议</option>
+              <option value="problem">问题</option>
+              <option value="praise">赞扬</option>
             </select><br>
 
             <label for="message">Viesti:</label><br>
