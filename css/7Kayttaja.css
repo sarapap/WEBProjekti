@@ -258,14 +258,29 @@ nav li {
 }
 
 .tiedostot_en{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  background-size: cover;
   background-image: url('kuvat/tietosdot.png');
 }
 .tilaus_en{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  background-size: cover;
   background-image: url('kuvat/tilaus.png');
 }
 .kupongit_en{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
   background-image: url('kuvat/kupongit.png');
 }
+
 
 .tiedostot{
   background-image: url('kuvat/tietosdot_et.png');
