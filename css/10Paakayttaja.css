@@ -1,205 +1,294 @@
 body {
-    font-family: 'Times New Roman', Times, serif;
-    margin: auto;
-    width: 90%;
-    padding: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  margin: auto;
+  width: 90%;
+  padding: 10px;
 }
 
 .container {
-    width: 100%;
+  width: 100%;
 }
 
 header {
-    justify-content: space-between;
-    align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .top-link__icon[data-v-007d9333] {
-    width: 12px;
-    height: 12px;
-    margin-right: var(--spacing-small)
+  width: 12px;
+  height: 12px;
+  margin-right: var(--spacing-small)
 }
 
 .title {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    margin-left: 100px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-left: 100px;
 }
 
 .icons {
-    text-align: right;
-    display: flex;
-    width: 100%;
-    display: inline-block;
-    background: none;
-    justify-content: right;
-    margin-top: 0;
-    padding-top: 0;
+  text-align: right;
+  display: flex;
+  width: 100%;
+  display: inline-block;
+  background: none;
+  justify-content: right;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .image-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-    width: 90%;
-    height: 240px;
-    padding: 7% 0;
-    margin-right: 20px;
+  width: 90%;
+  height: 240px;
+  padding: 7% 0;
+  margin-right: 20px;
 }
 
 .cakeImg {
-
-    width: 80%;
-    height: 300px;
+  box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
+  width: 80%;
+  height: 300px;
 }
 
 .suosikit {
-    display: inline-block;
-    width: 30px;
-    height: 25px;
-    margin: 7px;
-    background-image: url('kuvat/heart.png');
-    background-size: cover;
+  display: inline-block;
+  width: 30px;
+  height: 25px;
+  margin: 7px;
+  background-image: url('kuvat/heart.png');
+  background-size: cover;
 }
 
 .käyttäjä {
-    display: inline-block;
-    width: 35px;
-    height: 27px;
-    margin: 7px;
-    background-image: url('kuvat/usericon.png');
-    background-size: cover;
+  display: inline-block;
+  width: 35px;
+  height: 27px;
+  margin: 7px;
+  background-image: url('kuvat/usericon.png');
+  background-size: cover;
 }
 
 .ostoskori {
-    display: inline-block;
-    width: 31px;
-    height: 27px;
-    margin: 7px;
-    background-image: url('kuvat/shoppingcart.png');
-    background-size: cover;
+  display: inline-block;
+  width: 31px;
+  height: 27px;
+  margin: 7px;
+  background-image: url('kuvat/shoppingcart.png');
+  background-size: cover;
 }
 
 .kieli {
-    margin: 7px -10px 0px 0px;
+  margin: 7px -10px 0px 0px;
 }
 
 #kieli {
-    background-color: rgb(192, 160, 122);
-    color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px;
-    font-family: 'Times New Roman', Times, serif;
+  background-color: rgb(192, 160, 122);
+  color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* navigation bar */
 
 a {
-    text-decoration: none;
-    color: #df810f;
-    font-size: bold;
+  text-decoration: none;
+  color: #df810f;
+  font-size: bold;
 }
 
 nav {
-    background-color: rgb(192, 160, 122);
-    padding: 10px 3px 10px 3px;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
+  background-color: rgb(192, 160, 122);
+  padding: 10px 3px 10px 3px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
 }
 
 nav ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    list-style: none;
-    justify-content: right;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  justify-content: right;
 }
 
 nav li {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .navItem {
-    display: inline-block;
-    color: #fff;
-    text-shadow: 1px 1px 1px black;
-    flex-grow: 1;
-    text-align: center;
-    position: relative;
+  display: inline-block;
+  color: #fff;
+  text-shadow: 1px 1px 1px black;
+  flex-grow: 1;
+  text-align: center;
+  position: relative;
 }
 
 .navItem:hover {
-    text-decoration: none;
-    color: #dfd7cd;
+  text-decoration: none;
+  color: #dfd7cd;
 }
 
 .dropdown {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    position: relative;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 
 .dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    top: 100%;
-    left: 0;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  top: 100%;
+  left: 0;
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block;
+  display: block;
 }
 
 .dropdown-toggle {
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    font-family: 'Times New Roman', Times, serif;
-    text-shadow: 1px 1px 1px black;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
+  text-shadow: 1px 1px 1px black;
 }
 
 .dropdown-toggle:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .dropdown-menu a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
 .dropdown-menu a:hover {
-    background-color: #eceae9;
+  background-color: #eceae9;
+  ;
 }
 
 /* main */
 
-button {
-    background-color: rgb(219, 146, 56);
-    border: 1px solid rgb(219, 146, 56);
-    border-radius: 0.5rem;
-    height: 2rem;
-    color: white;
-    cursor: pointer;
+.ajan-section {
+  padding: 20px;
+  display: flex;
+  margin-bottom: 0;
 }
 
-main {
-    width: 100%;
-    display: inline-block;
-    min-height: 100vh;
-    margin-top: 30px;
-    text-align: center;
-    border-radius: 1rem;
+#cakeSearch {
+  width: 50%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.filter-options {
+  margin-bottom: 20px;
+}
+
+.filter-options label {
+  font-weight: bold;
+}
+
+.filter-options select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button {
+  width: 100px;
+  height: 48px;
+  background-color: rgb(217, 124, 48);
+  color: white;
+  padding: 10px;
+  border-radius: 1rem;
+  font-size: medium;
+  margin-left: 50%;
+  margin-top: 20px;
+  border: none;
+
+}
+.button2 {
+  width: 100px;
+  height: 48px;
+  background-color: rgb(217, 124, 48);
+  color: white;
+  padding: 10px;
+  border-radius: 1rem;
+  font-size: medium;
+  margin-left: 70%;
+  margin-top: 20px;
+  border: none;
+
+}
+
+/* footer */
+
+footer {
+  margin: 25px 10px 0px 25px;
+  padding: 5px;
+  text-align: center;
+  background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
+  box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
+}
+
+/* media */
+
+@media screen and (max-width:1024px) {
+  .icons ul li {
+      display: block;
+      text-align: center;
+      margin-bottom: 10px;
+  }
+
+  .icons ul li a {
+      display: block;
+      padding: 5px;
+  }
+
+  .logo {
+      width: 125px;
+  }
+
+  .cakeImg {
+      margin-top: 10px;
+  }
+
+  .footer-container {
+      margin: 0;
+  }
+}
+
+@media screen and (max-width:470px) {
+  .logo {
+      width: 100px;
+      height: 100px;
+  }
+
+  .cakeImg {
+      margin-top: 10px;
+      width: 250px;
+      height: 100px;
+  }
 }
