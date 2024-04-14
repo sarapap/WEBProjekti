@@ -302,7 +302,7 @@ nav li {
   height: 150px;
   margin-bottom: 30px;
   background-size: cover;
-  background-image: url('kuvat/tilaus._etpng');
+  background-image: url('kuvat/tilaus_et.png');
 }
 .kupongit_et{
   display: inline-block;
