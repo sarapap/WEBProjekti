@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../css/7Kayttaja.css" rel="stylesheet">
+    <link href="../../css/12Kupongit.css" rel="stylesheet">
     <title>S&A CAFE</title>
     <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
 
     <style>
-        /* footer */
-
-        .changecontent2::after {
-            content: "Tervetuloa kakkukahveille!";
+        .changecontent::after {
+            content: "Välkommen till kak- och kaffemorgon!";
             color: rgb(192, 160, 122);
             animation: changetext2 10s infinite linear;
             margin: 10px;
@@ -21,23 +19,23 @@
 
         @keyframes changetext2 {
             20% {
-                content: "Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi!";
+                content: "Bli stamkund och få 15% rabatt på din första beställning!";
             }
 
             40% {
-                content: "Liittyminen on maksutonta";
+                content: "Medlemskap är gratis";
             }
 
             60% {
-                content: "Luo unelmiesi kakku!";
+                content: "Skapa din drömkaka!";
             }
 
             80% {
-                content: "Kotiinkuljetus alkaen 2,95€";
+                content: "Hemleverans från 2,95€";
             }
 
             100% {
-                content: "Tervetuloa kakkukahveille!";
+                content: "Välkommen till kak- och kaffemorgon!";
             }
         }
     </style>
@@ -52,94 +50,111 @@
             <nav class="icons">
                 <ul>
                     <li class="kieli">
-                        <label for="kieli">Valitse kieli: </label>
+                        <label for="kieli">Välj språk: </label>
                         <select id="kieli" onchange="changeLanguage(this.value)">
-                            <option value="FI" selected>Suomi</option>
-                            <option value="EN">Englanti</option>
-                            <option value="CN">Kiina</option>
-                            <option value="ET">Viro</option>
-                            <option value="SV">Ruotsi</option>
+                            <option value="FI">Finska</option>
+                            <option value="EN">Engelska</option>
+                            <option value="CN">Kinesiska</option>
+                            <option value="ET">Estniska</option>
+                            <option value="SV" selected>Svenska</option>
                         </select>
                     </li>
                     <li>
-                        <a href="11Login.html">
+                        <a href="11Login_sv.html">
                             <span class="käyttäjä"></span>
                         </a>
                     </li>
                     <li>
-                        <a href="8Suosikit.html">
+                        <a href="8Suosikit_sv.html">
                             <span class="suosikit"></span>
                         </a>
                     </li>
                     <li>
-                        <a href="9Ostoskori.html">
+                        <a href="9Ostoskori_sv.html">
                             <span class="ostoskori"></span>
                         </a>
                     </li>
                 </ul>
+
             </nav>
+            <div class="image-container">
+                <a href="1Etusivu_sv.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logobild"></a>
+                <img src="../../css/kuvat/kayttaja_header.jpg" width="800px" height="300px" class="cakeImg"
+                    alt="tårtor">
+            </div>
         </div>
-
     </header>
-    <main>
+    <nav class="navbarClass" id="navbar">
+        <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
+        <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
+        <div class="dropdown">
+            <button class="dropdown-toggle" id="menuButton">
+                Meny
+            </button>
+            <div class="dropdown-menu" id="menuDropdown">
+                <a class="dropdown-item" href="3MenuPage1_sv.html">Tårtor</a>
+                <a class="dropdown-item" href="3MenuPage2_sv.html">Salt</a>
+                <a class="dropdown-item" href="3MenuPage3_sv.html">Sött</a>
+                <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
+                <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
+            </div>
+        </div>
+        <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
+        <a href="6Poytavaraus_sv.html" class="navItem">Boka bord</a>
+    </nav>
 
-        <div class="image-container">
-            <a href="1Etusivu.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
-            <img src="../../css/kuvat/tilaus_header.jpg" class="cakeImg" alt="cakes">
+    <main class="main">
+        <div class="aside1">
+            <ul class="kuvat" style="list-style: none;">
+                <li>
+                    <a href="7Kayttaja_sv.html">
+                        <span class="tiedostot"></span>
+                    </a>
+                <li>
+                    <a href="12Tilaus_sv.html">
+                        <span class="tilaus"></span>
+                    </a>
+                </li>
+                <li><a href="13Kupongit_sv.html">
+                        <span class="kupongit"></span>
+
+                    </a>
+                </li>
+            </ul>
         </div>
 
-        <nav id="navbar">
-            <a href="1Etusivu.html" class="navItem">Etusivu</a>
-            <a href="2AboutUs.html" class="navItem">About Us</a>
-            <div class="dropdown">
-                <button class="dropdown-toggle" id="menuButton">
-                    Menu
-                </button>
-                <div class="dropdown-menu" id="menuDropdown">
-                    <a class="dropdown-item" href="3MenuPage1.html">Kakut</a>
-                    <a class="dropdown-item" href="3MenuPage2.html">Suolaista</a>
-                    <a class="dropdown-item" href="3MenuPage3.html">Makeaa</a>
-                    <a class="dropdown-item" href="3MenuPage4.html">Lämmintä ruokaa</a>
-                    <a class="dropdown-item" href="3MenuPage5.html">Juotavaa</a>
-                </div>
-            </div>
-            <a href="5Yhteydenotto.html" class="navItem">Ota yhteyttä</a>
-            <a href="6Poytavaraus.html" class="navItem">Varaa pöytä</a>
-        </nav>
+        <div class=aside2 id="omatiedot">
+            <h1>Kuponger</h1><br>
 
-        <main class="main">
-            <div class="aside1">
-                <ul class="kuvat" style="list-style: none;">
-                    <li>
-                        <a href="7Kayttaja_sv.html">
-                            <span class="tiedostot"></span>
-                        </a>
-                    <li>
-                        <a href="12Tilaus_sv.html">
-                            <span class="tilaus"></span>
-                        </a>
-                    </li>
-                    <li><a href="13Kupongit_sv.html">
-                            <span class="kupongit"></span>
+            <form action="https://10.120.32.94/test/form-submission/" method="post" id="omatiedot">
+                <table>
+                    <tbody id="kupongit_table">
+                        <tr>
+                            <td>
+                                <img src="../../css/kuvat/ensi_tilaus.png" style="width: 70%;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../../css/kuvat/opiskelia_elakelainen.png" style="width: 70%;">
+                            </td>
 
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                        </tr>
 
-            <div class=aside2 id="omatiedot">
-                <h1>Kuponger</h1><br>
 
-                <form action="https://10.120.32.94/test/form-submission/" method="post" id="omatiedot">
+                    </tbody>
 
-                </form>
-            </div>
-        </main>
-        <footer class="footer-container">
-            <p class="footerP">&copy; S&A CAFE 2024</p>
-            <div class="changecontent2">
-            </div>
-        </footer>
+
+                </table>
+
+            </form>
+        </div>
+    </main>
+    <footer class="footer-container">
+        <p class="footerP">&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
+        </div>
+    </footer>
 </body>
 
 </html>
