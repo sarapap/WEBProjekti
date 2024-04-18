@@ -2,7 +2,8 @@ import sharp from 'sharp';
 import jwt from 'jsonwebtoken';
 import 'dotenv/config';
 
-const createThumbnail = (req, res, next) => {
+
+const createThumbnail = async (req, res, next) => {
   if (!req.file) {
     next();
     return;

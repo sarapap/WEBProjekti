@@ -17,11 +17,14 @@ const postLogin = async (req, res) => {
   }
 
   const userWithNoPassword = {
-    user_id: user.user_id,
-    name: user.name,
-    username: user.username,
-    email: user.email,
-    role: user.role,
+    asiakas_id: user.asiakas,
+    asiakas_etuname: user.asiakas_etuname,
+    asiakas_sukuname: user.asiakas_sukuname,
+    usernaasiakas_tunnusme: user.asiakas_tunnus,
+    asiakas_salasana: user.asiakas_salasana,
+    asiakas_email: user.easiakas_mail,
+    asiakas_puh: user.asiakas_puh,
+    asiakas_registeri_pvm: user.asiakas_registeri_pvm,
   };
 
   // toinen vaihtoehto
