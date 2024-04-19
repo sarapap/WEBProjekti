@@ -6,7 +6,7 @@ const router = express.Router();
 
 // bind base url for all cat routes to catRouter
 
-router.use('/users', userRouter);
+router.use('/api/vi/asiakas', userRouter);
 router.use('/auth', authRouter);
 
 export default router;

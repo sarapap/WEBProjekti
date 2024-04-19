@@ -14,20 +14,3 @@ Content-Type: application/json
 }
 ### post new user
 
-
-POST http://localhost:3000/api/v1/asiakas
-Content-Type: application/json
-
-{
-    "asiakas_id": "2",
-    "asiakas_etunimi": "Matti",
-    "asiakas_sukunimi": "Meikäläinen",
-    "asiakas_tunnus": "matti",
-    "asiakas_salasana": "12345",
-    "asiakas_email": "matti@ascafe.fi",
-    "asiakas_puh": "1234567",
-    "asiakas_registeri_pvm": "2009-04-09"
-
-}
-### Get single cat
-GET http://127.0.0.1:3000/api/v1/cats/41

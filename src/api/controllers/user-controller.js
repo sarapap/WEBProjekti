@@ -20,7 +20,7 @@ const getUserById = (req, res) => {
 };
 
 const postUser = async (req, res, next) => {
-    req.body.password = bcrypt.hashSync(req.body.password, 10);
+    req.body.password = bcrypt.hashSync(req.body.password, 20);
     const result = await addUser(req.body);
     if (!result) {
         const error = new Error('Invalid or missing fields.');
@@ -41,7 +41,7 @@ const putUser = async (req, res) => {
         return;
     }
 
-    const result = await modifyUser(req.body, req.params.id, res.locals.user);
+    const result = await updateUser(req.body, req.params.id, res.locals.user);
     if (!result) {
         res.sendStatus(400);
         return;
