@@ -112,9 +112,9 @@
     <a href="1Etusivu_et.html" class="navItem">Esileht</a>
     <a href="2AboutUs_et.html" class="navItem">Meist</a>
     <div class="dropdown">
-      <button class="dropdown-toggle" id="menuButton">
+      <a class="dropdown-toggle" id="menuButton" href="3MenuPage_et.html">
         Menüü
-      </button>
+      </a>
       <div class="dropdown-menu" id="menuDropdown">
         <a class="dropdown-item" href="3MenuPage1_et.html">Koogid</a>
         <a class="dropdown-item" href="3MenuPage2_et.html">Soolane</a>
@@ -132,10 +132,14 @@
   <div class="etusivu">
     <aside class="aside1">
       <h2>Tere tulemast S&A kohvikusse!</h2>
-
+      <p>Meie eritoid koogid</p>
+      <div class="imageFrontPage">
+        <img src="../../css/kuvat/weddingCake.jpg" alt="Wedding Cake" class="imageFront">
+        <button class="prev" onclick="prevImage()">&#10094;</button>
+        <button class="next" onclick="nextImage()">&#10095;</button>
+      </div>
       <p class="kuvaus">Tulge ja nautige meie maitsvaid kooke, kvaliteetset kohvi ja kergeid
-        toiduvõimalusi. <br>
-        Elage meie ainulaadse kohviku õhkkonda kohapeal või tellige maiused otse koju! <br>
+        toiduvõimalusi.
       </p>
       <video width="800" controls>
         <source src="../../css/kuvat/video.m4v" type="video/mp4">

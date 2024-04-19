@@ -1,5 +1,5 @@
 body {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Tahoma', sans-serif;
     margin: auto;
     width: 90%;
     padding: 10px;
@@ -51,7 +51,7 @@ header {
 }
 
 .cakeImg {
-    box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
+    box-shadow: 0 5px 40px 0 rgba(147, 144, 144, 0.578);
     width: 80%;
     height: 300px;
 }
@@ -93,7 +93,7 @@ header {
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Tahoma', sans-serif;
 }
 
 /* navigation bar */
@@ -153,6 +153,7 @@ nav li {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     top: 100%;
     left: 0;
+    z-index: 2;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -165,7 +166,7 @@ nav li {
     color: #fff;
     cursor: pointer;
     font-size: 16px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Tahoma', sans-serif;
     text-shadow: 1px 1px 1px black;
 }
 
@@ -203,16 +204,13 @@ nav li {
     font-size: 20px;
     box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
     width: 70%;
-    height: 100%;
-    padding: 10px;
-
+    padding: 10px 10px 30px 10px;
 }
 
 .aside2 {
     padding-left: 5%;
     width: 25%;
     height: 100%;
-
 }
 
 .order {
@@ -240,6 +238,42 @@ nav li {
 .kuvaus {
     padding: 20px;
     font-size: 17px;
+}
+
+/* kuvat etusivu */
+
+.imageFrontPage {
+    position: relative;
+    width: 735px;
+    height: 400px;
+    overflow: hidden;
+    margin-left: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.imageFront {
+    width: 100%;
+    height: 105%;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
 }
 
 /* footer */

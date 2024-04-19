@@ -114,9 +114,9 @@
             <a href="1Etusivu_en.html" class="navItem">Home</a>
             <a href="2AboutUs_en.html" class="navItem">About Us</a>
             <div class="dropdown">
-                <button class="dropdown-toggle" id="menuButton">
+                <a class="dropdown-toggle" id="menuButton" href="3MenuPage_en.html">
                     Menu
-                </button>
+                </a>
                 <div class="dropdown-menu" id="menuDropdown">
                     <a class="dropdown-item" href="3MenuPage1_en.html">Cakes</a>
                     <a class="dropdown-item" href="3MenuPage2_en.html">Savory</a>
@@ -134,12 +134,15 @@
         <div class="etusivu">
             <aside class="aside1">
                 <h2>Welcome to S&A Cafe!</h2>
+                <p>Our specialty cakes</p>
+                <div class="imageFrontPage">
+                    <img src="../../css/kuvat/weddingCake.jpg" alt="Wedding Cake" class="imageFront">
+                    <button class="prev" onclick="prevImage()">&#10094;</button>
+                    <button class="next" onclick="nextImage()">&#10095;</button>
+                </div>
 
-                <p class="kuvaus">Come and enjoy our delicious cakes, quality coffee, and light meal options.
-                    <br>
-                    Experience the unique atmosphere of our cafe in person or order the treats straight to your
-                    doorstep!
-                    <br>
+                <p class="kuvaus">
+                    Come and enjoy our delicious cakes, quality coffee, and light meal options.
                 </p>
                 <video width="800" controls>
                     <source src="../../css/kuvat/video.m4v" type="video/mp4">

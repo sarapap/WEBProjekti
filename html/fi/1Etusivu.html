@@ -114,9 +114,9 @@
       <a href="1Etusivu.html" class="navItem">Etusivu</a>
       <a href="2AboutUs.html" class="navItem">About Us</a>
       <div class="dropdown">
-        <button class="dropdown-toggle" id="menuButton">
+        <a class="dropdown-toggle" id="menuButton" href="3MenuPage.html">
           Menu
-        </button>
+        </a>
         <div class="dropdown-menu" id="menuDropdown">
           <a class="dropdown-item" href="3MenuPage1.html">Kakut</a>
           <a class="dropdown-item" href="3MenuPage2.html">Suolaista</a>
@@ -125,6 +125,7 @@
           <a class="dropdown-item" href="3MenuPage5.html">Juotavaa</a>
         </div>
       </div>
+
       <a href="5Yhteydenotto.html" class="navItem">Ota yhteyttä</a>
       <a href="6Poytavaraus.html" class="navItem">Varaa tila</a>
     </nav>
@@ -134,10 +135,14 @@
     <div class="etusivu">
       <aside class="aside1">
         <h2>Tervetuloa S&A Kahvilaan!</h2>
-
-        <p class="kuvaus">Tule nauttimaan herkullisista kakuistamme, laadukkaasta kahvista ja kevyistä
-          ruokavaihtoehdoistamme. <br>
-          Koe ainutlaatuinen kahvilamme tunnelma paikan päällä tai tilaa herkut suoraan kotiovellesi! <br>
+        <p>Erityiskakkumme</p>
+        <div class="imageFrontPage">
+          <img src="../../css/kuvat/weddingCake.jpg" alt="Wedding Cake" class="imageFront">
+          <button class="prev" onclick="prevImage()">&#10094;</button>
+          <button class="next" onclick="nextImage()">&#10095;</button>
+        </div>
+        <p class="kuvaus">Tule nauttimaan herkullisista kakuistamme, laadukkaasta kahvista <br> ja kevyistä
+          ruokavaihtoehdoistamme.
         </p>
         <video width="800" controls>
           <source src="../../css/kuvat/video.m4v" type="video/mp4">

@@ -112,9 +112,9 @@
     <a href="1Etusivu_cn.html" class="navItem">首页</a>
     <a href="2AboutUs_cn.html" class="navItem">关于我们</a>
     <div class="dropdown">
-      <button class="dropdown-toggle" id="menuButton">
+      <a class="dropdown-toggle" id="menuButton" href="3MenuPage_cn.html">
         菜单
-      </button>
+      </a>
       <div class="dropdown-menu" id="menuDropdown">
         <a class="dropdown-item" href="3MenuPage1_cn.html">糕点</a>
         <a class="dropdown-item" href="3MenuPage2_cn.html">咸味点心</a>
@@ -131,10 +131,14 @@
 
   <div class="etusivu">
     <aside class="aside1">
-      <h2>欢迎光临 &nbsp;&nbsp; S&A KAFE!</h2>
-
-      <p class="kuvaus">快来享受我们精美的蛋糕，高质量醇香浓郁的咖啡和自然健康的轻美食。 <br>
-        可以直接在现场体验我们独特的咖啡馆氛围或直接订购美味佳肴! <br>
+      <h2>欢迎光临 S&A KAFE!</h2>
+      <p>我们的特色蛋糕</p>
+      <div class="imageFrontPage">
+        <img src="../../css/kuvat/weddingCake.jpg" alt="Wedding Cake" class="imageFront">
+        <button class="prev" onclick="prevImage()">&#10094;</button>
+        <button class="next" onclick="nextImage()">&#10095;</button>
+      </div>
+      <p class="kuvaus">快来享受我们精美的蛋糕，高质量醇香浓郁的咖啡和自然健康的轻美食。
       </p>
       <video width="800" controls>
         <source src="../../css/kuvat/video.m4v" type="video/mp4">

@@ -114,9 +114,9 @@
             <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
             <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
             <div class="dropdown">
-                <button class="dropdown-toggle" id="menuButton">
+                <a class="dropdown-toggle" id="menuButton" href="3MenuPage_sv.html">
                     Meny
-                </button>
+                </a>
                 <div class="dropdown-menu" id="menuDropdown">
                     <a class="dropdown-item" href="3MenuPage1_sv.html">Kakor</a>
                     <a class="dropdown-item" href="3MenuPage2_sv.html">Hart</a>
@@ -133,11 +133,15 @@
 
         <div class="etusivu">
             <aside class="aside1">
-                <h2>Välkommen till S&A Café!</h2>
-
+                <h2>Välkommen till S&A Cafe!</h2>
+                <p>Våra specialtårtor</p>
+                <div class="imageFrontPage">
+                    <img src="../../css/kuvat/weddingCake.jpg" alt="Wedding Cake" class="imageFront">
+                    <button class="prev" onclick="prevImage()">&#10094;</button>
+                    <button class="next" onclick="nextImage()">&#10095;</button>
+                </div>
                 <p class="kuvaus">Kom och njut av våra läckra kakor, kvalitetskaffe och lätta
-                    matalternativ. <br>
-                    Upplev den unika atmosfären i vårt café på plats eller beställ godsakerna direkt till din dörr! <br>
+                    matalternativ.
                 </p>
                 <video width="800" controls>
                     <source src="../../css/kuvat/video.m4v" type="video/mp4">

@@ -1,5 +1,5 @@
 body {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Tahoma', sans-serif;
     margin: auto;
     width: 90%;
     padding: 10px;
@@ -51,7 +51,7 @@ header {
 }
 
 .cakeImg {
-    box-shadow: 0 15px 25px 0 rgb(83, 78, 78);
+    box-shadow: 0 5px 40px 0 rgba(147, 144, 144, 0.578);
     width: 80%;
     height: 300px;
 }
@@ -93,7 +93,7 @@ header {
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Tahoma', sans-serif;
 }
 
 /* navigation bar */
@@ -165,7 +165,7 @@ nav li {
     color: #fff;
     cursor: pointer;
     font-size: 16px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Tahoma', sans-serif;
     text-shadow: 1px 1px 1px black;
 }
 

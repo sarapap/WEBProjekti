@@ -1,5 +1,5 @@
 body {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Tahoma', sans-serif;
   margin: auto;
   width: 90%;
   padding: 10px;
@@ -93,7 +93,7 @@ header {
   border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Tahoma', sans-serif;
 }
 
 /* navigation bar */
@@ -166,7 +166,7 @@ nav li {
   color: #fff;
   cursor: pointer;
   font-size: 16px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Tahoma', sans-serif;
   text-shadow: 1px 1px 1px black;
 }
 
@@ -217,6 +217,7 @@ nav li {
   background-size: cover;
   background-image: url('kuvat/tietosdot.png');
 }
+
 .tilaus {
   display: inline-block;
   width: 150px;
@@ -225,6 +226,7 @@ nav li {
   background-size: cover;
   background-image: url('kuvat/tilaus.png');
 }
+
 .kupongit {
   display: inline-block;
   width: 150px;
@@ -234,7 +236,7 @@ nav li {
 
 }
 
-.tiedot_cn{
+.tiedot_cn {
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -242,7 +244,8 @@ nav li {
   background-size: cover;
   background-image: url('kuvat/tietosdot_cn.png');
 }
-.tilaus_cn{
+
+.tilaus_cn {
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -250,7 +253,8 @@ nav li {
   background-size: cover;
   background-image: url('kuvat/tilaus_cn.png');
 }
-.kupongit_cn{
+
+.kupongit_cn {
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -266,7 +270,8 @@ nav li {
   background-size: cover;
   background-image: url('kuvat/tietosdot_en.png');
 }
-.tilaus_en{
+
+.tilaus_en {
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -274,7 +279,8 @@ nav li {
   background-size: cover;
   background-image: url('kuvat/tilaus_en.png');
 }
-.kupongit_en{
+
+.kupongit_en {
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -283,7 +289,7 @@ nav li {
 }
 
 
-.tiedot_et{
+.tiedot_et {
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -291,7 +297,8 @@ nav li {
   background-size: cover;
   background-image: url('kuvat/tietosdot_et.png');
 }
-.tilaus_et{
+
+.tilaus_et {
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -299,7 +306,8 @@ nav li {
   background-size: cover;
   background-image: url('kuvat/tilaus_et.png');
 }
-.kupongit_et{
+
+.kupongit_et {
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -307,7 +315,7 @@ nav li {
   background-image: url('kuvat/kupongit_et.png');
 }
 
-.tiedot_sv{
+.tiedot_sv {
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -315,7 +323,8 @@ nav li {
   background-size: cover;
   background-image: url('kuvat/tietosdot_sv.png');
 }
-.tilaus_sv{
+
+.tilaus_sv {
   display: inline-block;
   width: 150px;
   height: 150px;
@@ -323,7 +332,8 @@ nav li {
   background-size: cover;
   background-image: url('kuvat/tilaus_sv.png');
 }
-.kupongit_sv{
+
+.kupongit_sv {
   display: inline-block;
   width: 150px;
   height: 150px;
