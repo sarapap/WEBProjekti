@@ -2,16 +2,16 @@ import { listAllUsers, findUserById, addUser, updateUser, removeUser } from '../
 import bcrypt from 'bcrypt';
 
 const getUser = async (req, res) => {
-    const users = res.json(await listAllUsers());
+    const users = await listAllUsers();
     if (!users) {
         res.sendStatus(404);
         return;
-    }
+    }res
     res.json(users);
 };
 
-const getUserById = (req, res) => {
-    const user = findUserById(req.params.id);
+const getUserById = async(req, res) => {
+    const user = await findUserById(req.params.id);
     if (user) {
         res.json(user);
     } else {
@@ -20,17 +20,18 @@ const getUserById = (req, res) => {
 };
 
 const postUser = async (req, res, next) => {
-    req.body.password = bcrypt.hashSync(req.body.password, 20);
-    const result = await addUser(req.body);
-    if (!result) {
-        const error = new Error('Invalid or missing fields.');
-        error.status = 400;
-        next(error);
-        return;
-    }
-    res.status(201);
-    res.json(result);
+  console.log(req.body);
+  req.body.asiakas_salasana = bcrypt.hashSync(req.body.asiakas_salasana, 10);
+
+  const result = await addUser(req.body);
+  if (!result) {
+      const error = new Error('Invalid or missing fields.');
+      error.status = 400;
+      return next(error);
+  }
+  res.status(201).json(result);
 };
+
 
 const putUser = async (req, res) => {
     if (

@@ -1,16 +1,59 @@
-POST http://localhost:3000/api/v1/asiakas
+
+###
+GET http://localhost:3000/api/v1/asiakas
+
+
+
+POST http://localhost:3000/api/v1/cats
 Content-Type: application/json
 
-{
-    "asiakas_id": "1",
-    "asiakas_etunimi": "Anna",
-    "asiakas_sukunimi": "Ansku",
-    "asiakas_tunnus": "anna",
-    "asiakas_salasana": "12345",
-    "role": "admin",
-    "asiakas_email": "anna@ascafe.fi",
-    "asiakas_puh": "1234567",
-    "asiakas_registeri_pvm": "2009-04-09"
-}
+##uusi user
+POST http://localhost:3000/api/v1/asiakas
+
+
+
+
 ### post new user
+POST http://localhost:3000/api/v1/asiakas
+Content-Type: multipart/form-data; boundary=---7e33a1b6e0e2
+
+-----7e33a1b6e0e2
+Content-Disposition: form-data; name="asiakas_id"
+1
+
+-----7e33a1b6e0e2
+Content-Disposition: form-data; name="asiakas_etunimi"
+
+Anna
+
+-----7e33a1b6e0e2
+Content-Disposition: form-data; name="asiakas_sukunimi"
+Ansku
+
+-----7e33a1b6e0e2
+Content-Disposition: form-data; name="asiakas_tunnus"
+anna
+
+-----7e33a1b6e0e2
+Content-Disposition: form-data; name="asiakas_salasana"
+12345
+
+-----7e33a1b6e0e2
+Content-Disposition: form-data; name="role"
+admin
+
+-----7e33a1b6e0e2
+Content-Disposition: form-data; name="asiakas_email"
+anna@ascafe.fi
+
+-----7e33a1b6e0e2
+Content-Disposition: form-data; name="asiakas_puh"
+12345678
+
+-----7e33a1b6e0e2
+Content-Disposition: form-data; name="asiakas_registeri_pvm"
+2009-04-09
+
+
+
 
