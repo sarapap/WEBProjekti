@@ -19,15 +19,16 @@ const getUserById = async(req, res) => {
     }
 };
 
-const postUser = async (req, res, next) => {
+const postUser = async (req, res) => {
   console.log(req.body);
-  req.body.asiakas_salasana = bcrypt.hashSync(req.body.asiakas_salasana, 10);
+  req.body.salasana = bcrypt.hashSync(req.body.salasana, 10);
+  req.body.ehdot_hyvaksytty = req.body.ehdot_hyvaksytty ? 1 : 0;
 
   const result = await addUser(req.body);
   if (!result) {
       const error = new Error('Invalid or missing fields.');
       error.status = 400;
-      return next(error);
+      return
   }
   res.status(201).json(result);
 };

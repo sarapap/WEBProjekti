@@ -1,3 +1,4 @@
+import e from 'express';
 import promisePool from '../../utils/database.js';
 
 const listAllUsers = async () => {
@@ -18,33 +19,38 @@ const findUserById = async (id) => {
 
 const addUser = async (user) => {
   const {
+    etunimi,
+    sukunimi,
+    tunnus,
+    salasana,
+    rooli,
+    email,
+    puhelin,
+    syntymapaiva,
+    ehdot_hyvaksytty,
+    allennus_ryhma
 
-      asiakas_etunimi,
-      asiakas_sukunimi,
-      asiakas_tunnus,
-      asiakas_salasana,
-      asiakas_role,
-      asiakas_email,
-      asiakas_puh,
-      asiakas_registeri_pvm
   } = user;
 
-  const sql = `INSERT INTO asiakas (asiakas_etunimi, asiakas_sukunimi, asiakas_tunnus,
-      asiakas_salasana, asiakas_role, asiakas_email, asiakas_puh, asiakas_registeri_pvm)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
+  const sql = `INSERT INTO asiakas (etunimi, sukunimi, tunnus,
+      salasana, rooli, email, puhelin, syntymapaiva, ehdot_hyvaksytty, allennus_ryhma)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
   const data = [
-      asiakas_etunimi,
-      asiakas_sukunimi,
-      asiakas_tunnus,
-      asiakas_salasana,
-      asiakas_role,
-      asiakas_email,
-      asiakas_puh,
-      asiakas_registeri_pvm
+    etunimi,
+    sukunimi,
+    tunnus,
+    salasana,
+    rooli,
+    email,
+    puhelin,
+    syntymapaiva,
+    ehdot_hyvaksytty,
+    allennus_ryhma
   ];
 
-  const rows = await promisePool.execute(sql, data);
+  const rows =  promisePool.execute(sql, data);
   if (rows[0].affectedRows === 0) {
       return false;
   }
