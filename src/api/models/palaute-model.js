@@ -1,0 +1,84 @@
+import promisePool from '../../utils/database.js';
+
+const listAllpalaute = async () => {
+    const [rows] = await promisePool.query('SELECT * FROM palaute');
+    return rows;
+};
+
+const findPalauteByPvm= async (pvm) => {
+    const [rows] = await promisePool.execute(
+        'SELECT * FROM palaute WHERE pvm = ?',
+        [pvm]
+    );
+    if (rows.length === 0) {
+        return false;
+    }
+    return rows[0];
+};
+
+const addPalaute = async (palaute) => {
+  const {
+    nimi,
+    email,
+    title,
+    teksti,
+    pvm
+  } = palaute;
+
+  const sql = `INSERT INTO palaute (nimi, email, title, teksti, pvm)
+      VALUES (?, ?, ?, ?, ?)`;
+
+  const data = [
+    nimi,
+    email,
+    title,
+    teksti,
+    pvm
+  ];
+
+  try {
+    const [rows] = await promisePool.execute(sql, data);
+    if (rows && rows.affectedRows !== 0) {
+      return { palaute_id: rows.insertId };
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.error("Error executing SQL query:", error);
+    return false;
+  }
+};
+
+
+const removePalauteById = async (id) => {
+  const connection = await promisePool.getConnection();
+  try {
+      const [rows] = await promisePool.execute(
+          'DELETE FROM palaute WHERE palaute_id = ?',
+          [id]
+      );
+
+      if (rows.affectedRows === 0) {
+          return false;
+      }
+
+      await connection.commit();
+
+      return {
+          message: 'User deleted',
+      };
+  } catch (error) {
+      await connection.rollback();
+      console.error('error', error.message);
+      return false;
+  } finally {
+      connection.release();
+  }
+};
+
+export {
+    listAllpalaute,
+    findPalauteByPvm,
+    addPalaute,
+    removePalauteById
+};
