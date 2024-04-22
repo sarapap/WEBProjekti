@@ -16,7 +16,7 @@ const findPalauteByPvm= async (pvm) => {
     return rows[0];
 };
 
-const addpalaute = async (user) => {
+const addPalaute = async (palaute) => {
   const {
     nimi,
     email,
@@ -36,11 +36,17 @@ const addpalaute = async (user) => {
     pvm
   ];
 
-  const rows = promisePool.execute(sql, data);
-  if (rows[0].affectedRows === 0) {
+  try {
+    const [rows] = await promisePool.execute(sql, data);
+    if (rows && rows.affectedRows !== 0) {
+      return { palaute_id: rows.insertId };
+    } else {
       return false;
+    }
+  } catch (error) {
+    console.error("Error executing SQL query:", error);
+    return false;
   }
-  return { asiakas_id: rows[0].insertId };
 };
 
 
@@ -73,6 +79,6 @@ const removePalauteById = async (id) => {
 export {
     listAllpalaute,
     findPalauteByPvm,
-    addpalaute,
+    addPalaute,
     removePalauteById
 };

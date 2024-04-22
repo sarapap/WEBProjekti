@@ -1,4 +1,4 @@
-import { listAllUsers, findUserById, addUser, updateUser, removeUser } from '../models/user-model.js';
+import { listAllUsers, findUserById, findUserByUsername, addUser, updateUser, removeUser } from '../models/user-model.js';
 import bcrypt from 'bcrypt';
 
 const getUser = async (req, res) => {
@@ -9,6 +9,16 @@ const getUser = async (req, res) => {
     }res
     res.json(users);
 };
+
+
+const getUserByUsername = async(req, res) => {
+    const user = await findUserByUsername(req.params.tunnus);
+    if (user) {
+        res.json(user);
+    } else {
+        res.sendStatus(404);
+    }
+}
 
 const getUserById = async(req, res) => {
     const user = await findUserById(req.params.id);
@@ -67,4 +77,4 @@ const deleteUser = async (req, res) => {
     res.json(result);
 };
 
-export { getUser, getUserById, postUser, putUser, deleteUser };
+export { getUser, getUserByUsername, getUserById, postUser, putUser, deleteUser };

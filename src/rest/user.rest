@@ -9,63 +9,19 @@ Content-Type: application/json
 
 {
 
-    "etunimi": "Ann",
-    "sukunimi": "Anskou",
-    "tunnus": "anni",
+    "etunimi": "Iina",
+    "sukunimi": "Pasila",
+    "tunnus": "iisin",
     "salasana": "12345",
     "rooli": "admin",
-    "email": "anna@ascafe.fi",
+    "email": "iina@ascafe.fi",
     "puhelin": "1234567",
-    "syntymapaiva": "2009-04-09",
-    "ehdot_hyvaksytty": "1",
-    "allennus_ryhma": "Opiskelia"
+    "syntymapaiva": "2009-04-05",
+    "ehdot_hyvaksytty": "true",
+    "allennus_ryhma": ""
 
 }
 
+###get user by username
 
-
-
-
-### post new user
-POST http://localhost:3000/api/v1/asiakas
-Content-Type: multipart/form-data; boundary=---7e33a1b6e0e2
-
------7e33a1b6e0e2
-Content-Disposition: form-data; name="asiakas_id"
-2
-
------7e33a1b6e0e2
-Content-Disposition: form-data; name="asiakas_etunimi"
-Anna
-
------7e33a1b6e0e2
-Content-Disposition: form-data; name="asiakas_sukunimi"
-Ansku
-
------7e33a1b6e0e2
-Content-Disposition: form-data; name="asiakas_tunnus"
-anna
-
------7e33a1b6e0e2
-Content-Disposition: form-data; name="asiakas_salasana"
-12345
-
------7e33a1b6e0e2
-Content-Disposition: form-data; name="role"
-admin
-
------7e33a1b6e0e2
-Content-Disposition: form-data; name="asiakas_email"
-anna@ascafe.fi
-
------7e33a1b6e0e2
-Content-Disposition: form-data; name="asiakas_puh"
-12345678
-
------7e33a1b6e0e2
-Content-Disposition: form-data; name="asiakas_registeri_pvm"
-2009-04-09
-
-
-
-
+DELETE http://localhost:3000/api/v1/asiakas/:4

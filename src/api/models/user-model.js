@@ -49,19 +49,25 @@ const addUser = async (user) => {
     ehdot_hyvaksytty,
     allennus_ryhma
   ];
-
-  const rows =  promisePool.execute(sql, data);
-  if (rows[0].affectedRows === 0) {
+  try {
+    const [rows] = await promisePool.execute(sql, data);
+    if (rows && rows.affectedRows !== 0) {
+      return { asiakas_id: rows.insertId };
+    } else {
       return false;
+    }
+  } catch (error) {
+    console.error("Error executing SQL query:", error);
+    return false;
   }
-  return { asiakas_id: rows[0].insertId };
+
 };
 
-const getUserByUsername = async (asiakas_etunimi, asiakas_sukunimi) => {
+const findUserByUsername = async (tunnus) => {
   const sql = `SELECT *
                FROM asiakas
-               WHERE asiakas_etunimi = ? AND asiakas_sukunimi = ?`;
-  const [rows] = await promisePool.execute(sql, [asiakas_etunimi, asiakas_sukunimi]);
+               WHERE tunnus = ?`;
+  const [rows] = await promisePool.execute(sql, [tunnus]);
   if (rows.length === 0) {
       return false;
   }
@@ -117,7 +123,7 @@ export {
     listAllUsers,
     findUserById,
     addUser,
-    getUserByUsername,
+    findUserByUsername,
     removeUser,
     updateUser,
 };
