@@ -64,15 +64,21 @@ const addUser = async (user) => {
 };
 
 const findUserByUsername = async (tunnus) => {
-  const sql = `SELECT *
-               FROM asiakas
-               WHERE tunnus = ?`;
-  const [rows] = await promisePool.execute(sql, [tunnus]);
-  if (rows.length === 0) {
+  try {
+    const [rows] = await promisePool.execute(
+      'SELECT * FROM asiakas WHERE tunnus = ?',
+      [tunnus]
+    );
+    if (rows.length === 0) {
       return false;
+    }
+    return rows[0];
+  } catch (error) {
+    console.error('Error finding user by username:', error);
+    return false;
   }
-  return rows[0];
 };
+
 
 
 const removeUser = async (id) => {
