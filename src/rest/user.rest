@@ -36,7 +36,7 @@ Content-Type: application/json
 {
     "etunimi": "Lali",
     "sukunimi": "Viisku",
-    "tunnus": "laliviisku",
+    "tunnus": "iisin",
     "salasana": "12345",
     "rooli": "admin",
     "email": "ghd@asccafe.fi",
