@@ -1,0 +1,40 @@
+###
+GET http://localhost:3000/api/v1/tuote
+
+
+###get kategoria by id
+GET http://localhost:3000/api/v1/tuote/1
+
+
+
+### get kategoria by name
+GET http://localhost:3000/api/v1/kategoria/jääkahvi
+
+
+### uusi tuote
+POST http://localhost:3000/api/v1/tuote
+Content-Type: application/json
+
+{
+    "tuote_nimi": "jääkahvi",
+    "tuote_kuva": "/kuva/jaakahvi.png",
+    "tuote_hinta": "1.25",
+    "tuote_kustannus": "0.80",
+    "tuote_tyyppi": "kahvi"
+}
+
+###Delete kategoria by id
+DELETE http://localhost:3000/api/v1/tuote/2
+
+
+###Update kategoria by id
+PUT http://localhost:3000/api/v1/tuote/2
+Content-Type: application/json
+
+{
+    "tuote_nimi": "mansikkakakku_pala",
+    "tuote_kuva": "",
+    "tuote_hinta": "3.25",
+    "tuote_kustannus": "2.00",
+    "tuote_tyyppi": "mansikkakakku"
+}
