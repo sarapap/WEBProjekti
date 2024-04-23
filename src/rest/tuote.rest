@@ -2,13 +2,13 @@
 GET http://localhost:3000/api/v1/tuote
 
 
-###get kategoria by id
+###get tuote by id
 GET http://localhost:3000/api/v1/tuote/1
 
 
 
-### get kategoria by name
-GET http://localhost:3000/api/v1/kategoria/jääkahvi
+### get tuote by name
+GET http://localhost:3000/api/v1/tuote/jääkahvi
 
 
 ### uusi tuote
@@ -23,11 +23,11 @@ Content-Type: application/json
     "tuote_tyyppi": "kahvi"
 }
 
-###Delete kategoria by id
+###Delete tuote by id
 DELETE http://localhost:3000/api/v1/tuote/2
 
 
-###Update kategoria by id
+###Update tuote by id
 PUT http://localhost:3000/api/v1/tuote/2
 Content-Type: application/json
 
