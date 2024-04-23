@@ -65,7 +65,7 @@ const removePalauteById = async (palaute_id) => {
   const connection = await promisePool.getConnection();
   try {
       const [rows] = await promisePool.execute(
-          'DELETE FROM palaute WHERE palaute_id = ?',
+          'DELETE FROM kategoria WHERE palaute_id = ?',
           [palaute_id]
       );
 
