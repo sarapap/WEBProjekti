@@ -8,7 +8,7 @@ GET http://localhost:3000/api/v1/tuote/1
 
 
 ### get kategoria by name
-GET http://localhost:3000/api/v1/kategoria/jääkahvi
+GET http://localhost:3000/api/v1/tuote/jääkahvi
 
 
 ### uusi tuote
