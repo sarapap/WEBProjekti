@@ -16,6 +16,17 @@ const findPalauteByPvm= async (pvm) => {
     return rows[0];
 };
 
+const findPalauteByDateRange = async (startDate, endDate) => {
+  const [rows] = await promisePool.execute(
+      'SELECT * FROM palaute WHERE pvm BETWEEN ? AND ?',
+      [startDate, endDate]
+  );
+  if (rows.length === 0) {
+      return false;
+  }
+  return rows;
+};
+
 const addPalaute = async (palaute) => {
   const {
     nimi,
@@ -50,12 +61,12 @@ const addPalaute = async (palaute) => {
 };
 
 
-const removePalauteById = async (id) => {
+const removePalauteById = async (palaute_id) => {
   const connection = await promisePool.getConnection();
   try {
       const [rows] = await promisePool.execute(
           'DELETE FROM palaute WHERE palaute_id = ?',
-          [id]
+          [palaute_id]
       );
 
       if (rows.affectedRows === 0) {
@@ -80,5 +91,6 @@ export {
     listAllpalaute,
     findPalauteByPvm,
     addPalaute,
-    removePalauteById
+    removePalauteById,
+    findPalauteByDateRange
 };
