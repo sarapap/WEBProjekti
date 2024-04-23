@@ -6,10 +6,10 @@ const listAllKategorias = async () => {
     return rows;
 };
 
-const findKategoriaById = async (id) => {
+const findKategoriaById = async (kategoria_id) => {
     const [rows] = await promisePool.execute(
         'SELECT * FROM kategoria WHERE kategoria_id = ?',
-        [id]
+        [kategoria_id]
     );
     if (rows.length === 0) {
         return false;
@@ -17,12 +17,24 @@ const findKategoriaById = async (id) => {
     return rows[0];
 };
 
+const findKategoriaByname = async (kategoria_nimi) => {
+  const [rows] = await promisePool.execute(
+      'SELECT * FROM kategoria WHERE kategoria_nimi = ?',
+      [kategoria_nimi]
+  );
+  if (rows.length === 0) {
+      return false;
+  }
+  return rows[0];
+};
+
 const addKategoria = async (kategoria) => {
-  const {kategoria_id, kategoria_nimi} = kategoria;
+  const {kategoria_nimi} = kategoria;
 
-  const sql = `INSERT INTO kategoria (kategoria_id, kategoria_nimi) VALUES (?, ?,)`;
+  const sql = `INSERT INTO kategoria (kategoria_nimi) VALUES (?)`
+;
 
-  const data = [kategoria_id, kategoria_nimi];
+  const data = [kategoria_nimi];
 
   try {
     const [rows] = await promisePool.execute(sql, data);
@@ -38,23 +50,7 @@ const addKategoria = async (kategoria) => {
 
 };
 
-const findKategoriaByname = async (kategoria_nimi) => {
-  try {
-    const [rows] = await promisePool.execute( [kategoria_nimi]);
-
-    if (rows.length === 0) {
-      return false;
-    }
-    return rows[0];
-  } catch (error) {
-    console.error('Error finding kategoria by kategorianame:', error);
-    return false;
-  }
-};
-
-
-
-const removekategoria = async (kategoria_id) => {
+const removeKategoriaById = async (kategoria_id) => {
   const connection = await promisePool.getConnection();
   try {
       const [rows] = await promisePool.execute(
@@ -80,7 +76,7 @@ const removekategoria = async (kategoria_id) => {
   }
 };
 
-const updatekategoria = async (kategoria, kategoria_id) => {
+const updateKategoria = async (kategoria, kategoria_id) => {
   const sql = promisePool.format(`UPDATE kategoria SET ? WHERE kategoria_id = ?`, [
       kategoria,
       kategoria_id,
@@ -98,4 +94,4 @@ const updatekategoria = async (kategoria, kategoria_id) => {
   }
 };
 
-export {listAllKategorias, findKategoriaById, addKategoria, findKategoriaByname, removekategoria, updatekategoria};
+export {listAllKategorias, findKategoriaById, findKategoriaByname, addKategoria, removeKategoriaById, updateKategoria};
