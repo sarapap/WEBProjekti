@@ -1,4 +1,4 @@
-import { listAllpalaute, findPalauteByPvm, addPalaute, removePalauteById} from '../models/palaute-model.js';
+import { listAllpalaute, findPalauteByPvm, findPalauteByDateRange, addPalaute, removePalauteById} from '../models/palaute-model.js';
 // import bcrypt from 'bcrypt';
 
 const getPalaute = async (req, res) => {
@@ -11,7 +11,6 @@ const getPalaute = async (req, res) => {
 };
 
 
-
 const getPalauteByPvm = async(req, res) => {
     const palaute = await findPalauteByPvm(req.params.pvm);
     if (palaute) {
@@ -20,6 +19,15 @@ const getPalauteByPvm = async(req, res) => {
         res.sendStatus(404);
     }
 };
+
+const getPalauteByDateRange = async (req, res) => {
+    const palaute = await findPalauteByDateRange(req.params.startDate, req.params.endDate);
+    if (palaute) {
+        res.json(palaute);
+    } else {
+        res.sendStatus(404);
+    }
+}
 
 const postPalaute = async (req, res) => {
   console.log(req.body);
@@ -42,7 +50,7 @@ const deletePalaute = async (req, res) => {
     //     res.sendStatus(403);
     //     return;
     // }
-    const result = await removePalaute(req.params.id);
+    const result = await removePalauteById(req.params.id);
     if (!result) {
         res.sendStatus(400);
         return;
@@ -50,4 +58,4 @@ const deletePalaute = async (req, res) => {
     res.json(result);
 };
 
-export { getPalaute, getPalauteByPvm, postPalaute, deletePalaute};
+export { getPalaute, getPalauteByPvm, getPalauteByDateRange, postPalaute, deletePalaute};

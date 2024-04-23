@@ -7,9 +7,15 @@ POST http://localhost:3000/api/v1/palaute
 Content-Type: application/json
 
 {
-    "nimi": "Ann",
+    "nimi": "",
     "email": "",
-    "title": "3. palaute",
-    "teksti": "Liian hidas palvelua!",
-    "pvm": "2021-01-19"
+    "title": "Palaute",
+    "teksti": "Suosikki ravintolani!",
+    "pvm": "2021-01-22"
 }
+
+###Delete palaute by id
+DELETE http://localhost:3000/api/v1/palaute/1
+
+###get all palaute between dates
+GET http://localhost:3000/api/v1/palaute/2021-01-19/2021-01-29
