@@ -6,8 +6,8 @@ GET http://localhost:3000/api/v1/tuote
 GET http://localhost:3000/api/v1/tuote/1
 
 
-
 ### get tuote by name
+
 GET http://localhost:3000/api/v1/tuote/jääkahvi
 
 
