@@ -3,7 +3,7 @@
 GET http://localhost:3000/api/v1/asiakas
 
 
-### uusi user
+### uusi tuote
 POST http://localhost:3000/api/v1/asiakas
 Content-Type: application/json
 
@@ -23,14 +23,13 @@ Content-Type: application/json
 }
 
 ###get user by username
-
-GET http://localhost:3000/api/v1/asiakas/:Lian
+GET http://localhost:3000/api/v1/asiakas/lalan
 
 ###get user by id
-GET http://localhost:3000/api/v1/asiakas/:5
+GET http://localhost:3000/api/v1/asiakas/5
 
 ###update user
-PUT http://localhost:3000/api/v1/asiakas/:5
+PUT http://localhost:3000/api/v1/asiakas/5
 Content-Type: application/json
 
 {
