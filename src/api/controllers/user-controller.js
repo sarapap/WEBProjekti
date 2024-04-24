@@ -45,15 +45,15 @@ const postUser = async (req, res) => {
 
 
 const putUser = async (req, res) => {
-    if (
-        res.locals.user.user_id !== Number(req.params.id) &&
-        res.locals.user.role !== 'admin'
-    ) {
-        res.sendStatus(403);
-        return;
-    }
+    // if (
+    //     res.locals.user.user_id !== Number(req.params.asiakas_id) &&
+    //     res.locals.user.role !== 'admin'
+    // ) {
+    //     res.sendStatus(403);
+    //     return;
+    // }
 
-    const result = await updateUser(req.body, req.params.id, res.locals.user);
+    const result = await updateUser(req.body, req.params.asiakas_id, res.locals.user);
     if (!result) {
         res.sendStatus(400);
         return;

@@ -38,16 +38,32 @@ const getTuoteById = async(req, res) => {
 };
 
 const postTuote = async (req, res) => {
-  console.log(req.body);
+  console.log("body", req.body);
+  console.log("file", req.file);
 
-  const result = await addTuote(req.body);
-  if (!result) {
-      const error = new Error('Invalid or missing fields.');
-      error.status = 400;
-      return
-  }
-  res.status(201).json(result);
+  let params = [
+    req.body.tuote_nimi,
+    req.file.path, // Use the file path instead of null
+    req.body.tuote_hinta,
+    req.body.tuote_kustannus,
+    req.body.tuote_tyyppi
+  ];
+
+  // Your code to handle the uploaded data goes here
+
+  res.status(200).send('File uploaded successfully');
 };
+
+
+//   const result = await addTuote(req.body, req.file);
+
+//   if (result.tuote_id) {
+//     res.status(201);
+//     res.json({message: 'New tuote added.', result});
+//   } else {
+//     res.sendStatus(400);
+//   }
+// };
 
 
 const putTuote = async (req, res) => {

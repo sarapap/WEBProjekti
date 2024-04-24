@@ -107,11 +107,12 @@ const removeUser = async (id) => {
   }
 };
 
-const updateUser = async (user, id) => {
+const updateUser = async (user, asiakas_id) => {
   const sql = promisePool.format(`UPDATE asiakas SET ? WHERE asiakas_id = ?`, [
       user,
-      id,
+      asiakas_id,
   ]);
+
   try {
       const rows = await promisePool.execute(sql);
       console.log('updateUser', rows);
