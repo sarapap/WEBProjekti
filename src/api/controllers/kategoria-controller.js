@@ -50,7 +50,7 @@ const putKategoria = async (req, res) => {
     //     res.sendStatus(403);
     //     return;
     // }
-
+    console.log("req.body", req.body);
     const result = await updateKategoria(req.body, req.params.kategoria_id, res.locals.kategoria);
     if (!result) {
         res.sendStatus(400);

@@ -24,9 +24,9 @@ DELETE http://localhost:3000/api/v1/kategoria/2
 
 
 ###Update kategoria by id
-PUT http://localhost:3000/api/v1/kategoria/2
+PUT http://localhost:3000/api/v1/kategoria/3
 Content-Type: application/json
 
 {
-    "kategoria_nimi": "maidoton"
+    "kategoria_nimi": "haloo"
 }
