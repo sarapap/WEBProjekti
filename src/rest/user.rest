@@ -23,7 +23,7 @@ Content-Type: application/json
 }
 
 ###get user by username
-GET http://localhost:3000/api/v1/asiakas/lalan
+GET http://localhost:3000/api/v1/asiakas/name/lalan
 
 ###get user by id
 GET http://localhost:3000/api/v1/asiakas/5

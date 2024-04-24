@@ -14,6 +14,6 @@ const kategoriaRouter = express.Router();
 kategoriaRouter.route('/').get(getKategoria).post(postKategoria);
 
 kategoriaRouter.route('/:kategoria_id').get(getKategoriaById).put(putKategoria).delete(deleteKategoria);
-kategoriaRouter.route('/:kategoria_nimi').get(getKategoriaByname);
+kategoriaRouter.route('/name/:kategoria_nimi').get(getKategoriaByname);
 
 export default kategoriaRouter;

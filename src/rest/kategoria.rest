@@ -8,7 +8,7 @@ GET http://localhost:3000/api/v1/kategoria/1
 
 
 ### get kategoria by name
-GET http://localhost:3000/api/v1/kategoria/laktoositon
+GET http://localhost:3000/api/v1/kategoria/name/laktoositon
 
 
 ### uusi kategoria

@@ -14,6 +14,6 @@ const tuoteRouter = express.Router();
 
 tuoteRouter.route('/').get(getTuote).post(postTuote);
 tuoteRouter.route('/:tuote_id').get(getTuoteById).put(putTuote).delete(deleteTuote);
-tuoteRouter.route('/:tuote_nimi').get(getTuoteByname);
+tuoteRouter.route('/name/:tuote_nimi').get(getTuoteByname);
 
 export default tuoteRouter;

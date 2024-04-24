@@ -13,6 +13,6 @@ const userRouter = express.Router();
 userRouter.route('/').get(getUser).post(postUser);
 
 userRouter.route('/:id').get(getUserById).put(putUser).delete(deleteUser);
-userRouter.route('/:tunnus').get(getUserByUsername);
+userRouter.route('/name/:tunnus').get(getUserByUsername);
 
 export default userRouter;
