@@ -6,12 +6,12 @@ const getUser = async (req, res) => {
     if (!users) {
         res.sendStatus(404);
         return;
-    }res
+    } res
     res.json(users);
 };
 
 
-const getUserByUsername = async(req, res) => {
+const getUserByUsername = async (req, res) => {
     const user = await findUserByUsername(req.params.tunnus);
     if (user) {
         res.json(user);
@@ -20,7 +20,7 @@ const getUserByUsername = async(req, res) => {
     }
 }
 
-const getUserById = async(req, res) => {
+const getUserById = async (req, res) => {
     const user = await findUserById(req.params.id);
     if (user) {
         res.json(user);
@@ -30,17 +30,17 @@ const getUserById = async(req, res) => {
 };
 
 const postUser = async (req, res) => {
-  console.log(req.body);
-  req.body.salasana = bcrypt.hashSync(req.body.salasana, 10);
-  req.body.ehdot_hyvaksytty = req.body.ehdot_hyvaksytty ? 1 : 0;
+    console.log(req.body);
+    req.body.salasana = bcrypt.hashSync(req.body.salasana, 10);
+    req.body.ehdot_hyvaksytty = req.body.ehdot_hyvaksytty ? 1 : 0;
 
-  const result = await addUser(req.body);
-  if (!result) {
-      const error = new Error('Invalid or missing fields.');
-      error.status = 400;
-      return
-  }
-  res.status(201).json(result);
+    const result = await addUser(req.body);
+    if (!result) {
+        const error = new Error('Invalid or missing fields.');
+        error.status = 400;
+        return
+    }
+    res.status(201).json(result);
 };
 
 
@@ -76,5 +76,6 @@ const deleteUser = async (req, res) => {
     }
     res.json(result);
 };
+
 
 export { getUser, getUserByUsername, getUserById, postUser, putUser, deleteUser };
