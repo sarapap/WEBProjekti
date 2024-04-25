@@ -10,7 +10,7 @@ GET http://localhost:3000/api/v1/kategoria_tuote/tuote/3
 
 
 ###get Kategoria_tuote by kategoria_id
-GET http://localhost:3000/api/v1/kategoria_tuote//kategoria/3
+GET http://localhost:3000/api/v1/kategoria_tuote/kategoria/3
 
 
 
