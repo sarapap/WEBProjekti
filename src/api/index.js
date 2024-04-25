@@ -6,6 +6,8 @@ import kategoriaRouter from './routes/kategoria-router.js';
 import tuoteRouter from './routes/tuote-router.js';
 import KategoriaTuoteRouter from './routes/kategoriaTuote-router.js';
 import tilausRouter from './routes/tilaus-router.js';
+import tilausSisaltoRouter from './routes/tilausSisalto-router.js';
+import yritystoimintaRouter from './routes/yritystoiminta-router.js';
 
 const router = express.Router();
 
@@ -18,6 +20,8 @@ router.use('/kategoria', kategoriaRouter);
 router.use('/tuote', tuoteRouter);
 router.use('/kategoria_tuote', KategoriaTuoteRouter);
 router.use('/tilaus', tilausRouter);
+router.use('/tilaus_sisalto', tilausSisaltoRouter);
+router.use('/yritystoiminta', yritystoimintaRouter);
 
 
 export default router;
