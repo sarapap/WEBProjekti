@@ -5,6 +5,7 @@ import palauteRouter from './routes/palaute-router.js';
 import kategoriaRouter from './routes/kategoria-router.js';
 import tuoteRouter from './routes/tuote-router.js';
 import KategoriaTuoteRouter from './routes/kategoriaTuote-router.js';
+import tilausRouter from './routes/tilaus-router.js';
 
 const router = express.Router();
 
@@ -16,6 +17,7 @@ router.use('/palaute', palauteRouter);
 router.use('/kategoria', kategoriaRouter);
 router.use('/tuote', tuoteRouter);
 router.use('/kategoria_tuote', KategoriaTuoteRouter);
+router.use('/tilaus', tilausRouter);
 
 
 export default router;

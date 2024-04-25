@@ -19,8 +19,8 @@ const getKategoriaTuoteeet = async (req, res) => {
 };
 
 const getKategoriaTuoteById = async (req, res) => {
-  const kategoriatuote_id = req.params.id; // 获取 kategoriatuote_id 参数
-  const kategoriaTuote = await findKategoriaTuoteById(kategoriatuote_id); // 使用 kategoriatuote_id 参数查询数据
+  const kategoriatuote_id = req.params.id;
+  const kategoriaTuote = await findKategoriaTuoteById(kategoriatuote_id);
   if (kategoriaTuote) {
       res.json(kategoriaTuote);
   } else {

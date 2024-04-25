@@ -1,4 +1,4 @@
-import e from 'express';
+import express from 'express';
 import promisePool from '../../utils/database.js';
 
 const listAllKategorias = async () => {

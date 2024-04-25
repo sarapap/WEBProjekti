@@ -1,4 +1,5 @@
 import promisePool from '../../utils/database.js';
+import e from 'express';
 
 const listAllpalaute = async () => {
     const [rows] = await promisePool.query('SELECT * FROM palaute');
