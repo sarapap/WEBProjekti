@@ -12,32 +12,27 @@ GET http://localhost:3000/api/v1/tuote/1
 GET http://localhost:3000/api/v1/tuote/name/jääkahvi
 
 
-###uusi tuote
+# ###uusi tuote
+# POST http://localhost:3000/api/v1/tuote
+# Content-Type: application/json
+
+# {
+#     "tuote_nimi": "cake",
+#     "tuote_kuva": "./kuvat/cake.png",
+#     "tuote_hinta": "3.25",
+#     "tuote_kustannus": "1.80",
+#     "tuote_tyyppi": "mansikkakakku"
+# }
+
+
+### uusi tuote
 POST http://localhost:3000/api/v1/tuote
-Content-Type: application/json
-
-{
-    "tuote_nimi": "cake",
-    "tuote_kuva": "./kuvat/cake.png",
-    "tuote_hinta": "3.25",
-    "tuote_kustannus": "1.80",
-    "tuote_tyyppi": "mansikkakakku"
-}
-
-
-
-### uusi tuotePOST http://localhost:3000/api/v1/tuote
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
 ----WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_nimi"
 
 cake
-----WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="file"; filename="cake.png"
-Content-Type: image/png
-
-< /path/to/cake.png
 ----WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_hinta"
 
@@ -50,10 +45,12 @@ Content-Disposition: form-data; name="tuote_kustannus"
 Content-Disposition: form-data; name="tuote_tyyppi"
 
 mansikkakakku
+----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="tuote_kuva"; filename="cake.jpg"
+Content-Type: image/image/jpeg
 
+< /path/to/cake.png
 ----WebKitFormBoundary7MA4YWxkTrZu0gW--
-
-
 
 
 ###Delete tuote by id
@@ -71,8 +68,4 @@ Content-Type: application/json
     "tuote_kustannus": "2.00",
     "tuote_tyyppi": "mansikkakakku"
 }
-
-
-
-
 
