@@ -78,18 +78,6 @@ const putTuote = async(req, res, next) => {
   res.json(result)
 };
 
-  // // Update the record in the database
-  // update({ id: req.params.tuote_id }, data, (err, result) => {
-  //   if (err) {
-  //     console.error('Error updating record', err);
-  //     res.status(500).send('Error updating record');
-  //   } else {
-  //     console.log('Record updated successfully');
-  //     res.status(200).send('Record updated successfully');
-  //   }
-  // });
-
-
 const deleteTuote = async (req, res) => {
     const result = await removeTuoteById(req.params.tuote_id);
     if (!result) {
