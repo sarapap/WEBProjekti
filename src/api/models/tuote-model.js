@@ -77,9 +77,10 @@ const removeTuoteById = async (tuote_id) => {
   }
 };
 
-const updateTuote = async (tuote, tuote_id) => {
+const updateTuote = async (tuote, file, tuote_id) => {
   const sql = promisePool.format(`UPDATE tuote SET ? WHERE tuote_id = ?`, [
       tuote,
+      file,
       tuote_id,
   ]);
   try {

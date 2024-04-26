@@ -7,7 +7,6 @@ import {
   updateTuote
 
  } from '../models/tuote-model.js';
-
 import bcrypt from 'bcrypt';
 
 const getTuote = async (req, res) => {
@@ -43,7 +42,7 @@ const postTuote = async (req, res) => {
 
   let params = [
     req.body.tuote_nimi,
-    req.file.path, // Use the file path instead of null
+    req.file.path,
     req.body.tuote_hinta,
     req.body.tuote_kustannus,
     req.body.tuote_tyyppi
@@ -58,13 +57,25 @@ const postTuote = async (req, res) => {
   res.json(result);
 };
 
-const putTuote = async (req, res) => {
-    const result = await updateTuote(req.body, req.params.tuote_id, res.locals.tuote);
-    if (!result) {
-        res.sendStatus(400);
-        return;
-    }
-    res.json(result);
+const putTuote = async(req, res, next) => {
+  const data = {
+    tuote_nimi: req.body.tuote_nimi,
+    tuote_hinta: req.body.tuote_hinta,
+    tuote_kustannus: req.body.tuote_kustannus,
+    tuote_tyyppi: req.body.tuote_tyyppi,
+    tuote_kuva: req.file.filename // Update the file path
+  };
+
+  console.log("body", req.body);
+  console.log("file", req.file);
+
+  const result = await updateTuote(data, req.params.tuote_id, res.locals.tuote);
+  if (!result) {
+      res.sendStatus(400);
+      return;
+  }
+  res.status(200);
+  res.json(result)
 };
 
 const deleteTuote = async (req, res) => {

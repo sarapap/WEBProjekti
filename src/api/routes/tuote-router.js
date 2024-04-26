@@ -8,7 +8,6 @@ import {
   deleteTuote,
 } from '../controllers/tuote-controller.js';
 import multer from 'multer';
-import sharp from 'sharp';
 import {authenticateToken, createThumbnail} from '../../middlewares.js';
 
 const storage = multer.diskStorage({
@@ -31,10 +30,18 @@ tuoteRouter.route('/')
     const inputFile = req.file.path;
     const outputFile = req.file.filename;
     postTuote(req, res, next);
-
   });
 
-  tuoteRouter.route('/:tuote_id').get(getTuoteById).put(putTuote).delete(deleteTuote);
+  tuoteRouter.route('/:tuote_id')
+  .get(getTuoteById)
+  .delete(deleteTuote)
+  .put(upload.single('tuote_kuva'), (req, res, next) => {
+    console.log("req.file", req.file);
+    const inputFile = req.file.path;
+    const outputFile = req.file.filename;
+    putTuote(req, res, next);
+  });
+
 tuoteRouter.route('/name/:tuote_nimi').get(getTuoteByname);
 
 export default tuoteRouter;
