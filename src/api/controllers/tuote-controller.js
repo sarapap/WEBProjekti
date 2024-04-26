@@ -49,32 +49,16 @@ const postTuote = async (req, res) => {
     req.body.tuote_tyyppi
   ];
 
-  // Your code to handle the uploaded data goes here
-
-  res.status(200).send('File uploaded successfully');
+  const result = await addTuote(req.body, req.file);
+  if (!result) {
+      res.sendStatus(400);
+      return;
+  }
+  res.status(200);
+  res.json(result);
 };
 
-
-//   const result = await addTuote(req.body, req.file);
-
-//   if (result.tuote_id) {
-//     res.status(201);
-//     res.json({message: 'New tuote added.', result});
-//   } else {
-//     res.sendStatus(400);
-//   }
-// };
-
-
 const putTuote = async (req, res) => {
-    // if (
-    //     res.locals.tuote.tuote_id !== Number(req.params.tuote_id) &&
-    //     res.locals.tuote.role !== 'admin'
-    // ) {
-    //     res.sendStatus(403);
-    //     return;
-    // }
-
     const result = await updateTuote(req.body, req.params.tuote_id, res.locals.tuote);
     if (!result) {
         res.sendStatus(400);
@@ -84,13 +68,6 @@ const putTuote = async (req, res) => {
 };
 
 const deleteTuote = async (req, res) => {
-    // if (
-    //     res.locals.tuote.tuote_id !== Number(req.params.tuote_id)
-
-    // ) {
-    //     res.sendStatus(403);
-    //     return;
-    // }
     const result = await removeTuoteById(req.params.tuote_id);
     if (!result) {
         res.sendStatus(400);

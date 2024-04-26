@@ -7,22 +7,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/uploads', express.static('uploads'));
 
 app.use('/api/v1', api);
 
-
 app.get('/', (req, res) => {
-  const user = {
-    asiakas_etunimi: 'Anni',
-    asiakas_sukunimi: 'Ansku',
-    asiakas_tunnus: 'anni',
-    asiakas_salasana: 12345,
-    asiakas_email: 'anni@ascafe.fi',
-    asiakas_puh: 1234567,
-    asiakas_registeri_pvm: '13-07-2015'
-
+  const tuote = {
+      tuote_1d: 1,
+      tuote_nimi: 'cake',
+      tuote_kuva: 'kuva/cake.png',
+      tuote_hinta: 3.25,
+      tuote_kustannus: 1.80,
+      tuote_tyyppi: "suklaakakku"
   };
-  res.json(user);
+  res.json(tuote);
 });
-
 export default app;
