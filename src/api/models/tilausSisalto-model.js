@@ -53,7 +53,6 @@ if (rows.length === 0) {
 return rows;
 };
 
-
 const addTilausSisalto = async (tilaus_sisalto) => {
   const {
     tilaus_id,
