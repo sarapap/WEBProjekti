@@ -14,7 +14,7 @@ const getTilausSisalto = async (req, res) => {
   if (!tilausSisalto) {
       res.sendStatus(404);
       return;
-  }
+  }res
   res.json(tilausSisalto);
 };
 
