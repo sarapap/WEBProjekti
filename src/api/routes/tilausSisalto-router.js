@@ -17,7 +17,7 @@ tilausSisaltoRouter.route('/').get(getTilausSisalto).post(postTilausSisalto);
 tilausSisaltoRouter.route('/:id').get(getTilausSisaltoById).put(putTilausSisaltoById).delete(deleteTilausSisaltoById);
 tilausSisaltoRouter.route('/tilaus/:tilaus_id').get(getTilausSisaltoByTilausId);
 tilausSisaltoRouter.route('/pvm/:tilaus_pvm').get(getTilausSisaltoByTilausPvm);
-tilausSisaltoRouter.route('/daterange/:startDate/:endDate').get(getTilasSisaltoByDateRange);
+tilausSisaltoRouter.route('/:startDate/:endDate').get(getTilasSisaltoByDateRange);
 
 
 

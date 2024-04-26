@@ -1,7 +1,7 @@
 import {
   listAllYritystoiminta,
   findYritystoimintaById,
-  findYritystoimintaByPvm,
+  findYritystoimintaByTapahtuPvm,
   findYritystoimintaByDateRange,
   addYritystoiminta,
   removeYritystoimintaById,
@@ -26,16 +26,15 @@ const getYritystoimintaById = async(req, res) => {
       res.sendStatus(404);
   }
 };
-
-
 const getYritystoimintaByTapahtuPvm = async(req, res) => {
-  const yritystoiminta = await findYritystoimintaByPvm(req.params.tapahtu_pvm);
+  const yritystoiminta = await findYritystoimintaByTapahtuPvm(req.params.tapahtu_pvm);
   if (yritystoiminta) {
       res.json(yritystoiminta);
   } else {
       res.sendStatus(404);
   }
 }
+
 
 const getYritystoimintaByDateRange = async (req, res) => {
   const yritystoiminta = await findYritystoimintaByDateRange(req.params.startDate, req.params.endDate);
@@ -48,7 +47,6 @@ const getYritystoimintaByDateRange = async (req, res) => {
 
 const postYritystoiminta = async (req, res) => {
   console.log(req.body);
-
   const result = await addYritystoiminta(req.body);
   if (!result) {
       const error = new Error('Invalid or missing fields.');
@@ -58,9 +56,7 @@ const postYritystoiminta = async (req, res) => {
 res.status(201).json(result);
 };
 
-
 const putYritystoimintaById = async (req, res) => {
-
   console.log("req.body", req.body);
   const result = await updateYritystoimintaById(req.body, req.params.id, res.locals.yritystoiminta);
   if (!result) {
@@ -71,8 +67,7 @@ const putYritystoimintaById = async (req, res) => {
 };
 
 const deleteYritystoimintaById = async (req, res) => {
-
-  const result = await removeTilausSisaltoById(req.params.id);
+  const result = await removeYritystoimintaById(req.params.id);
   if (!result) {
       res.sendStatus(400);
       return;

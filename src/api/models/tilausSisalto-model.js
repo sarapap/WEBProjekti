@@ -22,10 +22,11 @@ const findTilausSisaltoByTilausId = async (id) => {
       'SELECT * FROM tilaus_sisalto WHERE tilaus_id = ?',
       [id]
   );
+  console.log(rows);
   if (rows.length === 0) {
       return false;
   }
-  return rows[0];
+  return rows;
 };
 
 const findTilausSisaltoByPvm= async (pvm) => {
@@ -33,15 +34,17 @@ const findTilausSisaltoByPvm= async (pvm) => {
       'SELECT * FROM tilaus_sisalto WHERE tilaus_pvm = ?',
       [pvm]
   );
+
   if (rows.length === 0) {
       return false;
   }
-  return rows[0];
+  console.log(rows);
+  return rows;
 };
 
 const findTilausSisaltoByDateRange = async (startDate, endDate) => {
 const [rows] = await promisePool.execute(
-    'SELECT * FROM tilaus_sisalto WHERE pvm BETWEEN ? AND ?',
+    'SELECT * FROM tilaus_sisalto WHERE tilaus_pvm BETWEEN ? AND ?',
     [startDate, endDate]
 );
 if (rows.length === 0) {
@@ -49,7 +52,6 @@ if (rows.length === 0) {
 }
 return rows;
 };
-
 
 const addTilausSisalto = async (tilaus_sisalto) => {
   const {

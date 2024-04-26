@@ -6,8 +6,9 @@ GET http://localhost:3000/api/v1/yritystoiminta
 GET http://localhost:3000/api/v1/yritystoiminta/1
 
 
-###get yritystoiminta by tilaus_pvm
-GET http://localhost:3000/api/v1/yritystoiminta/pvm/2021-01-29
+###get yritystoiminta by tapahtu_pvm
+GET http://localhost:3000/api/v1/yritystoiminta/2021-01-19
+
 
 ###get all palaute between dates
 GET http://localhost:3000/api/v1/yritystoiminta/2021-01-19/2021-01-29
@@ -18,15 +19,12 @@ POST http://localhost:3000/api/v1/yritystoiminta
 Content-Type: application/json
 
 {
-    "tapahtu_pvm": "2021-01-19",
-    "tilaus_id": "1",
-    "myynti_hinta": "",
-    "myynti_summa": "",
-    "kustannus": "",
-    "kustannus": "",
-    "voitto": ""
+    "tapahtu_pvm": "2021-02-10",
+    "tilaus_id": "3",
+    "myynti_hinta": "105.00",
+    "kustannus": "65.00",
+    "voitto": "40.00"
 }
-
 
 
 ###Delete yritystoiminta by id
@@ -38,11 +36,9 @@ PUT http://localhost:3000/api/v1/yritystoiminta/2
 Content-Type: application/json
 
 {
-    "tapahtu_pvm": "2021-01-19",
-    "tilaus_id": "1",
-    "myynti_hinta": "",
-    "myynti_summa": "",
-    "kustannus": "",
-    "kustannus": "",
-    "voitto": ""
+    "tapahtu_pvm": "2021-01-20",
+    "tilaus_id": "2",
+    "myynti_hinta": "45",
+    "kustannus": "23",
+    "voitto": "22"
 }

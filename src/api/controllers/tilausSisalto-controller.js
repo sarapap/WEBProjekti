@@ -19,7 +19,7 @@ const getTilausSisalto = async (req, res) => {
 };
 
 const getTilausSisaltoById = async(req, res) => {
-  const tilausSisalto = await fin(req.params.id);
+  const tilausSisalto = await findTilausSisaltoById(req.params.id);
   if (tilausSisalto) {
       res.json(tilausSisalto);
   } else {
@@ -28,16 +28,17 @@ const getTilausSisaltoById = async(req, res) => {
 };
 
 const getTilausSisaltoByTilausId = async(req, res) => {
-  const tilausSisalto = await findTilausSisaltoById(req.params.tilaus_id);
-  if (tilausSisalto) {
-      res.json(tilausSisalto);
-  } else {
-      res.sendStatus(404);
-  }
+  const tilausSisalto = await findTilausSisaltoByTilausId(req.params.tilaus_id);
+  if (!tilausSisalto) {
+    res.sendStatus(404);
+    return;
+}
+res.json(tilausSisalto);
 };
 
+
 const getTilausSisaltoByTilausPvm = async(req, res) => {
-  const tilausSisalto = await findTilausSisaltoByTilausId(req.params.tilaus_pvm);
+  const tilausSisalto = await findTilausSisaltoByPvm(req.params.tilaus_pvm);
   if (tilausSisalto) {
       res.json(tilausSisalto);
   } else {
@@ -57,7 +58,7 @@ const getTilasSisaltoByDateRange = async (req, res) => {
 const postTilausSisalto = async (req, res) => {
   console.log(req.body);
 
-  const result = await addTilaus(req.body);
+  const result = await addTilausSisalto(req.body);
   if (!result) {
       const error = new Error('Invalid or missing fields.');
       error.status = 400;

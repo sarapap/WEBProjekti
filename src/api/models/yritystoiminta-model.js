@@ -6,7 +6,7 @@ const listAllYritystoiminta = async () => {
     return rows;
 };
 
-const findYritystoimintaById = async (id) => {
+const findYritystoimintaById= async (id) => {
   const [rows] = await promisePool.execute(
       'SELECT * FROM yritystoiminta WHERE id = ?',
       [id]
@@ -17,25 +17,28 @@ const findYritystoimintaById = async (id) => {
   return rows[0];
 };
 
-const findYritystoimintaByPvm= async (pvm) => {
+const findYritystoimintaByTapahtuPvm= async (pvm) => {
   const [rows] = await promisePool.execute(
       'SELECT * FROM yritystoiminta WHERE tapahtu_pvm = ?',
       [pvm]
   );
+
   if (rows.length === 0) {
       return false;
   }
-  return rows[0];
+  console.log(rows);
+  return rows;
 };
 
 const findYritystoimintaByDateRange = async (startDate, endDate) => {
 const [rows] = await promisePool.execute(
-    'SELECT * FROM yritystoiminta WHERE pvm BETWEEN ? AND ?',
+    'SELECT * FROM yritystoiminta WHERE tapahtu_pvm BETWEEN ? AND ?',
     [startDate, endDate]
 );
 if (rows.length === 0) {
     return false;
 }
+console.log(rows);
 return rows;
 };
 
@@ -44,7 +47,6 @@ const addYritystoiminta = async (yritystoiminta) => {
   const {
     tapahtu_pvm,
     tilaus_id,
-    maara,
     myynti_hinta,
     kustannus,
     voitto
@@ -53,17 +55,15 @@ const addYritystoiminta = async (yritystoiminta) => {
   const sql = `INSERT INTO yritystoiminta (
     tapahtu_pvm,
     tilaus_id,
-    maara,
     myynti_hinta,
     kustannus,
     voitto
-  ) VALUES (?, ?, ?, ?, ?, ?, ?)`;
+  ) VALUES (?, ?, ?, ?, ?)`;
 ;
 
   const data = [
     tapahtu_pvm,
     tilaus_id,
-    maara,
     myynti_hinta,
     kustannus,
     voitto
@@ -130,7 +130,7 @@ const updateYritystoimintaById = async (yritystoiminta, id) => {
 export {
   listAllYritystoiminta,
   findYritystoimintaById,
-  findYritystoimintaByPvm,
+  findYritystoimintaByTapahtuPvm,
   findYritystoimintaByDateRange,
   addYritystoiminta,
   removeYritystoimintaById,

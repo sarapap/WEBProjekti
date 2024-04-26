@@ -3,19 +3,19 @@ GET http://localhost:3000/api/v1/tilaus_sisalto
 
 
 ###get tilaus_sisalto by id
-GET http://localhost:3000/api/v1/tilaus_sisalto/1
-
+GET http://localhost:3000/api/v1/tilaus_sisalto/3
 
 
 ###get tilaus_sisalto by tilaus_id
-GET http://localhost:3000/api/v1/tilaus_sisalto/tilaus/5
+GET http://localhost:3000/api/v1/tilaus_sisalto/tilaus/2
 
 
 ###get tilaus_sisalto by tilaus_pvm
-GET http://localhost:3000/api/v1/tilaus_sisalto/2021-01-29
+GET http://localhost:3000/api/v1/tilaus_sisalto/pvm/2024-04-26
 
-###get all palaute between dates
-GET http://localhost:3000/api/v1/tilaus_sisalto/2021-01-19/2021-01-29
+###get all tilaus_sisalto between dates
+
+GET http://localhost:3000/api/v1/tilaus_sisalto/2024-04-19/2024-04-29
 
 
 ### uusi tilaus_sisalto
@@ -23,15 +23,14 @@ POST http://localhost:3000/api/v1/tilaus_sisalto
 Content-Type: application/json
 
 {
-    "tilaus_id": "5",
-    "tuote_id": "1",
+    "tilaus_id": "2",
+    "tuote_id": "5",
     "maara": "2",
-    "myynti_summa": "3.00",
-    "kustannus_summa": "1.50",
-    "tilaus_pvm": "2024-04-20",
+    "myynti_summa": "6.90",
+    "kustannus_summa": "3.60",
+    "tilaus_pvm": "2024-04-26",
     "status": "Käsittelyssä"
 }
-
 
 
 ###Delete tilaus_sisalto by id
@@ -43,11 +42,11 @@ PUT http://localhost:3000/api/v1/tilaus_sisalto/2
 Content-Type: application/json
 
 {
-    "tilaus_id": "5",
+    "tilaus_id": "2",
     "tuote_id": "1",
-    "maara": "2",
-    "myynti_summa": "3.00",
-    "kustannus_summa": "1.50",
-    "tilaus_pvm": "2024-04-20",
+    "maara": "1",
+    "myynti_summa": "4.50",
+    "kustannus_summa": "2.50",
+    "tilaus_pvm": "2024-03-20",
     "status": "Lähtetty"
 }
