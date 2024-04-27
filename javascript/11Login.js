@@ -1,38 +1,48 @@
 'use strict';
 
-document.getElementById('register-form').addEventListener('submit', function (event) {
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
+    const registerForm = document.querySelector('#register-form');
 
-    const data = {
-        etunimi: document.getElementById('firstname').value,
-        sukunimi: document.getElementById('lastname').value,
-        tunnus: document.getElementById('name').value,
-        salasana: document.getElementById('password').value,
-        email: document.getElementById('email').value,
-        puhelin: document.getElementById('phone').value,
-        syntymapaiva: document.getElementById('today').value,
-    };
+    registerForm.addEventListener('submit', function (event) {
+        event.preventDefault();
 
-    console.log('Lähetettävät tiedot:', data);
+        const data = {
+            etunimi: document.getElementById('firstname').value,
+            sukunimi: document.getElementById('lastname').value,
+            tunnus: document.getElementById('tunnus').value,
+            salasana: document.getElementById('password').value,
+            email: document.getElementById('email').value,
+            puhelin: parseInt(document.getElementById('phone').value, 10),
+            syntymapaiva: document.getElementById('syntymapaiva').value || null,
+            rooli: "admin",
+            ehdot_hyvaksytty: document.querySelector('#accept-1').checked ? 1 : 0,
+            allennus_ryhma: document.querySelector('input[name="status"]:checked') ? document.querySelector('input[name="status"]:checked').value : null
+        };
 
-    fetch('http://localhost:3000/api/v1/asiakas', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    })
-        .then(response => {
-            if (response.ok) {
-                console.log('Vastaus onnistui');
-                alert('Rekisteröityminen onnistui');
-            } else {
-                console.log('Vastaus epäonnistui');
-                throw new Error('Rekisteröityminen epäonnistui');
-            }
+        console.log("Rekisteröinti data:", JSON.stringify(data));
+
+        fetch('http://localhost:3000/api/v1/asiakas', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
         })
-        .catch(error => {
-            console.log('Virhe:', error.message);
-            alert(error.message);
-        });
+            .then(response => {
+                console.log("Vastaus:", response.status);
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Rekisteröinti epäonnistui');
+                }
+            })
+            .then(data => {
+                console.log('Rekisteröinti onnistui:', data);
+                window.location.href = '../fi/7Kayttaja.html';
+            })
+            .catch(error => {
+                console.error('Virhe rekisteröinnissä:', error);
+                alert('Rekisteröinti epäonnistui. Yritä uudelleen.');
+            });
+    });
 });

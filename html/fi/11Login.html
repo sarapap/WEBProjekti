@@ -85,50 +85,39 @@
     </div>
 
     <div class="aside2" id="register-id">
-
       <p class="kayttajaP">Jos sinulla ei ole vielä käyttäjää, voit rekisteröityä tästä.</p>
-      <p>Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi. Liittyminen on
-        maksutonta. </p>
+      <p>Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi. Liittyminen on maksutonta.
+      </p>
       <hr><br>
-      <form action="http://localhost:3000/api/v1/asiakas" method="post" id="register-form">
+      <form id="register-form">
         <label for="firstname">Etunimi: *</label>
         <input type="text" name="firstname" id="firstname" placeholder="Etunimi" required autofocus />
 
         <label for="lastname">Sukunimi: *</label>
         <input type="text" name="lastname" id="lastname" placeholder="Sukunimi" required autofocus />
 
-        <label for="name">Käyttäjätunnus: *</label>
-        <input type="text" name="name" id="name" placeholder="Käyttäjätunnus" required autofocus />
+        <label for="tunnus">Käyttäjätunnus: *</label>
+        <input type="text" name="tunnus" id="tunnus" placeholder="Käyttäjätunnus" required autofocus />
 
-        <label for="password">
-          Salasana: *
-        </label>
-        <input class="myPasswordField" name="password" type="password" id="password" placeholder="Salasana" required
-          autofocus />
+        <label for="password">Salasana: *</label>
+        <input type="password" id="password" name="password" placeholder="Salasana" required autofocus />
 
-        <label for="email">
-          Sähköposti: *
-        </label>
+        <label for="email">Sähköposti: *</label>
         <input type="email" id="email" name="email" placeholder="Sähköposti" required autofocus />
 
-        <label for="email">
-          Puhelinnumero: *
-        </label>
-        <input type="phone" id="phone" name="phone" placeholder="Puhelinnumero" required autofocus />
+        <label for="phone">Puhelinnumero: *</label>
+        <input type="tel" id="phone" name="phone" placeholder="Puhelinnumero" required autofocus />
 
-        <label for="today">
-          Syntymäaika:
-        </label>
-        <input type="date" name="date" id="today" />
+        <label for="syntymapaiva">Syntymäaika:</label>
+        <input type="date" id="syntymapaiva" name="syntymapaiva" />
 
         <label for="allergia">Ruoka-allergiat:</label>
         <textarea name="allergia" id="allergia"></textarea>
 
-
         <div class="checkbox-container">
-          <input type="checkbox" id="accept-1" name="accept" value="1">
-          <label for="accept-1">Hyväksyt verkkokaupan ehdot</label><br>
-          <input type="checkbox" id="accept-2" name="accept" value="1">
+          <input type="checkbox" id="accept-1" name="ehdot_hyvaksytty" value="true">
+          <label for="accept-1">Hyväksyt verkkokaupan ehdot</label>
+          <input type="checkbox" id="accept-2" name="markkinointi" value="true">
           <label for="accept-2">Minulle saa lähettää markkinointiviestejä sähköpostitse</label><br><br>
           Alennusryhmä: <br />
           <input type="radio" id="opiskelija" name="status" value="1">
@@ -138,9 +127,10 @@
         </div>
 
         <button type="submit">Tyhjennä lomake</button>
-        <button type="reset">Rekisteröidy</button>
+        <button type="submit">Rekisteröidy</button>
       </form>
     </div>
+
   </main>
   <hr>
 

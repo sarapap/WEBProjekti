@@ -30,18 +30,39 @@ const getUserById = async (req, res) => {
 };
 
 const postUser = async (req, res) => {
-    console.log(req.body);
-    req.body.salasana = bcrypt.hashSync(req.body.salasana, 10);
-    req.body.ehdot_hyvaksytty = req.body.ehdot_hyvaksytty ? 1 : 0;
+    try {
+        console.log("Received data:", req.body);
 
-    const result = await addUser(req.body);
-    if (!result) {
-        const error = new Error('Invalid or missing fields.');
-        error.status = 400;
-        return
+        if (!req.body.salasana) {
+            throw new Error("Salasana puuttuu");
+        }
+
+        req.body.salasana = bcrypt.hashSync(req.body.salasana, 10);
+
+        if (!req.body.rooli) {
+            req.body.rooli = "user";
+        }
+
+        const requiredFields = ["etunimi", "sukunimi", "tunnus", "salasana", "email", "puhelin"];
+        const missingFields = requiredFields.filter(field => !req.body[field]);
+        if (missingFields.length > 0) {
+            throw new Error(`Puuttuvat kentät: ${missingFields.join(", ")}`);
+        }
+
+        const result = await addUser(req.body);
+
+        if (!result) {
+            throw new Error("Käyttäjän lisääminen epäonnistui");
+        }
+
+        res.status(201).json({ message: "Käyttäjä lisätty onnistuneesti", asiakas_id: result.asiakas_id });
+
+    } catch (error) {
+        console.error("Virhe rekisteröinnissä:", error.message);
+        res.status(400).json({ error: error.message });
     }
-    res.status(201).json(result);
 };
+
 
 
 const putUser = async (req, res) => {
