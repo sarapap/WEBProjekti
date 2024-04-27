@@ -42,10 +42,11 @@ const postTuote = async (req, res) => {
 
   let params = [
     req.body.tuote_nimi,
-    req.file.path,
+    req.body.tuote_kuvaus,
     req.body.tuote_hinta,
     req.body.tuote_kustannus,
-    req.body.tuote_tyyppi
+    req.body.tuote_tyyppi,
+    req.file.path
   ];
 
   const result = await addTuote(req.body, req.file);
@@ -60,6 +61,7 @@ const postTuote = async (req, res) => {
 const putTuote = async(req, res, next) => {
   const data = {
     tuote_nimi: req.body.tuote_nimi,
+    tuote_kuvaus: req.body.tuote_kuvaus,
     tuote_hinta: req.body.tuote_hinta,
     tuote_kustannus: req.body.tuote_kustannus,
     tuote_tyyppi: req.body.tuote_tyyppi,
