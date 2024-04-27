@@ -380,7 +380,7 @@ footer {
         height: auto;
     }
 
-    video {
+    video, .imageFrontPage  {
         width: 90%;
     }
 
@@ -395,7 +395,7 @@ footer {
         display: block;
     }
 
-    video {
+    video, .imageFrontPage {
         width: 90%;
     }
 
