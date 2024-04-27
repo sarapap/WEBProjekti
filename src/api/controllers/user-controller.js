@@ -32,13 +32,11 @@ const getUserById = async (req, res) => {
 const postUser = async (req, res) => {
     try {
         console.log("Received data:", req.body);
-
         if (!req.body.salasana) {
             throw new Error("Salasana puuttuu");
         }
 
         req.body.salasana = bcrypt.hashSync(req.body.salasana, 10);
-
         if (!req.body.rooli) {
             req.body.rooli = "user";
         }
@@ -50,7 +48,6 @@ const postUser = async (req, res) => {
         }
 
         const result = await addUser(req.body);
-
         if (!result) {
             throw new Error("Käyttäjän lisääminen epäonnistui");
         }
@@ -66,14 +63,6 @@ const postUser = async (req, res) => {
 
 
 const putUser = async (req, res) => {
-    // if (
-    //     res.locals.user.user_id !== Number(req.params.asiakas_id) &&
-    //     res.locals.user.role !== 'admin'
-    // ) {
-    //     res.sendStatus(403);
-    //     return;
-    // }
-
     const result = await updateUser(req.body, req.params.asiakas_id, res.locals.user);
     if (!result) {
         res.sendStatus(400);
@@ -97,6 +86,5 @@ const deleteUser = async (req, res) => {
     }
     res.json(result);
 };
-
 
 export { getUser, getUserByUsername, getUserById, postUser, putUser, deleteUser };

@@ -17,7 +17,6 @@ const getKategoriaTuoteeet = async (req, res) => {
     }res
     res.json(kategoriatuoteet);
 };
-
 const getKategoriaTuoteById = async (req, res) => {
   const kategoriatuote_id = req.params.id;
   const kategoriaTuote = await findKategoriaTuoteById(kategoriatuote_id);
@@ -27,7 +26,6 @@ const getKategoriaTuoteById = async (req, res) => {
       res.sendStatus(404);
   }
 };
-
 
 const getKategoriaTuoteByTuoteId = async(req, res) => {
     const kategoriaTuote = await findKategoriaTuoteByTuoteId(req.params.tuote_id);

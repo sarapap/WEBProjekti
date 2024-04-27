@@ -41,10 +41,7 @@ const findKategoriaTuoteByKategoriaId = async (id) => {
 
 const addKategoriaTuote = async (kategoriaTuote) => {
   const {tuote_id, kategoria_id} = kategoriaTuote;
-
-  const sql = `INSERT INTO kategoria_tuote (tuote_id, kategoria_id) VALUES (?, ?)`
-;
-
+  const sql = `INSERT INTO kategoria_tuote (tuote_id, kategoria_id) VALUES (?, ?)`;
   const data = [tuote_id, kategoria_id];
 
   try {
@@ -65,8 +62,7 @@ const removeKategoriaTuoteById = async (id) => {
   const connection = await promisePool.getConnection();
   try {
       const [rows] = await promisePool.execute(
-          'DELETE FROM kategoria_tuote WHERE kategoriatuote_id = ?',
-          [id]
+          'DELETE FROM kategoria_tuote WHERE kategoriatuote_id = ?', [id]
       );
 
       if (rows.affectedRows === 0) {

@@ -60,7 +60,6 @@ const addUser = async (user) => {
     console.error("Error executing SQL query:", error);
     return false;
   }
-
 };
 
 const findUserByUsername = async (tunnus) => {
@@ -88,13 +87,10 @@ const removeUser = async (id) => {
           'DELETE FROM asiakas WHERE asiakas_id = ?',
           [id]
       );
-
       if (rows.affectedRows === 0) {
           return false;
       }
-
       await connection.commit();
-
       return {
           message: 'User deleted',
       };
@@ -112,7 +108,6 @@ const updateUser = async (user, asiakas_id) => {
       user,
       asiakas_id,
   ]);
-
   try {
       const rows = await promisePool.execute(sql);
       console.log('updateUser', rows);

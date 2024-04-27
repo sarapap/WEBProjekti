@@ -31,12 +31,11 @@ const findTuoteByname = async (tuote_nimi) => {
 const addTuote = async (tuote, file) => {
   const { tuote_nimi, tuote_kuvaus, tuote_hinta, tuote_kustannus, tuote_tyyppi } = tuote;
 
-  const sql = `INSERT INTO tuote (tuote_nimi, tuote_kuvaus, tuote_hinta, tuote_kustannus, tuote_tyyppi, tuote_kuva)
-               VALUES (?, ?, ?, ?, ?, ?)`;
+  const sql = `INSERT INTO tuote (tuote_nimi, tuote_kuvaus, tuote_hinta, tuote_kustannus,
+              tuote_tyyppi, tuote_kuva) VALUES (?, ?, ?, ?, ?, ?)`;
 
-               console.log('file', file);
+  console.log('file', file);
   const params = [tuote_nimi, tuote_kuvaus, tuote_hinta, tuote_kustannus, tuote_tyyppi, file.filename || null];
-  // console.log('params', params);
 
   try {
     const [rows] = await promisePool.execute(sql, params);
@@ -58,13 +57,10 @@ const removeTuoteById = async (tuote_id) => {
           'DELETE FROM tuote WHERE tuote_id = ?',
           [tuote_id]
       );
-
       if (rows.affectedRows === 0) {
           return false;
       }
-
       await connection.commit();
-
       return {
           message: 'tuote deleted',
       };

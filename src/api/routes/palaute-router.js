@@ -5,10 +5,8 @@ import {getPalaute, getPalauteByPvm, getPalauteByDateRange, postPalaute, deleteP
 const palauteRouter = express.Router();
 
 palauteRouter.route('/').get(getPalaute).post(postPalaute);
-
 palauteRouter.route('/:id').delete(deletePalaute);
 palauteRouter.route('/:pvm').get(getPalauteByPvm);
 palauteRouter.route('/:startDate/:endDate').get(getPalauteByDateRange);
-
 
 export default palauteRouter;

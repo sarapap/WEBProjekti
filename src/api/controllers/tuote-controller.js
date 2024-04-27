@@ -5,9 +5,7 @@ import {
   addTuote,
   removeTuoteById,
   updateTuote
-
  } from '../models/tuote-model.js';
-import bcrypt from 'bcrypt';
 
 const getTuote = async (req, res) => {
     const tuoteet = await listAllTuote();

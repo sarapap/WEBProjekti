@@ -90,13 +90,10 @@ const removeYritystoimintaById = async (id) => {
           'DELETE FROM yritystoiminta WHERE id = ?',
           [id]
       );
-
       if (rows.affectedRows === 0) {
           return false;
       }
-
       await connection.commit();
-
       return {
           message: 'Yritystoiminta deleted',
       };

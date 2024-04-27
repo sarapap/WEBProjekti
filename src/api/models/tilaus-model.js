@@ -30,12 +30,8 @@ const findTilausByAsiakasId = async (id) => {
 
 const addTilaus = async (tilaus) => {
   const {asiakas_id} = tilaus;
-
-  const sql = `INSERT INTO tilaus (asiakas_id) VALUES (?)`
-;
-
+  const sql = `INSERT INTO tilaus (asiakas_id) VALUES (?)`;
   const data = [asiakas_id];
-
   try {
     const [rows] = await promisePool.execute(sql, data);
     if (rows && rows.affectedRows !== 0) {
@@ -57,13 +53,10 @@ const removeTilausByTilausId = async (id) => {
           'DELETE FROM tilaus WHERE tilaus_id = ?',
           [id]
       );
-
       if (rows.affectedRows === 0) {
           return false;
       }
-
       await connection.commit();
-
       return {
           message: 'Tilaus deleted',
       };

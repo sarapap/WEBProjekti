@@ -63,13 +63,10 @@ const removeOstosById = async (asiakas_id, tuote_id) => {
           'DELETE FROM ostoskori WHERE asiakas_id = ? AND tuote_id = ?',
           [asiakas_id, tuote_id]
       );
-
       if (rows.affectedRows === 0) {
           return false;
       }
-
       await connection.commit();
-
       return {
           message: 'Ostos deleted',
       };

@@ -10,7 +10,6 @@ const getPalaute = async (req, res) => {
     res.json(palaute);
 };
 
-
 const getPalauteByPvm = async(req, res) => {
     const palaute = await findPalauteByPvm(req.params.pvm);
     if (palaute) {
@@ -43,13 +42,6 @@ const postPalaute = async (req, res) => {
 
 
 const deletePalaute = async (req, res) => {
-    // if (
-    //     res.locals.palaute.palaute_id !== Number(req.params.id)
-
-    // ) {
-    //     res.sendStatus(403);
-    //     return;
-    // }
     const result = await removePalauteById(req.params.id);
     if (!result) {
         res.sendStatus(400);
