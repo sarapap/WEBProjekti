@@ -150,12 +150,15 @@
         <h1>Ärijälgimine</h1>
         <h4>Kontrollige aruannet valitud perioodil, näiteks päev, kuu jne.</h4>
         <label for="periood">Valige periood: </label>
-        <select id="periood" onchange="changeLanguage(this.value)">
-          <option value="päev" selected>Päev</option>
-          <option value="nädal">Nädal</option>
-          <option value="kuu">Kuu</option>
-          <option value="aasta">Aasta</option>
-        </select>
+        <form action="/broneerimise-kinnitus" method="post">
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <label for="algusKuupäev">Alguskuupäev:</label>
+          <input type="date" id="algusKuupäev" name="algusKuupäev">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <label for="loppKuupäev">Lõppkuupäev:</label>
+          <input type="date" id="loppKuupäev" name="loppKuupäev">
+          <button type="submit" class="button2">Otsi</button>
+        </form>
 
         <table>
           <p>Raport valitud perioodil kuvatakse siin.</p>
