@@ -10,7 +10,6 @@ const getKategoria = async (req, res) => {
     res.json(kategoriat);
 };
 
-
 const getKategoriaByname = async(req, res) => {
     const kategoria = await findKategoriaByname(req.params.kategoria_nimi);
     if (kategoria) {
@@ -41,15 +40,7 @@ const postKategoria = async (req, res) => {
   res.status(201).json(result);
 };
 
-
 const putKategoria = async (req, res) => {
-    // if (
-    //     res.locals.kategoria.kategoria_id !== Number(req.params.kategoria_id) &&
-    //     res.locals.kategoria.role !== 'admin'
-    // ) {
-    //     res.sendStatus(403);
-    //     return;
-    // }
     console.log("req.body", req.body);
     const result = await updateKategoria(req.body, req.params.kategoria_id, res.locals.kategoria);
     if (!result) {
@@ -60,13 +51,6 @@ const putKategoria = async (req, res) => {
 };
 
 const deleteKategoria = async (req, res) => {
-    // if (
-    //     res.locals.kategoria.kategoria_id !== Number(req.params.kategoria_id)
-
-    // ) {
-    //     res.sendStatus(403);
-    //     return;
-    // }
     const result = await removeKategoriaById(req.params.kategoria_id);
     if (!result) {
         res.sendStatus(400);

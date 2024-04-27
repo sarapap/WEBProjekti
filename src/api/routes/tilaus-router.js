@@ -14,5 +14,4 @@ tilausRouter.route('/').get(getTilaus).post(postTilaus);
 tilausRouter.route('/:tilaus_id').get(getTilausByTilausId).put(putTilausByTilausId).delete(deleteTilausByTilausId)  ;
 tilausRouter.route('/asiakas/:asiakas_id').get(getTilausByAsiakasId);
 
-
 export default tilausRouter;

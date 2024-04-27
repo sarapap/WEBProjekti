@@ -30,10 +30,7 @@ const findKategoriaByname = async (kategoria_nimi) => {
 
 const addKategoria = async (kategoria) => {
   const {kategoria_nimi} = kategoria;
-
-  const sql = `INSERT INTO kategoria (kategoria_nimi) VALUES (?)`
-;
-
+  const sql = `INSERT INTO kategoria (kategoria_nimi) VALUES (?)`;
   const data = [kategoria_nimi];
 
   try {
@@ -47,7 +44,6 @@ const addKategoria = async (kategoria) => {
     console.error("Error executing SQL query:", error);
     return false;
   }
-
 };
 
 const removeKategoriaById = async (kategoria_id) => {
@@ -57,13 +53,10 @@ const removeKategoriaById = async (kategoria_id) => {
           'DELETE FROM kategoria WHERE kategoria_id = ?',
           [kategoria_id]
       );
-
       if (rows.affectedRows === 0) {
           return false;
       }
-
       await connection.commit();
-
       return {
           message: 'kategoria deleted',
       };

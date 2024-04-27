@@ -47,7 +47,6 @@ const postTilaus = async (req, res) => {
   res.status(201).json(result);
 };
 
-
 const putTilausByTilausId = async (req, res) => {
 
     console.log("req.body", req.body);

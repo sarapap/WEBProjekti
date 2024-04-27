@@ -95,7 +95,6 @@ const addTilausSisalto = async (tilaus_sisalto) => {
     console.error("Error executing SQL query:", error);
     return false;
   }
-
 };
 
 const removeTilausSisaltoById = async (id) => {
@@ -105,11 +104,9 @@ const removeTilausSisaltoById = async (id) => {
           'DELETE FROM tilaus_sisalto WHERE id = ?',
           [id]
       );
-
       if (rows.affectedRows === 0) {
           return false;
       }
-
       await connection.commit();
 
       return {

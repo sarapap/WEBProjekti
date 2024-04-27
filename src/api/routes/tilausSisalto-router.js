@@ -19,6 +19,4 @@ tilausSisaltoRouter.route('/tilaus/:tilaus_id').get(getTilausSisaltoByTilausId);
 tilausSisaltoRouter.route('/pvm/:tilaus_pvm').get(getTilausSisaltoByTilausPvm);
 tilausSisaltoRouter.route('/:startDate/:endDate').get(getTilasSisaltoByDateRange);
 
-
-
 export default tilausSisaltoRouter;

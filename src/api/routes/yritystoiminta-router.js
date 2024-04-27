@@ -17,5 +17,4 @@ yritystoimintaRouter.route('/:id').get(getYritystoimintaById).put(putYritystoimi
 yritystoimintaRouter.route('/pvm/tapahtu_pvm').get(getYritystoimintaByTapahtuPvm);
 yritystoimintaRouter.route('/:startDate/:endDate').get(getYritystoimintaByDateRange);
 
-
 export default yritystoimintaRouter;

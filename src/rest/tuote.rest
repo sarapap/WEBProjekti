@@ -10,7 +10,7 @@ GET http://localhost:3000/api/v1/tuote/1
 GET http://localhost:3000/api/v1/tuote/name/jääkahvi
 
 
-### uusi tuote, käydään postman ti add new tuote
+### uusi tuote, käydään postman to add new tuote
 POST http://localhost:3000/api/v1/tuote
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
@@ -42,9 +42,9 @@ Content-Type: image/image/jpeg
 DELETE http://localhost:3000/api/v1/tuote/2
 
 
-###Update tuote by id
+###Update tuote by id, käydä postman to update
 PUT http://localhost:3000/api/v1/tuote/2
-Content-Type: application/json
+Content-Type: from-data
 
 {
     "tuote_nimi": "mansikkakakku_pala",

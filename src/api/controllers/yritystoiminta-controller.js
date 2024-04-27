@@ -8,7 +8,6 @@ import {
   updateYritystoimintaById
 } from '../models/yritystoiminta-model.js';
 
-
 const getYritystoiminta = async (req, res) => {
   const yritystoiminta = await listAllYritystoiminta();
   if (!yritystoiminta) {
@@ -34,7 +33,6 @@ const getYritystoimintaByTapahtuPvm = async(req, res) => {
       res.sendStatus(404);
   }
 }
-
 
 const getYritystoimintaByDateRange = async (req, res) => {
   const yritystoiminta = await findYritystoimintaByDateRange(req.params.startDate, req.params.endDate);

@@ -67,7 +67,6 @@ const postTilausSisalto = async (req, res) => {
 res.status(201).json(result);
 };
 
-
 const putTilausSisaltoById = async (req, res) => {
 
   console.log("req.body", req.body);
