@@ -17,4 +17,3 @@ Content-Type: application/json
 
 ###Delete suosikit by asiakas_id and tuote_id
 DELETE http://localhost:3000/api/v1/suosikit/3/3
-
