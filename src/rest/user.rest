@@ -11,7 +11,7 @@ Content-Type: application/json
 
     "etunimi": "Iina",
     "sukunimi": "Pasila",
-    "tunnus": "iisin",
+    "tunnus": "iisi",
     "salasana": "12345",
     "rooli": "admin",
     "email": "iina@ascafe.fi",
