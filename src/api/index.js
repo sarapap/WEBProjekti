@@ -8,6 +8,7 @@ import KategoriaTuoteRouter from './routes/kategoriaTuote-router.js';
 import tilausRouter from './routes/tilaus-router.js';
 import tilausSisaltoRouter from './routes/tilausSisalto-router.js';
 import yritystoimintaRouter from './routes/yritystoiminta-router.js';
+import suosikitRouter from './routes/suosikit-router.js';
 
 const router = express.Router();
 
@@ -22,6 +23,7 @@ router.use('/kategoria_tuote', KategoriaTuoteRouter);
 router.use('/tilaus', tilausRouter);
 router.use('/tilaus_sisalto', tilausSisaltoRouter);
 router.use('/yritystoiminta', yritystoimintaRouter);
+router.use('/suosikit', suosikitRouter);
 
 
 export default router;
