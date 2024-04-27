@@ -16,11 +16,11 @@ const getsuosikit = async (req, res) => {
 
 const getsuosikkiByAsiakasId = async(req, res) => {
 const suosikit = await findSuosikkiByAsiakasId(req.params.asiakas_id);
-if (suosikit) {
-    res.json(suosikit);
-} else {
-    res.sendStatus(404);
-}
+  if (suosikit) {
+      res.json(suosikit);
+  } else {
+      res.sendStatus(404);
+  }
 }
 
 const postsuosikki = async (req, res) => {
