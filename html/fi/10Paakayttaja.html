@@ -124,14 +124,17 @@
 
     <div>
       <h1>Yritystoiminnan seuranta</h1>
-      <h4>Tarkista raportti valitulla ajanjaksolla, esim, päivä. kuukausi jne.</h4>
+      <h4>Tarkista raportti valitulla ajanjaksolla.</h4>
       <label for="ajan">Valitse ajankohta: </label>
-      <select id="ajan" onchange="changeLanguage(this.value)">
-        <option value="pv" selected>Päivä</option>
-        <option value="vko">Viikko</option>
-        <option value="kk">Kuukausi</option>
-        <option value="v">Vuosi</option>
-      </select>
+      <form action="/varauksen-vahvistus" method="post">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="aloituspvm">Aloituspäivämäärä:</label>
+        <input type="date" id="aloituspvm" name="aloituspvm">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="lopetuspvm">Lopetuspäivämäärä:</label>
+        <input type="date" id="lopetuspvm" name="lopetuspvm">
+        <button type="submit" class="button2">Hae</button>
+      </form>
 
       <table>
         <p>Tähän tulee raportti valitulla ajanjaksolla.</p>

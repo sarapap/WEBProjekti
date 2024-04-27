@@ -8,7 +8,7 @@
   <title>S&A CAFE</title>
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
   <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/paakayttaja.js" defer></script>
+  <script src="/javascript/1Etusivu.js" defer></script>
 </head>
 
 <body>
@@ -91,12 +91,15 @@
       <h1>Business Monitoring</h1>
       <h4>Check report for selected period, e.g., day, month, etc.</h4>
       <label for="period">Select period: </label>
-      <select id="period" onchange="changeLanguage(this.value)">
-        <option value="day" selected>Day</option>
-        <option value="week">Week</option>
-        <option value="month">Month</option>
-        <option value="year">Year</option>
-      </select>
+      <form action="/reservation-confirmation" method="post">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate">
+        <button type="submit" class="button2">Search</button>
+      </form>
 
       <table>
         <p>Report for the selected period will appear here.</p>

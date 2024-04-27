@@ -64,7 +64,7 @@
     }
   </style>
   <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/paakayttaja.js" defer></script>
+  <script src="/javascript/1Etusivu.js" defer></script>
 </head>
 
 <body>
@@ -113,7 +113,7 @@
         <div class="dropdown-menu" id="menuDropdown">
           <a class="dropdown-item" href="3MenuPage1_cn.html">糕点</a>
           <a class="dropdown-item" href="3MenuPage2_cn.html">咸味点心</a>
-          <a class="dropdown-item" href="3MenuPage3_cn.html">甜食味点心/a>
+          <a class="dropdown-item" href="3MenuPage3_cn.html">甜食味点心</a>
             <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
             <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
         </div>
@@ -145,14 +145,17 @@
 
       <div>
         <h1>公司商业运营监督</h1>
-        <h4>可选择查看各个时期的运营报告。</h4>
-        <label for="ajan">选择时间段: </label>
-        <select id="ajan" onchange="changeLanguage(this.value)">
-          <option value="pv" selected>日报</option>
-          <option value="vko">周报</option>
-          <option value="kk">月报</option>
-          <option value="v">年报</option>
-        </select>
+        <h4>可查看您所选择期间的运营报告。</h4>
+        <label for="ajan">请选择时间段: </label>
+        <form action="/varauksen-vahvistus" method="post">
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <label for="aloituspvm">开始日期：</label>
+          <input type="date" id="aloituspvm" name="aloituspvm">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <label for="lopetuspvm">截止日期:</label>
+          <input type="date" id="lopetuspvm" name="lopetuspvm">
+          <button type="submit" class="button2">搜索</button>
+        </form>
 
         <table>
           <p>您所选择期间的报告会显示在这里。</p>

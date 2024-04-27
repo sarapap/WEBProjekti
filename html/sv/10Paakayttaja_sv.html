@@ -8,44 +8,46 @@
   <title>S&A CAFE</title>
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
   <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/paakayttaja.js" defer></script>
+  <script src="/javascript/1Etusivu.js" defer></script>
 </head>
 
 <body>
   <header>
-    <div>
-      <nav class="icons">
-        <ul>
-          <li class="kieli">
-            <label for="kieli">Välj språk: </label>
-            <select id="kieli" onchange="changeLanguage(this.value)">
-              <option value="FI">Finska</option>
-              <option value="EN">Engelska</option>
-              <option value="CN">Kinesiska</option>
-              <option value="ET">Estniska</option>
-              <option value="SV" selected>Svenska</option>
-            </select>
-          </li>
-          <li>
-            <a href="11Login_sv.html">
-              <span class="användare"></span>
-            </a>
-          </li>
-          <li>
-            <a href="8Suosikit_sv.html">
-              <span class="favoriter"></span>
-            </a>
-          </li>
-          <li>
-            <a href="9Paakayttaja_sv.html">
-              <span class="kundvagn"></span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <div>
+          <nav class="icons">
+              <ul>
+                  <li class="kieli">
+                      <label for="kieli">Välj språk: </label>
+                      <select id="kieli">
+                          <option value="FI">Finska</option>
+                          <option value="EN">Engelska</option>
+                          <option value="CN">Kinesiska</option>
+                          <option value="ET">Estniska</option>
+                          <option value="SV" selected>Svenska</option>
+                      </select>
+                  </li>
+                  <li>
+                      <a href="11Login_sv.html">
+                          <span class="käyttäjä"></span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="8Suosikit_sv.html">
+                          <span class="suosikit"></span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="9Ostoskori_sv.html">
+                          <span class="ostoskori"></span>
+                      </a>
+                  </li>
+              </ul>
+          </nav>
+      </div>
 
-    </div>
   </header>
+  <main>
+
   <nav class="navbarClass" id="navbar">
     <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
     <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
@@ -89,12 +91,15 @@
       <h1>Företagsövervakning</h1>
       <h4>Kontrollera rapport för vald period, t.ex. dag, månad, etc.</h4>
       <label for="period">Välj period: </label>
-      <select id="period" onchange="changeLanguage(this.value)">
-        <option value="dag" selected>Dag</option>
-        <option value="vecka">Vecka</option>
-        <option value="månad">Månad</option>
-        <option value="år">År</option>
-      </select>
+      <form action="/bokningsbekräftelse" method="post">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="startDatum">Startdatum:</label>
+        <input type="date" id="startDatum" name="startDatum">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="slutDatum">Slutdatum:</label>
+        <input type="date" id="slutDatum" name="slutDatum">
+        <button type="submit" class="button2">Sök</button>
+      </form>
 
       <table>
         <p>Rapporten för den valda perioden visas här.</p>
