@@ -19,15 +19,13 @@ const findYritystoimintaById= async (id) => {
 
 const findYritystoimintaByTapahtuPvm= async (pvm) => {
   const [rows] = await promisePool.execute(
-      'SELECT * FROM yritystoiminta WHERE tapahtu_pvm = ?',
-      [pvm]
-  );
-
-  if (rows.length === 0) {
-      return false;
-  }
-  console.log(rows);
-  return rows;
+    'SELECT * FROM yritystoiminta WHERE tapahtu_pvm = ?',
+    [pvm]
+);
+if (rows.length === 0) {
+    return false;
+}
+return rows;
 };
 
 const findYritystoimintaByDateRange = async (startDate, endDate) => {

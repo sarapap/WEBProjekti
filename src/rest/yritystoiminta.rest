@@ -7,7 +7,7 @@ GET http://localhost:3000/api/v1/yritystoiminta/1
 
 
 ###get yritystoiminta by tapahtu_pvm
-GET http://localhost:3000/api/v1/yritystoiminta/2021-01-19
+GET http://localhost:3000/api/v1/yritystoiminta/pvm/2021-01-19
 
 
 ###get all palaute between dates

@@ -26,9 +26,9 @@ const getYritystoimintaById = async(req, res) => {
   }
 };
 const getYritystoimintaByTapahtuPvm = async(req, res) => {
-  const yritystoiminta = await findYritystoimintaByTapahtuPvm(req.params.tapahtu_pvm);
-  if (yritystoiminta) {
-      res.json(yritystoiminta);
+  const suosikit = await findYritystoimintaByTapahtuPvm(req.params.tapahtu_pvm);
+  if (suosikit) {
+      res.json(suosikit);
   } else {
       res.sendStatus(404);
   }
