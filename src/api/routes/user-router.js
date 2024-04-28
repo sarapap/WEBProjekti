@@ -4,6 +4,7 @@ import {
     getUserById,
     getUserByUsername,
     postUser,
+    userLoginPost,
     putUser,
     deleteUser,
 } from '../controllers/user-controller.js';
@@ -11,6 +12,7 @@ import {
 const userRouter = express.Router();
 
 userRouter.route('/').get(getUser).post(postUser);
+userRouter.route('/login').post(userLoginPost);
 userRouter.route('/:id').get(getUserById).put(putUser).delete(deleteUser);
 userRouter.route('/name/:tunnus').get(getUserByUsername);
 

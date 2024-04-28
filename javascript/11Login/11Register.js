@@ -1,5 +1,4 @@
 'use strict';
-
 document.addEventListener('DOMContentLoaded', function () {
     const registerForm = document.querySelector('#register-form');
 
@@ -19,8 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
             allennus_ryhma: document.querySelector('input[name="status"]:checked') ? document.querySelector('input[name="status"]:checked').value : null
         };
 
-        console.log("Rekisteröinti data:", JSON.stringify(data));
-
         fetch('http://localhost:3000/api/v1/asiakas', {
             method: 'POST',
             headers: {
@@ -29,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
             body: JSON.stringify(data)
         })
             .then(response => {
-                console.log("Vastaus:", response.status);
                 if (response.ok) {
                     return response.json();
                 } else {
@@ -37,12 +33,39 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             })
             .then(data => {
-                console.log('Rekisteröinti onnistui:', data);
-                window.location.href = '../fi/7Kayttaja.html';
+                const token = data.token;
+
+                if (token) {
+                    localStorage.setItem('authToken', token);
+                }
+
+                if (token) {
+                    window.location.href = '../../html/fi/7Kayttaja.html';
+                } else {
+                    window.location.href = '../../html/fi/11Login.html';
+                }
             })
             .catch(error => {
                 console.error('Virhe rekisteröinnissä:', error);
                 alert('Rekisteröinti epäonnistui. Yritä uudelleen.');
             });
+    });
+
+    const links = document.querySelectorAll('a');
+
+    links.forEach(link => {
+        if (link.href.endsWith('11Login.html')) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                const authToken = localStorage.getItem('authToken');
+
+                if (authToken) {
+                    window.location.href = '../../html/fi/7Kayttaja.html';
+                } else {
+                    window.location.href = '../../html/fi/11Login.html';
+                }
+            });
+        }
     });
 });

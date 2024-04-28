@@ -155,6 +155,27 @@
     <div class="div-class">
       <button type="submit" class="pay_btn">Maksa</button>
     </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const links = document.querySelectorAll('a');
+
+        links.forEach(link => {
+          if (link.href.endsWith('11Login.html')) {
+            link.addEventListener('click', function (event) {
+              event.preventDefault();
+
+              const authToken = localStorage.getItem('authToken');
+
+              if (authToken) {
+                window.location.href = '7Kayttaja.html';
+              } else {
+                window.location.href = '11Login.html';
+              }
+            });
+          }
+        });
+      });
+    </script>
 
     <footer class="footer-container">
       <p class="footerP">&copy; S&A CAFE 2024</p>

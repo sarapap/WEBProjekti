@@ -1,5 +1,8 @@
 import { listAllUsers, findUserById, findUserByUsername, addUser, updateUser, removeUser } from '../models/user-model.js';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import promisePool from '../../utils/database.js';
+import config from '../../config/config.js';
 
 const getUser = async (req, res) => {
     const users = await listAllUsers();
@@ -9,7 +12,6 @@ const getUser = async (req, res) => {
     } res
     res.json(users);
 };
-
 
 const getUserByUsername = async (req, res) => {
     const user = await findUserByUsername(req.params.tunnus);
@@ -29,17 +31,18 @@ const getUserById = async (req, res) => {
     }
 };
 
+const SECRET_KEY = config.SECRET_KEY;
+
 const postUser = async (req, res) => {
     try {
-        console.log("Received data:", req.body);
-        if (!req.body.salasana) {
+        const { etunimi, sukunimi, tunnus, salasana, email, puhelin, syntymapaiva, ehdot_hyvaksytty, allennus_ryhma } = req.body; // Haetaan tarvittavat kentät
+
+        if (!salasana) {
             throw new Error("Salasana puuttuu");
         }
+        const hashedPassword = bcrypt.hashSync(salasana, 10);
 
-        req.body.salasana = bcrypt.hashSync(req.body.salasana, 10);
-        if (!req.body.rooli) {
-            req.body.rooli = "user";
-        }
+        const rooli = req.body.rooli || "user";
 
         const requiredFields = ["etunimi", "sukunimi", "tunnus", "salasana", "email", "puhelin"];
         const missingFields = requiredFields.filter(field => !req.body[field]);
@@ -47,19 +50,72 @@ const postUser = async (req, res) => {
             throw new Error(`Puuttuvat kentät: ${missingFields.join(", ")}`);
         }
 
-        const result = await addUser(req.body);
+        const result = await addUser({
+            etunimi,
+            sukunimi,
+            tunnus,
+            salasana: hashedPassword,
+            rooli,
+            email,
+            puhelin,
+            syntymapaiva,
+            ehdot_hyvaksytty,
+            allennus_ryhma
+        });
+
         if (!result) {
             throw new Error("Käyttäjän lisääminen epäonnistui");
         }
 
-        res.status(201).json({ message: "Käyttäjä lisätty onnistuneesti", asiakas_id: result.asiakas_id });
+        const token = jwt.sign(
+            { user_id: result.asiakas_id, username: tunnus },
+            SECRET_KEY,
+        );
+
+        res.status(201).json({ success: true, token, asiakas_id: result.asiakas_id });
 
     } catch (error) {
-        console.error("Virhe rekisteröinnissä:", error.message);
+        console.error('Virhe postUser-toiminnossa:', error.message);
         res.status(400).json({ error: error.message });
     }
 };
 
+const userLoginPost = async (req, res) => {
+    try {
+        const { tunnus, salasana } = req.body;
+
+        if (!tunnus || !salasana) {
+            throw new Error('Käyttäjätunnus ja salasana ovat pakollisia');
+        }
+
+        const sql = 'SELECT * FROM asiakas WHERE tunnus = ?';
+        const [rows] = await promisePool.execute(sql, [tunnus]);
+
+        if (rows.length === 0) {
+            return res.status(401).json({ error: 'Väärä käyttäjätunnus tai salasana' });
+        }
+
+        const user = rows[0];
+
+        const passwordMatch = bcrypt.compareSync(salasana, user.salasana);
+
+        if (!passwordMatch) {
+            return res.status(401).json({ error: 'Väärä käyttäjätunnus tai salasana' });
+        }
+
+        const token = jwt.sign(
+            { asiakas_id: user.id, tunnus: user.tunnus },
+            SECRET_KEY,
+            { expiresIn: '1h' }
+        );
+
+        res.status(200).json({ success: true, message: 'Kirjautuminen onnistui', token, asiakas_id: user.id });
+
+    } catch (error) {
+        console.error('Virhe kirjautumisessa:', error.message);
+        res.status(400).json({ error: error.message });
+    }
+};
 
 
 const putUser = async (req, res) => {
@@ -87,4 +143,4 @@ const deleteUser = async (req, res) => {
     res.json(result);
 };
 
-export { getUser, getUserByUsername, getUserById, postUser, putUser, deleteUser };
+export { getUser, getUserByUsername, getUserById, postUser, userLoginPost, putUser, deleteUser };

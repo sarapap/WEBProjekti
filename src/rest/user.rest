@@ -3,7 +3,7 @@
 GET http://localhost:3000/api/v1/asiakas
 
 
-### uusi tuote
+### uusi rekisteröityminen
 POST http://localhost:3000/api/v1/asiakas
 Content-Type: application/json
 
@@ -19,6 +19,14 @@ Content-Type: application/json
     "ehdot_hyvaksytty": "true",
     "allennus_ryhma": ""
 
+}
+
+### uusi kirjautuminen
+POST http://localhost:3000/api/v1/asiakas/login
+Content-Type: application/json
+
+{
+"tunnus": "iisi", "salasana": "12345"
 }
 
 ###get user by username
