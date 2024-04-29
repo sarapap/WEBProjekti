@@ -55,13 +55,10 @@ feedbackForm.addEventListener("submit", async (e) => {
         });
 
         if (response.ok) {
-            console.log("Palaute lähetetty onnistuneesti!");
             modal.close();
-        } else {
-            console.error("Palauteen lähetys epäonnistui.");
         }
     } catch (error) {
-        console.error("Tapahtui virhe:", error);
+        console.error("Error :", error);
     }
 });
 

@@ -35,14 +35,7 @@ const SECRET_KEY = config.SECRET_KEY;
 
 const postUser = async (req, res) => {
     try {
-        const { etunimi, sukunimi, tunnus, salasana, email, puhelin, syntymapaiva, ehdot_hyvaksytty, allennus_ryhma } = req.body; // Haetaan tarvittavat kentät
-
-        if (!salasana) {
-            throw new Error("Salasana puuttuu");
-        }
-        const hashedPassword = bcrypt.hashSync(salasana, 10);
-
-        const rooli = req.body.rooli || "user";
+        const { etunimi, sukunimi, tunnus, salasana, email, puhelin, syntymapaiva, ehdot_hyvaksytty, allennus_ryhma } = req.body;
 
         const requiredFields = ["etunimi", "sukunimi", "tunnus", "salasana", "email", "puhelin"];
         const missingFields = requiredFields.filter(field => !req.body[field]);
@@ -54,8 +47,8 @@ const postUser = async (req, res) => {
             etunimi,
             sukunimi,
             tunnus,
-            salasana: hashedPassword,
-            rooli,
+            salasana: bcrypt.hashSync(salasana, 10),
+            rooli: req.body.rooli || "user",
             email,
             puhelin,
             syntymapaiva,
