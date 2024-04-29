@@ -14,6 +14,7 @@ app.use('/api/v1', api);
 
 app.post('/api/v1/kayttaja', postUser);
 
+
 app.use((req, res) => {
   res.status(404).json({ error: 'Reittiä ei löydy' });
 });

@@ -61,7 +61,7 @@ const postUser = async (req, res) => {
         }
 
         const token = jwt.sign(
-            { user_id: result.asiakas_id, username: tunnus },
+            { user_id: result.asiakas_id, username: tunnus, rooli: result.rooli },
             SECRET_KEY,
         );
 
@@ -71,6 +71,33 @@ const postUser = async (req, res) => {
         console.error('Virhe postUser-toiminnossa:', error.message);
         res.status(400).json({ error: error.message });
     }
+};
+
+const checkAdmin = (requiredRole) => {
+    return (req, res, next) => {
+        const token = req.headers.authorization?.split(' ')[1];
+
+        if (!token) {
+            return res.status(401).json({ error: 'Unauthorized' });
+        }
+
+        try {
+            const decoded = jwt.verify(token, SECRET_KEY);
+
+            if (!decoded.rooli) {
+                return res.status(403).json({ error: 'Role not found in token' });
+            }
+
+            if (decoded.rooli !== requiredRole) {
+                return res.status(403).json({ error: 'Forbidden' });
+            }
+
+            req.user = decoded;
+            next();
+        } catch (error) {
+            return res.status(401).json({ error: 'Invalid token' });
+        }
+    };
 };
 
 const userLoginPost = async (req, res) => {
@@ -136,4 +163,4 @@ const deleteUser = async (req, res) => {
     res.json(result);
 };
 
-export { getUser, getUserByUsername, getUserById, postUser, userLoginPost, putUser, deleteUser };
+export { getUser, getUserByUsername, getUserById, postUser, checkAdmin, userLoginPost, putUser, deleteUser };

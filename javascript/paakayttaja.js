@@ -44,11 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 allennus_ryhma: document.getElementById('alennus') ? document.getElementById('alennus').value : null,
             };
 
-            if (data.ehdot_hyvaksytty === 0) {
-                alert("Sinun on hyväksyttävä ehdot");
-                return;
-            }
-
             try {
                 const response = await fetch("http://localhost:3000/api/v1/asiakas", {
                     method: "POST",
@@ -99,3 +94,28 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+function getUserRole() {
+    const userRole = localStorage.getItem("rooli");
+    return userRole;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const userRole = getUserRole();
+
+    if (userRole !== "admin") {
+        window.location.href = "../../html/fi/11Login.html";
+        return;
+    }
+
+    console.log("Käyttäjä on admin.");
+});
+
+
+
+
+
+
+
+
+

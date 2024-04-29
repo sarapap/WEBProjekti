@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 })
                 .catch(error => {
-                    console.error('Virhe kirjautumisessa:', error);
-                    alert('Kirjautuminen epäonnistui.');
+                    console.error('Väärä käyttäjätunnus tai salasana.', error);
+                    alert('Väärä käyttäjätunnus tai salasana.');
                 });
         });
     }

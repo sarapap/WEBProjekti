@@ -10,7 +10,7 @@ Content-Type: application/json
 {
     "etunimi": "Sara",
     "sukunimi": "Pappila",
-    "tunnus": "sarapap1",
+    "tunnus": "sarapap3",
     "salasana": "password",
     "rooli": "admin",
     "email": "sarapap@ascafe.fi",
@@ -32,7 +32,7 @@ Content-Type: application/json
 GET http://localhost:3000/api/v1/asiakas/name/lalan
 
 ###get user by id
-GET http://localhost:3000/api/v1/asiakas/5
+GET http://localhost:3000/api/v1/asiakas/23
 
 ###update user
 PUT http://localhost:3000/api/v1/asiakas/5
