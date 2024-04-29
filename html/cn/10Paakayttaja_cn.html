@@ -9,31 +9,9 @@
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
 
   <style>
-    .changecontent::after {
-      content: '';
-      color: rgb(192, 160, 122);
-      animation: changetext 10s infinite linear;
-      font-weight: bold;
-      margin: 10px;
-    }
-
-    @keyframes changetext {
-      0% {
-        content: "各种口味的美味蛋糕";
-      }
-
-      50% {
-        content: "品种繁多的冷热饮品";
-      }
-
-      100% {
-        content: "以及热食， 还有小零食！";
-      }
-    }
-
     /* footer */
 
-    .changecontent2::after {
+    .changecontent::after {
       content: "Tervetuloa kakkukahveille!";
       color: rgb(192, 160, 122);
       animation: changetext2 10s infinite linear;
@@ -64,7 +42,7 @@
     }
   </style>
   <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/1Etusivu.js" defer></script>
+  <script src="/javascript/paakayttaja.js" defer></script>
 </head>
 
 <body>
@@ -114,8 +92,8 @@
           <a class="dropdown-item" href="3MenuPage1_cn.html">糕点</a>
           <a class="dropdown-item" href="3MenuPage2_cn.html">咸味点心</a>
           <a class="dropdown-item" href="3MenuPage3_cn.html">甜食味点心</a>
-            <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
-            <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
+          <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
+          <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
         </div>
       </div>
       <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
@@ -149,11 +127,11 @@
         <label for="ajan">请选择时间段: </label>
         <form action="/varauksen-vahvistus" method="post">
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <label for="aloituspvm">开始日期：</label>
-          <input type="date" id="aloituspvm" name="aloituspvm">
+          <label for="aloituspvm1">开始日期：</label>
+          <input type="date" id="aloituspvm1" name="aloituspvm1">
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <label for="lopetuspvm">截止日期:</label>
-          <input type="date" id="lopetuspvm" name="lopetuspvm">
+          <label for="lopetuspvm1">截止日期:</label>
+          <input type="date" id="lopetuspvm1" name="lopetuspvm1">
           <button type="submit" class="button2">搜索</button>
         </form>
 
@@ -169,11 +147,11 @@
         <h1>反馈</h1>
         <form action="/varauksen-vahvistus" method="post">
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <label for="aloituspvm">开始日期：</label>
-          <input type="date" id="aloituspvm" name="aloituspvm">
+          <label for="aloituspvm2">开始日期：</label>
+          <input type="date" id="aloituspvm2" name="aloituspvm2">
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <label for="lopetuspvm">截止日期:</label>
-          <input type="date" id="lopetuspvm" name="lopetuspvm">
+          <label for="lopetuspvm2">截止日期:</label>
+          <input type="date" id="lopetuspvm2" name="lopetuspvm2">
           <button type="submit" class="button2">搜索</button>
         </form>
         <table>
@@ -185,6 +163,65 @@
 
     </div>
     </div>
+
+    <h1>添加用户</h1>
+    <p>在这里你可以添加一个新用户</p>
+    <button id="openModal">添加新用户</button>
+
+    <dialog id="userModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>添加新用户</h2>
+        <form id="userForm">
+          <label for="etunimi">名字：</label>
+          <input type="text" id="etunimi" name="etunimi" required>
+
+          <label for="sukunimi">姓氏：</label>
+          <input type="text" id="sukunimi" name="sukunimi" required>
+
+          <label for="tunnus">用户名：</label>
+          <input type="text" id="tunnus" name="tunnus" required>
+
+          <label for="salasana">密码：</label>
+          <input type="password" id="salasana" name="salasana" required>
+
+          <label for="email">电子邮件：</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="puhelin">电话：</label>
+          <input type="tel" id="puhelin" name="puhelin" required>
+
+          <label for="syntymapaiva">生日：</label>
+          <input type="date" id="syntymapaiva" name="syntymapaiva">
+
+          <label for="rooli">角色：</label>
+          <select id="rooli" name="rooli">
+            <option value="user">用户</option>
+            <option value="admin">管理员</option>
+          </select>
+          <br>
+          <label for="alennus">折扣类别：</label>
+          <select id="alennus" name="alennus">
+            <option value="none">请选择</option>
+            <option value="opiskelija">学生</option>
+            <option value="elakelainen">退休人员</option>
+          </select>
+          <br>
+          <label for="allergia">食物过敏：</label>
+          <br>
+          <textarea class="allergia" name="allergia" id="allergia"></textarea>
+
+          <br>
+          <br>
+          <label for="ehdot_hyvaksytty">条款接受：</label>
+          <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
+
+          <button class="userButton" type="submit">添加用户</button>
+        </form>
+
+      </div>
+    </dialog>
+
     <footer>
       <p>&copy; S&A CAFE 2024</p>
       <div class="changecontent">

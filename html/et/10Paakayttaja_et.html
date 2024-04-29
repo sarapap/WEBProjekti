@@ -10,30 +10,6 @@
 
   <style>
     .changecontent::after {
-      content: '';
-      color: rgb(192, 160, 122);
-      animation: changetext 10s infinite linear;
-      font-weight: bold;
-      margin: 10px;
-    }
-
-    @keyframes changetext {
-      0% {
-        content: "Maitsvad kookid";
-      }
-
-      50% {
-        content: "Külmad või sooja jooke";
-      }
-
-      100% {
-        content: "Sooja toitu ja näksimist";
-      }
-    }
-
-    /* footer */
-
-    .changecontent2::after {
       content: "Tere tulemast kooki- ja kohvihommikule!";
       color: rgb(192, 160, 122);
       animation: changetext2 10s infinite linear;
@@ -65,7 +41,7 @@
   </style>
 
   <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/9Ostoskori.js" defer></script>
+  <script src="/javascript/paakayttaja.js" defer></script>
 </head>
 
 <body>
@@ -151,12 +127,10 @@
         <h4>Kontrollige aruannet valitud perioodil, näiteks päev, kuu jne.</h4>
         <label for="periood">Valige periood: </label>
         <form action="/broneerimise-kinnitus" method="post">
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <label for="algusKuupäev">Alguskuupäev:</label>
-          <input type="date" id="algusKuupäev" name="algusKuupäev">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <label for="loppKuupäev">Lõppkuupäev:</label>
-          <input type="date" id="loppKuupäev" name="loppKuupäev">
+          <label for="algusKuupäev1">Alguskuupäev:</label>
+          <input type="date" id="algusKuupäe1" name="algusKuupäev1">
+          <label for="loppKuupäev1">Lõppkuupäev:</label>
+          <input type="date" id="loppKuupäev1" name="loppKuupäev1">
           <button type="submit" class="button2">Otsi</button>
         </form>
 
@@ -171,12 +145,10 @@
       <div>
         <h1>Tagasiside</h1>
         <form action="/broneerimise-kinnitus" method="post">
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <label for="algusKuupäev">Alguskuupäev:</label>
-          <input type="date" id="algusKuupäev" name="algusKuupäev">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <label for="loppKuupäev">Lõppkuupäev:</label>
-          <input type="date" id="loppKuupäev" name="loppKuupäev">
+          <label for="algusKuupäev2">Alguskuupäev:</label>
+          <input type="date" id="algusKuupäev2" name="algusKuupäev2">
+          <label for="loppKuupäev2">Lõppkuupäev:</label>
+          <input type="date" id="loppKuupäev2" name="loppKuupäev2">
           <button type="submit" class="button2">Otsi</button>
         </form>
         <table>
@@ -186,6 +158,62 @@
         </table>
       </div>
     </div>
+
+    <h1>Lisa kasutaja</h1>
+    <p>Siin saad lisada uue kasutaja</p>
+    <button id="openModal">Lisa uus kasutaja</button>
+
+    <dialog id="userModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Lisa uus kasutaja</h2>
+        <form id="userForm">
+          <label for="etunimi">Eesnimi:</label>
+          <input type="text" id="etunimi" name="etunimi" required>
+          <label for="sukunimi">Perekonnanimi:</label>
+          <input type="text" id="sukunimi" name="sukunimi" required>
+
+          <label for="tunnus">Kasutajatunnus:</label>
+          <input type="text" id="tunnus" name="tunnus" required>
+
+          <label for="salasana">Salasõna:</label>
+          <input type="password" id="salasana" name="salasana" required>
+
+          <label for="email">E-post:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="puhelin">Telefon:</label>
+          <input type="tel" id="puhelin" name="puhelin" required>
+
+          <label for="syntymapaiva">Sünnikuupäev:</label>
+          <input type="date" id="syntymapaiva" name="syntymapaiva">
+
+          <label for="rooli">Roll:</label>
+          <select id="rooli" name="rooli">
+            <option value="user">Kasutaja</option>
+            <option value="admin">Administraator</option>
+          </select>
+          <br>
+          <label for="alennus">Allahindluste kategooria:</label>
+          <select id="alennus" name="alennus">
+            <option value="none">Vali</option>
+            <option value="opiskelija">Üliõpilane</option>
+            <option value="elakelainen">Pensionär</option>
+          </select>
+          <br>
+          <label for="allergia">Toiduallergiad:</label>
+          <br>
+          <textarea class="allergia" name="allergia" id="allergia"></textarea>
+
+          <br>
+          <br>
+          <label for="ehdot_hyvaksytty">Tingimustega nõus:</label>
+          <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
+
+          <button class="userButton" type="submit">Lisa kasutaja</button>
+        </form>
+      </div>
+    </dialog>
 
     <footer>
       <p>&copy; S&A CAFE 2024</p>

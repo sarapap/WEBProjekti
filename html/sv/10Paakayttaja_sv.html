@@ -7,133 +7,221 @@
   <link href="../../css/10Paakayttaja.css" rel="stylesheet">
   <title>S&A CAFE</title>
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+
+  <style>
+    /* footer */
+
+    .changecontent::after {
+      content: "Välkommen till kak- och kaffemorgon!";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    @keyframes changetext2 {
+      20% {
+        content: "Bli stamkund och få 15% rabatt på din första beställning!";
+      }
+
+      40% {
+        content: "Medlemskap är gratis";
+      }
+
+      60% {
+        content: "Skapa din drömkaka!";
+      }
+
+      80% {
+        content: "Hemleverans från 2,95€";
+      }
+
+      100% {
+        content: "Välkommen till kak- och kaffemorgon!";
+      }
+    }
+  </style>
+
   <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/1Etusivu.js" defer></script>
+  <script src="/javascript/paakayttaja.js" defer></script>
 </head>
 
 <body>
   <header>
-      <div>
-          <nav class="icons">
-              <ul>
-                  <li class="kieli">
-                      <label for="kieli">Välj språk: </label>
-                      <select id="kieli">
-                          <option value="FI">Finska</option>
-                          <option value="EN">Engelska</option>
-                          <option value="CN">Kinesiska</option>
-                          <option value="ET">Estniska</option>
-                          <option value="SV" selected>Svenska</option>
-                      </select>
-                  </li>
-                  <li>
-                      <a href="11Login_sv.html">
-                          <span class="käyttäjä"></span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="8Suosikit_sv.html">
-                          <span class="suosikit"></span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="9Ostoskori_sv.html">
-                          <span class="ostoskori"></span>
-                      </a>
-                  </li>
-              </ul>
-          </nav>
-      </div>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">Välj språk: </label>
+            <select id="kieli">
+              <option value="FI">Finska</option>
+              <option value="EN">Engelska</option>
+              <option value="CN">Kinesiska</option>
+              <option value="ET">Estniska</option>
+              <option value="SV" selected>Svenska</option>
+            </select>
+          </li>
+          <li>
+            <a href="11Login_sv.html">
+              <span class="käyttäjä"></span>
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit_sv.html">
+              <span class="suosikit"></span>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori_sv.html">
+              <span class="ostoskori"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
   </header>
   <main>
 
-  <nav class="navbarClass" id="navbar">
-    <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
-    <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
-    <div class="dropdown">
-      <a class="dropdown-toggle" id="menuButton" href="3MenuPage_sv.html">
-        Meny
-      </a>
-      <div class="dropdown-menu" id="menuDropdown">
-        <a class="dropdown-item" href="3MenuPage1_sv.html">Kakor</a>
-        <a class="dropdown-item" href="3MenuPage2_sv.html">Hart</a>
-        <a class="dropdown-item" href="3MenuPage3_sv.html">Söta</a>
-        <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
-        <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
+    <nav class="navbarClass" id="navbar">
+      <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
+      <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
+      <div class="dropdown">
+        <a class="dropdown-toggle" id="menuButton" href="3MenuPage_sv.html">
+          Meny
+        </a>
+        <div class="dropdown-menu" id="menuDropdown">
+          <a class="dropdown-item" href="3MenuPage1_sv.html">Kakor</a>
+          <a class="dropdown-item" href="3MenuPage2_sv.html">Hart</a>
+          <a class="dropdown-item" href="3MenuPage3_sv.html">Söta</a>
+          <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
+          <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
+        </div>
+      </div>
+      <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
+      <a href="6Poytavaraus_sv.html" class="navItem">Boka plats</a>
+    </nav>
+
+    <div class="ajan-section">
+      <h1>Produkthantering</h1>
+      <button class="button">Ny produkt</button>
+    </div>
+
+    <div>
+      <p>Kontrollera redigeringsinformation genom att söka efter produkter.</p>
+      <input type="text" id="cakeSearch" placeholder="Sök efter tårta...">
+      <div class="filter-options">
+        <label for="cakeType">Välj typ:</label>
+        <select id="cakeType">
+          <option value="alla">Alla</option>
+          <option value="tårtor">Tårtor</option>
+          <option value="söta">Söta</option>
+          <option value="heta">Heta rätter</option>
+          <option value="drycker">Drycker</option>
+        </select>
+      </div>
+      <hr>
+
+      <div>
+        <h1>Företagsövervakning</h1>
+        <h4>Kontrollera rapport för vald period, t.ex. dag, månad, etc.</h4>
+        <label for="period">Välj period: </label>
+        <form action="/bokningsbekräftelse" method="post">
+          <label for="startDatum1">Startdatum:</label>
+          <input type="date" id="startDatum1" name="startDatum1">
+          <label for="slutDatum1">Slutdatum:</label>
+          <input type="date" id="slutDatum1" name="slutDatum1">
+          <button type="submit" class="button2">Sök</button>
+        </form>
+
+        <table>
+          <p>Rapporten för den valda perioden visas här.</p>
+          <tbody id="rapport">
+          </tbody>
+        </table>
+      </div>
+      <hr>
+
+      <div>
+        <h1>Återkoppling</h1>
+        <form action="/bokningsbekräftelse" method="post">
+          <label for="startDatum2">Startdatum:</label>
+          <input type="date" id="startDatum2" name="startDatum2">
+          <label for="slutDatum2">Slutdatum:</label>
+          <input type="date" id="slutDatum2" name="slutDatum2">
+          <button type="submit" class="button2">Sök</button>
+        </form>
+        <table>
+          <p>Återkoppling för den valda perioden visas här.</p>
+          <tbody id="återkoppling">
+          </tbody>
+        </table>
       </div>
     </div>
-    <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
-    <a href="6Poytavaraus_sv.html" class="navItem">Boka plats</a>
-  </nav>
 
-  <div class="ajan-section">
-    <h1>Produkthantering</h1>
-    <button class="button">Ny produkt</button>
-  </div>
-
-  <div>
-    <p>Kontrollera redigeringsinformation genom att söka efter produkter.</p>
-    <input type="text" id="cakeSearch" placeholder="Sök efter tårta...">
-    <div class="filter-options">
-      <label for="cakeType">Välj typ:</label>
-      <select id="cakeType">
-        <option value="alla">Alla</option>
-        <option value="tårtor">Tårtor</option>
-        <option value="söta">Söta</option>
-        <option value="heta">Heta rätter</option>
-        <option value="drycker">Drycker</option>
-      </select>
-    </div>
-    <hr>
-
-    <div>
-      <h1>Företagsövervakning</h1>
-      <h4>Kontrollera rapport för vald period, t.ex. dag, månad, etc.</h4>
-      <label for="period">Välj period: </label>
-      <form action="/bokningsbekräftelse" method="post">
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="startDatum">Startdatum:</label>
-        <input type="date" id="startDatum" name="startDatum">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="slutDatum">Slutdatum:</label>
-        <input type="date" id="slutDatum" name="slutDatum">
-        <button type="submit" class="button2">Sök</button>
-      </form>
-
-      <table>
-        <p>Rapporten för den valda perioden visas här.</p>
-        <tbody id="rapport">
-        </tbody>
-      </table>
-    </div>
-    <hr>
-
-    <div>
-      <h1>Återkoppling</h1>
-      <form action="/bokningsbekräftelse" method="post">
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="startDatum">Startdatum:</label>
-        <input type="date" id="startDatum" name="startDatum">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="slutDatum">Slutdatum:</label>
-        <input type="date" id="slutDatum" name="slutDatum">
-        <button type="submit" class="button2">Sök</button>
-      </form>
-      <table>
-        <p>Återkoppling för den valda perioden visas här.</p>
-        <tbody id="återkoppling">
-        </tbody>
-      </table>
-    </div>
-  </div>
+    <h1>Lägg till användare</h1>
+    <p>Här kan du lägga till en ny användare</p>
+    <button id="openModal">Lägg till ny användare</button>
 
 
-  <footer>
-    <p>&copy; S&A CAFE 2024</p>
-    <div class="changecontent">
-    </div>
-  </footer>
+    <dialog id="userModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Lägg till ny användare</h2>
+        <form id="userForm">
+          <label for="etunimi">Förnamn:</label>
+          <input type="text" id="etunimi" name="etunimi" required>
+
+          <label for="sukunimi">Efternamn:</label>
+          <input type="text" id="sukunimi" name="sukunimi" required>
+
+          <label for="tunnus">Användarnamn:</label>
+          <input type="text" id="tunnus" name="tunnus" required>
+
+          <label for="salasana">Lösenord:</label>
+          <input type="password" id="salasana" name="salasana" required>
+
+          <label for="email">E-post:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="puhelin">Telefon:</label>
+          <input type="tel" id="puhelin" name="puhelin" required>
+
+          <label for="syntymapaiva">Födelsedag:</label>
+          <input type="date" id="syntymapaiva" name="syntymapaiva">
+
+          <label for="rooli">Roll:</label>
+          <select id="rooli" name="rooli">
+            <option value="user">Användare</option>
+            <option value="admin">Administratör</option>
+          </select>
+          <br>
+          <label for="alennus">Rabattkategori:</label>
+          <select id="alennus" name="alennus">
+            <option value="none">Välj</option>
+            <option value="opiskelija">Student</option>
+            <option value="elakelainen">Pensionär</option>
+          </select>
+          <br>
+          <label for="allergia">Matallergier:</label>
+          <br>
+          <textarea class="allergia" name="allergia" id="allergia"></textarea>
+
+          <br>
+          <br>
+          <label for="ehdot_hyvaksytty">Villkor godkända:</label>
+          <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
+
+          <button class="userButton" type="submit">Lägg till användare</button>
+        </form>
+      </div>
+    </dialog>
+
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+      <div class="changecontent">
+      </div>
+    </footer>
 </body>
 
 </html>
