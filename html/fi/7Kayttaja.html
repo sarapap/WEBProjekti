@@ -43,7 +43,7 @@
   </style>
 
   <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/1Etusivu.js" defer></script>
+  <script src="/javascript/7Kayttaja.js" defer></script>
 </head>
 
 <body>
@@ -135,38 +135,9 @@
         <h1>Omat tiedot</h1><br>
         <p>Tiedostot haetaan tietokannasta. Käyttäjä voi muokkaa ja tallentaa.</p>
 
-        <form action="https://10.120.32.94/test/form-submission/" method="post">
-
-        </form>
         <button class="logOut" type="button" onclick="logOut()"><b>Kirjaudu ulos</b></button>
       </div>
     </main>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const links = document.querySelectorAll('a');
-
-        links.forEach(link => {
-          if (link.href.endsWith('11Login.html')) {
-            link.addEventListener('click', function (event) {
-              event.preventDefault();
-
-              const authToken = localStorage.getItem('authToken');
-
-              if (authToken) {
-                window.location.href = '7Kayttaja.html';
-              } else {
-                window.location.href = '11Login.html';
-              }
-            });
-          }
-        });
-      });
-      function logOut() {
-        localStorage.removeItem('authToken');
-
-        window.location.href = '11Login.html';
-      }
-    </script>
 
     <footer>
       <p>&copy; S&A CAFE 2024</p>

@@ -32,38 +32,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     if (token) {
                         localStorage.setItem('authToken', token);
-                    }
 
-                    if (token) {
-                        window.location.href = '../../html/fi/7Kayttaja.html';
+                        const kieli = document.getElementById('kieli');
+                        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+
+                        let targetPage = '';
+                        switch (selectedLanguage) {
+                            case 'EN':
+                                targetPage = '../../html/en/7Kayttaja_en.html';
+                                break;
+                            case 'CN':
+                                targetPage = '../../html/cn/7Kayttaja_cn.html';
+                                break;
+                            case 'ET':
+                                targetPage = '../../html/et/7Kayttaja_et.html';
+                                break;
+                            case 'SV':
+                                targetPage = '../../html/sv/7Kayttaja_sv.html';
+                                break;
+                            case 'FI':
+                            default:
+                                targetPage = '../../html/fi/7Kayttaja.html';
+                                break;
+                        }
+
+                        window.location.href = targetPage;
                     } else {
-                        window.location.href = '../../html/fi/11Login.html';
+                        alert('Kirjautuminen epäonnistui. Tarkista käyttäjätunnus ja salasana.');
                     }
                 })
                 .catch(error => {
                     console.error('Virhe kirjautumisessa:', error);
-                    alert('Kirjautuminen epäonnistui. Tarkista käyttäjätunnus ja salasana.');
+                    alert('Kirjautuminen epäonnistui.');
                 });
         });
-    } else {
-        console.error('Kirjautumispainiketta ei löydy');
     }
-
-    const links = document.querySelectorAll('a');
-
-    links.forEach(link => {
-        if (link.href.endsWith('11Login.html')) {
-            link.addEventListener('click', function (event) {
-                event.preventPreventDefault();
-
-                const authToken = localStorage.getItem('authToken');
-
-                if (authToken) {
-                    window.location.href = '../../html/fi/7Kayttaja.html';
-                } else {
-                    window.location.href = '../../html/fi/11Login.html';
-                }
-            });
-        }
-    });
 });
+
