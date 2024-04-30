@@ -35,17 +35,20 @@ const SECRET_KEY = config.SECRET_KEY;
 
 const postUser = async (req, res) => {
     try {
-        const { etunimi, sukunimi, tunnus, salasana, email, puhelin, syntymapaiva, ehdot_hyvaksytty, allennus_ryhma } = req.body; // Haetaan tarvittavat kentät
-
-        if (!salasana) {
-            throw new Error("Salasana puuttuu");
-        }
-        const hashedPassword = bcrypt.hashSync(salasana, 10);
-
-        const rooli = req.body.rooli || "user";
+        const {
+            etunimi,
+            sukunimi,
+            tunnus,
+            salasana,
+            email,
+            puhelin,
+            syntymapaiva,
+            ehdot_hyvaksytty,
+            allennus_ryhma,
+        } = req.body;
 
         const requiredFields = ["etunimi", "sukunimi", "tunnus", "salasana", "email", "puhelin"];
-        const missingFields = requiredFields.filter(field => !req.body[field]);
+        const missingFields = requiredFields.filter((field) => !req.body[field]);
         if (missingFields.length > 0) {
             throw new Error(`Puuttuvat kentät: ${missingFields.join(", ")}`);
         }
@@ -54,13 +57,13 @@ const postUser = async (req, res) => {
             etunimi,
             sukunimi,
             tunnus,
-            salasana: hashedPassword,
-            rooli,
+            salasana: bcrypt.hashSync(salasana, 10),
+            rooli: req.body.rooli || 'user',
             email,
             puhelin,
             syntymapaiva,
             ehdot_hyvaksytty,
-            allennus_ryhma
+            allennus_ryhma,
         });
 
         if (!result) {
@@ -68,12 +71,15 @@ const postUser = async (req, res) => {
         }
 
         const token = jwt.sign(
-            { user_id: result.asiakas_id, username: tunnus },
-            SECRET_KEY,
+            {
+                user_id: result.asiakas_id,
+                username: tunnus,
+                role: result.rooli,
+            },
+            SECRET_KEY
         );
 
         res.status(201).json({ success: true, token, asiakas_id: result.asiakas_id });
-
     } catch (error) {
         console.error('Virhe postUser-toiminnossa:', error.message);
         res.status(400).json({ error: error.message });
@@ -104,7 +110,7 @@ const userLoginPost = async (req, res) => {
         }
 
         const token = jwt.sign(
-            { asiakas_id: user.id, tunnus: user.tunnus },
+            { asiakas_id: user.id, tunnus: user.tunnus, role: user.rooli },
             SECRET_KEY,
             { expiresIn: '1h' }
         );

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 
 <head>
   <meta charset="UTF-8">
@@ -43,7 +43,7 @@
   </style>
 
   <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/10Paakayttaja.js" defer></script>
+  <script src="/javascript/paakayttaja.js"></script>
 </head>
 
 <body>
@@ -100,11 +100,21 @@
     <a href="6Poytavaraus.html" class="navItem">Varaa tila</a>
   </nav>
 
+  <div id="backgroundOverlay" class="background-overlay"></div>
+
+  <!-- Mukautettu modal -->
+  <div id="customModal" class="custom-modal">
+    <div class="custom-modal-content">
+      <span class="close">&times;</span>
+      <p>Pääkäyttäjän Tietohallinta</p>
+    </div>
+  </div>
+
   <div class="ajan-section">
     <h1>Tuotehallinta</h1>
     <button class="button">Uusi tuote</button>
-
   </div>
+
   <div>
 
     <p>Tarkista muokkaustiedot etsimällä tuotteita.</p>
@@ -125,45 +135,92 @@
     <div>
       <h1>Yritystoiminnan seuranta</h1>
       <h4>Tarkista raportti valitulla ajanjaksolla.</h4>
-      <label for="ajan">Valitse ajankohta: </label>
       <form action="/varauksen-vahvistus" method="post">
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="aloituspvm">Aloituspäivämäärä:</label>
-        <input type="date" id="aloituspvm" name="aloituspvm">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="lopetuspvm">Lopetuspäivämäärä:</label>
-        <input type="date" id="lopetuspvm" name="lopetuspvm">
+        <label for="aloituspvm1">Aloituspäivämäärä:</label>
+        <input type="date" id="aloituspvm1" name="aloituspvm">
+        <label for="lopetuspvm1">Lopetuspäivämäärä:</label>
+        <input type="date" id="lopetuspvm1" name="lopetuspvm">
         <button type="submit" class="button2">Hae</button>
       </form>
-
       <table>
         <p>Tähän tulee raportti valitulla ajanjaksolla.</p>
-        <tbody id="raportti">
-        </tbody>
+        <tbody id="raportti"></tbody>
       </table>
     </div>
     <hr>
-
     <div>
       <h1>Palaute</h1>
       <form action="/varauksen-vahvistus" method="post">
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="aloituspvm">Aloituspäivämäärä:</label>
-        <input type="date" id="aloituspvm" name="aloituspvm">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="lopetuspvm">Lopetuspäivämäärä:</label>
-        <input type="date" id="lopetuspvm" name="lopetuspvm">
+        <label for="aloituspvm2">Aloituspäivämäärä:</label>
+        <input type="date" id="aloituspvm2" name="aloituspvm">
+        <label for="lopetuspvm2">Lopetuspäivämäärä:</label>
+        <input type="date" id="lopetuspvm2" name="lopetuspvm">
         <button type="submit" class="button2">Hae</button>
       </form>
       <table>
         <p>Tähän tulee palaute valitulla ajanjaksolla.</p>
-        <tbody id="palaute">
-        </tbody>
+        <tbody id="palaute"></tbody>
       </table>
     </div>
 
   </div>
-  </div>
+  <h1>Lisää käyttäjä</h1>
+  <p>Tästä voit lisätä uuden käyttäjän</p>
+  <button id="openModal">Lisää uusi käyttäjä</button>
+
+  <!-- Modaali dialogi -->
+  <dialog id="userModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Lisää uusi käyttäjä</h2>
+      <form id="userForm">
+        <label for="etunimi">Etunimi:</label>
+        <input type="text" id="etunimi" name="etunimi" required>
+
+        <label for="sukunimi">Sukunimi:</label>
+        <input type="text" id="sukunimi" name="sukunimi" required>
+
+        <label for="tunnus">Käyttäjätunnus:</label>
+        <input type="text" id="tunnus" name="tunnus" required>
+
+        <label for="salasana">Salasana:</label>
+        <input type="password" id="salasana" name="salasana" required>
+
+        <label for="email">Sähköposti:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="puhelin">Puhelin:</label>
+        <input type="tel" id="puhelin" name="puhelin" required>
+
+        <label for="syntymapaiva">Syntymäaika:</label>
+        <input type="date" id="syntymapaiva" name="syntymapaiva">
+
+        <label for="rooli">Rooli:</label>
+        <select id="rooli" name="rooli">
+          <option value="user">Käyttäjä</option>
+          <option value="admin">Admin</option>
+        </select>
+        <br>
+        <label for="alennus">Alennusryhmä:</label>
+        <select id="alennus" name="alennus">
+          <option value="none">Valitse</option>
+          <option value="opiskelija">Opiskelija</option>
+          <option value="elakelainen">Eläkeläinen</option>
+        </select>
+        <br>
+        <label for="allergia">Ruoka-allergiat:</label>
+        <br>
+        <textarea class="allergia" name="allergia" id="allergia"></textarea>
+
+        <br>
+        <br>
+        <label class="ehdot" for="ehdot_hyvaksytty">Ehdot hyväksytty:</label>
+        <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
+
+        <button class="userButton" type="submit">Lisää käyttäjä</button>
+      </form>
+    </div>
+  </dialog>
 
   <footer>
     <p>&copy; S&A CAFE 2024</p>
