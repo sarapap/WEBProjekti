@@ -95,21 +95,74 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-function getUserRole() {
-    const userRole = localStorage.getItem("rooli");
-    return userRole;
+/* Pääkäyttäjän sivu */
+
+function base64Decode(str) {
+    return atob(str.replace(/-/g, '+').replace(/_/g, '/'));
+}
+
+function getUserRoleFromToken(token) {
+    const parts = token.split('.');
+    const payload = base64Decode(parts[1]);
+    const payloadObject = JSON.parse(payload);
+    return payloadObject.role;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const userRole = getUserRole();
-
-    if (userRole !== "admin") {
+    const token = localStorage.getItem("authToken");
+    if (!token) {
         window.location.href = "../../html/fi/11Login.html";
         return;
     }
 
-    console.log("Käyttäjä on admin.");
+    const userRole = getUserRoleFromToken(token);
+
+    if (userRole !== "admin") {
+        function showCustomModal() {
+            const modal = document.getElementById('customModal');
+            const overlay = document.getElementById('backgroundOverlay');
+
+            modal.style.display = 'block';
+            overlay.style.display = 'block';
+
+            const closeBtn = modal.querySelector('.close');
+            closeBtn.addEventListener('click', function () {
+                const kieli = document.getElementById('kieli');
+                const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+
+                let redirectPage;
+                switch (selectedLanguage) {
+                    case 'EN':
+                        redirectPage = '../../html/en/1Etusivu_en.html';
+                        break;
+                    case 'CN':
+                        redirectPage = '../../html/cn/1Etusivu_cn.html';
+                        break;
+                    case 'ET':
+                        redirectPage = '../../html/et/1Etusivu_et.html';
+                        break;
+                    case 'SV':
+                        redirectPage = '../../html/sv/1Etusivu_sv.html';
+                        break;
+                    case 'FI':
+                    default:
+                        redirectPage = '../../html/fi/1Etusivu.html';
+                        break;
+                }
+
+                window.location.href = redirectPage;
+            });
+        }
+        showCustomModal();
+    }
 });
+
+
+
+
+
+
+
 
 
 

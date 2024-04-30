@@ -31,7 +31,6 @@ const addUser = async (user) => {
 
   } = user;
 
-
   const sql = `INSERT INTO asiakas (etunimi, sukunimi, tunnus,
       salasana, rooli, email, puhelin, syntymapaiva, ehdot_hyvaksytty, allennus_ryhma)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
@@ -48,18 +47,21 @@ const addUser = async (user) => {
     ehdot_hyvaksytty,
     allennus_ryhma
   ];
-  try {
-    const [rows] = await promisePool.execute(sql, data);
-    if (rows && rows.affectedRows !== 0) {
-      return { asiakas_id: rows.insertId };
-    } else {
-      return false;
-    }
-  } catch (error) {
-    console.error("Error executing SQL query:", error);
+
+  const [rows] = await promisePool.execute(sql, data);
+
+  if (rows && rows.affectedRows !== 0) {
+    const asiakas_id = rows.insertId;
+
+    const sqlSelect = `SELECT * FROM asiakas WHERE asiakas_id = ?`;
+    const [userRow] = await promisePool.execute(sqlSelect, [asiakas_id]);
+
+    return userRow[0];
+  } else {
     return false;
   }
 };
+
 
 const findUserByUsername = async (tunnus) => {
   try {

@@ -35,10 +35,20 @@ const SECRET_KEY = config.SECRET_KEY;
 
 const postUser = async (req, res) => {
     try {
-        const { etunimi, sukunimi, tunnus, salasana, email, puhelin, syntymapaiva, ehdot_hyvaksytty, allennus_ryhma } = req.body;
+        const {
+            etunimi,
+            sukunimi,
+            tunnus,
+            salasana,
+            email,
+            puhelin,
+            syntymapaiva,
+            ehdot_hyvaksytty,
+            allennus_ryhma,
+        } = req.body;
 
         const requiredFields = ["etunimi", "sukunimi", "tunnus", "salasana", "email", "puhelin"];
-        const missingFields = requiredFields.filter(field => !req.body[field]);
+        const missingFields = requiredFields.filter((field) => !req.body[field]);
         if (missingFields.length > 0) {
             throw new Error(`Puuttuvat kentät: ${missingFields.join(", ")}`);
         }
@@ -48,12 +58,12 @@ const postUser = async (req, res) => {
             sukunimi,
             tunnus,
             salasana: bcrypt.hashSync(salasana, 10),
-            rooli: req.body.rooli || "user",
+            rooli: req.body.rooli || 'user',
             email,
             puhelin,
             syntymapaiva,
             ehdot_hyvaksytty,
-            allennus_ryhma
+            allennus_ryhma,
         });
 
         if (!result) {
@@ -61,43 +71,19 @@ const postUser = async (req, res) => {
         }
 
         const token = jwt.sign(
-            { user_id: result.asiakas_id, username: tunnus, rooli: result.rooli },
-            SECRET_KEY,
+            {
+                user_id: result.asiakas_id,
+                username: tunnus,
+                role: result.rooli,
+            },
+            SECRET_KEY
         );
 
         res.status(201).json({ success: true, token, asiakas_id: result.asiakas_id });
-
     } catch (error) {
         console.error('Virhe postUser-toiminnossa:', error.message);
         res.status(400).json({ error: error.message });
     }
-};
-
-const checkAdmin = (requiredRole) => {
-    return (req, res, next) => {
-        const token = req.headers.authorization?.split(' ')[1];
-
-        if (!token) {
-            return res.status(401).json({ error: 'Unauthorized' });
-        }
-
-        try {
-            const decoded = jwt.verify(token, SECRET_KEY);
-
-            if (!decoded.rooli) {
-                return res.status(403).json({ error: 'Role not found in token' });
-            }
-
-            if (decoded.rooli !== requiredRole) {
-                return res.status(403).json({ error: 'Forbidden' });
-            }
-
-            req.user = decoded;
-            next();
-        } catch (error) {
-            return res.status(401).json({ error: 'Invalid token' });
-        }
-    };
 };
 
 const userLoginPost = async (req, res) => {
@@ -124,7 +110,7 @@ const userLoginPost = async (req, res) => {
         }
 
         const token = jwt.sign(
-            { asiakas_id: user.id, tunnus: user.tunnus },
+            { asiakas_id: user.id, tunnus: user.tunnus, role: user.rooli },
             SECRET_KEY,
             { expiresIn: '1h' }
         );
@@ -163,4 +149,4 @@ const deleteUser = async (req, res) => {
     res.json(result);
 };
 
-export { getUser, getUserByUsername, getUserById, postUser, checkAdmin, userLoginPost, putUser, deleteUser };
+export { getUser, getUserByUsername, getUserById, postUser, userLoginPost, putUser, deleteUser };

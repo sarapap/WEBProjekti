@@ -4,7 +4,6 @@ import {
     getUserById,
     getUserByUsername,
     postUser,
-    checkAdmin,
     userLoginPost,
     putUser,
     deleteUser,

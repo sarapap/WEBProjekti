@@ -10,7 +10,7 @@ Content-Type: application/json
 {
     "etunimi": "Sara",
     "sukunimi": "Pappila",
-    "tunnus": "sarapap3",
+    "tunnus": "sarapap",
     "salasana": "password",
     "rooli": "admin",
     "email": "sarapap@ascafe.fi",
