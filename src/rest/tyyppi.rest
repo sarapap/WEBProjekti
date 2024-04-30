@@ -1,0 +1,24 @@
+###
+GET http://localhost:3000/api/v1/tyyppi
+
+
+###get tyyppi id  by typyit
+GET http://localhost:3000/api/v1/tyyppi/kakut/juhlakakut
+
+
+### get paatyyppi by alatyyppi
+GET http://localhost:3000/api/v1/tyyppi/paatyyppi/kakut
+
+
+### uusi tyyppi
+POST http://localhost:3000/api/v1/tyyppi
+Content-Type: application/json
+
+{
+    "paatyyppi": "juotavaa",
+    "alatyyppi": "virvoitusjuomat"
+}
+
+###Delete tyyppi by id
+DELETE http://localhost:3000/api/v1/tyyppi/17
+

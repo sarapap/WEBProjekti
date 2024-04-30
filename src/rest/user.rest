@@ -50,3 +50,6 @@ Content-Type: application/json
     "ehdot_hyvaksytty": "true",
     "allennus_ryhma": ""
 }
+
+###
+GET http://localhost:3000/api/v1/asiakas/info/23
