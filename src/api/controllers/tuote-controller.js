@@ -43,7 +43,7 @@ const postTuote = async (req, res) => {
     req.body.tuote_kuvaus,
     req.body.tuote_hinta,
     req.body.tuote_kustannus,
-    req.body.tuote_tyyppi,
+    req.body.tyyppi_id,
     req.file.path
   ];
 
@@ -62,7 +62,7 @@ const putTuote = async(req, res, next) => {
     tuote_kuvaus: req.body.tuote_kuvaus,
     tuote_hinta: req.body.tuote_hinta,
     tuote_kustannus: req.body.tuote_kustannus,
-    tuote_tyyppi: req.body.tuote_tyyppi,
+    tuote_tyyppi: req.body.tyyppi_id,
     tuote_kuva: req.file.filename // Update the file path
   };
 

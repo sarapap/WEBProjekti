@@ -29,13 +29,13 @@ const findTuoteByname = async (tuote_nimi) => {
 };
 
 const addTuote = async (tuote, file) => {
-  const { tuote_nimi, tuote_kuvaus, tuote_hinta, tuote_kustannus, tuote_tyyppi } = tuote;
+  const { tuote_nimi, tuote_kuvaus, tuote_hinta, tuote_kustannus, tyyppi_id } = tuote;
 
   const sql = `INSERT INTO tuote (tuote_nimi, tuote_kuvaus, tuote_hinta, tuote_kustannus,
-              tuote_tyyppi, tuote_kuva) VALUES (?, ?, ?, ?, ?, ?)`;
+              tyyppi_id, tuote_kuva) VALUES (?, ?, ?, ?, ?, ?)`;
 
   console.log('file', file);
-  const params = [tuote_nimi, tuote_kuvaus, tuote_hinta, tuote_kustannus, tuote_tyyppi, file.filename || null];
+  const params = [tuote_nimi, tuote_kuvaus, tuote_hinta, tuote_kustannus, tyyppi_id, file.filename || null];
 
   try {
     const [rows] = await promisePool.execute(sql, params);
