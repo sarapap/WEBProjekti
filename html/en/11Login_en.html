@@ -8,7 +8,8 @@
   <title>S&A CAFE</title>
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
   <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/7Kayttaja.js" defer></script>
+  <script src="/javascript/11Login.js" defer></script>
+  <script src="/javascript/11Register.js" defer></script>
 </head>
 
 <body>
@@ -71,7 +72,7 @@
 
   <main class="main">
     <div class="aside1" id="login-id">
-      <form action="https://10.120.32.94/test/form-submission/" method="post">
+      <form id="login-form">
         <label for="login-username"><b>Username</b></label>
         <input type="text" name="login-username" id="login-username" placeholder="Enter username" required autofocus />
 
@@ -79,7 +80,7 @@
         <input type="password" name="login-password" id="login-password" placeholder="Enter password" required
           autofocus />
 
-        <button id="button1" type="submit">Log in</button>
+        <button id="login-button" type="submit">Log in</button>
       </form>
     </div>
 
@@ -87,50 +88,50 @@
       <p class="kayttajaP">If you don't have an account yet, you can register here.</p>
       <p>Join as a loyal customer and get a 15% discount on your first order. Joining is free.</p>
       <hr><br>
-      <form action="https://10.120.32.94/test/form-submission/" method="post">
-        <label for="firstname">First Name: *</label>
-        <input type="text" name="firstname" id="firstname" placeholder="First Name" required autofocus />
+      <form id="register-form">
+        <label for="firstname">Firstname: *</label>
+        <input type="text" name="firstname" id="firstname" placeholder="Firstname" required autofocus />
 
-        <label for="lastname">Last Name: *</label>
-        <input type="text" name="lastname" id="lastname" placeholder="Last Name" required autofocus />
+        <label for="lastname">Password: *</label>
+        <input type="text" name="lastname" id="lastname" placeholder="Lastname" required autofocus />
 
-        <label for="name">Username: *</label>
-        <input type="text" name="name" id="name" placeholder="Username" required autofocus />
+        <label for="tunnus">Username: *</label>
+        <input type="text" name="tunnus" id="tunnus" placeholder="Username" required autofocus />
 
         <label for="password">Password: *</label>
-        <input class="myPasswordField" name="password" type="password" id="password" placeholder="Password" required
-          autofocus />
+        <input type="password" id="password" name="password" placeholder="Password" required autofocus />
 
         <label for="email">Email: *</label>
         <input type="email" id="email" name="email" placeholder="Email" required autofocus />
 
-        <label for="phone">Phone Number: *</label>
-        <input type="phone" id="phone" name="phone" placeholder="Phone Number" required autofocus />
+        <label for="phone">Phonennumber: *</label>
+        <input type="tel" id="phone" name="phone" placeholder="Phonenumber" required autofocus />
 
-        <label for="today">Date of Birth:</label>
-        <input type="date" name="date" id="today" />
+        <label for="syntymapaiva">Date of birth:</label>
+        <input type="date" id="syntymapaiva" name="syntymapaiva" />
 
-        <label for="allergies">Food Allergies:</label>
-        <textarea name="allergies" id="allergies"></textarea>
+        <label for="allergia">Food allergies:</label>
+        <textarea name="allergia" id="allergia"></textarea>
 
         <div class="checkbox-container">
-          <input type="checkbox" id="accept-1" name="accept" value="1">
-          <label for="accept-1">I accept the terms of the online store</label><br>
-          <input type="checkbox" id="accept-2" name="accept" value="1">
+          <input type="checkbox" id="accept-1" name="ehdot_hyvaksytty" value="true">
+          <label for="accept-1">I accept the terms of the online store *</label><br>
+          <input type="checkbox" id="accept-2" name="markkinointi" value="true">
           <label for="accept-2">You can send me marketing messages via email</label><br><br>
           Discount group: <br />
-          <input type="radio" id="student" name="status" value="1">
-          <label for="student">Student</label>
-          <input type="radio" id="pensioner" name="status" value="1">
-          <label for="pensioner">Pensioner</label>
+          <input type="radio" id="opiskelija" name="status" value="1">
+          <label for="opiskelija">Student</label>
+          <input type="radio" id="ope" name="status" value="1">
+          <label for="elakelainen">Pensioner</label>
         </div>
 
-        <button type="reset">Clear form</button>
+        <button type="submit">Clear form</button>
         <button type="submit">Register</button>
       </form>
     </div>
   </main>
   <hr>
+
 
 </body>
 

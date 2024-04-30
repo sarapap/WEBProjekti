@@ -7,8 +7,41 @@
   <link href="../../css/10Paakayttaja.css" rel="stylesheet">
   <title>S&A CAFE</title>
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+
+  <style>
+    .changecontent::after {
+      content: "Welcome to enjoy cake and coffee!";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    @keyframes changetext2 {
+      20% {
+        content: "Join our loyalty program and get 15% off your first order!";
+      }
+
+      40% {
+        content: "Membership is free";
+      }
+
+      60% {
+        content: "Create your dream cake!";
+      }
+
+      80% {
+        content: "Home delivery starting from €2.95";
+      }
+
+      100% {
+        content: "Welcome to enjoy cake and coffee!";
+      }
+    }
+  </style>
+
   <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/1Etusivu.js" defer></script>
+  <script src="/javascript/paakayttaja.js" defer></script>
 </head>
 
 <body>
@@ -66,6 +99,16 @@
     <a href="6Poytavaraus_en.html" class="navItem">Book a venue</a>
   </nav>
 
+  <div id="backgroundOverlay" class="background-overlay"></div>
+
+  <!-- Mukautettu modal -->
+  <div id="customModal" class="custom-modal">
+    <div class="custom-modal-content">
+      <span class="close">&times;</span>
+      <p>Administrator's Information Management</p>
+    </div>
+  </div>
+
   <div class="ajan-section">
     <h1>Product Management</h1>
     <button class="button">New Product</button>
@@ -92,12 +135,10 @@
       <h4>Check report for selected period, e.g., day, month, etc.</h4>
       <label for="period">Select period: </label>
       <form action="/reservation-confirmation" method="post">
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate" name="startDate">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="endDate">End Date:</label>
-        <input type="date" id="endDate" name="endDate">
+        <label for="startDate1">Start Date:</label>
+        <input type="date" id="startDate1" name="startDate1">
+        <label for="endDate1">End Date:</label>
+        <input type="date" id="endDate1" name="endDate1">
         <button type="submit" class="button2">Search</button>
       </form>
 
@@ -112,12 +153,10 @@
     <div>
       <h1>Feedback</h1>
       <form action="/reservation-confirmation" method="post">
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate" name="startDate">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="endDate">End Date:</label>
-        <input type="date" id="endDate" name="endDate">
+        <label for="startDate2">Start Date:</label>
+        <input type="date" id="startDate2" name="startDate2">
+        <label for="endDate2">End Date:</label>
+        <input type="date" id="endDate2" name="endDate2">
         <button type="submit" class="button2">Search</button>
       </form>
       <table>
@@ -127,6 +166,65 @@
       </table>
     </div>
   </div>
+
+  <h1>Add User</h1>
+  <p>Here you can add a new user</p>
+  <button id="openModal">Add New User</button>
+
+
+  <dialog id="userModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Add New User</h2>
+      <form id="userForm">
+        <label for="etunimi">First Name:</label>
+        <input type="text" id="etunimi" name="etunimi" required>
+
+        <label for="sukunimi">Last Name:</label>
+        <input type="text" id="sukunimi" name="sukunimi" required>
+
+        <label for="tunnus">Username:</label>
+        <input type="text" id="tunnus" name="tunnus" required>
+
+        <label for="salasana">Password:</label>
+        <input type="password" id="salasana" name="salasana" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="puhelin">Phone:</label>
+        <input type="tel" id="puhelin" name="puhelin" required>
+
+        <label for="syntymapaiva">Date of birth:</label>
+        <input type="date" id="syntymapaiva" name="syntymapaiva">
+
+        <label for="rooli">Role:</label>
+        <select id="rooli" name="rooli">
+          <option value="user">User</option>
+          <option value="admin">Administrator</option>
+        </select>
+        <br>
+        <label for="alennus">Discount Category:</label>
+        <select id="alennus" name="alennus">
+          <option value="none">Choose</option>
+          <option value="opiskelija">Student</option>
+          <option value="elakelainen">Pensioner</option>
+        </select>
+        <br>
+        <label for="allergia">Food Allergies:</label>
+        <br>
+        <textarea class="allergia" name="allergia" id="allergia"></textarea>
+
+        <br>
+        <br>
+        <label for="ehdot_hyvaksytty">Terms Accepted:</label>
+        <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
+
+        <button class="userButton" type="submit">Add User</button>
+      </form>
+
+    </div>
+  </dialog>
 
 
   <footer>

@@ -3,29 +3,36 @@
 GET http://localhost:3000/api/v1/asiakas
 
 
-### uusi tuote
+### uusi rekisteröityminen
 POST http://localhost:3000/api/v1/asiakas
 Content-Type: application/json
 
 {
-    "etunimi": "Iina",
-    "sukunimi": "Pasila",
-    "tunnus": "iisi",
-    "salasana": "12345",
+    "etunimi": "Sara",
+    "sukunimi": "Pappila",
+    "tunnus": "sarapap",
+    "salasana": "password",
     "rooli": "admin",
-    "email": "iina@ascafe.fi",
-    "puhelin": "1234567",
-    "syntymapaiva": "2009-04-05",
-    "ehdot_hyvaksytty": "true",
+    "email": "sarapap@ascafe.fi",
+    "puhelin": "0445423713",
+    "syntymapaiva": "2002-01-14",
+    "ehdot_hyvaksytty": "1",
     "allennus_ryhma": ""
+}
 
+### uusi kirjautuminen
+POST http://localhost:3000/api/v1/asiakas/login
+Content-Type: application/json
+
+{
+"tunnus": "iisi", "salasana": "12345"
 }
 
 ###get user by username
 GET http://localhost:3000/api/v1/asiakas/name/lalan
 
 ###get user by id
-GET http://localhost:3000/api/v1/asiakas/5
+GET http://localhost:3000/api/v1/asiakas/23
 
 ###update user
 PUT http://localhost:3000/api/v1/asiakas/5
