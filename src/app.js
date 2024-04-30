@@ -1,6 +1,5 @@
 import express from 'express';
 import api from './api/index.js';
-import { postUser } from './api/controllers/user-controller.js';
 
 import cors from 'cors';
 
@@ -11,9 +10,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static('uploads'));
 
 app.use('/api/v1', api);
-
-app.post('/api/v1/kayttaja', postUser);
-
 
 app.use((req, res) => {
   res.status(404).json({ error: 'Reittiä ei löydy' });
@@ -35,4 +31,5 @@ app.get('/', (req, res) => {
   };
   res.json(tuote);
 });
+
 export default app;
