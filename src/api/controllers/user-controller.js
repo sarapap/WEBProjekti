@@ -72,7 +72,7 @@ const postUser = async (req, res) => {
 
         const token = jwt.sign(
             {
-                user_id: result.asiakas_id,
+                asiakas_id: result.asiakas_id,
                 username: tunnus,
                 role: result.rooli,
             },
@@ -110,7 +110,7 @@ const userLoginPost = async (req, res) => {
         }
 
         const token = jwt.sign(
-            { asiakas_id: user.id, tunnus: user.tunnus, role: user.rooli },
+            { asiakas_id: user.asiakas_id, tunnus: user.tunnus, role: user.rooli },
             SECRET_KEY,
             { expiresIn: '1h' }
         );
@@ -149,4 +149,28 @@ const deleteUser = async (req, res) => {
     res.json(result);
 };
 
-export { getUser, getUserByUsername, getUserById, postUser, userLoginPost, putUser, deleteUser };
+const getUserInfo = async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const userData = await findUserById(userId);
+
+        if (!userData) {
+            return res.status(404).json({ error: "Käyttäjää ei löydy." });
+        }
+
+        res.status(200).json({
+            nimi: `${userData.etunimi} ${userData.sukunimi}`,
+            tunnus: userData.tunnus,
+            email: userData.email,
+            puhelin: userData.puhelin,
+            syntymapaiva: userData.syntymapaiva,
+            allennus_ryhma: userData.allennus_ryhma,
+        });
+
+    } catch (error) {
+        console.error("Virhe getUserInfo-funktiossa:", error.message);
+        res.status(500).json({ error: "Virhe palvelimella." });
+    }
+};
+
+export { getUser, getUserByUsername, getUserById, postUser, userLoginPost, putUser, deleteUser, getUserInfo };
