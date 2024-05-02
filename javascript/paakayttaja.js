@@ -157,6 +157,59 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+/* palaute */
+
+window.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM on ladattu ja koodi suorittaa");
+    const form = document.querySelector("form");
+
+
+    if (form) {
+        console.log("Lomake löytyi");
+        form.addEventListener("submit", async (e) => {
+            console.log("Lomakkeen lähetys");
+
+            e.preventDefault();
+
+            const startDate = form.elements["startDate"].value;
+            const endDate = form.elements["endDate"].value;
+
+            if (!startDate || !endDate) {
+                console.error("Aloitus- ja lopetuspäivämäärä ovat pakollisia");
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://localhost:3000/api/v1/palaute/${startDate}/${endDate}`, {
+                    method: "GET",
+                });
+
+                if (response.ok) {
+                    palaute.forEach((p) => {
+                        const row = document.createElement("tr");
+                        const nimi = p.nimi || "Ei nimeä";
+                        const teksti = p.teksti || "Ei tekstiä";
+
+                        row.innerHTML = `<td>${nimi}</td><td>${teksti}</td>`;
+                        palauteTbody.appendChild(row);
+                    });
+
+
+                } else {
+                    console.error("Palvelimen vastaus ei ollut onnistunut");
+                }
+
+            } catch (error) {
+                console.error("Virhe yhteydessä palvelimeen:", error);
+            }
+        });
+    } else {
+        console.error("Lomaketta ei löydy. Tarkista HTML.");
+    }
+});
+
+
+
 
 
 

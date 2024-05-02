@@ -150,18 +150,20 @@
     <hr>
     <div>
       <h1>Palaute</h1>
-      <form action="/varauksen-vahvistus" method="post">
-        <label for="aloituspvm2">Aloituspäivämäärä:</label>
-        <input type="date" id="aloituspvm2" name="aloituspvm">
-        <label for="lopetuspvm2">Lopetuspäivämäärä:</label>
-        <input type="date" id="lopetuspvm2" name="lopetuspvm">
+      <form>
+        <label for="aloituspvm">Aloituspäivämäärä:</label>
+        <input type="date" id="aloituspvm" name="startDate">
+        <label for="lopetuspvm">Lopetuspäivämäärä:</label>
+        <input type="date" id="lopetuspvm" name="endDate">
         <button type="submit" class="button2">Hae</button>
       </form>
+
       <table>
         <p>Tähän tulee palaute valitulla ajanjaksolla.</p>
         <tbody id="palaute"></tbody>
       </table>
     </div>
+
 
   </div>
   <h1>Lisää käyttäjä</h1>
@@ -207,10 +209,6 @@
           <option value="opiskelija">Opiskelija</option>
           <option value="elakelainen">Eläkeläinen</option>
         </select>
-        <br>
-        <label for="allergia">Ruoka-allergiat:</label>
-        <br>
-        <textarea class="allergia" name="allergia" id="allergia"></textarea>
 
         <br>
         <br>
