@@ -3,7 +3,7 @@ GET http://localhost:3000/api/v1/tuote
 
 
 ###get tuote by id
-GET http://localhost:3000/api/v1/tuote/1
+GET http://localhost:3000/api/v1/tuote/13
 
 ### getviimeinen tuote id
 
@@ -12,33 +12,37 @@ GET http://localhost:3000/api/v1/tuote/lastid
 ### get kategoria by name
 GET http://localhost:3000/api/v1/tuote/name/jääkahvi
 
-
-### uusi tuote, käydään postman to add new tuote
+### uusi tuote
 POST http://localhost:3000/api/v1/tuote
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
-----WebKitFormBoundary7MA4YWxkTrZu0gW
+------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_nimi"
 
-cake
-----WebKitFormBoundary7MA4YWxkTrZu0gW
+Valkosuklaakakku
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="tuote_kuvaus"
+
+Kirpeä puolukan maku taittaa valkosuklaan makua ja luo raikkaan elämyksen.
+------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_hinta"
 
-3.25
-----WebKitFormBoundary7MA4YWxkTrZu0gW
+38.00
+------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kustannus"
 
-1.80
-----WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="tuote_tyyppi"
+18.00
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="tyyppi_id"
 
-mansikkakakku
-----WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="tuote_kuva"; filename="cake.jpg"
-Content-Type: image/image/jpeg
+2
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="tuote_kuva"; filename="whitecake.jpg"
+Content-Type: image/jpeg
 
-< /path/to/cake.png
-----WebKitFormBoundary7MA4YWxkTrZu0gW--
+< kuvat/kakut/whitecake.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
 
 
 ###Delete tuote by id
