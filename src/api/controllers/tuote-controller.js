@@ -1,6 +1,7 @@
 import {
   listAllTuote,
   findTuoteById,
+  findTuoteByTyyppeId,
   findTuoteByname,
   findLastTuoteId,
   addTuote,
@@ -34,6 +35,16 @@ const getTuoteById = async(req, res) => {
         res.sendStatus(404);
     }
 };
+
+const getTuoteByTyyppiId = async(req, res) => {
+  const tuote = await findTuoteByTyyppeId(req.params.tyyppi_id);
+  if (tuote) {
+      res.json(tuote);
+  } else {
+      res.sendStatus(404);
+  }
+};
+
 const getLastTuoteId = async (req, res) => {
   try {
     const tuote_id = await findLastTuoteId();
@@ -103,4 +114,4 @@ const deleteTuote = async (req, res) => {
     res.json(result);
 };
 
-export { getTuote, getTuoteByname, getTuoteById, getLastTuoteId, postTuote, putTuote, deleteTuote };
+export { getTuote, getTuoteByname, getTuoteById, getTuoteByTyyppiId, getLastTuoteId, postTuote, putTuote, deleteTuote };

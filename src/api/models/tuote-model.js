@@ -17,6 +17,17 @@ const findTuoteById = async (tuote_id) => {
     return rows[0];
 };
 
+const findTuoteByTyyppeId = async (tyyppi_id) => {
+  const [rows] = await promisePool.execute(
+      'SELECT * FROM tuote WHERE tyyppi_id = ?',
+      [tyyppi_id]
+  );
+  if (rows.length === 0) {
+      return false;
+  }
+  return rows[0];
+};
+
 const findTuoteByname = async (tuote_nimi) => {
   const [rows] = await promisePool.execute(
       'SELECT * FROM tuote WHERE tuote_nimi = ?',
@@ -109,4 +120,4 @@ const updateTuote = async (tuote, file, tuote_id) => {
   }
 };
 
-export {listAllTuote, findTuoteById, findTuoteByname,findLastTuoteId, addTuote, removeTuoteById, updateTuote};
+export {listAllTuote, findTuoteById, findTuoteByTyyppeId, findTuoteByname,findLastTuoteId, addTuote, removeTuoteById, updateTuote};

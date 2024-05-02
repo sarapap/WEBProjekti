@@ -3,14 +3,17 @@ GET http://localhost:3000/api/v1/tuote
 
 
 ###get tuote by id
-GET http://localhost:3000/api/v1/tuote/13
+GET http://localhost:3000/api/v1/tuote/16
+
+###get tuote by id
+GET http://localhost:3000/api/v1/tuote/tyyppi_id/2
 
 ### getviimeinen tuote id
-
 GET http://localhost:3000/api/v1/tuote/lastid
 
 ### get kategoria by name
 GET http://localhost:3000/api/v1/tuote/name/jääkahvi
+
 
 ### uusi tuote
 POST http://localhost:3000/api/v1/tuote
@@ -19,11 +22,11 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0g
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_nimi"
 
-Valkosuklaakakku
+Lohivoileipäkakku
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kuvaus"
 
-Kirpeä puolukan maku taittaa valkosuklaan makua ja luo raikkaan elämyksen.
+Voileipäkakku on juhlapöydän klassikko. Tämä lohivoileipäkakku saa sisäänsä mehukkaan savulohitäytteen. Pintaa koristaa raikkaasti parsa, retiisi, kurkku ja lohen mäti.
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_hinta"
 
@@ -31,16 +34,16 @@ Content-Disposition: form-data; name="tuote_hinta"
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kustannus"
 
-18.00
+19.00
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tyyppi_id"
 
-2
+3
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="tuote_kuva"; filename="whitecake.jpg"
+Content-Disposition: form-data; name="tuote_kuva"; filename="lohivoileipakakku.jpg"
 Content-Type: image/jpeg
 
-< kuvat/kakut/whitecake.jpg
+< kuvat/kakut/lohivoileipakakku.jpg
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
 
