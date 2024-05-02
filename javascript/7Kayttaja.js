@@ -56,6 +56,11 @@ document.addEventListener("DOMContentLoaded", async function () {
         const kieli = document.getElementById("kieli");
         const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
+        const userName = userData.nimi || "";
+        const userUsername = userData.tunnus || "";
+        const userEmail = userData.email || "";
+        const userPhone = userData.puhelin || "";
+
         const translations = {
             FI: {
                 title: "Omat tiedot",
@@ -66,6 +71,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 birthday: "Syntymäpäivä",
                 discountGroup: "Alennusryhmä",
                 foodAllergies: "Ruoka-allergiat",
+                edit: "Muokkaa tietoja",
                 logout: "Kirjaudu ulos",
             },
             EN: {
@@ -77,6 +83,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 birthday: "Birthday",
                 discountGroup: "Discount Group",
                 foodAllergies: "Food Allergies",
+                edit: "Edit Information",
                 logout: "Log Out",
             },
             CN: {
@@ -88,6 +95,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 birthday: "生日",
                 discountGroup: "折扣组",
                 foodAllergies: "食物过敏",
+                edit: "编辑信息",
                 logout: "登出",
             },
             ET: {
@@ -99,6 +107,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 birthday: "Sünnipäev",
                 discountGroup: "Soodustusgrupp",
                 foodAllergies: "Toiduallergiad",
+                edit: "Muuda teavet",
                 logout: "Logi välja",
             },
             SV: {
@@ -110,29 +119,90 @@ document.addEventListener("DOMContentLoaded", async function () {
                 birthday: "Födelsedag",
                 discountGroup: "Rabattgrupp",
                 foodAllergies: "Matallergier",
+                edit: "Redigera information",
                 logout: "Logga ut",
             },
         };
 
+        const discountGroup = {
+            "Opiskelija": {
+                "FI": "Opiskelija",
+                "EN": "Student",
+                "CN": "学生",
+                "ET": "Õpilane",
+                "SV": "Student",
+            },
+            "Eläkeläinen": {
+                "FI": "Eläkeläinen",
+                "EN": "Retiree",
+                "CN": "退休人员",
+                "ET": "Pensionär",
+                "SV": "Pensionär",
+            },
+        };
+
+        const anotherPage = {
+            FI: "../../html/fi/7KayttajaMuutos.html",
+            EN: "../../html/en/7KayttajaMuutos_en.html",
+            CN: "../../html/cn/7KayttajaMuutos_cn.html",
+            ET: "../../html/et/7KayttajaMuutos_et.html",
+            SV: "../../html/sv/7KayttajaMuutos_sv.html",
+        };
+
+        const editPage = anotherPage[selectedLanguage];
+        const userDiscountGroup = userData.allennus_ryhma || "";
+        const translatedDiscountGroup = discountGroup[userDiscountGroup]?.[selectedLanguage] || "";
+
+        /* ruoka-allergiat */
+        let allergiat = [];
+
+        try {
+            const storedAllergias = localStorage.getItem("userAllergia");
+
+            if (storedAllergias) {
+                allergiat = JSON.parse(storedAllergias);
+            }
+
+        } catch (error) {
+            console.error("Virhe JSON-parsinnassa:", error);
+            allergiat = [];
+        }
+
+        const allergiaText = Array.isArray(allergiat) ? allergiat.join(", ") : "";
+
         const t = translations[selectedLanguage];
+
+        /* syntymäpäivä nätimmin */
+
+        const formattedDate = userData.syntymapaiva ? new Date(userData.syntymapaiva) : null;
+        const day = formattedDate ? formattedDate.getUTCDate().toString().padStart(2, '0') : '';
+        const month = formattedDate ? (formattedDate.getUTCMonth() + 1).toString().padStart(2, '0') : '';
+        const year = formattedDate ? formattedDate.getUTCFullYear() : '';
+
+        const displayDate = formattedDate ? `${day}.${month}.${year}` : '';
 
         const omatTiedotSection = document.getElementById("omatiedot");
 
         omatTiedotSection.innerHTML = `
             <h1>${t.title}</h1><br>
-            <p>${t.name}: ${userData.nimi}</p>
-            <p>${t.username}: ${userData.tunnus}</p>
-            <p>${t.email}: ${userData.email}</p>
-            <p>${t.phone}: ${userData.puhelin ?? t.phone}</p>
-            <p>${t.birthday}: ${userData.syntymapaiva ?? t.birthday}</p>
-            <p>${t.discountGroup}: ${userData.allennus_ryhma ?? t.discountGroup}</p>
-            <label for="allergia">${t.foodAllergies}</label><br>
-            <textarea name="allergia" id="allergia">${userData.allergia ?? ''}</textarea><br>
+            <p>${t.name}: ${userName}</p>
+            <p>${t.username}: ${userUsername}</p>
+            <p>${t.email}: ${userEmail}</p>
+            <p>${t.phone}: ${userPhone}</p>
+            <p>${t.birthday}: ${displayDate}</p>
+            <p>${t.discountGroup}: ${translatedDiscountGroup}</p>
+            <label for="allergia">${t.foodAllergies}:</label><br>
+            <li name="allergia" id="allergia" 
+            style="color: rgb(219, 146, 56); font-weight: bold; list-style: none;
+            border: 1px solid black; border-radius: 5px; font-size: 14px;">
+            ${allergiaText}
+            </li><br>
+            <button class="edit" type="button" onclick="window.location.href = '../../html/${editPage}'"><b>${t.edit}</b></button><br>
             <button class="logOut" type="button" onclick="logOut()"><b>${t.logout}</b></button>
         `;
 
     } catch (error) {
-        console.error("Virhe käyttäjän tietojen hakemisessa:", error.message);
+        console.error("Error fetching user information:", error.message);
     }
 });
 
