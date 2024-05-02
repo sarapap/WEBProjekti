@@ -139,8 +139,20 @@ function getDeleteButtonText() {
     return translations[lang]?.deleteButton || translations.FI.deleteButton;
 }
 
+function getAllergiaStorageKey() {
+    const token = localStorage.getItem('authToken');
+    const base64Payload = token.split('.')[1];
+    const payload = atob(base64Payload);
+    const parsedPayload = JSON.parse(payload);
+
+    const userID = parsedPayload.asiakas_id;
+    return `userAllergia_${userID}`;
+}
+
+
 function updateAllergiaList() {
-    const allergies = JSON.parse(localStorage.getItem("userAllergia")) || [];
+    const userAllergia = getAllergiaStorageKey();
+    const allergies = JSON.parse(localStorage.getItem(userAllergia)) || [];
     const allergiaList = document.getElementById("allergiaList");
 
     allergiaList.innerHTML = '';
@@ -159,7 +171,7 @@ function updateAllergiaList() {
         button.addEventListener("click", function () {
             const index = parseInt(this.getAttribute("data-index"), 10);
             allergies.splice(index, 1);
-            localStorage.setItem("userAllergia", JSON.stringify(allergies));
+            localStorage.setItem(userAllergia, JSON.stringify(allergies));
             updateAllergiaList();
         });
     });
@@ -175,16 +187,19 @@ document.getElementById("allergiaForm").addEventListener("submit", function (eve
         return;
     }
 
-    const existingAllergias = JSON.parse(localStorage.getItem("userAllergia")) || [];
-    existingAllergias.push(allergia);
+    const userAllergia = getAllergiaStorageKey();
+    const allergies = JSON.parse(localStorage.getItem(userAllergia)) || [];
+    allergies.push(allergia);
 
-    localStorage.setItem("userAllergia", JSON.stringify(existingAllergias));
+    localStorage.setItem(userAllergia, JSON.stringify(allergies));
     document.getElementById("allergia").value = '';
 
     updateAllergiaList();
 });
 
 updateAllergiaList();
+
+
 
 
 

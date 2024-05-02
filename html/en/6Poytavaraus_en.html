@@ -7,6 +7,7 @@
   <link href="../../css/6Poytavaraus.css" rel="stylesheet">
   <title>S&A CAFE</title>
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <style>
     .changecontent::after {
@@ -102,104 +103,142 @@
     <a href="6Poytavaraus_en.html" class="navItem">Book a venue</a>
   </nav>
 
-  <div class="reserve">
-    <h1>Book a Space</h1>
-    <p>Choose a space that best fits your needs! We offer versatile spaces for various purposes.</p>
-  </div>
-  <hr>
-  <main class="main">
-    <div class="aside2" id="register-id">
-      <h2>Space Description</h2>
-      <hr>
-      <p></p>
-      <img src="../../css/kuvat/tila2.jpg" alt="space2" class="tila1">
+  <div>
+    <h1 class="reserve">Reserve a venue</h1>
+    <hr>
+    <p class="tilaP"><b>Choose the space that best suits your needs!</b> We offer a variety of spaces for different
+      purposes.
+      <br><br> The prices of the spaces vary depending on their size and intended use.
+      <br><br> Space reservations are valid for <b>2-4 hours.</b>
+      <br><br> For more information, please contact us by email!
+      <hr><br>You can send a reservation inquiry using <a href="#" id="open-modal">this form</a>
+      or by emailing us at: <b>info@ascafe.fi</b>
+      <br><br>
+    </p>
 
-      <div>
-        <p>This space is suitable for 2 to 4 people!</p>
-        <table border="0.5">
-          <tr>
-            <th>Space Name</th>
-            <th>Size</th>
-            <th>Time</th>
-            <th>Price</th>
-          </tr>
-          <tr>
-            <td>Space1</td>
-            <td>15m<sup>2</sup></td>
-            <td>1</td>
-            <td>10€</td>
-            <td><button type="submit">Book</button></td>
-          </tr>
-          <hr>
-        </table>
-        <hr>
+    <!-- Modaali ikkuna-->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="close-modal">&times;</span>
+        <h2>Book a venue</h2>
+        <form id="bookingForm" onsubmit="return sendEmail();">
+          <div>
+            <label>Your Name:</label>
+            <input type="text" name="name" required>
+          </div>
+          <div>
+            <label>Your Email:</label>
+            <input type="email" name="email" required>
+          </div>
+          <div>
+            <label>Your Phone Number:</label>
+            <input type="tel" name="phone" required>
+          </div>
+          <div>
+            <label name="selected_space">Select a Space:</label>
+            <select required>
+              <option>Barista's Corner</option>
+              <option>Latte Lounge</option>
+              <option>S&A Special</option>
+            </select>
+          </div>
+          <div>
+            <label><b>Booking Details</b></label>
+            <p>
+              To ensure the best possible service, please tell us the following:
+            </p>
+            <ul>
+              <li><strong>Purpose:</strong> What's the purpose of the event?</li>
+              <li><strong>Date:</strong> When will the event take place? Please mention the exact date.</li>
+              <li><strong>Time:</strong> What time does the event start and end?</li>
+              <li><strong>Number of Guests:</strong> How many people are attending?</li>
+            </ul>
+            <textarea name="message" required></textarea>
+            <p>After you submit the form, we will contact you via email!</p>
+          </div>
+          <button class="lähetä" type="submit">Submit</button>
+        </form>
       </div>
     </div>
+    <hr>
 
-    <div class="aside2" id="register-id">
-      <h2>Space Description</h2>
-      <hr>
-      <p></p>
-      <img src="../../css/kuvat/tila2.jpg" alt="space2" class="tila1">
-      <p></p>
-      <div>
-        <p>This space is suitable for 5 to 9 people!</p>
-        <table border="0.5">
-          <tr>
-            <th>Space Name</th>
-            <th>Size</th>
-            <th>Time</th>
-            <th>Price</th>
-          </tr>
-          <tr>
-            <td>Space2</td>
-            <td>20m<sup>2</sup></td>
-            <td>1</td>
-            <td>10€</td>
-            <td><button type="submit">Book</button></td>
-          </tr>
-          <hr>
-        </table>
+    <main class="main">
+      <div class="aside2" id="register-id">
+        <h2>Barista's Corner</h2>
         <hr>
-      </div>
-    </div>
+        <p></p>
+        <img src="../../css/kuvat/tilaKuva1.jpg" alt="space2" class="tila1">
 
-    <div class="aside2" id="register-id">
-      <h2>Space Description</h2>
-      <hr>
-      <p></p>
-      <img src="../../css/kuvat/tila2.jpg" alt="space2" class="tila1">
-      <p></p>
-      <div>
-        <p>This space is suitable for 10 to 15 people!</p>
-        <table border="0.8">
-          <tr>
-            <th>Name</th>
-            <th>Size</th>
-            <th>Time</th>
-            <th>Price</th>
-          </tr>
-          <tr>
-            <td>Space3</td>
-            <td>25m<sup>2</sup></td>
-            <td>1</td>
-            <td>15€</td>
-            <td><button type="submit">Book</button></td>
-          </tr>
+        <div>
+          <p>This space is suitable for 2 to 4 people!</p>
+          <table border="0.5">
+            <tr>
+              <th>Size</th>
+              <th>Price</th>
+            </tr>
+            <tr>
+              <td>25m<sup>2</sup></td>
+              <td>Starting from 40 € / h</td>
+            </tr>
+            <hr>
+          </table>
           <hr>
-        </table>
-        <hr>
+        </div>
       </div>
-    </div>
-  </main>
-  <hr>
 
+      <div class="aside2" id="register-id">
+        <h2>Latte Lounge</h2>
+        <hr>
+        <p></p>
+        <img src="../../css/kuvat/tilaKuva2.jpeg" alt="space2" class="tila1">
+        <p></p>
+        <div>
+          <p>This space is suitable for 5 to 9 people!</p>
+          <table border="0.5">
+            <tr>
+              <th>Size</th>
+              <th>Price</th>
+            </tr>
+            <tr>
+              <td>35m<sup>2</sup></td>
+              <td>Starting from 60 € / h</td>
+            </tr>
+            <hr>
+          </table>
+          <hr>
+        </div>
+      </div>
 
-  <footer>
-    <p>&copy; S&A CAFE 2024</p>
-    <div class="changecontent">
-    </div>
-  </footer>
+      <div class="aside2" id="register-id">
+        <h2>S&A Special</h2>
+        <hr>
+        <p></p>
+        <img src="../../css/kuvat/tilaKuva3.jpg" alt="space2" class="tila1">
+        <p></p>
+        <div>
+          <p>This space is suitable for 10 to 15 people!</p>
+          <table border="0.8">
+            <tr>
+              <th>Size</th>
+              <th>Price</th>
+            </tr>
+            <tr>
+              <td>50m<sup>2</sup></td>
+              <td>Starting from 80 € / h</td>
+            </tr>
+            <hr>
+          </table>
+          <hr>
+        </div>
+      </div>
+    </main>
+    <hr>
+
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+      <div class="changecontent">
+      </div>
+    </footer>
 </body>
 
 </html>

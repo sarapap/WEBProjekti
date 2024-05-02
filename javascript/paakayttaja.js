@@ -157,18 +157,51 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+/* palaute */
 
+window.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById("haePalaute");
 
+    if (button) {
+        button.addEventListener("click", async () => {
 
+            const startDateElement = document.getElementById("aloituspvm");
+            const endDateElement = document.getElementById("lopetuspvm");
 
+            const startDate = startDateElement.value;
+            const endDate = endDateElement.value;
 
+            if (!startDate || !endDate) {
+                console.error("Aloitus- ja lopetuspäivämäärä ovat pakollisia");
+                return;
+            }
 
+            try {
+                const response = await fetch(`http://localhost:3000/api/v1/palaute/${startDate}/${endDate}`, {
+                    method: "GET",
+                });
 
+                if (response.ok) {
+                    const palaute = await response.json();
+                    const palauteTbody = document.getElementById("palaute");
 
+                    palauteTbody.innerHTML = "";
 
+                    palaute.forEach((p) => {
+                        const row = document.createElement("tr");
+                        row.innerHTML = `<td>${p.nimi}:</td><td>"${p.teksti}"</td>`;
+                        palauteTbody.appendChild(row);
+                    });
 
+                } else {
+                    console.error("Ei onnistunut:", response.statusText);
+                }
 
-
-
-
-
+            } catch (error) {
+                console.error("Virhe yhteydessä palvelimeen:", error);
+            }
+        });
+    } else {
+        console.error("Painiketta ei löydy.");
+    }
+});

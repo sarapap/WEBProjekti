@@ -149,84 +149,80 @@
     </div>
     <hr>
     <div>
-      <h1>Palaute</h1>
-      <form action="/varauksen-vahvistus" method="post">
-        <label for="aloituspvm2">Aloituspäivämäärä:</label>
-        <input type="date" id="aloituspvm2" name="aloituspvm">
-        <label for="lopetuspvm2">Lopetuspäivämäärä:</label>
-        <input type="date" id="lopetuspvm2" name="lopetuspvm">
-        <button type="submit" class="button2">Hae</button>
-      </form>
-      <table>
-        <p>Tähän tulee palaute valitulla ajanjaksolla.</p>
-        <tbody id="palaute"></tbody>
-      </table>
+      <div>
+        <h1>Palaute</h1>
+        <label for="aloituspvm">Aloituspäivämäärä:</label>
+        <input type="date" id="aloituspvm" name="startDate">
+
+        <label for="lopetuspvm">Lopetuspäivämäärä:</label>
+        <input type="date" id="lopetuspvm" name="endDate">
+
+        <button id="haePalaute" class="button2">Hae</button>
+        <table>
+          <tbody id="palaute"></tbody>
+        </table>
+      </div>
+
     </div>
+    <h1>Lisää käyttäjä</h1>
+    <p>Tästä voit lisätä uuden käyttäjän</p>
+    <button id="openModal">Lisää uusi käyttäjä</button>
 
-  </div>
-  <h1>Lisää käyttäjä</h1>
-  <p>Tästä voit lisätä uuden käyttäjän</p>
-  <button id="openModal">Lisää uusi käyttäjä</button>
+    <!-- Modaali dialogi -->
+    <dialog id="userModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Lisää uusi käyttäjä</h2>
+        <form id="userForm">
+          <label for="etunimi">Etunimi:</label>
+          <input type="text" id="etunimi" name="etunimi" required>
 
-  <!-- Modaali dialogi -->
-  <dialog id="userModal" class="modal">
-    <div class="modal-content">
-      <span class="close" id="closeModal">&times;</span>
-      <h2>Lisää uusi käyttäjä</h2>
-      <form id="userForm">
-        <label for="etunimi">Etunimi:</label>
-        <input type="text" id="etunimi" name="etunimi" required>
+          <label for="sukunimi">Sukunimi:</label>
+          <input type="text" id="sukunimi" name="sukunimi" required>
 
-        <label for="sukunimi">Sukunimi:</label>
-        <input type="text" id="sukunimi" name="sukunimi" required>
+          <label for="tunnus">Käyttäjätunnus:</label>
+          <input type="text" id="tunnus" name="tunnus" required>
 
-        <label for="tunnus">Käyttäjätunnus:</label>
-        <input type="text" id="tunnus" name="tunnus" required>
+          <label for="salasana">Salasana:</label>
+          <input type="password" id="salasana" name="salasana" required>
 
-        <label for="salasana">Salasana:</label>
-        <input type="password" id="salasana" name="salasana" required>
+          <label for="email">Sähköposti:</label>
+          <input type="email" id="email" name="email" required>
 
-        <label for="email">Sähköposti:</label>
-        <input type="email" id="email" name="email" required>
+          <label for="puhelin">Puhelin:</label>
+          <input type="tel" id="puhelin" name="puhelin" required>
 
-        <label for="puhelin">Puhelin:</label>
-        <input type="tel" id="puhelin" name="puhelin" required>
+          <label for="syntymapaiva">Syntymäaika:</label>
+          <input type="date" id="syntymapaiva" name="syntymapaiva">
 
-        <label for="syntymapaiva">Syntymäaika:</label>
-        <input type="date" id="syntymapaiva" name="syntymapaiva">
+          <label for="rooli">Rooli:</label>
+          <select id="rooli" name="rooli">
+            <option value="user">Käyttäjä</option>
+            <option value="admin">Admin</option>
+          </select>
+          <br>
+          <label for="alennus">Alennusryhmä:</label>
+          <select id="alennus" name="alennus">
+            <option value="none">Valitse</option>
+            <option value="opiskelija">Opiskelija</option>
+            <option value="elakelainen">Eläkeläinen</option>
+          </select>
 
-        <label for="rooli">Rooli:</label>
-        <select id="rooli" name="rooli">
-          <option value="user">Käyttäjä</option>
-          <option value="admin">Admin</option>
-        </select>
-        <br>
-        <label for="alennus">Alennusryhmä:</label>
-        <select id="alennus" name="alennus">
-          <option value="none">Valitse</option>
-          <option value="opiskelija">Opiskelija</option>
-          <option value="elakelainen">Eläkeläinen</option>
-        </select>
-        <br>
-        <label for="allergia">Ruoka-allergiat:</label>
-        <br>
-        <textarea class="allergia" name="allergia" id="allergia"></textarea>
+          <br>
+          <br>
+          <label class="ehdot" for="ehdot_hyvaksytty">Ehdot hyväksytty:</label>
+          <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
 
-        <br>
-        <br>
-        <label class="ehdot" for="ehdot_hyvaksytty">Ehdot hyväksytty:</label>
-        <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
+          <button class="userButton" type="submit">Lisää käyttäjä</button>
+        </form>
+      </div>
+    </dialog>
 
-        <button class="userButton" type="submit">Lisää käyttäjä</button>
-      </form>
-    </div>
-  </dialog>
-
-  <footer>
-    <p>&copy; S&A CAFE 2024</p>
-    <div class="changecontent">
-    </div>
-  </footer>
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+      <div class="changecontent">
+      </div>
+    </footer>
 </body>
 
 </html>

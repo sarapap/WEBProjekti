@@ -16,7 +16,6 @@ const findUserById = async (id) => {
   return rows[0];
 };
 
-
 const addUser = async (user) => {
   const {
     etunimi,
@@ -79,6 +78,15 @@ const findUserByUsername = async (tunnus) => {
   }
 };
 
+const findUserByTunnus = async (tunnus) => {
+  const sql = 'SELECT * FROM asiakas WHERE tunnus = ?';
+  const [rows] = await promisePool.execute(sql, [tunnus]);
+  if (rows.length === 0) {
+    return null;
+  }
+  return rows[0];
+};
+
 const removeUser = async (id) => {
   const connection = await promisePool.getConnection();
   try {
@@ -139,14 +147,29 @@ const updateUserPassword = async (userId, hashedNewPassword) => {
   }
 };
 
+const getAlennusRyhma = async (asiakas_id) => {
+  try {
+    const sql = 'SELECT allennus_ryhma FROM asiakas WHERE asiakas_id = ?';
+    const [rows] = await promisePool.execute(sql, [asiakas_id]);
 
+    if (rows.length === 0) {
+      throw new Error('Asiakasta ei löydy');
+    }
+
+    return rows[0].allennus_ryhma;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export {
   listAllUsers,
   findUserById,
   addUser,
   findUserByUsername,
+  findUserByTunnus,
   removeUser,
   updateUser,
-  updateUserPassword
+  updateUserPassword,
+  getAlennusRyhma
 };

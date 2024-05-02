@@ -64,6 +64,7 @@ feedbackForm.addEventListener("submit", async (e) => {
 
 
 /* kuvat */
+
 const images = [
     '../../css/kuvat/weddingCake.jpg',
     '../../css/kuvat/chocolateCake.jpg',

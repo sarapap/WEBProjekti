@@ -10,31 +10,9 @@
     <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
 
     <style>
-        .changecontent::after {
-            content: '';
-            color: rgb(192, 160, 122);
-            animation: changetext 10s infinite linear;
-            font-weight: bold;
-            margin: 10px;
-        }
-
-        @keyframes changetext {
-            0% {
-                content: "Herkullisia kakkuja";
-            }
-
-            50% {
-                content: "Kylmää tai lämmintä juotavaa";
-            }
-
-            100% {
-                content: "Lämmintä ruokaa ja naposteltavaa";
-            }
-        }
-
         /* footer */
 
-        .changecontent2::after {
+        .changecontent::after {
             content: "Tervetuloa kakkukahveille!";
             color: rgb(192, 160, 122);
             animation: changetext2 10s infinite linear;
@@ -66,7 +44,7 @@
     </style>
 
     <script src="/javascript/default.js" defer></script>
-    <script src="/javascript/1Etusivu.js" defer></script>
+    <script src="/javascript/13Kupongit.js" defer></script>
 </head>
 
 <body>
@@ -152,37 +130,40 @@
 
             <div class=aside2 id="omatiedot">
                 <h1>Kupongit</h1><br>
-
-                <form action="https://10.120.32.94/test/form-submission/" method="post" id="omatiedot">
-                    <table>
-                        <tbody id="kupongit_table">
-                            <tr>
+                <table>
+                    <tbody id="kupongit_table">
+                        <tr>
+                            <td>
+                                <img id="ensi_tilaus_img" src="../../css/kuvat/ensi_tilaus.png"
+                                    style="width: 40%; cursor: pointer;">
+                            </td>
+                        </tr>
+                        <table>
+                            <tr id="userStatus" style="display: none;">
                                 <td>
-                                    <img src="../../css/kuvat/ensi_tilaus.png" style="width: 70%;">
+                                    <p class="userP">Jotta voit hyödyntää opiskelija- / eläkeläisalennuksen, sinun
+                                        tulee
+                                        lähettää kuva opiskelija- / eläkeläiskortistasi sähköpostitse osoitteeseen
+                                        info@ascafe.fi. <br><br>
+
+                                        Alla oleva kuponki on voimassa vahvistamisen jälkeen.
+                                    </p>
+                                    <img id="alennus_ryhma_img" src="../../css/kuvat/opiskelia_elakelainen.png"
+                                        style="width: 40%; cursor: pointer;">
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <img src="../../css/kuvat/opiskelia_elakelainen.png" style="width: 70%;">
-                                </td>
-
-                            </tr>
-
-
-                        </tbody>
-
-
-                    </table>
-
-                </form>
+                        </table>
+                    </tbody>
+                </table>
             </div>
         </main>
 
         <footer class="footer-container">
             <p class="footerP">&copy; S&A CAFE 2024</p>
-            <div class="changecontent2">
+            <div class="changecontent">
             </div>
         </footer>
+
 </body>
 
 </html>
