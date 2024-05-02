@@ -7,6 +7,7 @@ const handleNewValue = async () => {
 
 const updateSelectedAlatyyppi = () => {
   const selectedAlatyyppi = document.getElementById('cakeType').value;
+  cakeList.innerHTML = '';
   console.log('Valittu tyyppi:', selectedAlatyyppi);
   return selectedAlatyyppi;
 }
@@ -36,7 +37,7 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/kakut';
     } else if (selectedAlatyyppi === 'juhlakakut') {
       url = 'http://localhost:3000/api/v1/tyyppi/kakut/juhlakakut';
-    } else if (selectedAlatyyppi === 'suolalaiset kakut') {
+    } else if (selectedAlatyyppi === 'suolaiset kakut') {
       url = 'http://localhost:3000/api/v1/tyyppi/kakut/suolaiset%20kakut';
     } else if (selectedAlatyyppi === 'makeat kakut') {
       url = 'http://localhost:3000/api/v1/tyyppi/kakut/makeat%20kakut';
@@ -54,14 +55,14 @@ const getTyyppiIdLista = async () => {
 
 
     if (Array.isArray(tyyppiList)) {
-  const tyyppiIdList = tyyppiList.map((tyyppi) => tyyppi.tyyppi_id);
-  console.log('Tyyppi id list:', tyyppiIdList);
-  return tyyppiIdList;
+    const tyyppiIdList = tyyppiList.map((tyyppi) => tyyppi.tyyppi_id);
+    console.log('Tyyppi id list:', tyyppiIdList);
+    return tyyppiIdList;
 
-} else if (tyyppiList.tyyppi_id) {
-  console.log('Tyyppi id:', tyyppiList.tyyppi_id);
-  return tyyppiList.tyyppi_id;
-}
+    } else if (tyyppiList.tyyppi_id) {
+      console.log('Tyyppi id:', tyyppiList.tyyppi_id);
+      return tyyppiList.tyyppi_id;
+    }
 
   } catch (error) {
     console.error('Virhe tuote_id hakemisessa:', error.message);
@@ -72,19 +73,18 @@ const getTyyppiIdLista = async () => {
 const fetchAndDisplayTuotteet = async () => {
 
     const IdResult = await getTyyppiIdLista();
-    console.log('IdResult:', IdResult)
-
 
     if (!Array.isArray(IdResult)) {
       const tyyppiId = IdResult;
       console.log('Tyyppi id_ not list:', tyyppiId);
+
       await fetchAndDisplayByTyyppiId(tyyppiId);
     } else {
       for (const tyyppiId of IdResult) {
+
         await fetchAndDisplayByTyyppiId(tyyppiId);
     }
   }
-
 };
 
 const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
@@ -96,14 +96,13 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
     if (!response.ok) {
       throw new Error('Virhe tuote hakemisessa');
     }
-
     const tuote = await response.json();
     console.log('Tuote:', tuote);
 
-
-
       // Luo uusi div-elementti tuotteelle
       const cakeList = document.getElementById('cakeList');
+
+
       const tuoteElement = document.createElement('div');
       tuoteElement.classList.add('cake-item');
 
