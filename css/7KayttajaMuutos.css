@@ -243,6 +243,11 @@ nav li {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: -10px;
+}
+
+.salasananVaihto {
+    margin: 50px 0px 40px 0px;
 }
 
 .tietoButton:hover,
@@ -259,7 +264,7 @@ nav li {
 }
 
 .allergiaLabel {
-    margin-top: 20px;
+    margin-top: 40px;
     width: 300%;
 }
 
@@ -271,7 +276,8 @@ nav li {
     border-radius: 5px;
     cursor: pointer;
     width: 50%;
-    margin-top: -20px;
+    margin-bottom: 30px;
+    margin-top: -10px;
 }
 
 .deleteButton {

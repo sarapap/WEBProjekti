@@ -73,3 +73,6 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3000/api/v1/asiakas/info/71
+
+### check alennusryhmä
+GET http://localhost:3000/api/v1/asiakas/alennus/71

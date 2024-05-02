@@ -139,7 +139,20 @@ const updateUserPassword = async (userId, hashedNewPassword) => {
   }
 };
 
+const getAlennusRyhma = async (asiakas_id) => {
+  try {
+    const sql = 'SELECT allennus_ryhma FROM asiakas WHERE asiakas_id = ?';
+    const [rows] = await promisePool.execute(sql, [asiakas_id]);
 
+    if (rows.length === 0) {
+      throw new Error('Asiakasta ei löydy');
+    }
+
+    return rows[0].allennus_ryhma;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export {
   listAllUsers,
@@ -148,5 +161,6 @@ export {
   findUserByUsername,
   removeUser,
   updateUser,
-  updateUserPassword
+  updateUserPassword,
+  getAlennusRyhma
 };

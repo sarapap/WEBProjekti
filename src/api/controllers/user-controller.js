@@ -1,4 +1,13 @@
-import { listAllUsers, findUserById, findUserByUsername, addUser, updateUser, removeUser, updateUserPassword } from '../models/user-model.js';
+import {
+    listAllUsers,
+    findUserById,
+    findUserByUsername,
+    addUser,
+    updateUser,
+    removeUser,
+    updateUserPassword,
+    getAlennusRyhma
+} from '../models/user-model.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import promisePool from '../../utils/database.js';
@@ -224,13 +233,38 @@ const updatePasswordController = async (req, res) => {
     }
 };
 
+const checkAlennus = async (req, res) => {
+    try {
+        const asiakasId = parseInt(req.params.id, 10);
+
+        if (isNaN(asiakasId)) {
+            return res.status(400).json({ error: 'Virheellinen asiakas_id' });
+        }
+
+        const alennusRyhma = await getAlennusRyhma(asiakasId);
+
+        if (!alennusRyhma) {
+            return res.status(404).json({ error: 'Alennusryhmää ei löydy' });
+        }
+
+        const isEligible = ['Opiskelija', 'Eläkeläinen'].includes(alennusRyhma);
+
+        res.json({ isEligible });
+    } catch (error) {
+        console.error('Virhe tarkistettaessa alennusryhmää:', error.message);
+        res.status(500).json({ error: 'Sisäinen palvelinvirhe' });
+    }
+};
+
 export {
-    getUser, getUserByUsername,
+    getUser,
+    getUserByUsername,
     getUserById,
     postUser,
     userLoginPost,
     putUser,
     deleteUser,
     getUserInfo,
-    updatePasswordController
+    updatePasswordController,
+    checkAlennus
 };
