@@ -43,7 +43,8 @@ const fetchAndDisplayTuotteet = async () => {
       const tuoteKuvaus = tuote.tuote_kuvaus;
       const tuoteHinta = tuote.tuote_hinta;
 ;
-      const cakeList = document.getElementById('cakeLista').style.display = 'flex';
+
+      const cakeList = document.querySelector('cake-list');
 
       const tuoteElement = document.createElement('div');
       tuoteElement.classList.add('cake-item');
@@ -85,11 +86,6 @@ const fetchAndDisplayTuotteet = async () => {
     } catch (error) {
       console.error('Virhe tuotteen hakemisessa:', error.message);
     }
-
-
-
-
-
   }
 };
 
