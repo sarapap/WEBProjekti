@@ -2,6 +2,7 @@ import {
     listAllUsers,
     findUserById,
     findUserByUsername,
+    findUserByTunnus,
     addUser,
     updateUser,
     removeUser,
@@ -10,7 +11,7 @@ import {
 } from '../models/user-model.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import promisePool from '../../utils/database.js';
+import { checkPassword } from '../../utils/salasana.js';
 import config from '../../config/config.js';
 const SECRET_KEY = config.SECRET_KEY;
 
@@ -102,16 +103,13 @@ const userLoginPost = async (req, res) => {
             throw new Error('Käyttäjätunnus ja salasana ovat pakollisia');
         }
 
-        const sql = 'SELECT * FROM asiakas WHERE tunnus = ?';
-        const [rows] = await promisePool.execute(sql, [tunnus]);
+        const user = await findUserByTunnus(tunnus);
 
-        if (rows.length === 0) {
+        if (!user) {
             return res.status(401).json({ error: 'Väärä käyttäjätunnus tai salasana' });
         }
 
-        const user = rows[0];
-
-        const passwordMatch = bcrypt.compareSync(salasana, user.salasana);
+        const passwordMatch = checkPassword(salasana, user.salasana);
 
         if (!passwordMatch) {
             return res.status(401).json({ error: 'Väärä käyttäjätunnus tai salasana' });
@@ -123,14 +121,13 @@ const userLoginPost = async (req, res) => {
             { expiresIn: '1h' }
         );
 
-        res.status(200).json({ success: true, message: 'Kirjautuminen onnistui', token, asiakas_id: user.id });
+        res.status(200).json({ success: true, message: 'Kirjautuminen onnistui', token, asiakas_id: user.asiakas_id });
 
     } catch (error) {
         console.error('Virhe kirjautumisessa:', error.message);
         res.status(400).json({ error: error.message });
     }
 };
-
 
 const putUser = async (req, res) => {
     try {

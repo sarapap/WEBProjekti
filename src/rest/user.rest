@@ -25,7 +25,7 @@ POST http://localhost:3000/api/v1/asiakas/login
 Content-Type: application/json
 
 {
-"tunnus": "joku", "salasana": "12345"
+"tunnus": "squirrel", "salasana": "squirrel21"
 }
 
 ###get user by username

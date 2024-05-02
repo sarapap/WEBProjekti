@@ -160,19 +160,16 @@ document.addEventListener("DOMContentLoaded", function () {
 /* palaute */
 
 window.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM on ladattu ja koodi suorittaa");
-    const form = document.querySelector("form");
+    const button = document.getElementById("haePalaute");
 
+    if (button) {
+        button.addEventListener("click", async () => {
 
-    if (form) {
-        console.log("Lomake löytyi");
-        form.addEventListener("submit", async (e) => {
-            console.log("Lomakkeen lähetys");
+            const startDateElement = document.getElementById("aloituspvm");
+            const endDateElement = document.getElementById("lopetuspvm");
 
-            e.preventDefault();
-
-            const startDate = form.elements["startDate"].value;
-            const endDate = form.elements["endDate"].value;
+            const startDate = startDateElement.value;
+            const endDate = endDateElement.value;
 
             if (!startDate || !endDate) {
                 console.error("Aloitus- ja lopetuspäivämäärä ovat pakollisia");
@@ -185,18 +182,19 @@ window.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
+                    const palaute = await response.json();
+                    const palauteTbody = document.getElementById("palaute");
+
+                    palauteTbody.innerHTML = "";
+
                     palaute.forEach((p) => {
                         const row = document.createElement("tr");
-                        const nimi = p.nimi || "Ei nimeä";
-                        const teksti = p.teksti || "Ei tekstiä";
-
-                        row.innerHTML = `<td>${nimi}</td><td>${teksti}</td>`;
+                        row.innerHTML = `<td>${p.nimi}:</td><td>"${p.teksti}"</td>`;
                         palauteTbody.appendChild(row);
                     });
 
-
                 } else {
-                    console.error("Palvelimen vastaus ei ollut onnistunut");
+                    console.error("Ei onnistunut:", response.statusText);
                 }
 
             } catch (error) {
@@ -204,24 +202,6 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         });
     } else {
-        console.error("Lomaketta ei löydy. Tarkista HTML.");
+        console.error("Painiketta ei löydy.");
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
