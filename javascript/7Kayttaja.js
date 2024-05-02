@@ -52,14 +52,15 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
         const userData = await response.json();
-
-        const kieli = document.getElementById("kieli");
-        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
-
         const userName = userData.nimi || "";
         const userUsername = userData.tunnus || "";
         const userEmail = userData.email || "";
         const userPhone = userData.puhelin || "";
+
+        /* käännökset */
+
+        const kieli = document.getElementById("kieli");
+        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
         const translations = {
             FI: {
@@ -149,28 +150,14 @@ document.addEventListener("DOMContentLoaded", async function () {
             SV: "../../html/sv/7KayttajaMuutos_sv.html",
         };
 
+        const t = translations[selectedLanguage];
         const editPage = anotherPage[selectedLanguage];
         const userDiscountGroup = userData.allennus_ryhma || "";
         const translatedDiscountGroup = discountGroup[userDiscountGroup]?.[selectedLanguage] || "";
 
         /* ruoka-allergiat */
-        let allergiat = [];
-
-        try {
-            const storedAllergias = localStorage.getItem("userAllergia");
-
-            if (storedAllergias) {
-                allergiat = JSON.parse(storedAllergias);
-            }
-
-        } catch (error) {
-            console.error("Virhe JSON-parsinnassa:", error);
-            allergiat = [];
-        }
-
-        const allergiaText = Array.isArray(allergiat) ? allergiat.join(", ") : "";
-
-        const t = translations[selectedLanguage];
+        const allergies = getAllergiat();
+        const allergiaText = allergies.join(", ");
 
         /* syntymäpäivä nätimmin */
 
@@ -206,4 +193,29 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 });
 
+/* funktio allergien saamiseksi */
+function getAllergiaStorageKey() {
+    const token = localStorage.getItem('authToken');
+    const base64Payload = token.split('.')[1];
+    const payload = atob(base64Payload);
+    const parsedPayload = JSON.parse(payload);
+
+    const userID = parsedPayload.asiakas_id;
+    return `userAllergia_${userID}`;
+}
+
+function getAllergiat() {
+    const storageKey = getAllergiaStorageKey();
+    try {
+        const storedAllergias = localStorage.getItem(storageKey);
+        if (storedAllergias) {
+            return JSON.parse(storedAllergias);
+        } else {
+            return [];
+        }
+    } catch (error) {
+        console.error("Virhe allergioiden hakemisessa:", error);
+        return [];
+    }
+}
 

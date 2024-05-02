@@ -7,6 +7,7 @@
   <link href="../../css/6Poytavaraus.css" rel="stylesheet">
   <title>S&A CAFE</title>
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <style>
     /* footer */
@@ -107,33 +108,83 @@
       <a href="6Poytavaraus.html" class="navItem">Varaa tila</a>
     </nav>
 
-    <div class="reserve">
-      <h1>Varaa tila</h1>
-      <p>Valitse tila, joka sopii parhaiten tarpeisiisi! Tarjoamme monipuolisia tiloja erilaisiin tarkoituksiin.</p>
+    <div>
+      <h1 class="reserve">Varaa tila</h1>
+      <hr>
+      <p class="tilaP"><b>Valitse tila, joka sopii parhaiten tarpeisiisi!</b> Tarjoamme monipuolisia tiloja erilaisiin
+        tarkoituksiin.
+        <br> <br> Tilojen hinnat vaihtelevat tilan koosta ja käyttötarkoituksesta riippuen.
+        <br> <br> Tilojen varaukset ovat voimassa <b>2-4h.</b>
+        <br> <br> Lisätietoa saat sähköpostitse!
+        <hr><br> Voit lähettää varauskyselyn <a href="#" id="open-modal">tästä lomakkeesta</a>
+        tai sähköpostitse osoitteesta: <b>info@ascafe.fi</b>
+        <br><br>
+      </p>
+
+      <!-- Modaali-ikkuna -->
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="close-modal">&times;</span>
+          <h2>Varaa tila</h2>
+          <form id="bookingForm" onsubmit="return sendEmail();">
+            <div>
+              <label>Nimesi:</label required>
+              <input type="text" name="name">
+            </div>
+            <div>
+              <label>Sähköpostisi:</label>
+              <input type="email" name="email" required>
+            </div>
+            <div>
+              <label>Puhelinnumerosi:</label>
+              <input type="tel" name="phone" required>
+            </div>
+            <div>
+              <label name="selected_space">Valitse tila:</label>
+              <select required>
+                <option>Baristan Nurkka</option>
+                <option>Latte Lounge</option>
+                <option>S&A Special</option>
+              </select>
+            </div>
+            <div>
+              <label><b>Varauksen tiedot</b></label>
+              <p>
+                Jotta voimme varmistaa parhaan mahdollisen palvelun, kerro meille seuraavat asiat:
+              </p>
+              <ul>
+                <li><strong>Käyttötarkoitus:</strong> Mikä on tilaisuuden tarkoitus?</li>
+                <li><strong>Ajankohta:</strong> Milloin tilaisuus järjestetään? Mainitse myös päivämäärä.</li>
+                <li><strong>Kellonaika:</strong> Mihin aikaan tilaisuus alkaa ja päättyy? </li>
+                <li><strong>Henkilömäärä:</strong> Kuinka monta henkilöä tilaisuuteen osallistuu?</li>
+              </ul>
+              <textarea name="message" required></textarea>
+              <p>Lähetettyäsi lomakkeen olemme sinuun sähköpostitse yhteydessä!</p>
+            </div>
+            <button class="lähetä" type="submit">Lähetä</button>
+          </form>
+        </div>
+      </div>
     </div>
     <hr>
+
     <main class="main">
       <div class="aside2" id="register-id">
-        <h2>Tilan kuvaus</h2>
+        <h2>Baristan Nurkka</h2>
         <hr>
         <p></p>
-        <img src="../../css/kuvat/tila2.jpg" alt="tila2" class="tila1">
+        <img src="../../css/kuvat/tilaKuva1.jpg" alt="tila2" class="tila1">
 
         <div>
           <p>Tämä tila sopii 2 - 4 henkilöille!</p>
           <table border="0.5">
             <tr>
-              <th>Tilan nimi</th>
               <th>Koko</th>
-              <th>Aika</th>
               <th>Hinta</th>
             </tr>
             <tr>
-              <td>Tila1</td>
-              <td>15m<sup>2</sup></td>
-              <td>1</td>
-              <td>10€</td>
-              <td><button type="submit">Varaa</button></td>
+              <td>25m<sup>2</sup></td>
+              <td>Alkaen 40€ / h</td>
             </tr>
             <hr>
           </table>
@@ -142,26 +193,21 @@
       </div>
 
       <div class="aside2" id="register-id">
-        <h2>Tilan kuvaus</h2>
+        <h2>Latte Lounge</h2>
         <hr>
         <p></p>
-        <img src="../../css/kuvat/tila2.jpg" alt="tila2" class="tila1">
+        <img src="../../css/kuvat/tilaKuva2.jpeg" alt="tila2" class="tila1">
         <p></p>
         <div>
           <p>Tämä tila sopii 5 - 9 henkilöille! </p>
           <table border="0.5">
             <tr>
-              <th>Tilan nimi</th>
               <th>Koko</th>
-              <th>Aika</th>
               <th>Hinta</th>
             </tr>
             <tr>
-              <td>Tila2</td>
-              <td>20m<sup>2</sup></td>
-              <td> 1</td>
-              <td>10€</td>
-              <td><button type="submit">Varaa</button></td>
+              <td>35m<sup>2</sup></td>
+              <td>Alkaen 60€ / h</td>
             </tr>
             <hr>
           </table>
@@ -170,26 +216,21 @@
       </div>
 
       <div class="aside2" id="register-id">
-        <h2>Tilan kuvaus</h2>
+        <h2>S&A Special</h2>
         <hr>
         <p></p>
-        <img src="../../css/kuvat/tila2.jpg" alt="tila2" class="tila1">
+        <img src="../../css/kuvat/tilaKuva3.jpg" alt="tila2" class="tila1">
         <p></p>
         <div>
           <p>Tämä tila sopii 10 - 15 henkilöille!</p>
           <table border="0.8">
             <tr>
-              <th>Nimi</th>
               <th>Koko</th>
-              <th>Aika</th>
               <th>Hinta</th>
             </tr>
             <tr>
-              <td>Tila3</td>
-              <td>25m<sup>2</sup></td>
-              <td>1</td>
-              <td>15€</td>
-              <td><button type="submit">Varaa</button></td>
+              <td>50m<sup>2</sup></td>
+              <td>Alkaen 80€ / h</td>
             </tr>
             <hr>
           </table>

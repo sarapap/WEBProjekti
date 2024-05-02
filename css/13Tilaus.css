@@ -183,7 +183,6 @@ nav li {
 
 .dropdown-menu a:hover {
   background-color: #eceae9;
-  ;
 }
 
 /* main */
@@ -195,9 +194,9 @@ nav li {
   text-align: center;
   border-radius: 1rem;
   margin-top: 20px;
-  ;
-
 }
+
+/* kuvat */
 
 .kuvat {
   height: 200px;

@@ -7,7 +7,7 @@
   <link href="../../css/6Poytavaraus.css" rel="stylesheet">
   <title>S&A CAFE</title>
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
-
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <style>
     /* footer */
@@ -44,7 +44,7 @@
   </style>
 
   <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/9Ostoskori.js" defer></script>
+  <script src="/javascript/6Poytavaraus.js" defer></script>
 </head>
 
 <body>
@@ -106,103 +106,143 @@
   </nav>
 
   <div class="reserve">
-    <h1>Broneeri ruum</h1>
-    <p>Valige ruum, mis sobib teie vajadustele kõige paremini! Pakume mitmekesiseid ruume erinevateks otstarveteks.</p>
-  </div>
-  <hr>
-  <main class="main">
-    <div class="aside2" id="register-id">
-      <h2>Ruumi kirjeldus</h2>
-      <hr>
-      <p></p>
-      <img src="../../css/kuvat/tila2.jpg" alt="ruum2" class="tila1">
+    <h1 class="reserve">Broneeri ruum</h1>
+    <hr>
+    <p class="tilaP"><b>Valige ruum, mis sobib teie vajadustele kõige paremini!</b> Pakume erinevaid ruume erinevateks
+      eesmärkideks.
+      <br><br> Ruumi hinnad varieeruvad sõltuvalt suurusest ja kasutuse eesmärgist.
+      <br><br> Ruumi broneeringud kehtivad <b>2-4 tundi.</b>
+      <br><br> Lisateavet saate e-posti teel!
+      <hr><br>Võite saata broneerimispäringu <a href="#" id="open-modal">selle vormi kaudu</a> või kirjutage meile
+      aadressil:
+      <b>info@ascafe.fi</b>
+      <br><br>
+    </p>
 
-      <div>
-        <p>See ruum sobib 2 kuni 4 inimesele!</p>
-        <table border="0.5">
-          <tr>
-            <th>Ruumi nimi</th>
-            <th>Suurus</th>
-            <th>Aeg</th>
-            <th>Hind</th>
-          </tr>
-          <tr>
-            <td>Ruum1</td>
-            <td>15m<sup>2</sup></td>
-            <td>1</td>
-            <td>10€</td>
-            <td><button type="submit">Broneeri</button></td>
-          </tr>
-          <hr>
-        </table>
-        <hr>
+    <!-- Modaali ikkuna -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="close-modal">&times;</span>
+        <h2>Broneeri Ruumi</h2>
+        <form id="bookingForm" onsubmit="return sendEmail();">
+          <div>
+            <label>Teie Nimi:</label>
+            <input type="text" name="name" required>
+          </div>
+          <div>
+            <label>Teie E-post:</label>
+            <input type="email" name="email" required>
+          </div>
+          <div>
+            <label>Teie Telefoninumber:</label>
+            <input type="tel" name="phone" required>
+          </div>
+          <div>
+            <label name="selected_space">Valige Ruumi:</label>
+            <select required>
+              <option>Barista Nurk</option>
+              <option>Latte Lounge</option>
+              <option>S&A Special</option>
+            </select>
+          </div>
+          <div>
+            <label><b>Broneerimise Üksikasjad</b></label>
+            <p>
+              Parima teeninduse tagamiseks palume teil järgmist:
+            </p>
+            <ul>
+              <li><strong>Eesmärk:</strong> Mis on ürituse eesmärk?</li>
+              <li><strong>Kuupäev:</strong> Millal üritus toimub? Palun mainige ka kuupäeva.</li>
+              <li><strong>Kellaaeg:</strong> Mis kell üritus algab ja lõpeb?</li>
+              <li><strong>Külaliste Arv:</strong> Mitu inimest osaleb?</li>
+            </ul>
+            <textarea name="message" required></textarea>
+            <p>Pärast vormi saatmist võtame teiega ühendust e-posti teel!</p>
+          </div>
+          <button class="lähetä" type="submit">Saada</button>
+        </form>
       </div>
     </div>
+    <hr>
 
-    <div class="aside2" id="register-id">
-      <h2>Ruumi kirjeldus</h2>
-      <hr>
-      <p></p>
-      <img src="../../css/kuvat/tila2.jpg" alt="ruum2" class="tila1">
-      <p></p>
-      <div>
-        <p>See ruum sobib 5 kuni 9 inimesele!</p>
-        <table border="0.5">
-          <tr>
-            <th>Ruumi nimi</th>
-            <th>Suurus</th>
-            <th>Aeg</th>
-            <th>Hind</th>
-          </tr>
-          <tr>
-            <td>Ruum2</td>
-            <td>20m<sup>2</sup></td>
-            <td>1</td>
-            <td>10€</td>
-            <td><button type="submit">Broneeri</button></td>
-          </tr>
-          <hr>
-        </table>
+    <main class="main">
+      <div class="aside2" id="register-id">
+        <h2>Barista nurk</h2>
         <hr>
-      </div>
-    </div>
+        <p></p>
+        <img src="../../css/kuvat/tilaKuva1.jpg" alt="ruum2" class="tila1">
 
-    <div class="aside2" id="register-id">
-      <h2>Ruumi kirjeldus</h2>
-      <hr>
-      <p></p>
-      <img src="../../css/kuvat/tila2.jpg" alt="ruum2" class="tila1">
-      <p></p>
-      <div>
-        <p>See ruum sobib 10 kuni 15 inimesele!</p>
-        <table border="0.8">
-          <tr>
-            <th>Nimi</th>
-            <th>Suurus</th>
-            <th>Aeg</th>
-            <th>Hind</th>
-          </tr>
-          <tr>
-            <td>Ruum3</td>
-            <td>25m<sup>2</sup></td>
-            <td>1</td>
-            <td>15€</td>
-            <td><button type="submit">Broneeri</button></td>
-          </tr>
+        <div>
+          <p>See ruum sobib 2 kuni 4 inimesele!</p>
+          <table border="0.5">
+            <tr>
+              <th>Suurus</th>
+              <th>Hind</th>
+            </tr>
+            <tr>
+              <td>25m<sup>2</sup></td>
+              <td>Alates 40 € / h</td>
+            </tr>
+            <hr>
+          </table>
           <hr>
-        </table>
-        <hr>
+        </div>
       </div>
-    </div>
-  </main>
-  <hr>
+
+      <div class="aside2" id="register-id">
+        <h2>Latte Lounge</h2>
+        <hr>
+        <p></p>
+        <img src="../../css/kuvat/tilaKuva2.jpeg" alt="ruum2" class="tila1">
+        <p></p>
+        <div>
+          <p>See ruum sobib 5 kuni 9 inimesele!</p>
+          <table border="0.5">
+            <tr>
+              <th>Suurus</th>
+              <th>Hind</th>
+            </tr>
+            <tr>
+              <td>35m<sup>2</sup></td>
+              <td>Alates 60 € / h</td>
+            </tr>
+            <hr>
+          </table>
+          <hr>
+        </div>
+      </div>
+
+      <div class="aside2" id="register-id">
+        <h2>S&A Special</h2>
+        <hr>
+        <p></p>
+        <img src="../../css/kuvat/tilaKuva3.jpg" alt="ruum2" class="tila1">
+        <p></p>
+        <div>
+          <p>See ruum sobib 10 kuni 15 inimesele!</p>
+          <table border="0.8">
+            <tr>
+              <th>Suurus</th>
+              <th>Hind</th>
+            </tr>
+            <tr>
+              <td>50m<sup>2</sup></td>
+              <td>Alates 80 € / h</td>
+            </tr>
+            <hr>
+          </table>
+          <hr>
+        </div>
+      </div>
+    </main>
+    <hr>
 
 
-  <footer>
-    <p>&copy; S&A CAFE 2024</p>
-    <div class="changecontent">
-    </div>
-  </footer>
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+      <div class="changecontent">
+      </div>
+    </footer>
 
 </body>
 

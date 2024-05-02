@@ -183,7 +183,6 @@ nav li {
 
 .dropdown-menu a:hover {
   background-color: #eceae9;
-  ;
 }
 
 /* main */
@@ -195,10 +194,16 @@ nav li {
   text-align: center;
   border-radius: 1rem;
   margin-top: 20px;
-  ;
-
 }
 
+.userP {
+  color: rgb(106, 106, 106);
+  font-size: 14px;
+  margin: 30px 0px 30px 0px;
+  font-weight: bold;
+}
+
+/* kuvat */
 .kuvat {
   height: 200px;
   background: none;
@@ -214,10 +219,8 @@ nav li {
   width: 150px;
   height: 150px;
   margin: 30px;
-
   background-image: url('kuvat/tietosdot.png');
   background-size: cover;
-
 }
 
 .tilaus {
@@ -333,7 +336,7 @@ nav li {
   height: 150px;
   margin-bottom: 30px;
   background-size: cover;
-  background-image: url('kuvat/tilaus._sv.png');
+  background-image: url('kuvat/tilaus_sv.png');
 }
 
 .kupongit_sv {

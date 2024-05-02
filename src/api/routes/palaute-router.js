@@ -1,5 +1,5 @@
 import express from 'express';
-import {getPalaute, getPalauteByPvm, getPalauteByDateRange, postPalaute, deletePalaute} from '../controllers/palaute-controller.js';
+import { getPalaute, getPalauteByPvm, getPalauteByDateRange, postPalaute, deletePalaute } from '../controllers/palaute-controller.js';
 
 
 const palauteRouter = express.Router();

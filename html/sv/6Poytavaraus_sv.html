@@ -7,6 +7,7 @@
   <link href="../../css/6Poytavaraus.css" rel="stylesheet">
   <title>S&A CAFE</title>
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <style>
     .changecontent::after {
@@ -103,103 +104,141 @@
   </nav>
 
   <div class="reserve">
-    <h1>Boka en plats</h1>
-    <p>Välj en plats som passar bäst för dina behov! Vi erbjuder mångsidiga platser för olika ändamål.</p>
-  </div>
-  <hr>
-  <main class="main">
-    <div class="aside2" id="register-id">
-      <h2>Platsbeskrivning</h2>
-      <hr>
-      <p></p>
-      <img src="../../css/kuvat/tila2.jpg" alt="plats2" class="tila1">
+    <h1 class="reserve">Boka plats</h1>
+    <hr>
+    <p class="tilaP"><b>Välj det rum som bäst passar dina behov!</b> Vi erbjuder olika typer av rum för olika ändamål.
+      <br><br> Priserna för rummen varierar beroende på deras storlek och användningssyfte.
+      <br><br> Rumsbokningar är giltiga i <b>2–4 timmar.</b>
+      <br><br> För mer information, vänligen kontakta oss via e-post!
+      <hr><br> Du kan skicka en bokningsförfrågan via <a href="#" id="open-modal">detta formulär</a> eller genom att
+      mejla oss på: <b>info@ascafe.fi</b>
+      <br><br>
+    </p>
 
-      <div>
-        <p>Denna plats är lämplig för 2 till 4 personer!</p>
-        <table border="0.5">
-          <tr>
-            <th>Platsnamn</th>
-            <th>Storlek</th>
-            <th>Tid</th>
-            <th>Pris</th>
-          </tr>
-          <tr>
-            <td>Plats1</td>
-            <td>15m<sup>2</sup></td>
-            <td>1</td>
-            <td>10€</td>
-            <td><button type="submit">Boka</button></td>
-          </tr>
-          <hr>
-        </table>
-        <hr>
+    <!-- Modaali ikkuna -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="close-modal">&times;</span>
+        <h2>Boka plats</h2>
+        <form id="bookingForm" onsubmit="return sendEmail();">
+          <div>
+            <label>Ditt Namn:</label>
+            <input type="text" name="name" required>
+          </div>
+          <div>
+            <label>Din E-post:</label>
+            <input type="email" name="email" required>
+          </div>
+          <div>
+            <label>Ditt Telefonnummer:</label>
+            <input type="tel" name="phone" required>
+          </div>
+          <div>
+            <label name="selected_space">Välj en Lokal:</label>
+            <select required>
+              <option>Baristans Hörn</option>
+              <option>Latte Lounge</option>
+              <option>S&A Special</option>
+            </select>
+          </div>
+          <div>
+            <label><b>Bokningsinformation</b></label>
+            <p>
+              För att säkerställa bästa möjliga service, vänligen meddela oss följande:
+            </p>
+            <ul>
+              <li><strong>Syfte:</strong> Vad är syftet med evenemanget?</li>
+              <li><strong>Datum:</strong> När äger evenemanget rum? Ange även datum.</li>
+              <li><strong>Tid:</strong> När börjar och slutar evenemanget?</li>
+              <li><strong>Antal Gäster:</strong> Hur många personer kommer att delta?</li>
+            </ul>
+            <textarea name="message" required></textarea>
+            <p>Efter att du skickat formuläret kommer vi att kontakta dig via e-post!</p>
+          </div>
+          <button class="lähetä" type="submit">Skicka</button>
+        </form>
       </div>
     </div>
+    <hr>
 
-    <div class="aside2" id="register-id">
-      <h2>Platsbeskrivning</h2>
-      <hr>
-      <p></p>
-      <img src="../../css/kuvat/tila2.jpg" alt="plats2" class="tila1">
-      <p></p>
-      <div>
-        <p>Denna plats är lämplig för 5 till 9 personer!</p>
-        <table border="0.5">
-          <tr>
-            <th>Platsnamn</th>
-            <th>Storlek</th>
-            <th>Tid</th>
-            <th>Pris</th>
-          </tr>
-          <tr>
-            <td>Plats2</td>
-            <td>20m<sup>2</sup></td>
-            <td>1</td>
-            <td>10€</td>
-            <td><button type="submit">Boka</button></td>
-          </tr>
-          <hr>
-        </table>
+    <main class="main">
+      <div class="aside2" id="register-id">
+        <h2>Baristans hörna</h2>
         <hr>
-      </div>
-    </div>
+        <p></p>
+        <img src="../../css/kuvat/tilaKuva1.jpg" alt="plats2" class="tila1">
 
-    <div class="aside2" id="register-id">
-      <h2>Platsbeskrivning</h2>
-      <hr>
-      <p></p>
-      <img src="../../css/kuvat/tila2.jpg" alt="plats2" class="tila1">
-      <p></p>
-      <div>
-        <p>Denna plats är lämplig för 10 till 15 personer!</p>
-        <table border="0.8">
-          <tr>
-            <th>Platsnamn</th>
-            <th>Storlek</th>
-            <th>Tid</th>
-            <th>Pris</th>
-          </tr>
-          <tr>
-            <td>Plats3</td>
-            <td>25m<sup>2</sup></td>
-            <td>1</td>
-            <td>15€</td>
-            <td><button type="submit">Boka</button></td>
-          </tr>
+        <div>
+          <p>Denna plats är lämplig för 2 till 4 personer!</p>
+          <table border="0.5">
+            <tr>
+              <th>Storlek</th>
+              <th>Pris</th>
+            </tr>
+            <tr>
+              <td>25m<sup>2</sup></td>
+              <td>Från 40 € / h</td>
+            </tr>
+            <hr>
+          </table>
           <hr>
-        </table>
-        <hr>
+        </div>
       </div>
-    </div>
-  </main>
-  <hr>
+
+      <div class="aside2" id="register-id">
+        <h2>Latte Lounge</h2>
+        <hr>
+        <p></p>
+        <img src="../../css/kuvat/tilaKuva2.jpeg" alt="plats2" class="tila1">
+        <p></p>
+        <div>
+          <p>Denna plats är lämplig för 5 till 9 personer!</p>
+          <table border="0.5">
+            <tr>
+              <th>Storlek</th>
+              <th>Pris</th>
+            </tr>
+            <tr>
+              <td>35m<sup>2</sup></td>
+              <td>Från 60 € / h</td>
+            </tr>
+            <hr>
+          </table>
+          <hr>
+        </div>
+      </div>
+
+      <div class="aside2" id="register-id">
+        <h2>S&A Special</h2>
+        <hr>
+        <p></p>
+        <img src="../../css/kuvat/tilaKuva3.jpg" alt="plats2" class="tila1">
+        <p></p>
+        <div>
+          <p>Denna plats är lämplig för 10 till 15 personer!</p>
+          <table border="0.8">
+            <tr>
+              <th>Storlek</th>
+              <th>Pris</th>
+            </tr>
+            <tr>
+              <td>25m<sup>2</sup></td>
+              <td>Från 80 € / h</td>
+            </tr>
+            <hr>
+          </table>
+          <hr>
+        </div>
+      </div>
+    </main>
+    <hr>
 
 
-  <footer>
-    <p>&copy; S&A CAFE 2024</p>
-    <div class="changecontent">
-    </div>
-  </footer>
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+      <div class="changecontent">
+      </div>
+    </footer>
 
 </body>
 
