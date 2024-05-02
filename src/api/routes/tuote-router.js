@@ -3,6 +3,7 @@ import {
   getTuote,
   getTuoteByname,
   getTuoteById,
+  getLastTuoteId,
   postTuote,
   putTuote,
   deleteTuote,
@@ -43,5 +44,6 @@ tuoteRouter.route('/')
   });
 
 tuoteRouter.route('/name/:tuote_nimi').get(getTuoteByname);
+tuoteRouter.route('/lastid').get(getLastTuoteId);
 
 export default tuoteRouter;

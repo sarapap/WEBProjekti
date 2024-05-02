@@ -3,7 +3,7 @@ GET http://localhost:3000/api/v1/tyyppi
 
 
 ###get tyyppi id  by typyit
-GET http://localhost:3000/api/v1/tyyppi/kakut/juhlakakut
+GET http://localhost:3000/api/v1/tyyppi/suolaista/salaatit
 
 
 ### get paatyyppi by alatyyppi

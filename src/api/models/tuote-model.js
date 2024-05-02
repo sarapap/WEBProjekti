@@ -28,6 +28,23 @@ const findTuoteByname = async (tuote_nimi) => {
   return rows[0];
 };
 
+const findLastTuoteId = async () => {
+  try {
+    const [rows] = await promisePool.execute('SELECT tuote_id FROM tuote ORDER BY tuote_id DESC LIMIT 1');
+    if (rows.length > 0) {
+      const lastTuoteId = rows[0].tuote_id;
+      console.log('Last tuote_id:', lastTuoteId);
+      return lastTuoteId;
+    } else {
+      console.error('No tuote found');
+      return null;
+    }
+  } catch (error) {
+    console.error('Error fetching last tuote_id:', error);
+    throw error;
+  }
+};
+
 const addTuote = async (tuote, file) => {
   const { tuote_nimi, tuote_kuvaus, tuote_hinta, tuote_kustannus, tyyppi_id } = tuote;
 
@@ -92,4 +109,4 @@ const updateTuote = async (tuote, file, tuote_id) => {
   }
 };
 
-export {listAllTuote, findTuoteById, findTuoteByname, addTuote, removeTuoteById, updateTuote};
+export {listAllTuote, findTuoteById, findTuoteByname,findLastTuoteId, addTuote, removeTuoteById, updateTuote};

@@ -43,6 +43,7 @@
   </style>
   <script src="/javascript/default.js" defer></script>
   <script src="/javascript/paakayttaja.js" defer></script>
+  <script src="/javascript/uusituote.js" defer></script>
 </head>
 
 <body>
@@ -112,9 +113,68 @@
 
     <div class="ajan-section">
       <h1>产品管理</h1>
-      <button class="button">添加新产品</button>
-
+      <button class="button" id="openButton">添加新产品</button>
     </div>
+
+    <!-- Modaali dialogi -->
+    <dialog id="tuoteModal">
+
+    <div>
+      <h2>Lisää uusi tuote</h2>
+      <form id = "tuoteForm">
+        <label for="name">Tuote nimi:</label>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="kuvaus">Tuote kuvaus:</label><br>
+        <textarea id="kuvaus" name="kuvaus" rows="4" cols="500"></textarea><br>
+
+        <label for="image">Kuva:</label>
+        <input type="file" id="image" name="image"><br>
+
+        <label for="hinta">Hinta:</label>
+        <input type="text" id="hinta" name="hinta"><br>
+
+        <label for="kustannus">Kustannus:</label>
+        <input type="text" id="kustannus" name="kustannus"><br>
+
+        <label for="tyyppi">Tuotetyyppi:</label>
+        <select id="tyyppi" name="tyyppi">
+
+          <option value= "kakut">Kakut</option>
+          <option value="suolaista">Suolaiset ruuat</option>
+          <option value="makeaa">Makeaa</option>
+          <option value="lämmintä ruokaa">Lämmintä ruuat</option>
+          <option value="juotavaa">Juotavaa</option>
+        </select><br>
+
+        <label for="subtype">Alatyyppi:</label>
+        <select id="subtype" name="subtype">
+          <!-- Tähän tulee päätyypin valinnasta-->
+        </select><br>
+
+        <div id="kategoriat">
+          <p>Kategoria:</p><br>
+          <input type="checkbox" id="glugoositon" name="status" value="1">
+          <label for="glugoositon">Glugoositon</label><br>
+
+          <input type="checkbox" id="laktoositon" name="status" value="2">
+          <label for="laktoositon">Laktoositon</label><br>
+
+          <input type="checkbox" id="maidoton" name="status" value="3">
+          <label for="maidoton">Maidoton</label><br>
+
+          <input type="checkbox" id="munaton" name="status" value="4">
+          <label for="munaton">Munaton</label><br>
+        </div>
+
+        <button id="saveButton" type="button">Lisää tuote</button>
+        <button id="closeButton" type="button">Sulje</button>
+      </form>
+    </div>
+
+  </dialog>
+
+
     <div>
 
       <p>搜索并选定产品， 然后可进行编辑或删除。</p>
@@ -133,7 +193,7 @@
       <div>
         <h1>公司商业运营监督</h1>
         <h4>可查看您所选择期间的运营报告。</h4>
-        <label for="ajan">请选择时间段: </label>
+        <p>请选择时间段: </p>
         <form action="/varauksen-vahvistus" method="post">
           &nbsp;&nbsp;&nbsp;&nbsp;
           <label for="aloituspvm1">开始日期：</label>

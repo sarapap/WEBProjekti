@@ -5,6 +5,9 @@ GET http://localhost:3000/api/v1/tuote
 ###get tuote by id
 GET http://localhost:3000/api/v1/tuote/1
 
+### getviimeinen tuote id
+
+GET http://localhost:3000/api/v1/tuote/lastid
 
 ### get kategoria by name
 GET http://localhost:3000/api/v1/tuote/name/jääkahvi
@@ -51,6 +54,6 @@ Content-Type: from-data
     "tuote_kuva": "",
     "tuote_hinta": "3.25",
     "tuote_kustannus": "2.00",
-    "tuote_tyyppi": "mansikkakakku"
+    "tyyppi_id": ""
 }
 

@@ -2,6 +2,7 @@ import {
   listAllTuote,
   findTuoteById,
   findTuoteByname,
+  findLastTuoteId,
   addTuote,
   removeTuoteById,
   updateTuote
@@ -33,6 +34,21 @@ const getTuoteById = async(req, res) => {
         res.sendStatus(404);
     }
 };
+const getLastTuoteId = async (req, res) => {
+  try {
+    const tuote_id = await findLastTuoteId();
+    console.log('tuote_id', tuote_id);
+    if (!tuote_id) {
+      res.sendStatus(404);
+      return;
+    }
+    res.json(tuote_id);
+  } catch (error) {
+    console.error('Error getting last tuote_id:', error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
 
 const postTuote = async (req, res) => {
   console.log("body", req.body);
@@ -87,4 +103,4 @@ const deleteTuote = async (req, res) => {
     res.json(result);
 };
 
-export { getTuote, getTuoteByname, getTuoteById, postTuote, putTuote, deleteTuote };
+export { getTuote, getTuoteByname, getTuoteById, getLastTuoteId, postTuote, putTuote, deleteTuote };
