@@ -19,7 +19,6 @@ document.getElementById('cakeType').addEventListener('change', async () => {
   await fetchAndDisplayTuotteet();
 });
 
-
 const getSelectedAlaTyyppi = async() => {
   const selectedAlatyyppi = await updateSelectedAlatyyppi('cakeType').value;
   console.log('selectedAlatyyppi:', selectedAlatyyppi);
@@ -32,7 +31,6 @@ const getTyyppiIdLista = async () => {
     console.log('Valittu alatyyppi get id listassa:', selectedAlatyyppi);
 
     let url;
-
     if (selectedAlatyyppi === 'kaikki') {
       url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/kakut';
     } else if (selectedAlatyyppi === 'juhlakakut') {
@@ -52,7 +50,6 @@ const getTyyppiIdLista = async () => {
     }
 
     const tyyppiList = await response.json();
-
 
     if (Array.isArray(tyyppiList)) {
     const tyyppiIdList = tyyppiList.map((tyyppi) => tyyppi.tyyppi_id);
@@ -99,9 +96,7 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
     const tuote = await response.json();
     console.log('Tuote:', tuote);
 
-      // Luo uusi div-elementti tuotteelle
       const cakeList = document.getElementById('cakeList');
-
 
       const tuoteElement = document.createElement('div');
       tuoteElement.classList.add('cake-item');
@@ -146,7 +141,6 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
     } catch (error) {
       console.error('Virhe tuotteen hakemisessa:', error.message);
     }
-
 };
 fetchAndDisplayTuotteet();
 
