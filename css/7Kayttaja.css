@@ -183,7 +183,6 @@ nav li {
 
 .dropdown-menu a:hover {
   background-color: #eceae9;
-  ;
 }
 
 /* main */
@@ -192,9 +191,8 @@ nav li {
   display: block;
   height: 100px;
   margin: 20px 0px 20px 0px;
-  text-align: center;
+  text-align: left;
   border-radius: 1rem;
-  margin-top: 20px;
 }
 
 #omatiedot {
@@ -207,12 +205,19 @@ nav li {
 #omatiedot h1 {
   font-size: 24px;
   color: #333;
+  text-align: center;
 }
 
-#omatiedot p {
+#omatiedot p,
+label {
   font-size: 16px;
   color: #555;
-  margin: 10px 0;
+  margin: 20px 0px 20px 40px;
+}
+
+#allergia {
+  margin: 10px 0px 10px 40px;
+  padding: 50px;
 }
 
 #omatiedot .logOut {
@@ -222,13 +227,64 @@ nav li {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  margin-left: 38px;
+}
+
+.edit {
+  background-color: rgb(217, 124, 48);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 38px;
 }
 
 #omatiedot .logOut:hover {
   background-color: rgb(168, 94, 32);
 }
 
+.login-form label {
+  margin-left: -2px;
+}
 
+input,
+button,
+select {
+  font-size: irem;
+  padding: 0.25rem;
+
+}
+
+#name {
+  border: 1px solid #123456;
+}
+
+button {
+  background-color: rgb(219, 146, 56);
+  border: none;
+  border-radius: 0.5rem;
+  height: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(168, 94, 32);
+}
+
+.checkbox-container {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.radio-container {
+  text-align: left;
+  margin-top: 10px;
+}
+
+
+/* kuvat */
 .kuvat {
   height: 200px;
   background: none;
@@ -318,7 +374,6 @@ nav li {
   background-image: url('kuvat/kupongit_en.png');
 }
 
-
 .tiedot_et {
   display: inline-block;
   width: 150px;
@@ -391,41 +446,6 @@ nav li {
   padding: 20px;
   margin-left: 5%;
   margin-top: 30px;
-}
-
-.login-form label {
-  margin-left: -2px;
-}
-
-input,
-button,
-select {
-  font-size: irem;
-  padding: 0.25rem;
-
-}
-
-#name {
-  border: 1px solid #123456;
-}
-
-button {
-  background-color: rgb(219, 146, 56);
-  border: 1px solid rgb(219, 146, 56);
-  border-radius: 0.5rem;
-  height: 2rem;
-  color: white;
-  cursor: pointer;
-}
-
-.checkbox-container {
-  text-align: left;
-  margin-bottom: 10px;
-}
-
-.radio-container {
-  text-align: left;
-  margin-top: 10px;
 }
 
 /* footer */

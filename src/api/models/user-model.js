@@ -16,6 +16,7 @@ const findUserById = async (id) => {
   return rows[0];
 };
 
+
 const addUser = async (user) => {
   const {
     etunimi,
@@ -62,7 +63,6 @@ const addUser = async (user) => {
   }
 };
 
-
 const findUserByUsername = async (tunnus) => {
   try {
     const [rows] = await promisePool.execute(
@@ -78,8 +78,6 @@ const findUserByUsername = async (tunnus) => {
     return false;
   }
 };
-
-
 
 const removeUser = async (id) => {
   const connection = await promisePool.getConnection();
@@ -122,6 +120,27 @@ const updateUser = async (user, asiakas_id) => {
   }
 };
 
+const updateUserPassword = async (userId, hashedNewPassword) => {
+  const sql = 'UPDATE asiakas SET salasana = ? WHERE asiakas_id = ?';
+  const values = [hashedNewPassword, userId];
+
+  try {
+    const [result] = await promisePool.execute(sql, values);
+
+    if (result.affectedRows === 0) {
+      return false;
+    }
+
+    return true;
+
+  } catch (error) {
+    console.error("Virhe salasanan päivittämisessä:", error);
+    throw error;
+  }
+};
+
+
+
 export {
   listAllUsers,
   findUserById,
@@ -129,4 +148,5 @@ export {
   findUserByUsername,
   removeUser,
   updateUser,
+  updateUserPassword
 };

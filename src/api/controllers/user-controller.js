@@ -1,8 +1,9 @@
-import { listAllUsers, findUserById, findUserByUsername, addUser, updateUser, removeUser } from '../models/user-model.js';
+import { listAllUsers, findUserById, findUserByUsername, addUser, updateUser, removeUser, updateUserPassword } from '../models/user-model.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import promisePool from '../../utils/database.js';
 import config from '../../config/config.js';
+const SECRET_KEY = config.SECRET_KEY;
 
 const getUser = async (req, res) => {
     const users = await listAllUsers();
@@ -30,8 +31,6 @@ const getUserById = async (req, res) => {
         res.sendStatus(404);
     }
 };
-
-const SECRET_KEY = config.SECRET_KEY;
 
 const postUser = async (req, res) => {
     try {
@@ -125,12 +124,34 @@ const userLoginPost = async (req, res) => {
 
 
 const putUser = async (req, res) => {
-    const result = await updateUser(req.body, req.params.asiakas_id, res.locals.user);
-    if (!result) {
-        res.sendStatus(400);
-        return;
+    try {
+        const asiakas_id = req.params.id;
+
+        const updatedFields = {
+            etunimi: req.body.etunimi || null,
+            sukunimi: req.body.sukunimi || null,
+            tunnus: req.body.tunnus || null,
+            salasana: req.body.salasana ? bcrypt.hashSync(req.body.salasana, 10) : null,
+            email: req.body.email || null,
+            puhelin: req.body.puhelin || null,
+        };
+
+        const sanitizedFields = Object.fromEntries(
+            Object.entries(updatedFields).filter(([, value]) => value !== null)
+        );
+
+        const result = await updateUser(sanitizedFields, asiakas_id);
+
+        if (!result) {
+            res.status(400).send('Päivitys epäonnistui');
+            return;
+        }
+
+        res.json(result);
+    } catch (error) {
+        console.error('Virhe päivittäessä käyttäjää:', error);
+        res.status(500).send('Sisäinen palvelinvirhe');
     }
-    res.json(result);
 };
 
 const deleteUser = async (req, res) => {
@@ -173,4 +194,43 @@ const getUserInfo = async (req, res) => {
     }
 };
 
-export { getUser, getUserByUsername, getUserById, postUser, userLoginPost, putUser, deleteUser, getUserInfo };
+const updatePasswordController = async (req, res) => {
+    try {
+        const newPassword = req.body.salasana;
+
+        if (!newPassword) {
+            return res.status(400).send("Uusi salasana on pakollinen.");
+        }
+
+        const user = await findUserById(req.params.id);
+
+        if (!user) {
+            return res.status(404).send("Käyttäjää ei löydy.");
+        }
+
+        const hashedNewPassword = bcrypt.hashSync(newPassword, 10);
+
+        const result = await updateUserPassword(req.params.id, hashedNewPassword);
+
+        if (!result) {
+            return res.status(400).send("Salasanan päivitys epäonnistui.");
+        }
+
+        return res.status(200).send("Salasana päivitetty onnistuneesti.");
+
+    } catch (error) {
+        console.error("Virhe salasanan päivityksessä:", error);
+        return res.status(500).send("Sisäinen palvelinvirhe.");
+    }
+};
+
+export {
+    getUser, getUserByUsername,
+    getUserById,
+    postUser,
+    userLoginPost,
+    putUser,
+    deleteUser,
+    getUserInfo,
+    updatePasswordController
+};

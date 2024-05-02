@@ -121,33 +121,6 @@
     </div>
 
     <div class=aside2 id="omatiedot">
-      <h1>Personal information</h1><br>
-      <p>Tietosdot haetaan tietokannasta. Käyttäjä voi muokkaa ja tallenta.</p>
-      <button class="logOut" type="button" onclick="logOut()"><b>Log out</b></button>
-
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          const links = document.querySelectorAll('a');
-
-          links.forEach(link => {
-            if (link.href.endsWith('11Login_en.html')) {
-              link.addEventListener('click', function (event) {
-                event.preventDefault();
-
-                const authToken = localStorage.getItem('authToken');
-
-                if (authToken) {
-                  window.location.href = '7Kayttaja_en.html';
-                } else {
-                  window.location.href = '11Login_en.html';
-                }
-              });
-            }
-          });
-        });
-      </script>
-
-      </form>
     </div>
   </main>
   <footer>
