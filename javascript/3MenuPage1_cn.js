@@ -128,13 +128,21 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
 
       // Lisää "Lisää ostoskoriin" -painike
       const buttonElement = document.createElement('button');
-      buttonElement.textContent = '加入购物车';
+      buttonElement.textContent = 'Lisää ostoskoriin';
       tuoteElement.appendChild(buttonElement);
+      buttonElement.addEventListener('click', () => {
+        console.log('Tuote id laitamaan koriin:', tuote.tuote_id);
+        addToCart(3, tuote.tuote_id);
+
+      });
 
       //lisää "tallenna suosikkeihin" -painike
       const buttonElement2 = document.createElement('button');
-      buttonElement2.textContent = '加入收藏';
+      buttonElement2.textContent = 'Tallenna suosikkeihin';
       tuoteElement.appendChild(buttonElement2);
+      buttonElement2.addEventListener('click', () => {
+        addFavorite(3, tuote.tuote_id);
+      });
 
       // Lisää tuoteElementti listaan
       cakeList.appendChild(tuoteElement);
@@ -142,5 +150,84 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
       console.error('Virhe tuotteen hakemisessa:', error.message);
     }
 };
-fetchAndDisplayTuotteet();
 
+const addFavorite = async (asiakas_id, tuote_id) => {
+  const suosikit = await getFavoriteList(asiakas_id);
+  console.log('Suosikit list käymään läpi:', suosikit);
+
+  for (const suosikki of suosikit) {
+    console.log('Suosikki:', suosikki);
+    if (suosikki.tuote_id === tuote_id) {
+      console.log('Tuote on jo suosikeissa');
+      return;
+    } else {
+      try {
+        const response = await fetch(`http://localhost:3000/api/v1/suosikit`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            asiakas_id: asiakas_id,
+            tuote_id: tuote_id,
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Virhe tuote hakemisessa');
+        }
+        console.log('Tuote lisätty suosikkeihin');
+      } catch (error) {
+        console.error('Virhe tuotteen hakemisessa:', error.message);
+      }
+    }
+  }
+};
+
+let tuote_maara = 0;
+
+const addToCart = async (asiakas_id, tuote_id) => {
+  tuote_maara = tuote_maara + 1;
+  console.log('Tuote määrä:', tuote_maara);
+  try {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        asiakas_id: asiakas_id,
+        tuote_id: tuote_id,
+        tuote_maara: tuote_maara,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Virhe tuote hakemisessa');
+    }
+    console.log('Tuote lisätty ostoskoriin');
+  } catch (error) {
+    console.error('Virhe tuotteen hakemisessa:', error.message);
+  }
+};
+
+const getFavoriteList = async (asiakas_id) => {
+  try {
+    const response = await fetch(`http://localhost:3000/api/v1/suosikit/${asiakas_id}`, {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      throw new Error('Virhe suosikkien hakemisessa');
+    }
+    const suosikit = await response.json();
+    console.log('Suosikit:', suosikit);
+    return suosikit;
+
+  } catch (error) {
+    console.error('Virhe suosikkien hakemisessa:', error.message);
+    console.log('Suosikit:', suosikit);
+  }
+}
+
+fetchAndDisplayTuotteet();

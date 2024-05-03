@@ -84,7 +84,7 @@ const fetchAndDisplayTuotteet = async () => {
   }
 };
 
-const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
+const findTuote = async (tyyppiId) => {
   try {
     const response = await fetch(`http://localhost:3000/api/v1/tuote/tyyppi_id/${tyyppiId}`, {
       method: 'GET',
@@ -95,6 +95,12 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
     }
     const tuote = await response.json();
     console.log('Tuote:', tuote);
+
+  } catch (error) {
+    console.error('Virhe tuotteen hakemisessa:', error.message);
+    return tuote;
+  }
+  const fetchAndDisplayByTyyppiId
 
       const cakeList = document.getElementById('cakeList');
 
@@ -130,17 +136,56 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
       const buttonElement = document.createElement('button');
       buttonElement.textContent = 'Lisää ostoskoriin';
       tuoteElement.appendChild(buttonElement);
+      buttonElement.id = 'addToCart';
 
       //lisää "tallenna suosikkeihin" -painike
       const buttonElement2 = document.createElement('button');
       buttonElement2.textContent = 'Tallenna suosikkeihin';
       tuoteElement.appendChild(buttonElement2);
+      buttonElement2.id = 'saveFavorite';
 
       // Lisää tuoteElementti listaan
       cakeList.appendChild(tuoteElement);
-    } catch (error) {
-      console.error('Virhe tuotteen hakemisessa:', error.message);
-    }
-};
-fetchAndDisplayTuotteet();
+
+
+
+  } catch (error) {
+    console.error('Virhe tuotteen hakemisessa:', error.message);
+  }
+
+  const addToCart = document.getElementById('addToCart');
+  addToCartButton.addEventListener('click', async () => {
+    const tuoteId = tuote.tuote_id;
+    console.log('Tuote id:', tuoteId);
+    const asiakas_id = localStorage.getItem('asiakas_id');
+    console.log('Tuote id:', tuoteId);
+    console.log('Asiakas id:', asiakas_id);
+
+    console.log('Ostoskoriin lisätty');
+
+  });
+
+
+
+ };
+ fetchAndDisplayTuotteet();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if (document.getElementById('addToCart')) {
+  addToCart();
+}
 
