@@ -364,6 +364,7 @@ footer {
     .etusivu {
         height: auto;
         display: flex;
+        width: 90%;
     }
 
     .cakeImg {
@@ -380,7 +381,8 @@ footer {
         height: auto;
     }
 
-    video, .imageFrontPage  {
+    video,
+    .imageFrontPage {
         width: 90%;
     }
 
@@ -395,7 +397,8 @@ footer {
         display: block;
     }
 
-    video, .imageFrontPage {
+    video,
+    .imageFrontPage {
         width: 90%;
     }
 
@@ -421,7 +424,7 @@ footer {
 
     .aside1,
     .aside2 {
-        width: 100%;
+        width: 120%;
         margin-bottom: 40px;
         height: auto;
     }

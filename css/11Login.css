@@ -265,7 +265,7 @@ p {
 
 /* media */
 
-@media screen and (min-width:801px) {
+@media screen and (min-width:885px) {
   .main {
     display: flex;
     width: 100%;
@@ -281,12 +281,10 @@ p {
 
   .aside1 {
     width: 35%;
-
   }
 
   .aside2 {
     width: 55%;
-
   }
 
   .footer-container {
