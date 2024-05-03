@@ -8,12 +8,12 @@ POST http://localhost:3000/api/v1/asiakas
 Content-Type: application/json
 
 {
-    "etunimi": "Sara",
-    "sukunimi": "Pappila",
-    "tunnus": "sarapap2",
-    "salasana": "password",
-    "rooli": "user",
-    "email": "sarapap@ascafe.fi",
+    "etunimi": "Anna",
+    "sukunimi": "Anaaa",
+    "tunnus": "anna2",
+    "salasana": "123",
+    "rooli": "admin",
+    "email": "anna@ascafe.fi",
     "puhelin": "0445423713",
     "syntymapaiva": "2002-01-14",
     "ehdot_hyvaksytty": "1",

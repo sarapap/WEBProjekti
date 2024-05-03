@@ -7,6 +7,10 @@ GET http://localhost:3000/api/v1/ostoskori
 GET http://localhost:3000/api/v1/ostoskori/4
 
 
+###get tuote määrä by asiakas_id and tuote_id
+GET http://localhost:3000/api/v1/ostoskori/12/20
+
+
 ### uusi tuote ostoskoriin
 POST http://localhost:3000/api/v1/ostoskori
 Content-Type: application/json
@@ -18,12 +22,12 @@ Content-Type: application/json
 }
 
 ### Päivitä tuotteen määrää by asiakas_id and tuote_id
-PUT  http://localhost:3000/api/v1/ostoskori/3/4
+PUT http://localhost:3000/api/v1/ostoskori/12/20
 Content-Type: application/json
 
 {
-    "tuote_maara": "1"
+    "tuote_maara": "10"
 }
 
 ###Delete suosikit by asiakas_id and tuote_id
-DELETE http://localhost:3000/api/v1/ostoskori/3/3
+DELETE http://localhost:3000/api/v1/ostoskori/12/16

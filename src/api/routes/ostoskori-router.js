@@ -1,6 +1,7 @@
 import {
   getOstokset,
   geOstosByAsiakasId,
+  getTuoteMaaraByAsiakasIdAndTuoteId,
   postOstos,
   putOstosTuoteenMaara,
   deleteOstosById
@@ -12,7 +13,7 @@ import express from 'express';
 const ostoskoriRouter = express.Router();
 
 ostoskoriRouter.route('/').get(getOstokset).post(postOstos);
-ostoskoriRouter.route('/:asiakas_id').get(geOstosByAsiakasId);
-ostoskoriRouter.route('/:asiakas_id/:tuote_id').delete(deleteOstosById).put(putOstosTuoteenMaara);
+ostoskoriRouter.route('/:asiakas_id').get(geOstosByAsiakasId).delete(deleteOstosById);
+ostoskoriRouter.route('/:asiakas_id/:tuote_id').get(getTuoteMaaraByAsiakasIdAndTuoteId).put(putOstosTuoteenMaara);
 
 export default ostoskoriRouter;

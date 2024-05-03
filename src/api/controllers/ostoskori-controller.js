@@ -2,6 +2,7 @@
 import {
   listAllostokset,
   findOstosByAsiakasId,
+  findTuoteMaaraByAsiakasIdAndTuoteId,
   addOstoskoriin,
   updateOstosTuoteenMaara,
   removeOstosById
@@ -23,7 +24,17 @@ const ostokset = await findOstosByAsiakasId(req.params.asiakas_id);
   } else {
       res.sendStatus(404);
   }
-}
+};
+
+const getTuoteMaaraByAsiakasIdAndTuoteId = async (req, res) => {
+  const tuotemaara = await findTuoteMaaraByAsiakasIdAndTuoteId(req.params.asiakas_id, req.params.tuote_id);
+  if (tuotemaara) {
+      res.json(tuotemaara);
+
+  } else {
+      res.sendStatus(404);
+  }
+};
 
 const postOstos = async (req, res) => {
 console.log(req.body);
@@ -62,6 +73,7 @@ const deleteOstosById = async (req, res) => {
 export {
 getOstokset,
 geOstosByAsiakasId,
+getTuoteMaaraByAsiakasIdAndTuoteId,
 postOstos,
 deleteOstosById,
 putOstosTuoteenMaara

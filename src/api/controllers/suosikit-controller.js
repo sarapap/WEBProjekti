@@ -2,7 +2,8 @@ import {
   listAllSuosikit,
   findSuosikkiByAsiakasId,
   addSuosikki,
-  removeSuosikkiById
+  removeSuosikkiById,
+  removeSuosikkiByasiakasIdAndTuoteId
 } from '../models/suosikit-model.js';
 
 const getsuosikit = async (req, res) => {
@@ -45,9 +46,19 @@ const deletesuosikkiById = async (req, res) => {
   res.json(result);
 };
 
+const deletesuosikkiByasiakasIdAndTuoteId = async (req, res) => {
+  const result = await removeSuosikkiByasiakasIdAndTuoteId(req.params.asiakas_id, req.params.tuote_id);
+  if (!result) {
+      res.sendStatus(400);
+      return;
+  }
+  res.json(result);
+}
+
 export {
 getsuosikit,
 getsuosikkiByAsiakasId,
 postsuosikki,
-deletesuosikkiById
+deletesuosikkiById,
+deletesuosikkiByasiakasIdAndTuoteId
 };

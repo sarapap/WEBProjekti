@@ -17,6 +17,18 @@ const findOstosByAsiakasId = async (id) => {
   return rows;
 };
 
+const findTuoteMaaraByAsiakasIdAndTuoteId = async (asiakas_id, tuote_id) => {
+  const [rows] = await promisePool.execute(
+      'SELECT tuote_maara FROM ostoskori WHERE asiakas_id = ? AND tuote_id = ?',
+      [asiakas_id, tuote_id]
+  );
+  if (rows.length === 0) {
+      return false;
+  }
+  return rows[0];
+}
+
+
 const addOstoskoriin = async (ostos) => {
   const {asiakas_id, tuote_id, tuote_maara} = ostos;
 
@@ -79,9 +91,12 @@ const removeOstosById = async (asiakas_id, tuote_id) => {
   }
 };
 
+
+
 export {
   listAllostokset,
   findOstosByAsiakasId,
+  findTuoteMaaraByAsiakasIdAndTuoteId,
   addOstoskoriin,
   updateOstosTuoteenMaara,
   removeOstosById
