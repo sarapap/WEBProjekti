@@ -1,8 +1,6 @@
 'use strict';
 
-
 // get asiakas id from local storage
-
 const getUserId = () => {
   const token = localStorage.getItem('authToken');
   const base64Payload = token.split('.')[1];
@@ -117,23 +115,27 @@ try {
 
   let addCartText = '';
   let addFavoriteText = '';
+  let unfavorateText = '';
   let hintaTeksti = '';
   let maaraTeksti = '';
   switch (selectedLanguage) {
       case 'EN':
           addCartText = 'Addto cart';
           addFavoriteText = 'Add to favorites';
+          unfavorateText = 'Unlike';
           hintaTeksti = 'Price: ';
           break;
       case 'CN':
           addCartText = '添加到购物车';
-          addFavoriteText = '添加到收藏夹';
+          addFavoriteText = '添加收藏';
+          unfavorateText = '删除收藏';
           hintaTeksti = '价格: ';
           maaraTeksti = '数量: ';
           break;
       case 'ET':
           addCartText = 'Lisa ostukorvi';
           addFavoriteText = 'Lisa lemmikutesse';
+          unfavorateText = 'Eemalda';
           hintaTeksti = 'Hind: ';
           hintaTeksti = 'Kogus: ';
           maaraTeksti = 'Kogus: ';
@@ -141,6 +143,7 @@ try {
       case 'SV':
           addCartText = 'Lägg till i kundvagnen';
           addFavoriteText = 'Lägg till i favoriter';
+          unfavorateText = 'Olikt';
           hintaTeksti = 'Pris: ';
           maaraTeksti = 'Mängd: ';
           break;
@@ -148,6 +151,7 @@ try {
       default:
           addCartText = 'Lisää ostoskoriin';
           addFavoriteText = 'Tallenna suosikkeihin';
+          unfavorateText = 'Poista suosikkeista';
           hintaTeksti = 'Hinta: ';
           maaraTeksti = 'Määrä: ';
           break;
@@ -206,17 +210,15 @@ try {
 
     // Lisää "Lisää ostoskoriin" -painike
     const buttonElement = document.createElement('button');
-    buttonElement.textContent = addCartText;
+     buttonElement.textContent =  addCartText;
+    buttonElement.style.backgroundColor = 'rgb(192, 160, 122)';
     tuoteElement.appendChild(buttonElement);
-    buttonElement.style.backgroundColor = 'rgb(192, 160, 122)'
-
 
      //lisää "tallenna suosikkeihin" -painike
      const buttonElement2 = document.createElement('button');
      buttonElement2.textContent =  addFavoriteText;
+     buttonElement2.style.backgroundColor = 'rgb(192, 160, 122)';
      tuoteElement.appendChild(buttonElement2);
-
-
 
     buttonElement.addEventListener('click', async() => {
         const lisaaTuoteMaara = numberInput.value;
@@ -237,67 +239,30 @@ try {
       }
     });
 
-
-
-
-
     // Lisää tapahtumankäsittelijä "Tallenna suosikkeihin" -painikkeelle
     buttonElement2.addEventListener('click', async () => {
       let isFavorite = await favorateTarkistus(userId);
+      if(isFavorite === true) {
 
-      switch (isFavorite) {
-        case false:
+        buttonElement2.textContent === 'Like'
+        console.log('Tuote on jo suosikeissa');
+      } else {
+        buttonElement2.textContent === 'Unlike'
 
-          buttonElement2.textContent = 'Tallenna suosikkeihin';
-          buttonElement2.style.backgroundColor = 'gray';
-          console.log('Suosikkeja ei löytynyt');
-          isFavorite = true;
-          await addFavorite(userId, tuote.tuote_id);
-          break;
-
-     case true:
-        buttonElement2.textContent = 'Pois suosikkeista';
-        buttonElement2.style.backgroundColor = 'rgb(192, 160, 122)';
-        isFavorite = false;
-        await removeSuosikista(userId, tuote.tuote_id);
-        break
-
-        default:
-          buttonElement2.textContent = 'Tallenna suosikkeihin';
-          buttonElement2.style.backgroundColor = 'rgb(192, 160, 122)';
-          break;
-
-
+        console.log('Tuote ei ole suosikeissa');
       }
 
+      // Tarkistetaan nykyinen tila ja vaihdetaan tarvittaessa
+      if (buttonElement2.textContent === addFavoriteText) {
+        buttonElement2.textContent = unfavorateText;
+        await addFavorite(userId, tuote.tuote_id);
+        isFavorite = true;
+    } else {
+        buttonElement2.textContent = addFavoriteText;
+        await removeSuosikista(userId, tuote.tuote_id);
+        isFavorite = false;
+    }
     });
-    //   switch (isFavorite) {
-    //     case false:
-    //       console.log('Suosikkeja ei löytynyt');
-    //       await addFavorite(userId, tuote.tuote_id);
-    //       isFavorite = true;
-    //       buttonElement2.textContent = 'Pois suosikkeista';
-    //       buttonElement2.style.backgroundColor = 'grey';
-    //       break;
-    //     case true:
-    //       console.log('Tuote on jo suosikeissa');
-    //       await removeSuosikista(userId, tuote.tuote_id);
-    //       isFavorite = false;
-    //       buttonElement2.textContent = 'Tallenna suosikkeihin';
-    //       buttonElement2.style.backgroundColor = 'rgb(192, 160, 122)';
-    //       break;
-    //     default:
-    //       buttonElement2.textContent = 'Tallenna suosikkeihin';
-    //       buttonElement2.style.backgroundColor = 'rgb(192, 160, 122)';
-
-    //       break;
-    //   }
-    // });
-
-
-
-
-
 
     // Lisää tuoteElementti listaan
     cakeList.appendChild(tuoteElement);
@@ -333,7 +298,6 @@ const favorateTarkistus = async (userId, tuote_id) => {
   }
 };
 
-
 const addFavorite = async (asiakas_id, tuote_id) => {
     try {
       const response = await fetch(`http://localhost:3000/api/v1/suosikit`, {
@@ -356,7 +320,6 @@ const addFavorite = async (asiakas_id, tuote_id) => {
     } catch (error) {
       console.error('Virhe tuotteen hakemisessa:', error.message);
     }
-
 };
 
 const geTuoteMaaraFromCart = async (userId, tuote_id) => {
@@ -379,7 +342,6 @@ const geTuoteMaaraFromCart = async (userId, tuote_id) => {
     return 0;
   }
 }
-
 
 const addToCart = async (userId, tuote_id, tuote_maara) => {
   const maaraKorissa = await geTuoteMaaraFromCart(userId, tuote_id);
@@ -509,7 +471,6 @@ const updateCart = async (userID, tuote_id, lisaamaara) => {
   console.log('korissa oleva määrä11:', tuoteMaaraKorissa);
   console.log('Tuote maara:11', lisaamaara);
   console.log('Tuote uusi määrä  id11:', uusimaara);
-
 
   try {
     const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}/${tuote_id}`, {
