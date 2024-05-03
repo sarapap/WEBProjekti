@@ -120,10 +120,11 @@ try {
   let maaraTeksti = '';
   switch (selectedLanguage) {
       case 'EN':
-          addCartText = 'Addto cart';
+          addCartText = 'Add to cart';
           addFavoriteText = 'Add to favorites';
           unfavorateText = 'Unlike';
           hintaTeksti = 'Price: ';
+          maaraTeksti = 'Amount: ';
           break;
       case 'CN':
           addCartText = '添加到购物车';
@@ -137,7 +138,6 @@ try {
           addFavoriteText = 'Lisa lemmikutesse';
           unfavorateText = 'Eemalda';
           hintaTeksti = 'Hind: ';
-          hintaTeksti = 'Kogus: ';
           maaraTeksti = 'Kogus: ';
           break;
       case 'SV':
