@@ -15,7 +15,7 @@ POST http://localhost:3000/api/v1/kategoria
 Content-Type: application/json
 
 {
-    "kategoria_nimi": "kasvis"
+    "kategoria_nimi": "taimetoitlane"
 }
 
 ###Delete kategoria by id

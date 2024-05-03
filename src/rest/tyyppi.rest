@@ -15,8 +15,8 @@ POST http://localhost:3000/api/v1/tyyppi
 Content-Type: application/json
 
 {
-    "paatyyppi": "koogid",
-    "alatyyppi": "magusadkoogid"
+    "paatyyppi": "joogid",
+    "alatyyppi": "karastusjoogid"
 }
 
 ###Delete tyyppi by id

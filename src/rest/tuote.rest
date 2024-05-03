@@ -22,28 +22,28 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0g
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_nimi"
 
-Kermainen Kanakeitto
+Praetud lõhe
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kuvaus"
 
-Kermainen kanakeittomme on täydellinen valinta, kun kaipaat lohduttavaa ja täyteläistä ruokaa. Mehevät kananpalat yhdistettynä kermaiseen liemeen ja raikkaisiin vihanneksiin luovat suussasulavan makuelämyksen. Tämä keitto lämmittää niin kehoa kuin mieltäkin.
+Meie praetud lõhe on täiuslik kombinatsioon maitsest ja tervisest. Lõhefilee on küpsetatud täiuslikkuseni, millel on krõbe välispind ja õrn sisemus. Seda serveeritakse maitsvate kartulite ja krõbedate roheliste ubadega.
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_hinta"
 
-20.00
+28.00
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kustannus"
 
-13.00
+17.00
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tyyppi_id"
 
-10
+51
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="tuote_kuva"; filename="chickenSoup.jpeg"
+Content-Disposition: form-data; name="tuote_kuva"; filename="salmon.jpg"
 Content-Type: image/jpeg
 
-< kuvat/lamminruoka/chickenSoup.jpeg
+< kuvat/lamminruoka/salmon.jpg
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
 
