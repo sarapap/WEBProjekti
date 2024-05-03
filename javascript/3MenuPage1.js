@@ -1,5 +1,19 @@
 'use strict';
 
+document.addEventListener('DOMContentLoaded', () => {
+  const token = localStorage.getItem('authToken');
+
+  const base64Payload = token.split('.')[1];
+  const payload = atob(base64Payload);
+  const parsedPayload = JSON.parse(payload);
+
+  let userID = parsedPayload.asiakas_id;
+  console.log('Tuote:', tuote);
+  const userStatusElement = document.getElementById('userStatus');
+
+
+});
+
 const handleNewValue = async () => {
   const alatyyppi = getSelectedAlaTyyppi();
   await updateSubtypes(alatyyppi);
@@ -39,6 +53,14 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/kakut/suolaiset%20kakut';
     } else if (selectedAlatyyppi === 'makeat kakut') {
       url = 'http://localhost:3000/api/v1/tyyppi/kakut/makeat%20kakut';
+    } else if (selectedAlatyyppi === '全部') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/蛋糕';
+    } else if (selectedAlatyyppi === '节日蛋糕') {
+      url = 'http://localhost:3000/api/v1/tyyppi/蛋糕/节日蛋糕';
+    } else if (selectedAlatyyppi === '咸味蛋糕') {
+      url = 'http://localhost:3000/api/v1/tyyppi/蛋糕/咸味蛋糕';
+    } else if (selectedAlatyyppi === '甜味蛋糕') {
+      url = 'http://localhost:3000/api/v1/tyyppi/蛋糕/甜味蛋糕';
     }
 
     const response = await fetch(url, {
@@ -96,6 +118,36 @@ try {
   const tuote = await response.json();
   console.log('Tuote:', tuote);
 
+  const kieli = document.getElementById('kieli');
+
+  const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+
+  let addCartText = '';
+  let addFavoriteText = '';
+  switch (selectedLanguage) {
+      case 'EN':
+          addCartText = 'Addto cart';
+          addFavoriteText = 'Add to favorites';
+          break;
+      case 'CN':
+          addCartText = '添加到购物车';
+          addFavoriteText = '添加到收藏夹';
+          break;
+      case 'ET':
+          addCartText = 'Lisa ostukorvi';
+          addFavoriteText = 'Lisa lemmikutesse';
+          break;
+      case 'SV':
+          addCartText = 'Lägg till i kundvagnen';
+          addFavoriteText = 'Lägg till i favoriter';
+          break;
+      case 'FI':
+      default:
+          addCartText = 'Lisää ostoskoriin';
+          addFavoriteText = 'Tallenna suosikkeihin';
+          break;
+      }
+
     const cakeList = document.getElementById('cakeList');
 
     const tuoteElement = document.createElement('div');
@@ -128,7 +180,7 @@ try {
 
     // Lisää "Lisää ostoskoriin" -painike
     const buttonElement = document.createElement('button');
-    buttonElement.textContent = 'Lisää ostoskoriin';
+    buttonElement.textContent = addCartText;
     tuoteElement.appendChild(buttonElement);
     buttonElement.addEventListener('click', () => {
       console.log('Tuote id laitamaan koriin:', tuote.tuote_id);
@@ -138,7 +190,7 @@ try {
 
     //lisää "tallenna suosikkeihin" -painike
     const buttonElement2 = document.createElement('button');
-    buttonElement2.textContent = 'Tallenna suosikkeihin';
+    buttonElement2.textContent =  addFavoriteText;
     tuoteElement.appendChild(buttonElement2);
     buttonElement2.addEventListener('click', () => {
       addFavorite(3, tuote.tuote_id);
@@ -229,5 +281,8 @@ try {
   console.log('Suosikit:', suosikit);
 }
 }
+
+
+
 
 fetchAndDisplayTuotteet();
