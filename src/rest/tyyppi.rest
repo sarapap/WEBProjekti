@@ -15,8 +15,8 @@ POST http://localhost:3000/api/v1/tyyppi
 Content-Type: application/json
 
 {
-    "paatyyppi": "咸味食品",
-    "alatyyppi": "馅饼"
+    "paatyyppi": "饮品",
+    "alatyyppi": "冰咖啡"
 }
 
 ###Delete tyyppi by id
