@@ -46,20 +46,20 @@ const getTyyppiIdLista = async () => {
         if (selectedAlatyyppi === 'kaikki') {
             url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/lammintaruokaa';
         } else if (selectedAlatyyppi === 'kanaruuat') {
-            url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/lampimatruuat';
+            url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/kanaruuat';
         } else if (selectedAlatyyppi === 'muut lämpimät ruuat') {
-            url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/muutlampimatruuat';
+            url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/muut%20lämpimät%20ruuat';
         }
 
-        const response = await fetch(url, {
-            method: 'GET',
-        });
+        console.log('Fetching from URL:', url);
+        const response = await fetch(url, { method: 'GET' });
 
         if (!response.ok) {
             throw new Error('Virhe alatyyppien hakemisessa');
         }
 
         const tyyppiList = await response.json();
+        console.log('TyyppiList JSON:', tyyppiList);
 
         if (Array.isArray(tyyppiList)) {
             const tyyppiIdList = tyyppiList.map((tyyppi) => tyyppi.tyyppi_id);
@@ -78,28 +78,30 @@ const getTyyppiIdLista = async () => {
 };
 
 const fetchAndDisplayTuotteet = async () => {
-
     const IdResult = await getTyyppiIdLista();
+    console.log('IdResult:', IdResult);
 
-    if (!Array.isArray(IdResult)) {
-        const tyyppiId = IdResult;
-        console.log('Tyyppi id_ not list:', tyyppiId);
-
-        await fetchAndDisplayByTyyppiId(tyyppiId);
-    } else {
+    if (Array.isArray(IdResult) && IdResult.length === 1) {
+        console.log('Fetching for a single tyyppi_id:', IdResult[0]);
+        await fetchAndDisplayByTyyppiId(IdResult[0]);
+    } else if (Array.isArray(IdResult)) {
         for (const tyyppiId of IdResult) {
-
+            console.log('Fetching for tyyppi_id:', tyyppiId);
             await fetchAndDisplayByTyyppiId(tyyppiId);
         }
+    } else {
+        console.error('Unexpected data structure for IdResult:', IdResult);
     }
 };
+
+
 
 const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
     try {
         const response = await fetch(`http://localhost:3000/api/v1/tuote/tyyppi_id/${tyyppiId}`, {
             method: 'GET',
         });
-
+        console.log('Fetching products for tyyppi_id:', tyyppiId);
         if (!response.ok) {
             throw new Error('Virhe tuote hakemisessa');
         }
@@ -141,24 +143,20 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
         const tuoteElement = document.createElement('div');
         tuoteElement.classList.add('cake-item');
 
-        // Lisää kuvakehys
         const imgElement = document.createElement('img');
-        imgElement.src = `../../../uploads/${tuote.tuote_kuva}`; // Olettaen, että tuotteella on kuvaattribuutti
+        imgElement.src = `../../../uploads/${tuote.tuote_kuva}`;
         tuoteElement.appendChild(imgElement);
 
-        // Lisää tuotteen nimi
         const h3Element = document.createElement('h3');
         h3Element.textContent = tuote.tuote_nimi;
         tuoteElement.appendChild(h3Element);
 
-        // Lisää tuotteen kuvaus
         const pElement = document.createElement('p');
         pElement.textContent = tuote.tuote_kuvaus;
         tuoteElement.appendChild(pElement);
 
-        //lisää hinta
         const pElement2 = document.createElement('p');
-        const hintaElement = document.createElement('strong'); // tai käytä <b>-elementtiä
+        const hintaElement = document.createElement('strong');
         hintaElement.textContent = 'Hinta: ';
         pElement2.appendChild(hintaElement);
 
@@ -166,7 +164,6 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
         pElement2.appendChild(hintaTeksti);
         tuoteElement.appendChild(pElement2);
 
-        // Lisää "Lisää ostoskoriin" -painike
         const buttonElement = document.createElement('button');
         buttonElement.textContent = addCartText;
         tuoteElement.appendChild(buttonElement);
