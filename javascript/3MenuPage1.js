@@ -2,7 +2,7 @@
 
 const handleNewValue = async () => {
   const alatyyppi = getSelectedAlaTyyppi();
-  await updateSubtypes(alaTyyppi);
+  await updateSubtypes(alatyyppi);
 };
 
 const updateSelectedAlatyyppi = () => {

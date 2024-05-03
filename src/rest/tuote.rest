@@ -22,11 +22,12 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0g
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_nimi"
 
-Lohivoileipäkakku
+粉色梦想
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kuvaus"
 
-Voileipäkakku on juhlapöydän klassikko. Tämä lohivoileipäkakku saa sisäänsä mehukkaan savulohitäytteen. Pintaa koristaa raikkaasti parsa, retiisi, kurkku ja lohen mäti.
+这是一款能给我们带来感官享受的粉红梦幻。 蛋糕可以选择不同的口味，香草、巧克力或红丝绒海绵蛋糕。
+ 非常适合生日、周年纪念日、浪漫场合、母亲节或您生命中特别的女士。
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_hinta"
 

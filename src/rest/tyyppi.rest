@@ -3,7 +3,7 @@ GET http://localhost:3000/api/v1/tyyppi
 
 
 ###get tyyppi id  by typyit
-GET http://localhost:3000/api/v1/tyyppi/kakut/makeat kakut
+GET http://localhost:3000/api/v1/tyyppi/kakut/makeatKakut
 
 
 ### get paatyyppi by alatyyppi
@@ -15,10 +15,10 @@ POST http://localhost:3000/api/v1/tyyppi
 Content-Type: application/json
 
 {
-    "paatyyppi": "juotavaa",
-    "alatyyppi": "virvoitusjuomat"
+    "paatyyppi": "糕点",
+    "alatyyppi": "节日蛋糕"
 }
 
 ###Delete tyyppi by id
-DELETE http://localhost:3000/api/v1/tyyppi/17
+DELETE http://localhost:3000/api/v1/tyyppi/18
 
