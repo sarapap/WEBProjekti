@@ -128,7 +128,7 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
 
       // Lisää "Lisää ostoskoriin" -painike
       const buttonElement = document.createElement('button');
-      buttonElement.textContent = 'Lisää ostoskoriin';
+      buttonElement.textContent = '加入购物筐';
       tuoteElement.appendChild(buttonElement);
       buttonElement.addEventListener('click', () => {
         console.log('Tuote id laitamaan koriin:', tuote.tuote_id);
@@ -138,7 +138,7 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
 
       //lisää "tallenna suosikkeihin" -painike
       const buttonElement2 = document.createElement('button');
-      buttonElement2.textContent = 'Tallenna suosikkeihin';
+      buttonElement2.textContent = '加入收藏';
       tuoteElement.appendChild(buttonElement2);
       buttonElement2.addEventListener('click', () => {
         addFavorite(3, tuote.tuote_id);
