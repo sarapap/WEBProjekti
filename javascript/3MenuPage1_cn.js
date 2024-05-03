@@ -31,14 +31,14 @@ const getTyyppiIdLista = async () => {
     console.log('Valittu alatyyppi get id listassa:', selectedAlatyyppi);
 
     let url;
-    if (selectedAlatyyppi === 'kaikki') {
-      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/kakut';
-    } else if (selectedAlatyyppi === 'juhlakakut') {
-      url = 'http://localhost:3000/api/v1/tyyppi/kakut/juhlakakut';
-    } else if (selectedAlatyyppi === 'suolaiset kakut') {
-      url = 'http://localhost:3000/api/v1/tyyppi/kakut/suolaiset%20kakut';
-    } else if (selectedAlatyyppi === 'makeat kakut') {
-      url = 'http://localhost:3000/api/v1/tyyppi/kakut/makeat%20kakut';
+    if (selectedAlatyyppi === '全部') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/蛋糕';
+    } else if (selectedAlatyyppi === '节日蛋糕') {
+      url = 'http://localhost:3000/api/v1/tyyppi/蛋糕/节日蛋糕';
+    } else if (selectedAlatyyppi === '咸味蛋糕') {
+      url = 'http://localhost:3000/api/v1/tyyppi/蛋糕/咸味蛋糕';
+    } else if (selectedAlatyyppi === '甜味蛋糕') {
+      url = 'http://localhost:3000/api/v1/tyyppi/蛋糕/甜味蛋糕';
     }
 
     const response = await fetch(url, {
@@ -119,7 +119,7 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
       //lisää hinta
       const pElement2 = document.createElement('p');
       const hintaElement = document.createElement('strong'); // tai käytä <b>-elementtiä
-      hintaElement.textContent = 'Hinta: ';
+      hintaElement.textContent = '价格: ';
       pElement2.appendChild(hintaElement);
 
       const hintaTeksti = document.createTextNode(tuote.tuote_hinta + ' €');
@@ -128,12 +128,12 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
 
       // Lisää "Lisää ostoskoriin" -painike
       const buttonElement = document.createElement('button');
-      buttonElement.textContent = 'Lisää ostoskoriin';
+      buttonElement.textContent = '加入购物车';
       tuoteElement.appendChild(buttonElement);
 
       //lisää "tallenna suosikkeihin" -painike
       const buttonElement2 = document.createElement('button');
-      buttonElement2.textContent = 'Tallenna suosikkeihin';
+      buttonElement2.textContent = '加入收藏';
       tuoteElement.appendChild(buttonElement2);
 
       // Lisää tuoteElementti listaan

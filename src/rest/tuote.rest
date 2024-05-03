@@ -22,23 +22,23 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0g
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_nimi"
 
-Lohivoileipäkakku
+烟熏三文鱼三明治蛋糕
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kuvaus"
 
-Voileipäkakku on juhlapöydän klassikko. Tämä lohivoileipäkakku saa sisäänsä mehukkaan savulohitäytteen. Pintaa koristaa raikkaasti parsa, retiisi, kurkku ja lohen mäti.
+三明治蛋糕是聚会餐桌上的经典蛋糕。 这款三文鱼三明治蛋糕里面有多汁的烟熏三文鱼馅料。 新鲜的装饰有芦笋、萝卜、黄瓜和鲑鱼子。
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_hinta"
 
-38.00
+48.00
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kustannus"
 
-19.00
+22.00
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tyyppi_id"
 
-3
+21
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kuva"; filename="lohivoileipakakku.jpg"
 Content-Type: image/jpeg
