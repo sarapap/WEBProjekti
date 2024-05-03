@@ -57,9 +57,33 @@ const removeSuosikkiById = async (asiakas_id, tuote_id) => {
   }
 };
 
+const removeSuosikkiByasiakasIdAndTuoteId = async (asiakas_id, tuote_id) => {
+  const connection = await promisePool.getConnection();
+  try {
+      const [rows] = await promisePool.execute(
+          'DELETE FROM suosikit WHERE asiakas_id = ? AND tuote_id = ?',
+          [asiakas_id, tuote_id]
+      );
+      if (rows.affectedRows === 0) {
+          return false;
+      }
+      await connection.commit();
+      return {
+          message: 'Suosikki deleted',
+      };
+  } catch (error) {
+      await connection.rollback();
+      console.error('error', error.message);
+      return false;
+  } finally {
+      connection.release();
+  }
+}
+
 export {
   listAllSuosikit,
   findSuosikkiByAsiakasId,
   addSuosikki,
-  removeSuosikkiById
+  removeSuosikkiById,
+  removeSuosikkiByasiakasIdAndTuoteId
 };

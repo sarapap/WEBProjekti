@@ -251,7 +251,7 @@ nav li {
     width: 100%;
     padding: 8px;
     margin-top: 10px;
-    background-color: rgb(192, 160, 122);
+    /* background-color: rgb(192, 160, 122); */
     color: #fff;
     border: none;
     border-radius: 5px;
