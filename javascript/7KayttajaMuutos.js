@@ -29,7 +29,30 @@ async function submitForm(event) {
 
         if (response.ok) {
             alert("Tiedot päivitetty onnistuneesti.");
-            window.location.href = '7Kayttaja.html';
+            const kieli = document.getElementById('kieli');
+            const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+
+            let targetPage = '';
+            switch (selectedLanguage) {
+                case 'EN':
+                    targetPage = '../../html/en/7Kayttaja_en.html';
+                    break;
+                case 'CN':
+                    targetPage = '../../html/cn/7Kayttaja_cn.html';
+                    break;
+                case 'ET':
+                    targetPage = '../../html/et/7Kayttaja_et.html';
+                    break;
+                case 'SV':
+                    targetPage = '../../html/sv/7Kayttaja_sv.html';
+                    break;
+                case 'FI':
+                default:
+                    targetPage = '../../html/fi/7Kayttaja.html';
+                    break;
+            }
+
+            window.location.href = targetPage;
         } else {
             throw new Error('Päivitys epäonnistui');
         }
@@ -38,6 +61,7 @@ async function submitForm(event) {
     }
 }
 
+/* tiedot esille */
 document.addEventListener("DOMContentLoaded", async () => {
     const token = localStorage.getItem("authToken");
 
@@ -99,7 +123,30 @@ document.getElementById("changePasswordForm").addEventListener("submit", functio
         .then(response => {
             if (response.ok) {
                 alert("Salasana on vaihdettu.");
-                window.location.href = "7Kayttaja.html";
+                const kieli = document.getElementById('kieli');
+                const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+
+                let targetPage = '';
+                switch (selectedLanguage) {
+                    case 'EN':
+                        targetPage = '../../html/en/7Kayttaja_en.html';
+                        break;
+                    case 'CN':
+                        targetPage = '../../html/cn/7Kayttaja_cn.html';
+                        break;
+                    case 'ET':
+                        targetPage = '../../html/et/7Kayttaja_et.html';
+                        break;
+                    case 'SV':
+                        targetPage = '../../html/sv/7Kayttaja_sv.html';
+                        break;
+                    case 'FI':
+                    default:
+                        targetPage = '../../html/fi/7Kayttaja.html';
+                        break;
+                }
+
+                window.location.href = targetPage;
             } else {
                 alert("Virhe salasanan päivityksessä.");
             }
