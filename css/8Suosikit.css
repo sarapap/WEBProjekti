@@ -56,36 +56,29 @@ header {
   width: 80%;
   height: 300px;
 }
-
-.suosikit {
-  display: inline-block;
-  width: 30px;
-  height: 25px;
-  margin: 7px;
-  background-image: url('kuvat/heart_red.png');
-  background-size: cover;
-}
-
 .käyttäjä {
   display: inline-block;
-  width: 35px;
-  height: 27px;
-  margin: 7px;
-  background-image: url('kuvat/usericon.png');
+  margin: 10px;
+  font-size: 20px;
+  background-size: cover;
+
+}
+.suosikit {
+  display: inline-block;
+  margin: 10px;
+  font-size: 20px;
   background-size: cover;
 }
 
 .ostoskori {
   display: inline-block;
-  width: 31px;
-  height: 27px;
-  margin: 7px;
-  background-image: url('kuvat/shoppingcart.png');
+  margin: 10px;
+  font-size: 20px;
   background-size: cover;
 }
 
 .kieli {
-  margin: 7px -10px 0px 0px;
+  margin: 7px 10px 0px 0px;
 }
 
 #kieli {

@@ -58,28 +58,23 @@ header {
 
 .suosikit {
     display: inline-block;
-    width: 30px;
-    height: 25px;
-    margin: 7px;
-    background-image: url('kuvat/heart.png');
+    margin: 10px;
+    font-size: 20px;
     background-size: cover;
 }
 
 .käyttäjä {
     display: inline-block;
-    width: 35px;
-    height: 27px;
-    margin: 7px;
-    background-image: url('kuvat/usericon.png');
+    margin: 10px;
+    font-size: 20px;
+    background-size: cover;
     background-size: cover;
 }
 
 .ostoskori {
     display: inline-block;
-    width: 31px;
-    height: 27px;
-    margin: 7px;
-    background-image: url('kuvat/shoppingcart.png');
+    margin: 10px;
+    font-size: 20px;
     background-size: cover;
 }
 
