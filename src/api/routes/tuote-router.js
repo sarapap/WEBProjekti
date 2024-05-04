@@ -45,7 +45,8 @@ tuoteRouter.route('/')
   });
 
 tuoteRouter.route('/name/:tuote_nimi').get(getTuoteByname);
-tuoteRouter.route('/lastid').get(getLastTuoteId);
+tuoteRouter.route('/lastid/').get(getLastTuoteId);
 tuoteRouter.route('/tyyppi_id/:tyyppi_id').get(getTuoteByTyyppiId);
+
 
 export default tuoteRouter;

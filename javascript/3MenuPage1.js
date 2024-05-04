@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 // get asiakas id from local storage
 const getUserId = () => {
   const token = localStorage.getItem('authToken');
@@ -530,7 +532,7 @@ const getTuoteMaaraFromCart = async (userId, tuote_id) => {
     const data = await response.json();
     const maara = data.tuote_maara;
 
-    console.log('Tuote maara5, oikein :', maara);
+    console.log('Tuote maara, oikein :', maara);
     return maara;
   } catch (error) {
     console.error('Virhe tuotteen hakemisessa:', error.message);
@@ -579,5 +581,6 @@ const getKategoriaById = async (kategoriaId) => {
     console.error('Virhe kategorian hakemisessa:', error.message);
   }
 };
+
 
 fetchAndDisplayTuotteet();

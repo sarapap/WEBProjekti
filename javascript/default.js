@@ -82,5 +82,84 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+'use strict';
+
+// get asiakas id from local storage
+const getUserId = () => {
+  const token = localStorage.getItem('authToken');
+  const base64Payload = token.split('.')[1];
+  const payload = atob(base64Payload);
+  const parsedPayload = JSON.parse(payload);
+  let userId = parsedPayload.asiakas_id;
+  console.log('asiakas id:', userId);
+  return userId;
+}
+
+const userId = getUserId();
+console.log('userId:', userId);
+
+// Päivitä ostoskorin numero
+const paivitaOstoskorinNumero = async () => {
+  console.log('paivitaOstoskorinNumero: userId:', userId);
+  const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
+  const tuotteet = await getTuotteenMaaraByUserId(userId);
+  ostoskoriLkmElement.textContent = tuotteet.length.toString();
+}
+
+const paivitaSuosikkiMaara = async () => {
+  await getSuosikinMaaraByUserId(userId);
+}
+
+const getSuosikinMaaraByUserId = async (userId) => {
+  try {
+    const response = await fetch(`http://localhost:3000/api/v1/suosikit/${userId}`, {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      throw new Error('Virhe suosikkien hakemisessa');
+    }
+
+    const suosikit = await response.json();
+    console.log('Suosikkien määrä:', suosikit.length.toString());
+
+    const suosikkiLkmElement = document.getElementById('suosikki-lkm');
+    suosikkiLkmElement.textContent = suosikit.length.toString();
+
+  } catch (error) {
+    console.error('Virhe suosikkien hakemisessa:', error.message);
+    return 0;
+  }
+}
+
+const getTuotteenMaaraByUserId = async (userId) => {
+  console.log('getTuotteenMaaraByUserId: userId:', userId);
+  try {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      throw new Error('Virhe ostoskorin hakemisessa');
+    }
+    const tuotteet = await response.json();
+    const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
+    ostoskoriLkmElement.textContent = tuotteet.length.toString();
+    console.log('Tuoteen määrä ostoskorissa:', tuotteet.length.toString());
+    return tuotteet; // Palautetaan tuotteet
+  } catch (error) {
+    console.error('Virhe ostoskorin hakemisessa:', error.message);
+    return []; // Palautetaan tyhjä taulukko virhetilanteessa
+  }
+}
+
+const disPlayIconNumerot = async () => {
+  await paivitaOstoskorinNumero();
+  await paivitaSuosikkiMaara();
+}
+
+disPlayIconNumerot();
+
+
 
 

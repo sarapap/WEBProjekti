@@ -25,7 +25,7 @@ const findTuoteByTyyppeId = async (tyyppi_id) => {
   if (rows.length === 0) {
       return false;
   }
-  return rows[0];
+  return rows;
 };
 
 const findTuoteByname = async (tuote_nimi) => {
@@ -36,7 +36,21 @@ const findTuoteByname = async (tuote_nimi) => {
   if (rows.length === 0) {
       return false;
   }
-  return rows[0];
+  return rows;
+};
+
+const findTuoteMaaraByUserId = async (userId) => {
+  try {
+    const [rows] = await promisePool.execute('SELECT * FROM ostoskori WHERE user_id = ?', [userId]);
+    if (rows.length === 0) {
+      return 0;
+    } else {
+      return rows.length;
+    }
+  } catch (error) {
+    console.error('Error fetching tuote:', error);
+    throw error;
+  }
 };
 
 const findLastTuoteId = async () => {
@@ -120,4 +134,4 @@ const updateTuote = async (tuote, file, tuote_id) => {
   }
 };
 
-export {listAllTuote, findTuoteById, findTuoteByTyyppeId, findTuoteByname,findLastTuoteId, addTuote, removeTuoteById, updateTuote};
+export {listAllTuote, findTuoteById, findTuoteMaaraByUserId,findTuoteByTyyppeId, findTuoteByname,findLastTuoteId, addTuote, removeTuoteById, updateTuote};
