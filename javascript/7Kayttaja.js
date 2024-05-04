@@ -28,6 +28,7 @@ function logOut() {
     window.location.href = logoutPage;
 }
 
+/*tiedot esille*/
 document.addEventListener("DOMContentLoaded", async function () {
     const token = localStorage.getItem("authToken");
 
@@ -53,6 +54,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         const userData = await response.json();
         const userName = userData.nimi || "";
+        const userLastname = userData.sukunimi || "";
         const userUsername = userData.tunnus || "";
         const userEmail = userData.email || "";
         const userPhone = userData.puhelin || "";
@@ -66,6 +68,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             FI: {
                 title: "Omat tiedot",
                 name: "Nimi",
+                lastname: "Sukunimi",
                 username: "Tunnus",
                 email: "Sähköposti",
                 phone: "Puhelin",
@@ -78,6 +81,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             EN: {
                 title: "Personal Information",
                 name: "Name",
+                lastname: "Lastname",
                 username: "Username",
                 email: "Email",
                 phone: "Phone",
@@ -90,6 +94,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             CN: {
                 title: "个人信息",
                 name: "名字",
+                lastname: "姓",
                 username: "用户名",
                 email: "电子邮件",
                 phone: "电话",
@@ -102,6 +107,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             ET: {
                 title: "Isiklik teave",
                 name: "Nimi",
+                lastname: "Perekonnanimi",
                 username: "Kasutajanimi",
                 email: "E-post",
                 phone: "Telefon",
@@ -114,6 +120,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             SV: {
                 title: "Personlig information",
                 name: "Namn",
+                lastname: "Efternamn",
                 username: "Användarnamn",
                 email: "E-post",
                 phone: "Telefon",
@@ -173,6 +180,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         omatTiedotSection.innerHTML = `
             <h1>${t.title}</h1><br>
             <p>${t.name}: ${userName}</p>
+            <p>${t.lastname}: ${userLastname}</p>
             <p>${t.username}: ${userUsername}</p>
             <p>${t.email}: ${userEmail}</p>
             <p>${t.phone}: ${userPhone}</p>
@@ -189,7 +197,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         `;
 
     } catch (error) {
-        console.error("Error fetching user information:", error.message);
     }
 });
 
@@ -214,7 +221,6 @@ function getAllergiat() {
             return [];
         }
     } catch (error) {
-        console.error("Virhe allergioiden hakemisessa:", error);
         return [];
     }
 }

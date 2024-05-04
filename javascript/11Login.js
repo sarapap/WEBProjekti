@@ -58,12 +58,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         window.location.href = targetPage;
                     } else {
-                        alert('Kirjautuminen epäonnistui. Tarkista käyttäjätunnus ja salasana.');
+                        switch (selectedLanguage) {
+                            case 'EN':
+                                alert('Login failed. Please check your username and password.');
+                                break;
+                            case 'CN':
+                                alert('登录失败。请检查您的用户名和密码。');
+                                break;
+                            case 'ET':
+                                alert('Sisselogimine ebaõnnestus. Kontrolli oma kasutajanime ja parooli.');
+                                break;
+                            case 'SV':
+                                alert('Inloggningen misslyckades. Kontrollera ditt användarnamn och lösenord.');
+                                break;
+                            case 'FI':
+                            default:
+                                alert('Kirjautuminen epäonnistui. Tarkista käyttäjätunnus ja salasana.');
+                                break;
+                        }
                     }
                 })
                 .catch(error => {
-                    console.error('Väärä käyttäjätunnus tai salasana.', error);
-                    alert('Väärä käyttäjätunnus tai salasana.');
+                    switch (selectedLanguage) {
+                        case 'EN':
+                            alert('An error occurred during login. Please try again later.');
+                            break;
+                        case 'CN':
+                            alert('登录时发生错误。请稍后再试。');
+                            break;
+                        case 'ET':
+                            alert('Sisselogimisel ilmnes viga. Palun proovi hiljem uuesti.');
+                            break;
+                        case 'SV':
+                            alert('Ett fel uppstod vid inloggning. Försök igen senare.');
+                            break;
+                        case 'FI':
+                        default:
+                            alert('Virhe kirjautumisessa. Yritä myöhemmin uudelleen.');
+                            break;
+                    }
                 });
         });
     }

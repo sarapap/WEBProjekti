@@ -51,31 +51,69 @@ document.addEventListener('DOMContentLoaded', function () {
                         let targetPage = '';
                         switch (selectedLanguage) {
                             case 'EN':
+                                alert('Registration successful. Welcome!')
                                 targetPage = '../../html/en/7Kayttaja_en.html';
                                 break;
                             case 'CN':
+                                alert('注册成功。欢迎！')
                                 targetPage = '../../html/cn/7Kayttaja_cn.html';
                                 break;
                             case 'ET':
+                                alert('Registreerimine õnnestus. Tere tulemast!')
                                 targetPage = '../../html/et/7Kayttaja_et.html';
                                 break;
                             case 'SV':
+                                alert('Registreringen lyckades. Välkommen!')
                                 targetPage = '../../html/sv/7Kayttaja_sv.html';
                                 break;
                             case 'FI':
                             default:
+                                alert('Rekisteröinti onnistui. Tervetuloa!')
                                 targetPage = '../../html/fi/7Kayttaja.html';
                                 break;
                         }
 
                         window.location.href = targetPage;
                     } else {
-                        alert('Rekisteröinti epäonnistui. Yritä uudelleen.');
+                        switch (selectedLanguage) {
+                            case 'EN':
+                                alert('Registration failed. Please try again.');
+                                break;
+                            case 'CN':
+                                alert('注册失败。请再试一次。');
+                                break;
+                            case 'ET':
+                                alert('Registreerimine ebaõnnestus. Palun proovi uuesti.');
+                                break;
+                            case 'SV':
+                                alert('Registreringen misslyckades. Försök igen.');
+                                break;
+                            case 'FI':
+                            default:
+                                alert('Rekisteröinti epäonnistui. Yritä uudelleen.');
+                                break;
+                        }
                     }
                 })
                 .catch(error => {
-                    console.error('Virhe rekisteröinnissä:', error);
-                    alert('Rekisteröinti epäonnistui. Yritä uudelleen.');
+                    switch (selectedLanguage) {
+                        case 'EN':
+                            alert('An error occurred during registration. Please try again later.');
+                            break;
+                        case 'CN':
+                            alert('注册时发生错误。请稍后再试。');
+                            break;
+                        case 'ET':
+                            alert('Registreerimisel ilmnes viga. Palun proovi hiljem uuesti.');
+                            break;
+                        case 'SV':
+                            alert('Ett fel uppstod vid registrering. Försök igen senare.');
+                            break;
+                        case 'FI':
+                        default:
+                            alert('Virhe rekisteröinnissä. Yritä myöhemmin uudelleen.');
+                            break;
+                    }
                 });
         });
     }

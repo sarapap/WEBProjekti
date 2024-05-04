@@ -55,11 +55,45 @@ function sendEmail() {
         .sendForm("service_r413uj9", "template_gxtq4ji", "#bookingForm")
         .then(
             function (response) {
-                alert("Lomake lähetetty onnistuneesti!");
+                switch (selectedLanguage) {
+                    case 'EN':
+                        alert("Form submitted successfully!");
+                        break;
+                    case 'CN':
+                        alert("表格已成功提交！");
+                        break;
+                    case 'ET':
+                        alert("Vorm on edukalt saadetud!");
+                        break;
+                    case 'SV':
+                        alert("Formuläret har skickats framgångsrikt!");
+                        break;
+                    case 'FI':
+                    default:
+                        alert("Lomake lähetetty onnistuneesti!");
+                        break;
+                }
                 window.location.href = targetPage;
             },
             function (error) {
-                alert("Lomakkeen lähetys epäonnistui. Yritä uudelleen myöhemmin.");
+                switch (selectedLanguage) {
+                    case 'EN':
+                        alert("Failed to send the form. Please try again later.");
+                        break;
+                    case 'CN':
+                        alert("提交表格失败。请稍后再试。");
+                        break;
+                    case 'ET':
+                        alert("Vormi saatmine ebaõnnestus. Palun proovi hiljem uuesti.");
+                        break;
+                    case 'SV':
+                        alert("Misslyckades med att skicka formuläret. Försök igen senare.");
+                        break;
+                    case 'FI':
+                    default:
+                        alert("Lomakkeen lähetys epäonnistui. Yritä uudelleen myöhemmin.");
+                        break;
+                }
             }
         );
 
