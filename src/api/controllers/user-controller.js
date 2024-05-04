@@ -186,7 +186,8 @@ const getUserInfo = async (req, res) => {
         }
 
         res.status(200).json({
-            nimi: `${userData.etunimi} ${userData.sukunimi}`,
+            nimi: userData.etunimi,
+            sukunimi: userData.sukunimi,
             tunnus: userData.tunnus,
             email: userData.email,
             puhelin: userData.puhelin,
