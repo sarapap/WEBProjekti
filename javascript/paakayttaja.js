@@ -84,12 +84,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     window.location.href = targetPage;
                 } else {
-                    throw new Error("Käyttäjän lisääminen epäonnistui");
+                    switch (selectedLanguage) {
+                        case 'EN':
+                            alert("Failed to add user. Please try again.");
+                            break;
+                        case 'CN':
+                            alert("添加用户失败。请再试一次。");
+                            break;
+                        case 'ET':
+                            alert("Kasutaja lisamine ebaõnnestus. Proovi uuesti.");
+                            break;
+                        case 'SV':
+                            alert("Misslyckades med att lägga till användare. Försök igen.");
+                            break;
+                        case 'FI':
+                        default:
+                            alert("Käyttäjän lisääminen epäonnistui.");
+                            break;
+                    }
                 }
 
             } catch (error) {
-                console.error("Virhe SQL-kyselyssä:", error.message);
-                alert("Virhe käyttäjän lisäämisessä.");
+                switch (selectedLanguage) {
+                    case 'EN':
+                        alert("An error occurred while adding the user.");
+                        break;
+                    case 'CN':
+                        alert("添加用户时发生错误。");
+                        break;
+                    case 'ET':
+                        alert("Kasutaja lisamisel tekkis viga.");
+                        break;
+                    case 'SV':
+                        alert("Ett fel uppstod när användaren lades till.");
+                        break;
+                    case 'FI':
+                    default:
+                        alert("Virhe käyttäjän lisäämisessä.");
+                        break;
+                }
             }
         });
     }
@@ -111,7 +144,30 @@ function getUserRoleFromToken(token) {
 document.addEventListener("DOMContentLoaded", function () {
     const token = localStorage.getItem("authToken");
     if (!token) {
-        window.location.href = "../../html/fi/11Login.html";
+        const kieli = document.getElementById('kieli');
+        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+
+        let redirectPage;
+        switch (selectedLanguage) {
+            case 'EN':
+                redirectPage = '../../html/en/11Login_en.html';
+                break;
+            case 'CN':
+                redirectPage = '../../html/cn/11login_cn.html';
+                break;
+            case 'ET':
+                redirectPage = '../../html/et/11Login_et.html';
+                break;
+            case 'SV':
+                redirectPage = '../../html/sv/11Login_sv.html';
+                break;
+            case 'FI':
+            default:
+                redirectPage = '../../html/fi/11Login.html';
+                break;
+        }
+
+        window.location.href = redirectPage;
         return;
     }
 
@@ -171,11 +227,6 @@ window.addEventListener('DOMContentLoaded', () => {
             const startDate = startDateElement.value;
             const endDate = endDateElement.value;
 
-            if (!startDate || !endDate) {
-                console.error("Aloitus- ja lopetuspäivämäärä ovat pakollisia");
-                return;
-            }
-
             try {
                 const response = await fetch(`http://localhost:3000/api/v1/palaute/${startDate}/${endDate}`, {
                     method: "GET",
@@ -193,15 +244,10 @@ window.addEventListener('DOMContentLoaded', () => {
                         palauteTbody.appendChild(row);
                     });
 
-                } else {
-                    console.error("Ei onnistunut:", response.statusText);
                 }
-
             } catch (error) {
                 console.error("Virhe yhteydessä palvelimeen:", error);
             }
         });
-    } else {
-        console.error("Painiketta ei löydy.");
     }
 });

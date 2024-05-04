@@ -25,20 +25,54 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             .catch(error => {
-                console.error('Virhe tarkistettaessa käyttäjän tyyppiä:', error);
             });
-    } else {
-        console.error('Autentikaatiotoken puuttuu');
     }
 });
 
 /* alennuskoodit */
 
 function copyToClipboard(text) {
+    const kieli = document.getElementById('kieli');
+    const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+
     navigator.clipboard.writeText(text).then(() => {
-        alert("Koodi kopioitu: " + text);
+        switch (selectedLanguage) {
+            case 'EN':
+                alert("Code copied to clipboard: " + text);
+                break;
+            case 'CN':
+                alert("代码已复制到剪贴板：" + text);
+                break;
+            case 'ET':
+                alert("Kood kopeeritud lõikelauale: " + text);
+                break;
+            case 'SV':
+                alert("Koden kopierades till urklipp: " + text);
+                break;
+            case 'FI':
+            default:
+                alert("Koodi kopioitu leikepöydälle: " + text);
+                break;
+        }
     }).catch(err => {
-        console.error("Virhe kopioitaessa leikepöydälle:", err);
+        switch (selectedLanguage) {
+            case 'EN':
+                alert("Error copying to clipboard. Please try again.");
+                break;
+            case 'CN':
+                alert("复制到剪贴板时出错。请再试一次。");
+                break;
+            case 'ET':
+                alert("Lõikelauale kopeerimisel tekkis viga. Proovi uuesti.");
+                break;
+            case 'SV':
+                alert("Fel vid kopiering till urklipp. Försök igen.");
+                break;
+            case 'FI':
+            default:
+                alert("Virhe kopioitaessa leikepöydälle. Yritä uudelleen.");
+                break;
+        }
     });
 }
 

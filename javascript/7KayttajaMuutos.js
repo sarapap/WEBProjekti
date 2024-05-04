@@ -28,36 +28,74 @@ async function submitForm(event) {
         });
 
         if (response.ok) {
-            alert("Tiedot päivitetty onnistuneesti.");
             const kieli = document.getElementById('kieli');
             const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
             let targetPage = '';
             switch (selectedLanguage) {
                 case 'EN':
+                    alert("Information updated successfully.")
                     targetPage = '../../html/en/7Kayttaja_en.html';
                     break;
                 case 'CN':
+                    alert("信息已成功更新。")
                     targetPage = '../../html/cn/7Kayttaja_cn.html';
                     break;
                 case 'ET':
+                    alert("Teave on edukalt uuendatud.")
                     targetPage = '../../html/et/7Kayttaja_et.html';
                     break;
                 case 'SV':
+                    alert("Informationen har uppdaterats framgångsrikt.")
                     targetPage = '../../html/sv/7Kayttaja_sv.html';
                     break;
                 case 'FI':
                 default:
+                    alert("Tiedot päivitetty onnistuneesti.");
                     targetPage = '../../html/fi/7Kayttaja.html';
                     break;
             }
 
             window.location.href = targetPage;
         } else {
-            throw new Error('Päivitys epäonnistui');
+            switch (selectedLanguage) {
+                case 'EN':
+                    alert("Failed to update information. Please try again.");
+                    break;
+                case 'CN':
+                    alert("信息更新失败。请再试一次。");
+                    break;
+                case 'ET':
+                    alert("Teave uuendamine ebaõnnestus. Palun proovi uuesti.");
+                    break;
+                case 'SV':
+                    alert("Uppdateringen misslyckades. Försök igen.");
+                    break;
+                case 'FI':
+                default:
+                    alert("Päivitys epäonnistui. Yritä uudelleen.");
+                    break;
+            }
         }
     } catch (error) {
-        alert("Käyttäjätunnus on varattu. Valitse toinen käyttäjätunnus.");
+        switch (selectedLanguage) {
+            case 'EN':
+                alert("Username is already taken. Please choose another one.");
+                break;
+            case 'CN':
+                alert("用户名已被占用。请选择另一个。");
+                break;
+            case 'ET':
+                alert("Kasutajanimi on juba kasutusel. Palun vali teine.");
+                break;
+            case 'SV':
+                alert("Användarnamnet är redan upptaget. Välj ett annat.");
+                break;
+            case 'FI':
+            default:
+                alert("Käyttäjätunnus on varattu. Valitse toinen käyttäjätunnus.");
+                break;
+        }
     }
 }
 
@@ -76,13 +114,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (response.ok) {
         const userData = await response.json();
 
-        document.getElementById("etunimi").value = userData.etunimi || '';
+        document.getElementById("etunimi").value = userData.nimi || '';
         document.getElementById("sukunimi").value = userData.sukunimi || '';
         document.getElementById("tunnus").value = userData.tunnus || '';
         document.getElementById("email").value = userData.email || '';
         document.getElementById("puhelin").value = userData.puhelin || '';
-    } else {
-        console.error("Virhe käyttäjän tietojen hakemisessa.");
     }
 });
 
@@ -122,37 +158,80 @@ document.getElementById("changePasswordForm").addEventListener("submit", functio
     })
         .then(response => {
             if (response.ok) {
-                alert("Salasana on vaihdettu.");
                 const kieli = document.getElementById('kieli');
                 const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
                 let targetPage = '';
                 switch (selectedLanguage) {
                     case 'EN':
+                        alert("Password has been changed.")
                         targetPage = '../../html/en/7Kayttaja_en.html';
                         break;
                     case 'CN':
+                        alert("密码已更改。")
                         targetPage = '../../html/cn/7Kayttaja_cn.html';
                         break;
                     case 'ET':
+                        alert("Parool on muudetud.")
                         targetPage = '../../html/et/7Kayttaja_et.html';
                         break;
                     case 'SV':
+                        alert("Lösenordet har ändrats.")
                         targetPage = '../../html/sv/7Kayttaja_sv.html';
                         break;
                     case 'FI':
                     default:
+                        alert("Salasana on vaihdettu.");
                         targetPage = '../../html/fi/7Kayttaja.html';
                         break;
                 }
 
                 window.location.href = targetPage;
             } else {
-                alert("Virhe salasanan päivityksessä.");
+                switch (selectedLanguage) {
+                    case 'EN':
+                        alert("Error updating password. Please try again.");
+                        break;
+                    case 'CN':
+                        alert("更改密码时出错。请再试一次。");
+                        break;
+                    case 'ET':
+                        alert("Parooli uuendamisel tekkis viga. Proovi uuesti.");
+                        break;
+                    case 'SV':
+                        alert("Fel vid uppdatering av lösenordet. Försök igen.");
+                        break;
+                    case 'FI':
+                    default:
+                        alert("Virhe salasanan päivittämisessä. Yritä uudelleen.");
+                        break;
+                }
             }
         })
         .catch(error => {
-            alert("Jotain meni pieleen.");
+            const kieli = document.getElementById('kieli');
+            const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+
+            switch (selectedLanguage) {
+                case 'EN':
+                    alert("Something went wrong. Please try again later.");
+                    break;
+                case 'CN':
+                    alert("出了点问题。请稍后再试。");
+                    break;
+                case 'ET':
+                    alert("Midagi läks valesti. Proovi hiljem uuesti.");
+                    break;
+                case 'SV':
+                    alert("Något gick fel. Försök igen senare.");
+                    break;
+                case 'FI':
+                    alert("Jotain meni pieleen. Yritä myöhemmin uudelleen.");
+                    break;
+                default:
+                    alert("Jotain meni pieleen. Yritä myöhemmin uudelleen.");
+                    break;
+            }
         });
 });
 
@@ -229,8 +308,28 @@ document.getElementById("allergiaForm").addEventListener("submit", function (eve
 
     const allergia = document.getElementById("allergia").value;
 
+    const kieli = document.getElementById('kieli');
+    const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+
     if (allergia.trim() === "") {
-        alert("Allergia ei voi olla tyhjä.");
+        switch (selectedLanguage) {
+            case 'EN':
+                alert("Allergy field cannot be empty.");
+                break;
+            case 'CN':
+                alert("过敏字段不能为空。");
+                break;
+            case 'ET':
+                alert("Allergia väli ei tohi olla tühi.");
+                break;
+            case 'SV':
+                alert("Allergifältet får inte vara tomt.");
+                break;
+            case 'FI':
+            default:
+                alert("Allergia ei voi olla tyhjä.");
+                break;
+        }
         return;
     }
 

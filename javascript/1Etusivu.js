@@ -54,11 +54,73 @@ feedbackForm.addEventListener("submit", async (e) => {
             body: JSON.stringify(feedbackData),
         });
 
+        const kieli = document.getElementById('kieli');
+        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+
         if (response.ok) {
+            switch (selectedLanguage) {
+                case 'EN':
+                    alert("Thank you for your feedback!");
+                    break;
+                case 'CN':
+                    alert("感谢您的反馈！");
+                    break;
+                case 'ET':
+                    alert("Täname teie tagasiside eest!");
+                    break;
+                case 'SV':
+                    alert("Tack för din feedback!");
+                    break;
+                case 'FI':
+                default:
+                    alert("Kiitos palautteestasi!");
+                    break;
+            }
             modal.close();
+        } else {
+            switch (selectedLanguage) {
+                case 'EN':
+                    alert("Failed to submit feedback. Please try again.");
+                    break;
+                case 'CN':
+                    alert("提交反馈失败。请再试一次。");
+                    break;
+                case 'ET':
+                    alert("Tagasiside esitamine ebaõnnestus. Proovi uuesti.");
+                    break;
+                case 'SV':
+                    alert("Misslyckades med att skicka feedback. Försök igen.");
+                    break;
+                case 'FI':
+                default:
+                    alert("Palautteen lähettäminen epäonnistui. Yritä uudelleen.");
+                    break;
+            }
         }
     } catch (error) {
-        console.error("Error :", error);
+        const kieli = document.getElementById('kieli');
+        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+
+        switch (selectedLanguage) {
+            case 'EN':
+                alert("An error occurred while submitting feedback. Please try again later.");
+                break;
+            case 'CN':
+                alert("提交反馈时发生错误。请稍后再试。");
+                break;
+            case 'ET':
+                alert("Tagasiside esitamisel tekkis viga. Proovi hiljem uuesti.");
+                break;
+            case 'SV':
+                alert("Ett fel uppstod när feedback skickades. Försök igen senare.");
+                break;
+            case 'FI':
+                alert("Virhe palautteen lähettämisessä. Yritä myöhemmin uudelleen.");
+                break;
+            default:
+                alert("Virhe palautteen lähettämisessä. Yritä myöhemmin uudelleen.");
+                break;
+        }
     }
 });
 
