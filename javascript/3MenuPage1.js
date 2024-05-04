@@ -178,6 +178,27 @@ try {
     pElement.textContent = tuote.tuote_kuvaus;
     tuoteElement.appendChild(pElement);
 
+    //Lisää kategoria
+    const pElement2 = document.createElement('p');
+    const kategoriaIdResult = await getKategoriaIdByTuoteId(tuote.tuote_id);
+    console.log('Kategoria all id:', kategoriaIdResult);
+    if (kategoriaIdResult.length > 1) {
+      const kategoriaNimit = []; // Luodaan tyhjä taulukko kategorianimille
+      for (const kategoriaId of kategoriaIdResult) {
+        console.log('Kategoria id:', kategoriaId);
+        const kategoriaNimi = await getKategoriaById(kategoriaId);
+        kategoriaNimit.push(kategoriaNimi); // Lisätään kategorianimi taulukkoon
+      }
+      pElement2.textContent = kategoriaNimit.join(', '); // Asetetaan kategorianimet p-elementin tekstisisällöksi
+      console.log('Kategoria nimi push:', kategoriaNimit);
+    } else {
+      const kategoriaNimi = await getKategoriaById(kategoriaIdResult);
+      pElement2.textContent = kategoriaNimi;
+    }
+
+    tuoteElement.appendChild(pElement2);
+
+
     // Lisää hinta
     const h4Element = document.createElement('h4');
     const hintaElement = document.createElement('span');
@@ -516,5 +537,47 @@ const getTuoteMaaraFromCart = async (userId, tuote_id) => {
   }
 };
 
+const getKategoriaIdByTuoteId = async (tuoteId) => {
+  try {
+    const response = await fetch(`http://localhost:3000/api/v1/kategoria_tuote/tuote/${tuoteId}`, {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      throw new Error('Virhe kategorian hakemisessa');
+    }
+
+    const data = await response.json();
+    if (Array.isArray(data)) {
+      const kategoriaIdList = data.map((item) => item.kategoria_id);
+      return kategoriaIdList;
+    } else {
+      const kategoriaId = data.kategoria_id;
+      return kategoriaId;
+    }
+
+  } catch (error) {
+    console.error('Virhe kategorian hakemisessa:', error.message);
+    return [];
+  }
+}
+
+const getKategoriaById = async (kategoriaId) => {
+  try {
+    const response = await fetch(`http://localhost:3000/api/v1/kategoria/${kategoriaId}`, {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      throw new Error('Virhe kategorian hakemisessa');
+    }
+    const data = await response.json();
+    console.log('Kategoria nimet:', data.kategoria_nimi);
+    return data.kategoria_nimi;
+
+  } catch (error) {
+    console.error('Virhe kategorian hakemisessa:', error.message);
+  }
+};
 
 fetchAndDisplayTuotteet();
