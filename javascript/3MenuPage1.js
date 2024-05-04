@@ -1,18 +1,5 @@
-'use strict';
 
-
-
-// get asiakas id from local storage
-const getUserId = () => {
-  const token = localStorage.getItem('authToken');
-  const base64Payload = token.split('.')[1];
-  const payload = atob(base64Payload);
-  const parsedPayload = JSON.parse(payload);
-  let userId = parsedPayload.asiakas_id;
-  console.log('asiakas id:', userId);
-  return userId;
-}
-
+const cakeList = document.getElementById('cakeList');
 const handleNewValue = async () => {
   const alatyyppi = getSelectedAlaTyyppi();
   await updateSubtypes(alatyyppi);
@@ -160,7 +147,6 @@ try {
       }
 
     const cakeList = document.getElementById('cakeList');
-    const userId = getUserId();
 
     const tuoteElement = document.createElement('div');
     tuoteElement.classList.add('cake-item');
@@ -183,23 +169,24 @@ try {
     //Lisää kategoria
     const pElement2 = document.createElement('p');
     const kategoriaIdResult = await getKategoriaIdByTuoteId(tuote.tuote_id);
-    console.log('Kategoria all id:', kategoriaIdResult);
+
+    console .log('Kategoria all id:', kategoriaIdResult);
     if (kategoriaIdResult.length > 1) {
-      const kategoriaNimit = []; // Luodaan tyhjä taulukko kategorianimille
       for (const kategoriaId of kategoriaIdResult) {
         console.log('Kategoria id:', kategoriaId);
         const kategoriaNimi = await getKategoriaById(kategoriaId);
-        kategoriaNimit.push(kategoriaNimi); // Lisätään kategorianimi taulukkoon
+        kategoriaNimi.push(kategoriaNimi);
+
       }
-      pElement2.textContent = kategoriaNimit.join(', '); // Asetetaan kategorianimet p-elementin tekstisisällöksi
-      console.log('Kategoria nimi push:', kategoriaNimit);
+      pElement2.textContent = kategoriaIdResult.join(', ');
+      console.log('Kategoria nimi push :', kategoriaNimi);
+
     } else {
       const kategoriaNimi = await getKategoriaById(kategoriaIdResult);
       pElement2.textContent = kategoriaNimi;
     }
 
     tuoteElement.appendChild(pElement2);
-
 
     // Lisää hinta
     const h4Element = document.createElement('h4');
@@ -532,7 +519,7 @@ const getTuoteMaaraFromCart = async (userId, tuote_id) => {
     const data = await response.json();
     const maara = data.tuote_maara;
 
-    console.log('Tuote maara, oikein :', maara);
+    console.log('Tuote maara5, oikein :', maara);
     return maara;
   } catch (error) {
     console.error('Virhe tuotteen hakemisessa:', error.message);
@@ -581,6 +568,5 @@ const getKategoriaById = async (kategoriaId) => {
     console.error('Virhe kategorian hakemisessa:', error.message);
   }
 };
-
 
 fetchAndDisplayTuotteet();

@@ -18,7 +18,7 @@ document.getElementById("kieli").addEventListener("change", function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    const links = document.querySelectorAll('a');
+     const links = document.querySelectorAll('a');
 
     const loginEndings = ['11Login.html', '11Login_en.html', '11login_cn.html', '11Login_et.html', '11Login_sv.html'];
 
@@ -80,9 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
-
-'use strict';
 
 // get asiakas id from local storage
 const getUserId = () => {
@@ -159,7 +156,3 @@ const disPlayIconNumerot = async () => {
 }
 
 disPlayIconNumerot();
-
-
-
-
