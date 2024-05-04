@@ -25,7 +25,7 @@ const findKategoriaTuoteByTuoteId = async (id) => {
   if (rows.length === 0) {
       return false;
   }
-  return rows[0];
+  return rows;
 };
 
 const findKategoriaTuoteByKategoriaId = async (id) => {

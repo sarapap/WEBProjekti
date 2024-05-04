@@ -6,11 +6,11 @@ GET http://localhost:3000/api/v1/kategoria_tuote
 GET http://localhost:3000/api/v1/kategoria_tuote/4
 
 ###get Kategoria_tuote by tuote_id
-GET http://localhost:3000/api/v1/kategoria_tuote/tuote/3
+GET http://localhost:3000/api/v1/kategoria_tuote/tuote/17
 
 
 ###get Kategoria_tuote by kategoria_id
-GET http://localhost:3000/api/v1/kategoria_tuote/kategoria/3
+GET http://localhost:3000/api/v1/kategoria_tuote/kategoria/4
 
 
 
