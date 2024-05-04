@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 tunnus: username,
                 salasana: password,
             };
+            const kieli = document.getElementById('kieli');
+            const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
             fetch('http://localhost:3000/api/v1/asiakas/login', {
                 method: 'POST',
@@ -32,9 +34,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     if (token) {
                         localStorage.setItem('authToken', token);
-
-                        const kieli = document.getElementById('kieli');
-                        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
                         let targetPage = '';
                         switch (selectedLanguage) {

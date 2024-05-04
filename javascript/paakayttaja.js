@@ -246,7 +246,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 }
             } catch (error) {
-                console.error("Virhe yhteydessä palvelimeen:", error);
             }
         });
     }

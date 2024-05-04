@@ -20,8 +20,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 allennus_ryhma: document.querySelector('input[name="status"]:checked') ? document.querySelector('input[name="status"]:checked').value : null,
             };
 
+            const kieli = document.getElementById('kieli');
+            const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+
             if (data.ehdot_hyvaksytty === 0) {
-                alert("Sinun on hyväksyttävä ehdot");
+                switch (selectedLanguage) {
+                    case 'EN':
+                        alert("You must accept the terms.");
+                        break;
+                    case 'CN':
+                        alert("您必须接受条款。");
+                        break;
+                    case 'ET':
+                        alert("Teil tuleb tingimused heaks kiita.");
+                        break;
+                    case 'SV':
+                        alert("Du måste godkänna villkoren.");
+                        break;
+                    case 'FI':
+                    default:
+                        alert("Sinun on hyväksyttävä ehdot.");
+                        break;
+                }
                 return;
             }
 
@@ -44,9 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     if (token) {
                         localStorage.setItem('authToken', token);
-
-                        const kieli = document.getElementById('kieli');
-                        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
                         let targetPage = '';
                         switch (selectedLanguage) {
