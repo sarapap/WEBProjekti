@@ -91,6 +91,30 @@ const removeOstosById = async (asiakas_id, tuote_id) => {
   }
 };
 
+const removeOstosByUserId = async (asiakas_id) => {
+  const connection = await promisePool.getConnection();
+  try {
+      const [rows] = await promisePool.execute(
+          'DELETE FROM ostoskori WHERE asiakas_id = ?',
+          [asiakas_id]
+      );
+      if (rows.affectedRows === 0) {
+          return false;
+      }
+      await connection.commit();
+      return {
+          message: 'Tuotteet deleted',
+      };
+  } catch (error) {
+      await connection.rollback();
+      console.error('error', error.message);
+      return false;
+  } finally {
+      connection.release();
+  }
+}
+
+
 
 
 export {
@@ -99,5 +123,6 @@ export {
   findTuoteMaaraByAsiakasIdAndTuoteId,
   addOstoskoriin,
   updateOstosTuoteenMaara,
-  removeOstosById
+  removeOstosById,
+  removeOstosByUserId
 };

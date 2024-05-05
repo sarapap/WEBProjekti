@@ -53,6 +53,7 @@ Content-Type: image/jpeg
 ###Delete tuote by id
 DELETE http://localhost:3000/api/v1/tuote/2
 
+#
 
 ###Update tuote by id, käydä postman to update
 PUT http://localhost:3000/api/v1/tuote/2
