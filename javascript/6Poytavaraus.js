@@ -1,5 +1,12 @@
 'use strict';
 
+/*funktio kielen vaihtoon */
+function getSelectedLanguage() {
+    const kieli = document.getElementById('kieli');
+    return kieli && kieli.value ? kieli.value : 'FI';
+}
+
+/* modaali lomakkeelle */
 const modal = document.getElementById("myModal");
 const openModalButton = document.getElementById("open-modal");
 const closeModalButton = document.getElementById("close-modal");
@@ -28,8 +35,7 @@ window.addEventListener("click", (e) => {
 })();
 
 function sendEmail() {
-    const kieli = document.getElementById('kieli');
-    const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+    const selectedLanguage = getSelectedLanguage();
 
     let targetPage = '';
     switch (selectedLanguage) {

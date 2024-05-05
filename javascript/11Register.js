@@ -1,7 +1,14 @@
 'use strict';
 
+/*funktio kielen vaihtoon */
+function getSelectedLanguage() {
+    const kieli = document.getElementById('kieli');
+    return kieli && kieli.value ? kieli.value : 'FI';
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const registerForm = document.querySelector('#register-form');
+    const selectedLanguage = getSelectedLanguage();
 
     if (registerForm) {
         registerForm.addEventListener('submit', function (event) {
@@ -19,9 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 ehdot_hyvaksytty: document.querySelector('#accept-1') && document.querySelector('#accept-1').checked ? 1 : 0,
                 allennus_ryhma: document.querySelector('input[name="status"]:checked') ? document.querySelector('input[name="status"]:checked').value : null,
             };
-
-            const kieli = document.getElementById('kieli');
-            const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
             if (data.ehdot_hyvaksytty === 0) {
                 switch (selectedLanguage) {
@@ -55,8 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(response => {
                     if (response.ok) {
                         return response.json();
-                    } else {
-                        throw new Error('Rekisteröinti epäonnistui');
                     }
                 })
                 .then(data => {

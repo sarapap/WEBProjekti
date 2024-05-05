@@ -1,9 +1,18 @@
 'use strict';
 
+/*funktio kielen vaihtoon */
+function getSelectedLanguage() {
+    const kieli = document.getElementById('kieli');
+    return kieli && kieli.value ? kieli.value : 'FI';
+}
+
+/* uuden käyttäjän lisäys adminin puolesta */
+
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("userModal");
     const openModalButton = document.getElementById("openModal");
     const closeModalButton = document.getElementById("closeModal");
+    const selectedLanguage = getSelectedLanguage();
 
     if (openModalButton) {
         openModalButton.addEventListener('click', function (event) {
@@ -28,9 +37,27 @@ document.addEventListener("DOMContentLoaded", function () {
             const missingFields = requiredFields.filter(field => !document.getElementById(field)?.value);
 
             if (missingFields.length > 0) {
-                alert(`Puuttuvat kentät: ${missingFields.join(", ")}`);
+                switch (selectedLanguage) {
+                    case 'EN':
+                        alert(`Missing fields: ${missingFields.join(", ")}`);
+                        break;
+                    case 'CN':
+                        alert(`缺失的字段: ${missingFields.join(", ")}`);
+                        break;
+                    case 'ET':
+                        alert(`Puuduvad väljad: ${missingFields.join(", ")}`);
+                        break;
+                    case 'SV':
+                        alert(`Saknade fält: ${missingFields.join(", ")}`);
+                        break;
+                    case 'FI':
+                    default:
+                        alert(`Puuttuvat kentät: ${missingFields.join(", ")}`);
+                        break;
+                }
                 return;
             }
+
             const data = {
                 etunimi: document.getElementById('etunimi') ? document.getElementById('etunimi').value : '',
                 sukunimi: document.getElementById('sukunimi') ? document.getElementById('sukunimi').value : '',
@@ -54,8 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
 
                 if (response.ok) {
-                    const kieli = document.getElementById('kieli');
-                    const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
                     let targetPage = '';
                     switch (selectedLanguage) {
@@ -103,7 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             break;
                     }
                 }
-
             } catch (error) {
                 switch (selectedLanguage) {
                     case 'EN':
@@ -128,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-/* Pääkäyttäjän sivu */
+/* Pääkäyttäjän sivu, vain admin pääsee */
 
 function base64Decode(str) {
     return atob(str.replace(/-/g, '+').replace(/_/g, '/'));
@@ -143,9 +167,8 @@ function getUserRoleFromToken(token) {
 
 document.addEventListener("DOMContentLoaded", function () {
     const token = localStorage.getItem("authToken");
+    const selectedLanguage = getSelectedLanguage();
     if (!token) {
-        const kieli = document.getElementById('kieli');
-        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
         let redirectPage;
         switch (selectedLanguage) {
@@ -183,8 +206,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const closeBtn = modal.querySelector('.close');
             closeBtn.addEventListener('click', function () {
-                const kieli = document.getElementById('kieli');
-                const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
                 let redirectPage;
                 switch (selectedLanguage) {
@@ -213,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-/* palaute */
+/* palautteen saaminen */
 
 window.addEventListener('DOMContentLoaded', () => {
     const button = document.getElementById("haePalaute");

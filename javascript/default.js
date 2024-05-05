@@ -1,3 +1,11 @@
+/*funktio kielen vaihtoon */
+function getSelectedLanguage() {
+  const kieli = document.getElementById('kieli');
+  return kieli && kieli.value ? kieli.value : 'FI';
+}
+
+/* kielen vaihto kun vaihtaa oikean kieliselle sivulle */
+
 document.getElementById("kieli").addEventListener("change", function () {
   var selectedLanguage = this.value;
   if (selectedLanguage === 'FI') {
@@ -15,9 +23,11 @@ document.getElementById("kieli").addEventListener("change", function () {
   }
 });
 
+/*käyttäjä pysyy kirjautuneena */
+
 document.addEventListener('DOMContentLoaded', function () {
   const links = document.querySelectorAll('a');
-
+  const selectedLanguage = getSelectedLanguage();
   const loginEndings = ['11Login.html', '11Login_en.html', '11login_cn.html', '11Login_et.html', '11Login_sv.html'];
 
   links.forEach(link => {
@@ -30,9 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const authToken = localStorage.getItem('authToken');
 
         let redirectPage;
-
-        const kieli = document.getElementById('kieli');
-        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
         if (authToken) {
           switch (selectedLanguage) {
