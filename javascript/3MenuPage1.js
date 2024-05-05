@@ -1,3 +1,4 @@
+
 // const generateUniqueIdentifier = () => {
 //   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 //   const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
@@ -634,4 +635,6 @@ const getKategoriaById = async (kategoriaId) => {
   }
 };
 
+
 fetchAndDisplayTuotteet();
+

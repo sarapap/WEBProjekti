@@ -1,23 +1,32 @@
-'use strict';
+/*funktio kielen vaihtoon */
+function getSelectedLanguage() {
+  const kieli = document.getElementById('kieli');
+  return kieli && kieli.value ? kieli.value : 'FI';
+}
+
+/* kielen vaihto kun vaihtaa oikean kieliselle sivulle */
 
 document.getElementById("kieli").addEventListener("change", function () {
-    var selectedLanguage = this.value;
-    if (selectedLanguage === 'FI') {
-        window.location.href = '../fi/1Etusivu.html';
-    } else if (selectedLanguage === 'EN') {
-        window.location.href = '../en/1Etusivu_en.html';
-    } else if (selectedLanguage === 'CN') {
-        window.location.href = "../cn/1Etusivu_cn.html";
-    }
-    else if (selectedLanguage === 'ET') {
-        window.location.href = "../et/1Etusivu_et.html";
-    }
-    else if (selectedLanguage === 'SV') {
-        window.location.href = "../sv/1Etusivu_sv.html";
-    }
+  var selectedLanguage = this.value;
+  if (selectedLanguage === 'FI') {
+    window.location.href = '../fi/1Etusivu.html';
+  } else if (selectedLanguage === 'EN') {
+    window.location.href = '../en/1Etusivu_en.html';
+  } else if (selectedLanguage === 'CN') {
+    window.location.href = "../cn/1Etusivu_cn.html";
+  }
+  else if (selectedLanguage === 'ET') {
+    window.location.href = "../et/1Etusivu_et.html";
+  }
+  else if (selectedLanguage === 'SV') {
+    window.location.href = "../sv/1Etusivu_sv.html";
+  }
 });
 
+/*käyttäjä pysyy kirjautuneena */
+
 document.addEventListener('DOMContentLoaded', function () {
+
      const links = document.querySelectorAll('a');
 
     const loginEndings = ['11Login.html', '11Login_en.html', '11login_cn.html', '11Login_et.html', '11Login_sv.html'];
@@ -78,7 +87,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 window.location.href = redirectPage;
             });
         }
-    });
+        window.location.href = redirectPage;
+      });
+    }
+  });
 });
 
 // get asiakas id from local storage
@@ -176,3 +188,4 @@ const disPlayIconNumerot = async () => {
 }
 
 disPlayIconNumerot();
+

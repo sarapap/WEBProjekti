@@ -1,5 +1,14 @@
+'use strict';
+
+/*funktio kielen vaihtoon */
+function getSelectedLanguage() {
+    const kieli = document.getElementById('kieli');
+    return kieli && kieli.value ? kieli.value : 'FI';
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const loginButton = document.getElementById('login-button');
+    const selectedLanguage = getSelectedLanguage();
 
     if (loginButton) {
         loginButton.addEventListener('click', function (event) {
@@ -23,8 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(response => {
                     if (response.ok) {
                         return response.json();
-                    } else {
-                        throw new Error('Kirjautuminen epäonnistui');
                     }
                 })
                 .then(data => {
@@ -32,9 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     if (token) {
                         localStorage.setItem('authToken', token);
-
-                        const kieli = document.getElementById('kieli');
-                        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
                         let targetPage = '';
                         switch (selectedLanguage) {
@@ -60,20 +64,20 @@ document.addEventListener('DOMContentLoaded', function () {
                     } else {
                         switch (selectedLanguage) {
                             case 'EN':
-                                alert('Login failed. Please check your username and password.');
+                                alert('An error occurred during login. Please try again later.');
                                 break;
                             case 'CN':
-                                alert('登录失败。请检查您的用户名和密码。');
+                                alert('登录时发生错误。请稍后再试。');
                                 break;
                             case 'ET':
-                                alert('Sisselogimine ebaõnnestus. Kontrolli oma kasutajanime ja parooli.');
+                                alert('Sisselogimisel ilmnes viga. Palun proovi hiljem uuesti.');
                                 break;
                             case 'SV':
-                                alert('Inloggningen misslyckades. Kontrollera ditt användarnamn och lösenord.');
+                                alert('Ett fel uppstod vid inloggning. Försök igen senare.');
                                 break;
                             case 'FI':
                             default:
-                                alert('Kirjautuminen epäonnistui. Tarkista käyttäjätunnus ja salasana.');
+                                alert('Virhe kirjautumisessa. Yritä myöhemmin uudelleen.');
                                 break;
                         }
                     }
@@ -81,20 +85,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 .catch(error => {
                     switch (selectedLanguage) {
                         case 'EN':
-                            alert('An error occurred during login. Please try again later.');
+                            alert('Login failed. Please check your username and password.');
                             break;
                         case 'CN':
-                            alert('登录时发生错误。请稍后再试。');
+                            alert('登录失败。请检查您的用户名和密码。');
                             break;
                         case 'ET':
-                            alert('Sisselogimisel ilmnes viga. Palun proovi hiljem uuesti.');
+                            alert('Sisselogimine ebaõnnestus. Kontrolli oma kasutajanime ja parooli.');
                             break;
                         case 'SV':
-                            alert('Ett fel uppstod vid inloggning. Försök igen senare.');
+                            alert('Inloggningen misslyckades. Kontrollera ditt användarnamn och lösenord.');
                             break;
                         case 'FI':
                         default:
-                            alert('Virhe kirjautumisessa. Yritä myöhemmin uudelleen.');
+                            alert('Kirjautuminen epäonnistui. Tarkista käyttäjätunnus ja salasana.');
                             break;
                     }
                 });

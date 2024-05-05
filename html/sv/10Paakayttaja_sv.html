@@ -63,20 +63,20 @@
           </li>
           <li>
             <a href="11Login.html">
-              <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
             </a>
-        </li>
-        <li>
+          </li>
+          <li>
             <a href="8Suosikit.html">
-              <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
             </a>
-        </li>
-        <li>
+          </li>
+          <li>
             <a href="9Ostoskori.html">
-              <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
             </a>
-        </li>
+          </li>
         </ul>
       </nav>
     </div>
@@ -152,20 +152,17 @@
         </table>
       </div>
       <hr>
-
       <div>
         <h1>Återkoppling</h1>
-        <form action="/bokningsbekräftelse" method="post">
-          <label for="startDatum2">Startdatum:</label>
-          <input type="date" id="startDatum2" name="startDatum2">
-          <label for="slutDatum2">Slutdatum:</label>
-          <input type="date" id="slutDatum2" name="slutDatum2">
-          <button type="submit" class="button2">Sök</button>
-        </form>
+        <label for="aloituspvm">Startdatum:</label>
+        <input type="date" id="aloituspvm" name="startDate">
+
+        <label for="lopetuspvm">Slutdatum:</label>
+        <input type="date" id="lopetuspvm" name="endDate">
+
+        <button id="haePalaute" class="button2">Sök</button>
         <table>
-          <p>Återkoppling för den valda perioden visas här.</p>
-          <tbody id="återkoppling">
-          </tbody>
+          <tbody id="palaute"></tbody>
         </table>
       </div>
     </div>

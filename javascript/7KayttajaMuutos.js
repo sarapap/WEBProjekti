@@ -1,10 +1,19 @@
 'use strict';
 
+/*funktio kielen vaihtoon */
+function getSelectedLanguage() {
+    const kieli = document.getElementById('kieli');
+    return kieli && kieli.value ? kieli.value : 'FI';
+}
+
+/* tietojen päivitys lomake */
+
 async function submitForm(event) {
     event.preventDefault();
     const token = localStorage.getItem("authToken");
     const form = document.getElementById("editForm");
     const formData = new FormData(form);
+    const selectedLanguage = getSelectedLanguage();
 
     const data = {};
     for (const [key, value] of formData.entries()) {
@@ -28,9 +37,6 @@ async function submitForm(event) {
         });
 
         if (response.ok) {
-            const kieli = document.getElementById('kieli');
-            const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
-
             let targetPage = '';
             switch (selectedLanguage) {
                 case 'EN':
@@ -133,17 +139,52 @@ document.getElementById("changePasswordForm").addEventListener("submit", functio
     const parsedPayload = JSON.parse(payload);
 
     const userID = parsedPayload.asiakas_id;
+    const selectedLanguage = getSelectedLanguage();
 
     const newPassword = document.getElementById("salasana").value;
     const confirmPassword = document.getElementById("confirm_salasana").value;
 
     if (newPassword !== confirmPassword) {
-        alert("Uusi salasana ja vahvistus eivät täsmää.");
+        switch (selectedLanguage) {
+            case 'EN':
+                alert("New password and confirmation do not match.");
+                break;
+            case 'CN':
+                alert("新密码和确认不匹配。");
+                break;
+            case 'ET':
+                alert("Uus parool ja kinnitamine ei ühti.");
+                break;
+            case 'SV':
+                alert("Det nya lösenordet och bekräftelsen matchar inte.");
+                break;
+            case 'FI':
+            default:
+                alert("Uusi salasana ja vahvistus eivät täsmää.");
+                break;
+        }
         return;
     }
 
     if (!newPassword) {
-        alert("Uusi salasana on pakollinen.");
+        switch (selectedLanguage) {
+            case 'EN':
+                alert("New password is required.");
+                break;
+            case 'CN':
+                alert("需要新密码。");
+                break;
+            case 'ET':
+                alert("Uus parool on vajalik.");
+                break;
+            case 'SV':
+                alert("Nytt lösenord är obligatoriskt.");
+                break;
+            case 'FI':
+            default:
+                alert("Uusi salasana on pakollinen.");
+                break;
+        }
         return;
     }
 
@@ -158,8 +199,6 @@ document.getElementById("changePasswordForm").addEventListener("submit", functio
     })
         .then(response => {
             if (response.ok) {
-                const kieli = document.getElementById('kieli');
-                const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
                 let targetPage = '';
                 switch (selectedLanguage) {
@@ -255,13 +294,8 @@ const translations = {
     }
 };
 
-function getLanguage() {
-    const languageSelect = document.getElementById("kieli");
-    return languageSelect ? languageSelect.value : "FI";
-}
-
 function getDeleteButtonText() {
-    const lang = getLanguage();
+    const lang = getSelectedLanguage();
     return translations[lang]?.deleteButton || translations.FI.deleteButton;
 }
 
@@ -274,7 +308,6 @@ function getAllergiaStorageKey() {
     const userID = parsedPayload.asiakas_id;
     return `userAllergia_${userID}`;
 }
-
 
 function updateAllergiaList() {
     const userAllergia = getAllergiaStorageKey();
@@ -307,9 +340,7 @@ document.getElementById("allergiaForm").addEventListener("submit", function (eve
     event.preventDefault();
 
     const allergia = document.getElementById("allergia").value;
-
-    const kieli = document.getElementById('kieli');
-    const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+    const selectedLanguage = getSelectedLanguage();
 
     if (allergia.trim() === "") {
         switch (selectedLanguage) {

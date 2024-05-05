@@ -61,20 +61,20 @@
           </li>
           <li>
             <a href="11Login.html">
-              <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
             </a>
-        </li>
-        <li>
+          </li>
+          <li>
             <a href="8Suosikit.html">
-              <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
             </a>
-        </li>
-        <li>
+          </li>
+          <li>
             <a href="9Ostoskori.html">
-              <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
             </a>
-        </li>
+          </li>
         </ul>
 
       </nav>
@@ -153,82 +153,79 @@
 
     <div>
       <h1>Feedback</h1>
-      <form action="/reservation-confirmation" method="post">
-        <label for="startDate2">Start Date:</label>
-        <input type="date" id="startDate2" name="startDate2">
-        <label for="endDate2">End Date:</label>
-        <input type="date" id="endDate2" name="endDate2">
-        <button type="submit" class="button2">Search</button>
-      </form>
+      <label for="aloituspvm">Start Date:</label>
+      <input type="date" id="aloituspvm" name="startDate">
+
+      <label for="lopetuspvm">End Date:</label>
+      <input type="date" id="lopetuspvm" name="endDate">
+
+      <button id="haePalaute" class="button2">Search</button>
       <table>
-        <p>Feedback for the selected period will appear here.</p>
-        <tbody id="feedback">
-        </tbody>
+        <tbody id="palaute"></tbody>
       </table>
     </div>
-  </div>
 
-  <h1>Add User</h1>
-  <p>Here you can add a new user</p>
-  <button id="openModal">Add New User</button>
-
-
-  <dialog id="userModal" class="modal">
-    <div class="modal-content">
-      <span class="close" id="closeModal">&times;</span>
-      <h2>Add New User</h2>
-      <form id="userForm">
-        <label for="etunimi">First Name:</label>
-        <input type="text" id="etunimi" name="etunimi" required>
-
-        <label for="sukunimi">Last Name:</label>
-        <input type="text" id="sukunimi" name="sukunimi" required>
-
-        <label for="tunnus">Username:</label>
-        <input type="text" id="tunnus" name="tunnus" required>
-
-        <label for="salasana">Password:</label>
-        <input type="password" id="salasana" name="salasana" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="puhelin">Phone:</label>
-        <input type="tel" id="puhelin" name="puhelin" required>
-
-        <label for="syntymapaiva">Date of birth:</label>
-        <input type="date" id="syntymapaiva" name="syntymapaiva">
-
-        <label for="rooli">Role:</label>
-        <select id="rooli" name="rooli">
-          <option value="user">User</option>
-          <option value="admin">Administrator</option>
-        </select>
-        <br>
-        <label for="alennus">Discount Category:</label>
-        <select id="alennus" name="alennus">
-          <option value="none">Choose</option>
-          <option value="opiskelija">Student</option>
-          <option value="elakelainen">Pensioner</option>
-        </select>
-
-        <br>
-        <br>
-        <label for="ehdot_hyvaksytty">Terms Accepted:</label>
-        <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
-
-        <button class="userButton" type="submit">Add User</button>
-      </form>
-
-    </div>
-  </dialog>
+    <h1>Add User</h1>
+    <p>Here you can add a new user</p>
+    <button id="openModal">Add New User</button>
 
 
-  <footer>
-    <p>&copy; S&A CAFE 2024</p>
-    <div class="changecontent">
-    </div>
-  </footer>
+    <dialog id="userModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Add New User</h2>
+        <form id="userForm">
+          <label for="etunimi">First Name:</label>
+          <input type="text" id="etunimi" name="etunimi" required>
+
+          <label for="sukunimi">Last Name:</label>
+          <input type="text" id="sukunimi" name="sukunimi" required>
+
+          <label for="tunnus">Username:</label>
+          <input type="text" id="tunnus" name="tunnus" required>
+
+          <label for="salasana">Password:</label>
+          <input type="password" id="salasana" name="salasana" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="puhelin">Phone:</label>
+          <input type="tel" id="puhelin" name="puhelin" required>
+
+          <label for="syntymapaiva">Date of birth:</label>
+          <input type="date" id="syntymapaiva" name="syntymapaiva">
+
+          <label for="rooli">Role:</label>
+          <select id="rooli" name="rooli">
+            <option value="user">User</option>
+            <option value="admin">Administrator</option>
+          </select>
+          <br>
+          <label for="alennus">Discount Category:</label>
+          <select id="alennus" name="alennus">
+            <option value="none">Choose</option>
+            <option value="opiskelija">Student</option>
+            <option value="elakelainen">Pensioner</option>
+          </select>
+
+          <br>
+          <br>
+          <label for="ehdot_hyvaksytty">Terms Accepted:</label>
+          <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
+
+          <button class="userButton" type="submit">Add User</button>
+        </form>
+
+      </div>
+    </dialog>
+
+
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+      <div class="changecontent">
+      </div>
+    </footer>
 </body>
 
 </html>
