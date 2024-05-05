@@ -50,35 +50,37 @@ header {
     margin-right: 20px;
 }
 
-
 #map {
     border: 1px solid rgb(184, 170, 170);
     box-shadow: 0 5px 40px 0 rgba(147, 144, 144, 0.578);
+    height: 50vh;
+    width: 1000px;
 }
 
 .käyttäjä {
-  display: inline-block;
-  margin: 10px;
-  font-size: 20px;
-  background-size: cover;
+    display: inline-block;
+    margin: 10px;
+    font-size: 20px;
+    background-size: cover;
 
 }
+
 .suosikit {
-  display: inline-block;
-  margin: 10px;
-  font-size: 20px;
-  background-size: cover;
+    display: inline-block;
+    margin: 10px;
+    font-size: 20px;
+    background-size: cover;
 }
 
 .ostoskori {
-  display: inline-block;
-  margin: 10px;
-  font-size: 20px;
-  background-size: cover;
+    display: inline-block;
+    margin: 10px;
+    font-size: 20px;
+    background-size: cover;
 }
 
 .kieli {
-  margin: 7px 10px 0px 0px;
+    margin: 7px 10px 0px 0px;
 }
 
 #kieli {
@@ -251,57 +253,62 @@ footer {
 
 /* media */
 
-@media screen and (max-width:1024px) {
-    .icons ul li {
-        display: block;
-        text-align: center;
-        margin-bottom: 10px;
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .icons ul li a {
-        display: block;
-        padding: 5px;
+    .title {
+        flex-direction: column;
+        text-align: center;
+        margin-left: 0;
     }
 
     .logo {
-        width: 200px;
+        height: 200px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    nav ul {
+        justify-content: center;
     }
 
     #map {
-        margin-top: 10px;
-    }
-
-    .footer-container {
-        margin: 0;
+        height: 40vh;
+        width: 350px;
     }
 }
 
-@media screen and (max-width:470px) {
+@media (max-width: 480px) {
+    body {
+        width: 100%;
+        padding: 5px;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
     .logo {
-        width: 100px;
-        height: 100px;
+        height: 150px;
     }
 
-    .contact-info {
-        padding-left: 50px;
+    nav {
+        flex-direction: column;
     }
 
-    .socials {
-        margin-left: -150px;
-    }
-}
-
-@media screen and (max-width:280px) {
-    .logo {
-        width: 100px;
-        height: 100px;
+    .icons {
+        justify-content: center;
     }
 
-    .contact-info {
-        padding-left: 60px;
-    }
-
-    .socials {
-        margin-left: -170px;
+    #map {
+        height: 30vh;
+        width: 200px;
     }
 }
