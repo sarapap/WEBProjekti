@@ -87,7 +87,6 @@ const updateSelectedAlatyyppi = () => {
   return selectedAlatyyppi;
 }
 
-// Lisää tapahtumankäsittelijä select-elementille
 document.getElementById('cakeType').addEventListener('change', async () => {
   await fetchAndDisplayTuotteet();
 });
@@ -120,13 +119,16 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/蛋糕/咸味蛋糕';
     } else if (selectedAlatyyppi === '甜味蛋糕') {
       url = 'http://localhost:3000/api/v1/tyyppi/蛋糕/甜味蛋糕';
-    } else if (selectedAlatyyppi === 'kaikki_lammintaruokaa') {
+    } else if (selectedAlatyyppi === 'kaikki2') {
       url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/lammintaruokaa';
     } else if (selectedAlatyyppi === 'kanaruuat') {
       url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/kanaruuat';
     } else if (selectedAlatyyppi === 'muutlampimatruuat') {
       url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/muutlampimatruuat';
     } else if (selectedAlatyyppi === '全部热食') {
+    } else if (selectedAlatyyppi === 'muutlampimmatruuat') {
+      url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/muutlampimmatruuat';
+    } else if (selectedAlatyyppi === '全部') {
       url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/热食';
     } else if (selectedAlatyyppi === '鸡肉类') {
       url = 'http://localhost:3000/api/v1/tyyppi/热食/鸡肉类';
@@ -143,6 +145,7 @@ const getTyyppiIdLista = async () => {
     }
 
     const tyyppiList = await response.json();
+    console.log("Palvelimen vastaus:", tyyppiList);
 
     if (Array.isArray(tyyppiList)) {
       const tyyppiIdList = tyyppiList.map((tyyppi) => tyyppi.tyyppi_id);
@@ -160,16 +163,11 @@ const getTyyppiIdLista = async () => {
 };
 
 const fetchAndDisplayTuotteet = async () => {
-  const IdResult = await getTyyppiIdLista();
+  const tyyppiIdLista = await getTyyppiIdLista();
 
-  if (!Array.isArray(IdResult)) {
-    const tyyppiId = IdResult;
-
-    await fetchAndDisplayByTyyppiId(tyyppiId);//ok
-  } else {
-    for (const tyyppiId of IdResult) {
-      await fetchAndDisplayByTyyppiId(tyyppiId);
-    }
+  if (Array.isArray(tyyppiIdLista) && tyyppiIdLista.length > 0) {
+    const fetchPromises = tyyppiIdLista.map((tyyppiId) => fetchAndDisplayByTyyppiId(tyyppiId)); // Luo lupauslistan
+    await Promise.all(fetchPromises);
   }
 };
 
@@ -180,199 +178,196 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe tuote hakemisessa');
+      throw new Error("Virhe tuotteiden hakemisessa");
     }
-    const tuote = await response.json();
-    console.log('Tuote:', tuote);
 
-    const kieli = document.getElementById('kieli');
-    const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+    const tuotteet = await response.json();
 
-    let addCartText = '';
-    let addFavoriteText = '';
-    let unfavorateText = '';
-    let hintaTeksti = '';
-    let maaraTeksti = '';
-    switch (selectedLanguage) {
-      case 'EN':
-        addCartText = 'Add to cart';
-        addFavoriteText = 'Add to favorites';
-        unfavorateText = 'Unlike';
-        hintaTeksti = 'Price: ';
-        maaraTeksti = 'Amount: ';
-        break;
-      case 'CN':
-        addCartText = '添加到购物车';
-        addFavoriteText = '添加收藏';
-        unfavorateText = '删除收藏';
-        hintaTeksti = '价格: ';
-        maaraTeksti = '数量: ';
-        break;
-      case 'ET':
-        addCartText = 'Lisa ostukorvi';
-        addFavoriteText = 'Lisa lemmikutesse';
-        unfavorateText = 'Eemalda';
-        hintaTeksti = 'Hind: ';
-        maaraTeksti = 'Kogus: ';
-        break;
-      case 'SV':
-        addCartText = 'Lägg till i kundvagnen';
-        addFavoriteText = 'Lägg till i favoriter';
-        unfavorateText = 'Olikt';
-        hintaTeksti = 'Pris: ';
-        maaraTeksti = 'Mängd: ';
-        break;
-      case 'FI':
-      default:
-        addCartText = 'Lisää ostoskoriin';
-        addFavoriteText = 'Tallenna suosikkeihin';
-        unfavorateText = 'Poista suosikkeista';
-        hintaTeksti = 'Hinta: ';
-        maaraTeksti = 'Määrä: ';
-        break;
-    }
-    console.log('tuote:', tuote);
-    const tuote_nimi = tuote[0].tuote_nimi;
-    const tuote_kuva = tuote[0].tuote_kuva;
-    const tuote_kuvaus = tuote[0].tuote_kuvaus;
-    const tuote_hinta = tuote[0].tuote_hinta;
-    const tuote_id = tuote[0].tuote_id;
-    const tyyppi_id = tuote[0].tyyppi_id;
-    const userId = getUserId();
-
-    const cakeList = document.getElementById('cakeList');
-
-    const tuoteElement = document.createElement('div');
-    tuoteElement.classList.add('cake-item');
-
-    // Lisää kuvakehys
-    const imgElement = document.createElement('img');
-    imgElement.src = `../../../uploads/${tuote_kuva}`;
-    tuoteElement.appendChild(imgElement);
-
-
-    // Lisää tuotteen nimi
-    const h3Element = document.createElement('h3');
-    h3Element.textContent = tuote_nimi;
-    tuoteElement.appendChild(h3Element);
-
-    // Lisää tuotteen kuvaus
-    const pElement = document.createElement('p');
-    pElement.textContent = tuote_kuvaus;
-    tuoteElement.appendChild(pElement);
-
-    //Lisää kategoria
-    const pElement2 = document.createElement('p');
-    const kategoriaIdResult = await getKategoriaIdByTuoteId(tuote_id);
-
-    console.log('Kaikki kategoria-id:t:', kategoriaIdResult);
-    if (kategoriaIdResult.length > 1) {
-      for (const kategoria of kategoriaIdResult) {
-        console.log('Kategorian id-silmukka:', kategoria);
-        const kategoriaNimi = await getKategoriaById(kategoria);
-        pElement2.textContent += kategoriaNimi + ', ';
-      }
-    } else if (kategoriaIdResult.length === 1) {
-      const kategoriaNimi = await getKategoriaById(kategoriaIdResult[0]);
-      pElement2.textContent = kategoriaNimi;
+    if (Array.isArray(tuotteet)) {
+      tuotteet.forEach((tuote) => {
+        displaySingleTuote(tuote);
+      });
     } else {
-      pElement2.textContent = "Kategoriaa ei löytynyt.";
+      displaySingleTuote(tuotteet);
     }
-    tuoteElement.appendChild(pElement2);
-
-    // Lisää hinta
-    const pElement3 = document.createElement('p');
-    const hintaElement = document.createElement('span');
-    hintaElement.textContent = hintaTeksti + tuote_hinta + '€';
-
-    pElement3.appendChild(hintaElement);
-    tuoteElement.appendChild(pElement3);
-
-
-    // Luodaan numero input
-    const numberInput = document.createElement('input');
-    numberInput.id = 'maara';
-    numberInput.type = 'number';
-    numberInput.name = 'maara';
-    numberInput.value = '1';
-    numberInput.min = '1';
-    numberInput.max = '100';
-
-    // Lisää tapahtumankäsittelijä numeron syöttöelementille
-    numberInput.addEventListener('input', () => {
-      // Päivitä tuote_maara senhetkisen arvon mukaan
-      const tuote_maara = parseInt(numberInput.value);
-    });
-
-    // Luodaan määräelementti
-    const maaraElement = document.createElement('span');
-    maaraElement.textContent = maaraTeksti;
-
-    // Lisätään määräelementti ja numeron syöttöelementti tuoteElementtiin
-    tuoteElement.appendChild(maaraElement);
-    tuoteElement.appendChild(numberInput);
-
-    // Lisää "Lisää ostoskoriin" -painike
-    const buttonElement = document.createElement('button');
-    buttonElement.textContent = addCartText;
-    buttonElement.style.backgroundColor = 'rgb(192, 160, 122)';
-    tuoteElement.appendChild(buttonElement);
-
-    //lisää "tallenna suosikkeihin" -painike
-    const buttonElement2 = document.createElement('button');
-    buttonElement2.textContent = addFavoriteText;
-    buttonElement2.style.backgroundColor = 'rgb(192, 160, 122)';
-    tuoteElement.appendChild(buttonElement2);
-
-    buttonElement.addEventListener('click', async () => {
-      const lisaaTuoteMaara = numberInput.value;
-      console.log('Tuote maara:', lisaaTuoteMaara);
-
-      const tarkista = await ostoskoriTarkistus(userId, tuote_id);
-      console.log('Tarkista ostoskori:', tarkista);
-
-      if (tarkista === false) {
-        await addToCart(userId, tuote_id, lisaaTuoteMaara);
-        console.log('Tuote lisätty ostoskoriin');
-
-      } else {
-        const ostoskoriTuoteId = getTuoteIdFromCart(userId);
-
-        await updateCart(userId, tuote_id, lisaaTuoteMaara);
-        console.log('Ostoskorisi päivitetty');
-      }
-    });
-
-    // Lisää tapahtumankäsittelijä "Tallenna suosikkeihin" -painikkeelle
-    buttonElement2.addEventListener('click', async () => {
-      let isFavorite = await favorateTarkistus(userId);
-      if (isFavorite === true) {
-
-        buttonElement2.textContent === 'Like'
-        console.log('Tuote on jo suosikeissa');
-      } else {
-        buttonElement2.textContent === 'Unlike'
-        console.log('Tuote ei ole suosikeissa');
-      }
-
-      // Tarkistetaan nykyinen tila ja vaihdetaan tarvittaessa
-      if (buttonElement2.textContent === addFavoriteText) {
-        buttonElement2.textContent = unfavorateText;
-        await addFavorite(userId, tuote_id);
-        isFavorite = true;
-      } else {
-        buttonElement2.textContent = addFavoriteText;
-        await removeSuosikista(userId, tuote_id);
-        isFavorite = false;
-      }
-    });
-
-    // Lisää tuoteElementti listaan
-    cakeList.appendChild(tuoteElement);
   } catch (error) {
-    console.error('Virhe tuotteen hakemisessa:', error.message);
+    console.error("Virhe tuotteiden hakemisessa:", error.message);
   }
 };
+
+const displaySingleTuote = async (tuote) => {
+  const kieli = document.getElementById('kieli');
+  const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+  let addCartText = '';
+  let addFavoriteText = '';
+  let unfavorateText = '';
+  let hintaTeksti = '';
+  let maaraTeksti = '';
+  switch (selectedLanguage) {
+    case 'EN':
+      addCartText = 'Add to cart';
+      addFavoriteText = 'Add to favorites';
+      unfavorateText = 'Unlike';
+      hintaTeksti = 'Price: ';
+      maaraTeksti = 'Amount: ';
+      break;
+    case 'CN':
+      addCartText = '添加到购物车';
+      addFavoriteText = '添加收藏';
+      unfavorateText = '删除收藏';
+      hintaTeksti = '价格: ';
+      maaraTeksti = '数量: ';
+      break;
+    case 'ET':
+      addCartText = 'Lisa ostukorvi';
+      addFavoriteText = 'Lisa lemmikutesse';
+      unfavorateText = 'Eemalda';
+      hintaTeksti = 'Hind: ';
+      maaraTeksti = 'Kogus: ';
+      break;
+    case 'SV':
+      addCartText = 'Lägg till i kundvagnen';
+      addFavoriteText = 'Lägg till i favoriter';
+      unfavorateText = 'Olikt';
+      hintaTeksti = 'Pris: ';
+      maaraTeksti = 'Mängd: ';
+      break;
+    case 'FI':
+    default:
+      addCartText = 'Lisää ostoskoriin';
+      addFavoriteText = 'Tallenna suosikkeihin';
+      unfavorateText = 'Poista suosikkeista';
+      hintaTeksti = 'Hinta: ';
+      maaraTeksti = 'Määrä: ';
+      break;
+  }
+  const userId = getUserId();
+
+  const cakeList = document.getElementById('cakeList');
+
+  const tuoteElement = document.createElement('div');
+  tuoteElement.classList.add('cake-item');
+
+  // Lisää kuvakehys
+  const imgElement = document.createElement('img');
+  imgElement.src = `../../../uploads/${tuote.tuote_kuva}`;
+  tuoteElement.appendChild(imgElement);
+
+
+  // Lisää tuotteen nimi
+  const h3Element = document.createElement('h3');
+  h3Element.textContent = tuote.tuote_nimi;
+  tuoteElement.appendChild(h3Element);
+
+  // Lisää tuotteen kuvaus
+  const pElement = document.createElement('p');
+  pElement.textContent = tuote.tuote_kuvaus;
+  tuoteElement.appendChild(pElement);
+
+  //Lisää kategoria
+  const pElement2 = document.createElement('p');
+  const kategoriaIdResult = await getKategoriaIdByTuoteId(tuote.tuote_id);
+
+  console.log('Kaikki kategoria-id:t:', kategoriaIdResult);
+  if (kategoriaIdResult.length > 1) {
+    for (const kategoria of kategoriaIdResult) {
+      console.log('Kategorian id-silmukka:', kategoria);
+      const kategoriaNimi = await getKategoriaById(kategoria);
+      pElement2.textContent += kategoriaNimi + ', ';
+    }
+  } else if (kategoriaIdResult.length === 1) {
+    const kategoriaNimi = await getKategoriaById(kategoriaIdResult[0]);
+    pElement2.textContent = kategoriaNimi;
+  } else {
+    pElement2.textContent = "Kategoriaa ei löytynyt.";
+  }
+  tuoteElement.appendChild(pElement2);
+
+  // Lisää hinta
+  const pElement3 = document.createElement('p');
+  const hintaElement = document.createElement('span');
+  hintaElement.textContent = hintaTeksti + tuote.tuote_hinta + '€';
+
+  pElement3.appendChild(hintaElement);
+  tuoteElement.appendChild(pElement3);
+
+
+  // Luodaan numero input
+  const numberInput = document.createElement('input');
+  numberInput.id = 'maara';
+  numberInput.type = 'number';
+  numberInput.name = 'maara';
+  numberInput.value = '1';
+  numberInput.min = '1';
+  numberInput.max = '100';
+
+  numberInput.addEventListener('input', () => {
+    const tuote_maara = parseInt(numberInput.value);
+  });
+
+  const maaraElement = document.createElement('span');
+  maaraElement.textContent = maaraTeksti;
+
+  tuoteElement.appendChild(maaraElement);
+  tuoteElement.appendChild(numberInput);
+
+  // Lisää "Lisää ostoskoriin" -painike
+  const buttonElement = document.createElement('button');
+  buttonElement.textContent = addCartText;
+  buttonElement.style.backgroundColor = 'rgb(192, 160, 122)';
+  tuoteElement.appendChild(buttonElement);
+
+  //lisää "tallenna suosikkeihin" -painike
+  const buttonElement2 = document.createElement('button');
+  buttonElement2.textContent = addFavoriteText;
+  buttonElement2.style.backgroundColor = 'rgb(192, 160, 122)';
+  tuoteElement.appendChild(buttonElement2);
+
+  buttonElement.addEventListener('click', async () => {
+    const lisaaTuoteMaara = numberInput.value;
+    console.log('Tuote maara:', lisaaTuoteMaara);
+
+    const tarkista = await ostoskoriTarkistus(userId, tuote.tuote_id);
+    console.log('Tarkista ostoskori:', tarkista);
+
+    if (tarkista === false) {
+      await addToCart(userId, tuote.tuote_id, lisaaTuoteMaara);
+      console.log('Tuote lisätty ostoskoriin');
+
+    } else {
+      const ostoskoriTuoteId = getTuoteIdFromCart(userId);
+
+      await updateCart(userId, tuote.tuote_id, lisaaTuoteMaara);
+      console.log('Ostoskorisi päivitetty');
+    }
+  });
+
+  buttonElement2.addEventListener('click', async () => {
+    let isFavorite = await favorateTarkistus(userId);
+    if (isFavorite === true) {
+
+      buttonElement2.textContent === 'Like'
+      console.log('Tuote on jo suosikeissa');
+    } else {
+      buttonElement2.textContent === 'Unlike'
+      console.log('Tuote ei ole suosikeissa');
+    }
+
+    if (buttonElement2.textContent === addFavoriteText) {
+      buttonElement2.textContent = unfavorateText;
+      await addFavorite(userId, tuote.tuote_id);
+      isFavorite = true;
+    } else {
+      buttonElement2.textContent = addFavoriteText;
+      await removeSuosikista(userId, tuote.tuote_id);
+      isFavorite = false;
+    }
+  });
+
+  cakeList.appendChild(tuoteElement);
+}
+
+
 
 const favorateTarkistus = async (userId, tuote_id) => {
   try {
@@ -484,7 +479,6 @@ const getTuoteIdFromFavorates = async (userID) => {
 
     const suosikitTuoteId = await response.json();
 
-    // if suosikitTuoteId is notfound return empty array
     if (!suosikitTuoteId) {
       console.log('Suosikkeja ei löytynyt');
       return [];

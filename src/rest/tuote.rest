@@ -25,28 +25,28 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0g
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_nimi"
 
-奶油鸡汤
+Oreo-juustokakku
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kuvaus"
 
-当您想要即舒服又可以饱腹的食物时，这款奶油鸡汤是完美的选择。多汁的鸡肉与奶油肉汤和新鲜蔬菜相结合，营造出令人垂涎欲滴的味觉体验。 此汤既温暖身体又温暖心灵。
+Herkullinen Oreo-juustokakku on valmistettu Oreo-kekseistä ja tuorejuustosta. Kakku on koristeltu Oreo-kekseillä ja suklaakastikkeella. Kakku on täydellinen jälkiruoka juhliin ja arkeen.
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_hinta"
 
-18.00
+47.00
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kustannus"
 
-8.00
+20.00
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tyyppi_id"
 
-28
+3
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="tuote_kuva"; filename="chickenSoup.jpg"
+Content-Disposition: form-data; name="tuote_kuva"; filename="oreocake.jpg"
 Content-Type: image/jpeg
 
-< kuvat/lamminruoka/chickenSoup.jpg
+< kuvat/kakut/oreocake.jpg
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
 
