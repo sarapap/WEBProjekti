@@ -31,3 +31,6 @@ Content-Type: application/json
 
 ###Delete suosikit by asiakas_id and tuote_id
 DELETE http://localhost:3000/api/v1/ostoskori/12/16
+
+###get tuote by user id
+GET http://localhost:3000/api/v1/tuote/user/3

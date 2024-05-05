@@ -5,7 +5,8 @@ import {
   findTuoteMaaraByAsiakasIdAndTuoteId,
   addOstoskoriin,
   updateOstosTuoteenMaara,
-  removeOstosById
+  removeOstosById,
+  removeOstosByUserId
 } from '../models/ostoskori-model.js';
 
 const getOstokset= async (req, res) => {
@@ -70,11 +71,21 @@ const deleteOstosById = async (req, res) => {
   res.json(result);
 };
 
+const deleteOstosByUserId = async (req, res) => {
+  const result = await removeOstosByUserId(req.params.asiakas_id);
+  if (!result) {
+      res.sendStatus(400);
+      return;
+  }
+  res.json(result);
+};
+
 export {
 getOstokset,
 geOstosByAsiakasId,
 getTuoteMaaraByAsiakasIdAndTuoteId,
 postOstos,
 deleteOstosById,
-putOstosTuoteenMaara
+putOstosTuoteenMaara,
+deleteOstosByUserId
 };
