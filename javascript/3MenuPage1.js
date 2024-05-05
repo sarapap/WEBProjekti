@@ -120,22 +120,19 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/蛋糕/咸味蛋糕';
     } else if (selectedAlatyyppi === '甜味蛋糕') {
       url = 'http://localhost:3000/api/v1/tyyppi/蛋糕/甜味蛋糕';
-    } else if (selectedAlatyyppi === 'kaikki') {
+    } else if (selectedAlatyyppi === 'kaikki_lammintaruokaa') {
       url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/lammintaruokaa';
     } else if (selectedAlatyyppi === 'kanaruuat') {
       url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/kanaruuat';
-    } else if (selectedAlatyyppi === 'muutlammintaruokaa') {
-      url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/muutlampimmatruuat';
-    } else if (selectedAlatyyppi === '全部') {
+    } else if (selectedAlatyyppi === 'muutlampimatruuat') {
+      url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/muutlampimatruuat';
+    } else if (selectedAlatyyppi === '全部热食') {
       url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/热食';
-    } else if (selectedAlatyyppi === '鸡肉食品') {
+    } else if (selectedAlatyyppi === '鸡肉类') {
       url = 'http://localhost:3000/api/v1/tyyppi/热食/鸡肉类';
     } else if (selectedAlatyyppi === '其他热食') {
       url = 'http://localhost:3000/api/v1/tyyppi/热食/其他热食';
     }
-
-
-
 
     const response = await fetch(url, {
       method: 'GET',
@@ -149,9 +146,11 @@ const getTyyppiIdLista = async () => {
 
     if (Array.isArray(tyyppiList)) {
       const tyyppiIdList = tyyppiList.map((tyyppi) => tyyppi.tyyppi_id);
+      console.log('Tyyppi id lista:', tyyppiIdList);
       return tyyppiIdList;
 
     } else if (tyyppiList.tyyppi_id) {
+      console.log('Tyyppi id:', tyyppiList.tyyppi_id);
       return tyyppiList.tyyppi_id;
     }
   } catch (error) {
