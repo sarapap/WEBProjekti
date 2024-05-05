@@ -202,7 +202,7 @@ nav li {
 }
 
 .table {
-  width: 0%;
+  width: 100%;
   margin: none;
   display: flex;
 
@@ -242,13 +242,13 @@ nav li {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin-left: 20px;
 }
 
 .cake-item {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
-  width: calc(45% - 10px); /* Aseta leveys siten, että välissä on 10px */
   margin-right: 10px;
   margin-bottom: 30px;
 }
@@ -301,7 +301,7 @@ footer {
 
 /* media */
 
-@media screen and (min-width: 801px) {
+@media screen and (min-width: 800.1px) {
 
   .table,
   .table2 {
@@ -312,8 +312,16 @@ footer {
     width: 100%;/
   }
 
+  .cake-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: 20px;
+    width: 100%;
+  }
+
   .cake-item {
-    width: calc(31.2% - 10px);
+    width: 23% ;
 }
 
   .footer-container {
@@ -349,12 +357,27 @@ footer {
   } */
 
   .cake-item {
-    width: calc(45% - 10px);
+    width: 45%;
   }
 
   .footer-container {
     margin: 0;
   }
+}
+
+@media screen and (max-width:600px) {
+  .table {
+    width: 100%;
+    padding-bottom: 5%;
+  }
+.cake-item {
+  width: 100%;
+}
+
+  .content h2 {
+    font-size: 40px;
+  }
+
 }
 
 @media screen and (max-width:534px) {
