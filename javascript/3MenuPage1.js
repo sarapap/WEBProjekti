@@ -120,7 +120,22 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/蛋糕/咸味蛋糕';
     } else if (selectedAlatyyppi === '甜味蛋糕') {
       url = 'http://localhost:3000/api/v1/tyyppi/蛋糕/甜味蛋糕';
+    } else if (selectedAlatyyppi === 'kaikki') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/lammintaruokaa';
+    } else if (selectedAlatyyppi === 'kanaruuat') {
+      url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/kanaruuat';
+    } else if (selectedAlatyyppi === 'muutlammintaruokaa') {
+      url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/muutlampimmatruuat';
+    } else if (selectedAlatyyppi === '全部') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/热食';
+    } else if (selectedAlatyyppi === '鸡肉食品') {
+      url = 'http://localhost:3000/api/v1/tyyppi/热食/鸡肉类';
+    } else if (selectedAlatyyppi === '其他热食') {
+      url = 'http://localhost:3000/api/v1/tyyppi/热食/其他热食';
     }
+
+
+
 
     const response = await fetch(url, {
       method: 'GET',
