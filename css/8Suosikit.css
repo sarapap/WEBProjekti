@@ -178,7 +178,6 @@ nav li {
 
 .dropdown-menu a:hover {
   background-color: #eceae9;
-
 }
 
 /* table */
@@ -212,7 +211,6 @@ nav li {
 .table2 {
   width: 100%;
   margin: none;
-
 }
 
 .image-box {
@@ -236,14 +234,14 @@ nav li {
 .cart-button i, .favorite-button i {
   font-size: 20px;
   color: rgb(208, 111, 14);
-  margin-right: 30px; /* Muuta vasemman ja oikean marginaalin välistystä */
+  margin-right: 30px;
 }
 
 
 .cake-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start; /* Tasaa elementit tasaisesti rivillä */
+  justify-content: flex-start;
 }
 
 .cake-item {
@@ -251,8 +249,8 @@ nav li {
   border-radius: 5px;
   padding: 10px;
   width: calc(45% - 10px); /* Aseta leveys siten, että välissä on 10px */
-  margin-right: 10px; /* Lisää väliä elementtien välille */
-  margin-bottom: 30px; /* Alareunaan väli */
+  margin-right: 10px;
+  margin-bottom: 30px;
 }
 
 .cake-item img {
@@ -265,27 +263,30 @@ nav li {
     font-size: 18px;
     margin-top: 10px;
     gap: 20px;
-
 }
 
 .cake-item p {
     margin-top: 5px;
     color: #666;
-
 }
 
 .cake-item button {
-    display: inline-block;
-    float: right;
-    width: 35%;
-    padding: 10px 22px;
-    margin-top: 10px;
-    background-color: rgb(237, 233, 227);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10%;
+  display: flex; /* Lisätty flexbox */
+  justify-content: center; /* Keskittää lapsielementit vaakasuunnassa */
+  align-items: center; /* Keskittää lapsielementit pystysuunnassa */
+  width: 30%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: rgb(237, 233, 227);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10%;
+  float: right;
+}
 
+.cake-item button i {
+  margin-right: 5px; /* Lisätty välimarginaali ikonin ja tekstin välille */
 }
 
 /* footer */
@@ -313,14 +314,12 @@ footer {
 
   .cake-item {
     width: calc(31.2% - 10px);
-
 }
 
   .footer-container {
     margin: 0;
   }
 }
-
 
 @media screen and (max-width:800px) {
   .table
@@ -351,7 +350,6 @@ footer {
 
   .cake-item {
     width: calc(45% - 10px);
-
   }
 
   .footer-container {
@@ -368,8 +366,6 @@ footer {
   .content h2 {
     font-size: 30px;
   }
-
-
 }
 
 @media screen and (max-width:330px) {
