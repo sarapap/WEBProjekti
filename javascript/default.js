@@ -90,8 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = redirectPage;
       });
     }
-  });
-});
+  );
 
 // get asiakas id from local storage
 const getUserId = () => {
