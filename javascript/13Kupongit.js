@@ -1,5 +1,13 @@
 'use strict';
 
+/*funktio kielen vaihtoon */
+function getSelectedLanguage() {
+    const kieli = document.getElementById('kieli');
+    return kieli && kieli.value ? kieli.value : 'FI';
+}
+
+/* kupongin näkyvyys statuksen mukaan */
+
 document.addEventListener('DOMContentLoaded', () => {
     const token = localStorage.getItem('authToken');
 
@@ -32,8 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* alennuskoodit */
 
 function copyToClipboard(text) {
-    const kieli = document.getElementById('kieli');
-    const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+    const selectedLanguage = getSelectedLanguage();
 
     navigator.clipboard.writeText(text).then(() => {
         switch (selectedLanguage) {

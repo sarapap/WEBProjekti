@@ -1,5 +1,11 @@
 'use strict';
 
+/*funktio kielen vaihtoon */
+function getSelectedLanguage() {
+    const kieli = document.getElementById('kieli');
+    return kieli && kieli.value ? kieli.value : 'FI';
+}
+
 /* dropdown menu */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -36,6 +42,7 @@ feedbackForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const formData = new FormData(feedbackForm);
+    const selectedLanguage = getSelectedLanguage();
 
     const feedbackData = {
         nimi: formData.get("name"),
@@ -53,9 +60,6 @@ feedbackForm.addEventListener("submit", async (e) => {
             },
             body: JSON.stringify(feedbackData),
         });
-
-        const kieli = document.getElementById('kieli');
-        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
         if (response.ok) {
             switch (selectedLanguage) {
@@ -98,9 +102,6 @@ feedbackForm.addEventListener("submit", async (e) => {
             }
         }
     } catch (error) {
-        const kieli = document.getElementById('kieli');
-        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
-
         switch (selectedLanguage) {
             case 'EN':
                 alert("An error occurred while submitting feedback. Please try again later.");

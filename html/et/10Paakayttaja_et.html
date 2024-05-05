@@ -61,20 +61,20 @@
           </li>
           <li>
             <a href="11Login.html">
-              <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
             </a>
-        </li>
-        <li>
+          </li>
+          <li>
             <a href="8Suosikit.html">
-              <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
             </a>
-        </li>
-        <li>
+          </li>
+          <li>
             <a href="9Ostoskori.html">
-              <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
             </a>
-        </li>
+          </li>
         </ul>
       </nav>
     </div>
@@ -151,20 +151,17 @@
         </table>
       </div>
       <hr>
-
       <div>
         <h1>Tagasiside</h1>
-        <form action="/broneerimise-kinnitus" method="post">
-          <label for="algusKuupäev2">Alguskuupäev:</label>
-          <input type="date" id="algusKuupäev2" name="algusKuupäev2">
-          <label for="loppKuupäev2">Lõppkuupäev:</label>
-          <input type="date" id="loppKuupäev2" name="loppKuupäev2">
-          <button type="submit" class="button2">Otsi</button>
-        </form>
+        <label for="aloituspvm">Alguskuupäev:</label>
+        <input type="date" id="aloituspvm" name="startDate">
+
+        <label for="lopetuspvm">Lõppkuupäev:</label>
+        <input type="date" id="lopetuspvm" name="endDate">
+
+        <button id="haePalaute" class="button2">Otsi</button>
         <table>
-          <p>Tagasiside valitud perioodil kuvatakse siin.</p>
-          <tbody id="tagasiside">
-          </tbody>
+          <tbody id="palaute"></tbody>
         </table>
       </div>
     </div>

@@ -1,10 +1,17 @@
 'use strict';
 
+/*funktio kielen vaihtoon */
+function getSelectedLanguage() {
+    const kieli = document.getElementById('kieli');
+    return kieli && kieli.value ? kieli.value : 'FI';
+}
+
+/* kirjaudu ulos */
+
 function logOut() {
     localStorage.removeItem('authToken');
 
-    const kieli = document.getElementById('kieli');
-    const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+    const selectedLanguage = getSelectedLanguage();
 
     let logoutPage = '';
     switch (selectedLanguage) {
@@ -31,6 +38,7 @@ function logOut() {
 /*tiedot esille*/
 document.addEventListener("DOMContentLoaded", async function () {
     const token = localStorage.getItem("authToken");
+    const selectedLanguage = getSelectedLanguage();
 
     let userId;
 
@@ -60,9 +68,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         const userPhone = userData.puhelin || "";
 
         /* käännökset */
-
-        const kieli = document.getElementById("kieli");
-        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
         const translations = {
             FI: {
