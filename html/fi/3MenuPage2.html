@@ -61,23 +61,24 @@
                             <option value="SV">Ruotsi</option>
                         </select>
                     </li>
-                  </li>
-                  <li>
-                      <a href="11Login.html">
-                        <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+                    </li>
+                    <li>
+                        <a href="11Login.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
-                      </a>
-                  </li>
-                  <li>
-                      <a href="8Suosikit.html">
-                        <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="9Ostoskori.html">
-                        <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
-                      </a>
-                  </li>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
                 </ul>
 
             </nav>
@@ -110,64 +111,25 @@
     <div class="salty-section">
         <h2>SUOLAISET RUUAT</h2>
 
-        <input type="text" id="saltySearch" placeholder="Etsi suolaista...">
         <div class="filter-options">
-            <label for="saltyType">Valitse tyyppi:</label>
-            <select id="saltyType">
-                <option value="kaikki">Kaikki</option>
+            <label for="cakeType">Valitse tyyppi:</label>
+            <select id="cakeType">
+                <option value="kaikki4">Kaikki</option>
                 <option value="piirakat">Piirakat</option>
                 <option value="salaatit">Salaatit</option>
                 <option value="pasteijat">Pasteijat</option>
-                <!-- Lisää -->
             </select>
         </div>
 
-        <div class="salty-category">
-            <h3>Piirakat</h3>
-            <div class="salty-list">
-                <div class="salty-item">
-                    <img src="piirakka1.jpg" alt="Suolainen piirakka 1">
-                    <h4>Pinaatti-fetapiirakka</h4>
-                    <p>Tuore pinaatti ja fetajuusto herkullisessa piirakassa.</p>
-                    <button>Lisää ostoskoriin</button>
-                </div>
-                <!-- Lisää -->
-            </div>
-        </div>
-        <div class="salty-category">
-            <h3>Salaatit</h3>
-            <div class="salty-list">
-                <div class="salty-item">
-                    <img src="salaatti1.jpg" alt="Salaatti 1">
-                    <h4>Kreikkalainen salaatti</h4>
-                    <p>-</p>
-                    <button>Lisää ostoskoriin</button>
-                </div>
-                <!-- Lisää -->
-            </div>
-        </div>
-        <div class="salty-category">
-            <h3>Pasteijat</h3>
-            <div class="salty-list">
-                <div class="salty-item">
-                    <img src="pasteija1.jpg" alt="Pasteija 1">
-                    <h4>Kinkku-juustopasteija</h4>
-                    <p>-</p>
-                    <button>Lisää ostoskoriin</button>
-                </div>
-                <!-- Lisää -->
-            </div>
+        <div class="salty-category" id="cakeList">
         </div>
 
-        <!-- Lisää -->
 
-    </div>
-
-    <footer>
-        <p>&copy; S&A CAFE 2024</p>
-        <div class="changecontent">
-        </div>
-    </footer>
+        <footer>
+            <p>&copy; S&A CAFE 2024</p>
+            <div class="changecontent">
+            </div>
+        </footer>
 </body>
 
 

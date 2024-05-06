@@ -43,7 +43,7 @@
     </style>
 
     <script src="/javascript/default.js" defer></script>
-    <script src="/javascript/3MenuPage5.js" defer></script>
+    <script src="/javascript/3MenuPage1.js" defer></script>
 </head>
 
 <body>
@@ -61,23 +61,24 @@
                             <option value="SV">Ruotsi</option>
                         </select>
                     </li>
-                  </li>
-                  <li>
-                      <a href="11Login.html">
-                        <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+                    </li>
+                    <li>
+                        <a href="11Login.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
-                      </a>
-                  </li>
-                  <li>
-                      <a href="8Suosikit.html">
-                        <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="9Ostoskori.html">
-                        <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
-                      </a>
-                  </li>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
                 </ul>
 
             </nav>
@@ -109,100 +110,26 @@
     <div class="drinks-section">
         <h2>JUOMAVALIKOIMA</h2>
 
-        <input type="text" id="drinkSearch" placeholder="Etsi juomaa...">
         <div class="filter-options">
-            <label for="drinkType">Valitse tyyppi:</label>
-            <select id="drinkType">
-                <option value="kaikki">Kaikki</option>
-                <option value="lämmin_kahvi">Lämmin kahvi</option>
-                <option value="jääkahvi">Jääkahvi</option>
-                <option value="tee">Tee</option>
+            <label for="cakeType">Valitse tyyppi:</label>
+            <select id="cakeType">
+                <option value="kaikki3">Kaikki</option>
+                <option value="lämmintä juotavaa">Lämmin kahvi</option>
+                <option value="jääkahvit">Jääkahvi</option>
+                <option value="teet">Tee</option>
                 <option value="virvoitusjuomat">Virvoitusjuomat</option>
-                <!-- Lisää -->
             </select>
         </div>
 
-        <div class="drink-category">
-            <h3>Lämmin kahvi</h3>
-            <div class="drink-list">
-                <div class="drink-item">
-                    <img src="lammin_kahvi1.jpg" alt="Lämmin kahvi 1">
-                    <h4>Kahvi Latte</h4>
-                    <p>Tuore espresso, höyrytetty maito ja maitovaahto.</p>
-                    <button>Lisää ostoskoriin</button>
-                </div>
-                <div class="drink-item">
-                    <img src="lammin_kahvi2.jpg" alt="Lämmin kahvi 2">
-                    <h4>Cappuccino</h4>
-                    <p>Vahva espresso ja kermainen maitovaahto.</p>
-                    <button>Lisää ostoskoriin</button>
-                </div>
-                <!-- Lisää -->
-            </div>
+        <div class="drink-category" id="cakeList">
         </div>
 
-        <div class="drink-category">
-            <h3>Jääkahvi</h3>
-            <div class="drink-list">
-                <div class="drink-item">
-                    <img src="jaakahvi1.jpg" alt="Jääkahvi 1">
-                    <h4>Frappuccino</h4>
-                    <p>Vaniljainen jääkahvi kermavaahdolla.</p>
-                    <button>Lisää ostoskoriin</button>
-                </div>
-                <div class="drink-item">
-                    <img src="jaakahvi2.jpg" alt="Jääkahvi 2">
-                    <h4>Kylmäkahvi</h4>
-                    <p>Tuoreet kahvipavut jäävedessä.</p>
-                    <button>Lisää ostoskoriin</button>
-                </div>
-                <!-- Lisää -->
-            </div>
-        </div>
-        <div class="drink-category">
-            <h3>Teet</h3>
-            <div class="drink-list">
-                <div class="drink-item">
-                    <img src="tee1.jpg" alt="Tee 1">
-                    <h4>Kamomilla</h4>
-                    <p>-</p>
-                    <button>Lisää ostoskoriin</button>
-                </div>
-                <div class="drink-item">
-                    <img src="tee2.jpg" alt="Tee 2">
-                    <h4>Rooibos</h4>
-                    <p>-</p>
-                    <button>Lisää ostoskoriin</button>
-                </div>
-                <!-- Lisää -->
-            </div>
-            <div class="drink-category">
-                <h3>Virvoitusjuomat</h3>
-                <div class="drink-list">
-                    <div class="drink-item">
-                        <img src="Virvoitusjuomat1.jpg" alt="Virvoitusjuomat 1">
-                        <h4>Coca Cola</h4>
-                        <p>-</p>
-                        <button>Lisää ostoskoriin</button>
-                    </div>
-                    <div class="drink-item">
-                        <img src="Virvoitusjuomat2.jpg" alt="Virvoitusjuomat 2">
-                        <h4>Pepsi</h4>
-                        <p>-</p>
-                        <button>Lisää ostoskoriin</button>
-                    </div>
-                    <!-- Lisää -->
-                </div>
 
-                <!-- Lisää  -->
-
+        <footer>
+            <p>&copy; S&A CAFE 2024</p>
+            <div class="changecontent">
             </div>
-
-            <footer>
-                <p>&copy; S&A CAFE 2024</p>
-                <div class="changecontent">
-                </div>
-            </footer>
+        </footer>
 </body>
 
 

@@ -60,21 +60,22 @@
                         </select>
                     </li>
                     <li>
-                      <a href="11Login.html">
-                        <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+                        <a href="11Login.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
-                      </a>
-                  </li>
-                  <li>
-                      <a href="8Suosikit.html">
-                        <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="9Ostoskori.html">
-                        <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
-                      </a>
-                  </li>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
                 </ul>
 
             </nav>
@@ -105,50 +106,25 @@
 
     <div class="cake-section">
         <h2>TÅRTVAL</h2>
-        <input type="text" id="cakeSearch" placeholder="Sök efter tårta...">
+
         <div class="filter-options">
             <label for="cakeType">Välj typ:</label>
             <select id="cakeType">
-                <option value="kaikki">Alla</option>
-                <option value="suklaakakut">Chokladtårtor</option>
-                <option value="mansikkakakut">Jordgubbstårta</option>
-                <option value="vaniljakakut">Vaniljtårta</option>
+                <option value="alla">Alla</option>
+                <option value="festtårtor">Fest Tårtor</option>
+                <option value="saltatårtor">Salta Tårtor</option>
+                <option value="sötatårtor">Söta Tårtor</option>
             </select>
         </div>
 
-        <div class="cake-list">
-            <div class="cake-item">
-                <img src="kuva1.jpg" alt="Tårta 1">
-                <h3>Tårta 1</h3>
-                <p>Beskrivning av tårta 1</p>
-                <button>Lägg till i kundvagnen</button>
-            </div>
-            <div class="cake-item">
-                <img src="kuva2.jpg" alt="Tårta 2">
-                <h3>Tårta 2</h3>
-                <p>Beskrivning av tårta 2</p>
-                <button>Lägg till i kundvagnen</button>
-            </div>
-            <div class="cake-item">
-                <img src="kuva3.jpg" alt="Tårta 3">
-                <h3>Tårta 3</h3>
-                <p>Beskrivning av tårta 3</p>
-                <button>Lägg till i kundvagnen</button>
-            </div>
-            <div class="cake-item">
-                <img src="kuva4.jpg" alt="Tårta 4">
-                <h3>Tårta 4</h3>
-                <p>Beskrivning av tårta 4</p>
-                <button>Lägg till i kundvagnen</button>
-            </div>
-            <!-- Lisää -->
+        <div class="cake-list" id="cakeList">
         </div>
-    </div>
-    <footer>
-        <p>&copy; S&A CAFE 2024</p>
-        <div class="changecontent">
-        </div>
-    </footer>
+
+        <footer>
+            <p>&copy; S&A CAFE 2024</p>
+            <div class="changecontent">
+            </div>
+        </footer>
 </body>
 
 </html>

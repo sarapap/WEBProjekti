@@ -64,28 +64,29 @@ header {
 }
 
 .käyttäjä {
-  display: inline-block;
-  margin: 10px;
-  font-size: 20px;
-  background-size: cover;
+    display: inline-block;
+    margin: 10px;
+    font-size: 20px;
+    background-size: cover;
 
 }
+
 .suosikit {
-  display: inline-block;
-  margin: 10px;
-  font-size: 20px;
-  background-size: cover;
+    display: inline-block;
+    margin: 10px;
+    font-size: 20px;
+    background-size: cover;
 }
 
 .ostoskori {
-  display: inline-block;
-  margin: 10px;
-  font-size: 20px;
-  background-size: cover;
+    display: inline-block;
+    margin: 10px;
+    font-size: 20px;
+    background-size: cover;
 }
 
 .kieli {
-  margin: 7px 10px 0px 0px;
+    margin: 7px 10px 0px 0px;
 }
 
 #kieli {
@@ -272,6 +273,8 @@ nav li {
 .salty-item button:hover {
     background-color: rgb(208, 194, 178);
 }
+
+
 
 
 /* footer */

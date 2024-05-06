@@ -25,28 +25,28 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0g
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_nimi"
 
-Oreo-juustokakku
+Unistav Maasikakook
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kuvaus"
 
-Herkullinen Oreo-juustokakku on valmistettu Oreo-kekseistä ja tuorejuustosta. Kakku on koristeltu Oreo-kekseillä ja suklaakastikkeella. Kakku on täydellinen jälkiruoka juhliin ja arkeen.
+Unistav Maasikakook on maitsev ja värskendav magustoit, mis on täidetud mahlaste maasikate ja kreemja täidisega. See kook on suussulav valik, ideaalne pidudeks või erilisteks sündmusteks.
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_hinta"
 
-47.00
+44.00
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kustannus"
 
-20.00
+23.00
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tyyppi_id"
 
-3
+43
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="tuote_kuva"; filename="oreocake.jpg"
+Content-Disposition: form-data; name="tuote_kuva"; filename="strawberry_cake.jpg"
 Content-Type: image/jpeg
 
-< kuvat/kakut/oreocake.jpg
+< kuvat/kakut/strawberry_cake.jpg
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
 

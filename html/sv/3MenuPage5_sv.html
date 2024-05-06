@@ -41,7 +41,7 @@
     </style>
 
     <script src="/javascript/default.js" defer></script>
-    <script src="/javascript/3MenuPage5.js" defer></script>
+    <script src="/javascript/3MenuPage1.js" defer></script>
 </head>
 
 <body>
@@ -60,21 +60,22 @@
                         </select>
                     </li>
                     <li>
-                      <a href="11Login.html">
-                        <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+                        <a href="11Login.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
-                      </a>
-                  </li>
-                  <li>
-                      <a href="8Suosikit.html">
-                        <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="9Ostoskori.html">
-                        <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
-                      </a>
-                  </li>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
                 </ul>
 
             </nav>
@@ -106,102 +107,25 @@
     <div class="drinks-section">
         <h2>DRYCKESUTBUD</h2>
 
-        <input type="text" id="drinkSearch" placeholder="Sök efter dryck...">
         <div class="filter-options">
-            <label for="drinkType">Välj typ:</label>
-            <select id="drinkType">
-                <option value="kaikki">Alla</option>
-                <option value="lämmin_kahvi">Varma kaffe</option>
-                <option value="jääkahvi">Iced Coffee</option>
-                <option value="tee">Te</option>
-                <option value="virvoitusjuomat">Läskedrycker</option>
-                <!-- Lisää -->
+            <label for="cakeType">Välj typ:</label>
+            <select id="cakeType">
+                <option value="alla3">Alla</option>
+                <option value="varmadrycker">Varma kaffe</option>
+                <option value="iskaffe">Iced Coffee</option>
+                <option value="teer">Te</option>
+                <option value="läskedrycker">Läskedrycker</option>
             </select>
         </div>
 
-        <div class="drink-category">
-            <h3>Varma kaffe</h3>
-            <div class="drink-list">
-                <div class="drink-item">
-                    <img src="lammin_kahvi1.jpg" alt="Varma kaffe 1">
-                    <h4>Kaffe Latte</h4>
-                    <p>Färsk espresso, ångad mjölk och mjölkskum.</p>
-                    <button>Lägg till i kundvagnen</button>
-                </div>
-                <div class="drink-item">
-                    <img src="lammin_kahvi2.jpg" alt="Varma kaffe 2">
-                    <h4>Cappuccino</h4>
-                    <p>Stark espresso och krämigt mjölkskum.</p>
-                    <button>Lägg till i kundvagnen</button>
-                </div>
-                <!-- Lisää -->
-            </div>
+        <div class="drink-category" id="cakeList">
         </div>
 
-        <div class="drink-category">
-            <h3>Iced Coffee</h3>
-            <div class="drink-list">
-                <div class="drink-item">
-                    <img src="jaakahvi1.jpg" alt="Iced Coffee 1">
-                    <h4>Frappuccino</h4>
-                    <p>Vaniljig iced coffee med grädde.</p>
-                    <button>Lägg till i kundvagnen</button>
-                </div>
-                <div class="drink-item">
-                    <img src="jaakahvi2.jpg" alt="Iced Coffee 2">
-                    <h4>Kallt kaffe</h4>
-                    <p>Färska kaffebönor i isvatten.</p>
-                    <button>Lägg till i kundvagnen</button>
-                </div>
-                <!-- Lisää -->
+        <footer>
+            <p>&copy; S&A CAFE 2024</p>
+            <div class="changecontent">
             </div>
-        </div>
-        <div class="drink-category">
-            <h3>Te</h3>
-            <div class="drink-list">
-                <div class="drink-item">
-                    <img src="tee1.jpg" alt="Te 1">
-                    <h4>Kamomill</h4>
-                    <p>-</p>
-                    <button>Lägg till i kundvagnen</button>
-                </div>
-                <div class="drink-item">
-                    <img src="tee2.jpg" alt="Te 2">
-                    <h4>Rooibos</h4>
-                    <p>-</p>
-                    <button>Lägg till i kundvagnen</button>
-                </div>
-                <!-- Lisää -->
-            </div>
-            <div class="drink-category">
-                <h3>Läskedrycker</h3>
-                <div class="drink-list">
-                    <div class="drink-item">
-                        <img src="Virvoitusjuomat1.jpg" alt="Läskedrycker 1">
-                        <h4>Coca Cola</h4>
-                        <p>-</p>
-                        <button>Lägg till i kundvagnen</button>
-                    </div>
-                    <div class="drink-item">
-                        <img src="Virvoitusjuomat2.jpg" alt="Läskedrycker 2">
-                        <h4>Pepsi</h4>
-                        <p>-</p>
-                        <button>Lägg till i kundvagnen</button>
-                    </div>
-                    <!-- Lisää -->
-                </div>
-
-                <!-- Lisää  -->
-
-            </div>
-
-
-
-            <footer>
-                <p>&copy; S&A CAFE 2024</p>
-                <div class="changecontent">
-                </div>
-            </footer>
+        </footer>
 </body>
 
 </html>
