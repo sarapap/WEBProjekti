@@ -407,6 +407,7 @@ payButton.addEventListener('click', async () => {
       await lisaaTilausSisalto(userId, tilaus_id, tuote_id, tuote_hinta, tuote_kustannus, maara);
       await lisaaTilaus(userId, tuote_id);
       await deleteTuoteFromCart(userId, tuote_id);
+      await paivitaOstoskorinNumero();
     }
     }
   } catch (error) {

@@ -119,7 +119,6 @@
   <div>
 
     <p>Tarkista muokkaustiedot etsimällä tuotteita.</p>
-    <input type="text" id="cakeSearch" placeholder="Etsi kakkua...">
     <div class="filter-options">
       <label for="cakeType">Valitse tyyppi:</label>
       <select id="cakeType">
@@ -136,16 +135,19 @@
     <div>
       <h1>Yritystoiminnan seuranta</h1>
       <h4>Tarkista raportti valitulla ajanjaksolla.</h4>
-      <form action="/varauksen-vahvistus" method="post">
+      <form action="" method="post">
         <label for="aloituspvm1">Aloituspäivämäärä:</label>
         <input type="date" id="aloituspvm1" name="aloituspvm">
         <label for="lopetuspvm1">Lopetuspäivämäärä:</label>
         <input type="date" id="lopetuspvm1" name="lopetuspvm">
-        <button type="submit" class="button2">Hae</button>
+        <button type="submit" class="button2" idd="raportButton">Hae</button>
       </form>
+
       <table>
         <p>Tähän tulee raportti valitulla ajanjaksolla.</p>
-        <tbody id="raportti"></tbody>
+        <tbody id="raportti">
+
+        </tbody>
       </table>
     </div>
     <hr>
