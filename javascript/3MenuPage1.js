@@ -75,6 +75,10 @@
 //   window.location.href = '11Login.html';
 // };
 
+let userId = getUserId() || 13;
+
+console.log('userId:', userId);
+
 const handleNewValue = async () => {
   const alatyyppi = getSelectedAlaTyyppi();
   await updateSubtypes(alatyyppi);
