@@ -76,7 +76,7 @@
 // };
 
 const handleNewValue = async () => {
-  const alatyyppi = getSelectedAlaTyyppi();
+  const alatyyppi = await getSelectedAlaTyyppi();
   await updateSubtypes(alatyyppi);
 };
 
@@ -270,8 +270,8 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
     const tuotteet = await response.json();
 
     if (Array.isArray(tuotteet)) {
-      tuotteet.forEach((tuote) => {
-        displaySingleTuote(tuote);
+      tuotteet.forEach( async(tuote) => {
+        await displaySingleTuote(tuote);
       });
     } else {
       displaySingleTuote(tuotteet);
@@ -327,7 +327,6 @@ const displaySingleTuote = async (tuote) => {
       maaraTeksti = 'Määrä: ';
       break;
   }
-  const userId = getUserId();
 
   const cakeList = document.getElementById('cakeList');
 
@@ -421,7 +420,7 @@ const displaySingleTuote = async (tuote) => {
       console.log('Tuote lisätty ostoskoriin');
 
     } else {
-      const ostoskoriTuoteId = getTuoteIdFromCart(userId);
+      const ostoskoriTuoteId = await getTuoteIdFromCart(userId);
 
       await updateCart(userId, tuote.tuote_id, lisaaTuoteMaara);
       console.log('Ostoskorisi päivitetty');
@@ -728,6 +727,5 @@ const getKategoriaById = async (kategoriaId) => {
     console.error('Virhe kategorian hakemisessa:', error.message);
   }
 };
-
 
 fetchAndDisplayTuotteet();

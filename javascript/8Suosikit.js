@@ -158,39 +158,24 @@ const getTuoteByTuoteId = async (tuote_id) => {
     pElement3.appendChild(hintaElement);
     tuoteElement.appendChild(pElement3);
 
-    // // Lisää "Lisää ostoskoriin" -painike
-    // const buttonElement = document.createElement('button');
-    // buttonElement.textContent = addCartText;
-    // buttonElement.style.backgroundColor = 'rgb(192, 160, 122)';
-    // tuoteElement.appendChild(buttonElement);
 
-    // //lisää "tallenna suosikkeihin" -painike
-    // const buttonElement2 = document.createElement('button');
-    // buttonElement2.textContent = addFavoriteText;
-    // buttonElement2.style.backgroundColor = 'rgb(192, 160, 122)';
-    // tuoteElement.appendChild(buttonElement2);
+    const buttonElement = document.createElement('button');
+    buttonElement.innerHTML = '<i class="fas fa-shopping-cart"></i>'; // Ostoskori-kuvake
+    buttonElement.classList.add('cart-button'); // Lisää luokka tarvittaessa
 
-    // Lisää "Lisää ostoskoriin" -painike
-    // Luodaan "Lisää ostoskoriin" -painike
-const buttonElement = document.createElement('button');
-buttonElement.innerHTML = '<i class="fas fa-shopping-cart"></i>'; // Ostoskori-kuvake
-buttonElement.classList.add('cart-button'); // Lisää luokka tarvittaessa
+    // Luodaan "Tallenna suosikkeihin" -painike
+    const buttonElement2 = document.createElement('button');
+    buttonElement2.innerHTML = '<i class="far fa-heart"></i>'; // Sydän-kuvake
+    buttonElement2.classList.add('favorite-button'); // Lisää luokka tarvittaessa
 
-// Luodaan "Tallenna suosikkeihin" -painike
-const buttonElement2 = document.createElement('button');
-buttonElement2.innerHTML = '<i class="far fa-heart"></i>'; // Sydän-kuvake
-buttonElement2.classList.add('favorite-button'); // Lisää luokka tarvittaessa
+    // Luodaan div-elementti kuvakkeille ja lisätään kuvakkeet siihen
+    const buttonContainer = document.createElement('div');
+    buttonContainer.classList.add('button-container');
+    buttonContainer.appendChild(buttonElement);
+    buttonContainer.appendChild(buttonElement2);
 
-// Luodaan div-elementti kuvakkeille ja lisätään kuvakkeet siihen
-const buttonContainer = document.createElement('div');
-buttonContainer.classList.add('button-container');
-buttonContainer.appendChild(buttonElement);
-buttonContainer.appendChild(buttonElement2);
-
-// Lisätään kuvake-container tuoteElementin loppuun
-tuoteElement.appendChild(buttonContainer);
-
-
+    // Lisätään kuvake-container tuoteElementin loppuun
+    tuoteElement.appendChild(buttonContainer);
 
     buttonElement.addEventListener('click', async () => {
       // const lisaaTuoteMaara = numberInput.value;

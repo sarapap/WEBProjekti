@@ -24,7 +24,7 @@ document.getElementById("kieli").addEventListener("change", function () {
 });
 
 /*käyttäjä pysyy kirjautuneena */
-let redirectPage = '';
+
 document.addEventListener('DOMContentLoaded', function () {
 
      const links = document.querySelectorAll('a');
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = redirectPage;
       });
     }
-);
+  );
 
 // get asiakas id from local storage
 const getUserId = () => {
@@ -187,4 +187,3 @@ const disPlayIconNumerot = async () => {
 }
 
 disPlayIconNumerot();
-
