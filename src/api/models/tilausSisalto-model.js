@@ -61,6 +61,7 @@ const addTilausSisalto = async (tilaus_sisalto) => {
     myynti_summa,
     kustannus_summa,
     tilaus_pvm,
+    voitto,
     status
   } = tilaus_sisalto;
 
@@ -71,8 +72,9 @@ const addTilausSisalto = async (tilaus_sisalto) => {
     myynti_summa,
     kustannus_summa,
     tilaus_pvm,
+    voitto,
     status
-  ) VALUES (?, ?, ?, ?, ?, ?, ?)`;
+  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
 ;
 
   const data = [
@@ -82,6 +84,7 @@ const addTilausSisalto = async (tilaus_sisalto) => {
     myynti_summa,
     kustannus_summa,
     tilaus_pvm,
+    voitto,
     status];
 
   try {

@@ -75,10 +75,6 @@
 //   window.location.href = '11Login.html';
 // };
 
-let userId = getUserId() || 13;
-
-console.log('userId:', userId);
-
 const handleNewValue = async () => {
   const alatyyppi = getSelectedAlaTyyppi();
   await updateSubtypes(alatyyppi);
@@ -115,6 +111,14 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/kakut/suolaiset%20kakut';
     } else if (selectedAlatyyppi === 'makeat kakut') {
       url = 'http://localhost:3000/api/v1/tyyppi/kakut/makeat%20kakut';
+    } else if (selectedAlatyyppi === 'all') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/cakes';
+    } else if (selectedAlatyyppi === 'celebrationCakes') {
+      url = 'http://localhost:3000/api/v1/tyyppi/cakes/celebrationCakes';
+    } else if (selectedAlatyyppi === 'savoryCakes') {
+      url = 'http://localhost:3000/api/v1/tyyppi/cakes/savoryCakes';
+    } else if (selectedAlatyyppi === 'sweetCakes') {
+      url = 'http://localhost:3000/api/v1/tyyppi/cakes/sweetCakes';
     } else if (selectedAlatyyppi === '全部') {
       url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/蛋糕';
     } else if (selectedAlatyyppi === '节日蛋糕') {
@@ -123,21 +127,95 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/蛋糕/咸味蛋糕';
     } else if (selectedAlatyyppi === '甜味蛋糕') {
       url = 'http://localhost:3000/api/v1/tyyppi/蛋糕/甜味蛋糕';
-    } else if (selectedAlatyyppi === 'kaikki2') {
-      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/lammintaruokaa';
-    } else if (selectedAlatyyppi === 'kanaruuat') {
-      url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/kanaruuat';
-    } else if (selectedAlatyyppi === 'muutlampimatruuat') {
-      url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/muutlampimatruuat';
-    } else if (selectedAlatyyppi === '全部热食') {
-    } else if (selectedAlatyyppi === 'muutlampimmatruuat') {
-      url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/muutlampimmatruuat';
     } else if (selectedAlatyyppi === '全部') {
       url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/热食';
-    } else if (selectedAlatyyppi === '鸡肉类') {
+    } else if (selectedAlatyyppi === '鸡肉食品') {
       url = 'http://localhost:3000/api/v1/tyyppi/热食/鸡肉类';
     } else if (selectedAlatyyppi === '其他热食') {
       url = 'http://localhost:3000/api/v1/tyyppi/热食/其他热食';
+    } else if (selectedAlatyyppi === 'alla') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/tårtor';
+    } else if (selectedAlatyyppi === 'festtårtor') {
+      url = 'http://localhost:3000/api/v1/tyyppi/tårtor/festtårtor';
+    } else if (selectedAlatyyppi === 'saltatårtor') {
+      url = 'http://localhost:3000/api/v1/tyyppi/tårtor/saltatårtor';
+    } else if (selectedAlatyyppi === 'sötatårtor') {
+      url = 'http://localhost:3000/api/v1/tyyppi/tårtor/sötatårtor';
+    } else if (selectedAlatyyppi === 'koik') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/koogid';
+    } else if (selectedAlatyyppi === 'pidukoogid') {
+      url = 'http://localhost:3000/api/v1/tyyppi/koogid/pidukoogid';
+    } else if (selectedAlatyyppi === 'soolasedkoogid') {
+      url = 'http://localhost:3000/api/v1/tyyppi/koogid/soolasedkoogid';
+    } else if (selectedAlatyyppi === 'magusadkoogid') {
+      url = 'http://localhost:3000/api/v1/tyyppi/koogid/magusadkoogid';
+    }
+
+    else if (selectedAlatyyppi === 'kaikki2') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/lammintaruokaa';
+    } else if (selectedAlatyyppi === 'kanaruuat') {
+      url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/kanaruuat';
+    } else if (selectedAlatyyppi === 'muutlampimmatruuat') {
+      url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaa/muutlampimmatruuat';
+    } else if (selectedAlatyyppi === 'all2') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/hotmeals';
+    } else if (selectedAlatyyppi === 'chickendishes') {
+      url = 'http://localhost:3000/api/v1/tyyppi/hotmeals/chickendishes';
+    } else if (selectedAlatyyppi === 'otherhotdishes') {
+      url = 'http://localhost:3000/api/v1/tyyppi/hotmeals/otherhotdishes';
+    } else if (selectedAlatyyppi === 'alla2') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/varmarätter';
+    } else if (selectedAlatyyppi === 'kycklingrätter') {
+      url = 'http://localhost:3000/api/v1/tyyppi/varmarätter/kycklingrätter';
+    } else if (selectedAlatyyppi === 'andravarmarätter') {
+      url = 'http://localhost:3000/api/v1/tyyppi/varmarätter/andravarmarätter';
+    } else if (selectedAlatyyppi === 'koik2') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/kuumtoit';
+    } else if (selectedAlatyyppi === 'kanaroad') {
+      url = 'http://localhost:3000/api/v1/tyyppi/kuumtoit/kanaroad';
+    } else if (selectedAlatyyppi === 'muudkuumadtoidud') {
+      url = 'http://localhost:3000/api/v1/tyyppi/kuumtoit/muudkuumadtoidud';
+
+    } else if (selectedAlatyyppi === 'kaikki3') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/juotavaa';
+    } else if (selectedAlatyyppi === 'lämmintä juotavaa') {
+      url = 'http://localhost:3000/api/v1/tyyppi/juotavaa/lämmintä%20juotavaa';
+    } else if (selectedAlatyyppi === 'jääkahvit') {
+      url = 'http://localhost:3000/api/v1/tyyppi/juotavaa/jääkahvit';
+    } else if (selectedAlatyyppi === 'teet') {
+      url = 'http://localhost:3000/api/v1/tyyppi/juotavaa/teet';
+    } else if (selectedAlatyyppi === 'virvoitusjuomat') {
+      url = 'http://localhost:3000/api/v1/tyyppi/juotavaa/virvoitusjuomat';
+    } else if (selectedAlatyyppi === 'all3') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/drinks';
+    } else if (selectedAlatyyppi === 'hotdrinks') {
+      url = 'http://localhost:3000/api/v1/tyyppi/drinks/hotdrinks';
+    } else if (selectedAlatyyppi === 'iceddrinks') {
+      url = 'http://localhost:3000/api/v1/tyyppi/drinks/iceddrinks';
+    } else if (selectedAlatyyppi === 'teas') {
+      url = 'http://localhost:3000/api/v1/tyyppi/drinks/teas';
+    } else if (selectedAlatyyppi === 'refreshments') {
+      url = 'http://localhost:3000/api/v1/tyyppi/drinks/refreshments';
+    } else if (selectedAlatyyppi === 'alla3') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/drycker';
+    } else if (selectedAlatyyppi === 'varmadrycker') {
+      url = 'http://localhost:3000/api/v1/tyyppi/drycker/varmadrycker';
+    } else if (selectedAlatyyppi === 'iskaffe') {
+      url = 'http://localhost:3000/api/v1/tyyppi/drycker/iskaffe';
+    } else if (selectedAlatyyppi === 'teer') {
+      url = 'http://localhost:3000/api/v1/tyyppi/drycker/teer';
+    } else if (selectedAlatyyppi === 'läskedrycker') {
+      url = 'http://localhost:3000/api/v1/tyyppi/drycker/läskedrycker';
+    } else if (selectedAlatyyppi === 'koik3') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/joogid';
+    } else if (selectedAlatyyppi === 'kuumadjoogid') {
+      url = 'http://localhost:3000/api/v1/tyyppi/joogid/kuumadjoogid';
+    } else if (selectedAlatyyppi === 'jääkohv') {
+      url = 'http://localhost:3000/api/v1/tyyppi/joogid/jääkohv';
+    } else if (selectedAlatyyppi === 'teed') {
+      url = 'http://localhost:3000/api/v1/tyyppi/joogid/teed';
+    } else if (selectedAlatyyppi === 'karastusjoogid') {
+      url = 'http://localhost:3000/api/v1/tyyppi/joogid/karastusjoogid';
     }
 
     const response = await fetch(url, {
@@ -153,11 +231,9 @@ const getTyyppiIdLista = async () => {
 
     if (Array.isArray(tyyppiList)) {
       const tyyppiIdList = tyyppiList.map((tyyppi) => tyyppi.tyyppi_id);
-      console.log('Tyyppi id lista:', tyyppiIdList);
       return tyyppiIdList;
 
     } else if (tyyppiList.tyyppi_id) {
-      console.log('Tyyppi id:', tyyppiList.tyyppi_id);
       return tyyppiList.tyyppi_id;
     }
   } catch (error) {
@@ -167,13 +243,19 @@ const getTyyppiIdLista = async () => {
 };
 
 const fetchAndDisplayTuotteet = async () => {
-  const tyyppiIdLista = await getTyyppiIdLista();
+  const IdResult = await getTyyppiIdLista();
 
-  if (Array.isArray(tyyppiIdLista) && tyyppiIdLista.length > 0) {
-    const fetchPromises = tyyppiIdLista.map((tyyppiId) => fetchAndDisplayByTyyppiId(tyyppiId)); // Luo lupauslistan
-    await Promise.all(fetchPromises);
+  if (!Array.isArray(IdResult)) {
+    const tyyppiId = IdResult;
+    console.log('Tyyppi id_ not list:', tyyppiId);
+
+    await fetchAndDisplayByTyyppiId(tyyppiId);
+  } else {
+    for (const tyyppiId of IdResult) {
+      await fetchAndDisplayByTyyppiId(tyyppiId);
+    }
   }
-};
+}
 
 const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
   try {
@@ -649,4 +731,3 @@ const getKategoriaById = async (kategoriaId) => {
 
 
 fetchAndDisplayTuotteet();
-

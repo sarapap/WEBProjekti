@@ -23,13 +23,15 @@ POST http://localhost:3000/api/v1/tilaus_sisalto
 Content-Type: application/json
 
 {
-    "tilaus_id": "2",
-    "tuote_id": "5",
+
+    "tilaus_id": "23",
+    "tuote_id": "21",
     "maara": "2",
-    "myynti_summa": "6.90",
-    "kustannus_summa": "3.60",
-    "tilaus_pvm": "2024-04-26",
-    "status": "Käsittelyssä"
+    "myynti_summa": "96.00",
+    "kustannus_summa": "44.00",
+    "tilaus_pvm": "2024-05-06",
+    "status": "Tilaus vastaanotettu",
+    "voitto": "52.00"
 }
 
 
