@@ -158,13 +158,19 @@ const getTyyppiIdLista = async () => {
 };
 
 const fetchAndDisplayTuotteet = async () => {
-  const tyyppiIdLista = await getTyyppiIdLista();
+  const IdResult = await getTyyppiIdLista();
 
-  if (Array.isArray(tyyppiIdLista) && tyyppiIdLista.length > 0) {
-    const fetchPromises = tyyppiIdLista.map((tyyppiId) => fetchAndDisplayByTyyppiId(tyyppiId)); // Luo lupauslistan
-    await Promise.all(fetchPromises);
+  if (!Array.isArray(IdResult)) {
+    const tyyppiId = IdResult;
+    console.log('Tyyppi id_ not list:', tyyppiId);
+
+    await fetchAndDisplayByTyyppiId(tyyppiId);
+  } else {
+    for (const tyyppiId of IdResult) {
+      await fetchAndDisplayByTyyppiId(tyyppiId);
+    }
   }
-};
+}
 
 const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
   try {
