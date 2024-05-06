@@ -19,11 +19,11 @@ POST http://localhost:3000/api/v1/yritystoiminta
 Content-Type: application/json
 
 {
-    "tapahtu_pvm": "2021-02-10",
-    "tilaus_id": "3",
-    "myynti_hinta": "105.00",
-    "kustannus": "65.00",
-    "voitto": "40.00"
+    "tapahtu_pvm": "2024-05-06",
+    "tilaus_id": "132",
+    "myynti_hinta": "96.00",
+    "kustannus": "44.00",
+    "voitto": "52.00"
 }
 
 
