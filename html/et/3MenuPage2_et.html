@@ -41,7 +41,7 @@
     </style>
 
     <script src="/javascript/default.js" defer></script>
-    <script src="/javascript/3MenuPage2.js" defer></script>
+    <script src="/javascript/3MenuPage1.js" defer></script>
 </head>
 
 <body>
@@ -60,21 +60,22 @@
                         </select>
                     </li>
                     <li>
-                      <a href="11Login.html">
-                        <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+                        <a href="11Login_et.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
-                      </a>
-                  </li>
-                  <li>
-                      <a href="8Suosikit.html">
-                        <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="9Ostoskori.html">
-                        <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
-                      </a>
-                  </li>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_et.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_et.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
                 </ul>
 
             </nav>
@@ -107,65 +108,25 @@
     <div class="salty-section">
         <h2>SUOLASED ROAD</h2>
 
-        <input type="text" id="saltySearch" placeholder="Otsi soolast...">
         <div class="filter-options">
-            <label for="saltyType">Vali tüüp:</label>
-            <select id="saltyType">
-                <option value="kaikki">Kõik</option>
-                <option value="piirakat">Pirukad</option>
-                <option value="salaatit">Salatid</option>
-                <option value="pasteijat">Pirukad</option>
-                <!-- Lisää -->
+            <label for="cakeType">Vali tüüp:</label>
+            <select id="cakeType">
+                <option value="koik5">Kõik</option>
+                <option value="pirukad">Pirukad</option>
+                <option value="salatid">Salatid</option>
+                <option value="stritslid">Stritslid</option>
             </select>
         </div>
 
-        <div class="salty-category">
-            <h3>Pirukad</h3>
-            <div class="salty-list">
-                <div class="salty-item">
-                    <img src="piirakka1.jpg" alt="Soolane pirukas 1">
-                    <h4>Piinat-fetapirukas</h4>
-                    <p>Värske spinat ja feta juust maitsvas pirukas.</p>
-                    <button>Lisa ostukorvi</button>
-                </div>
-                <!-- Lisää -->
+        <div class="salty-category" id="cakeList">
+        </div>
+
+
+        <footer>
+            <p>&copy; S&A CAFE 2024</p>
+            <div class="changecontent">
             </div>
-        </div>
-        <div class="salty-category">
-            <h3>Salatid</h3>
-            <div class="salty-list">
-                <div class="salty-item">
-                    <img src="salaatti1.jpg" alt="Salat 1">
-                    <h4>Kreeka salat</h4>
-                    <p>-</p>
-                    <button>Lisa ostukorvi</button>
-                </div>
-                <!-- Lisää -->
-            </div>
-        </div>
-        <div class="salty-category">
-            <h3>Pirukad</h3>
-            <div class="salty-list">
-                <div class="salty-item">
-                    <img src="pasteija1.jpg" alt="Pirukas 1">
-                    <h4>Kinku-juustopirukas</h4>
-                    <p>-</p>
-                    <button>Lisa ostukorvi</button>
-                </div>
-                <!-- Lisää -->
-            </div>
-        </div>
-
-        <!-- Lisää -->
-
-    </div>
-
-
-    <footer>
-        <p>&copy; S&A CAFE 2024</p>
-        <div class="changecontent">
-        </div>
-    </footer>
+        </footer>
 </body>
 
 </html>

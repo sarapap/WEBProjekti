@@ -27,70 +27,70 @@ document.getElementById("kieli").addEventListener("change", function () {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-     const links = document.querySelectorAll('a');
+  const links = document.querySelectorAll('a');
 
-    const loginEndings = ['11Login.html', '11Login_en.html', '11login_cn.html', '11Login_et.html', '11Login_sv.html'];
+  const loginEndings = ['11Login.html', '11Login_en.html', '11login_cn.html', '11Login_et.html', '11Login_sv.html'];
 
-    links.forEach(link => {
-        const isLoginLink = loginEndings.some(ending => link.href.endsWith(ending));
+  links.forEach(link => {
+    const isLoginLink = loginEndings.some(ending => link.href.endsWith(ending));
 
-        if (isLoginLink) {
-            link.addEventListener('click', function (event) {
-                event.preventDefault();
+    if (isLoginLink) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
 
-                const authToken = localStorage.getItem('authToken');
+        const authToken = localStorage.getItem('authToken');
 
-                let redirectPage;
+        let redirectPage;
 
-                const kieli = document.getElementById('kieli');
-                const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+        const kieli = document.getElementById('kieli');
+        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
-                if (authToken) {
-                    switch (selectedLanguage) {
-                        case 'EN':
-                            redirectPage = '../../html/en/7Kayttaja_en.html';
-                            break;
-                        case 'CN':
-                            redirectPage = '../../html/cn/7Kayttaja_cn.html';
-                            break;
-                        case 'ET':
-                            redirectPage = '../../html/et/7Kayttaja_et.html';
-                            break;
-                        case 'SV':
-                            redirectPage = '../../html/sv/7Kayttaja_sv.html';
-                            break;
-                        case 'FI':
-                        default:
-                            redirectPage = '../../html/fi/7Kayttaja.html';
-                            break;
-                    }
-                } else {
-                    switch (selectedLanguage) {
-                        case 'EN':
-                            redirectPage = '../../html/en/11Login_en.html';
-                            break;
-                        case 'CN':
-                            redirectPage = '../../html/cn/11login_cn.html';
-                            break;
-                        case 'ET':
-                            redirectPage = '../../html/et/11Login_et.html';
-                            break;
-                        case 'SV':
-                            redirectPage = '../../html/sv/11Login_sv.html';
-                            break;
-                        case 'FI':
-                        default:
-                            redirectPage = '../../html/fi/11Login.html';
-                            break;
-                    }
-                }
-                window.location.href = redirectPage;
-            });
+        if (authToken) {
+          switch (selectedLanguage) {
+            case 'EN':
+              redirectPage = '../../html/en/7Kayttaja_en.html';
+              break;
+            case 'CN':
+              redirectPage = '../../html/cn/7Kayttaja_cn.html';
+              break;
+            case 'ET':
+              redirectPage = '../../html/et/7Kayttaja_et.html';
+              break;
+            case 'SV':
+              redirectPage = '../../html/sv/7Kayttaja_sv.html';
+              break;
+            case 'FI':
+            default:
+              redirectPage = '../../html/fi/7Kayttaja.html';
+              break;
+          }
+        } else {
+          switch (selectedLanguage) {
+            case 'EN':
+              redirectPage = '../../html/en/11Login_en.html';
+              break;
+            case 'CN':
+              redirectPage = '../../html/cn/11login_cn.html';
+              break;
+            case 'ET':
+              redirectPage = '../../html/et/11Login_et.html';
+              break;
+            case 'SV':
+              redirectPage = '../../html/sv/11Login_sv.html';
+              break;
+            case 'FI':
+            default:
+              redirectPage = '../../html/fi/11Login.html';
+              break;
+          }
         }
         window.location.href = redirectPage;
       });
     }
-  );
+    window.location.href = redirectPage;
+  });
+}
+);
 
 // get asiakas id from local storage
 const getUserId = () => {

@@ -41,7 +41,7 @@
     </style>
 
     <script src="/javascript/default.js" defer></script>
-    <script src="/javascript/3MenuPage3.js" defer></script>
+    <script src="/javascript/3MenuPage1.js" defer></script>
 </head>
 
 <body>
@@ -60,21 +60,22 @@
                         </select>
                     </li>
                     <li>
-                      <a href="11Login.html">
-                        <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+                        <a href="11Login_sv.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
-                      </a>
-                  </li>
-                  <li>
-                      <a href="8Suosikit.html">
-                        <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="9Ostoskori.html">
-                        <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
-                      </a>
-                  </li>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_sv.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_sv.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
                 </ul>
 
             </nav>
@@ -106,52 +107,23 @@
     <div class="sweets-section">
         <h2>SÖTA BAKVERK</h2>
 
-        <input type="text" id="sweetSearch" placeholder="Sök efter sött...">
         <div class="filter-options">
-            <label for="sweetType">Välj typ:</label>
-            <select id="sweetType">
-                <option value="kaikki">Alla</option>
-                <option value="leivonnaiset">Bakverk</option>
-                <option value="muut_makeat">Andra sötsaker</option>
-                <!-- Lisää -->
+            <label for="cakeType">Välj typ:</label>
+            <select id="cakeType">
+                <option value="alla4">Alla</option>
+                <option value="bakverk">Bakverk</option>
+                <option value="andrasötsaker">Andra sötsaker</option>
             </select>
         </div>
 
-        <div class="sweet-category">
-            <h3>Bakverk</h3>
-            <div class="sweet-list">
-                <div class="sweet-item">
-                    <img src="leivos1.jpg" alt="Bakverk 1">
-                    <h4>Jordgubbstårta</h4>
-                    <p>Fylld med färska jordgubbar och krämig fyllning.</p>
-                    <button>Lägg till i varukorgen</button>
-                </div>
-                <!-- Lisää-->
+        <div class="sweet-category" id="cakeList">
+        </div>
+
+        <footer>
+            <p>&copy; S&A CAFE 2024</p>
+            <div class="changecontent">
             </div>
-        </div>
-
-        <div class="sweet-category">
-            <h3>Andra sötsaker</h3>
-            <div class="sweet-list">
-                <div class="sweet-item">
-                    <img src="makealeivos.jpg" alt="Sött bakverk">
-                    <h4>Sött bakverk</h4>
-                    <p>-</p>
-                    <button>Lägg till i varukorgen</button>
-                </div>
-                <!-- Lisää-->
-            </div>
-        </div>
-
-        <!-- Lisää -->
-
-    </div>
-
-    <footer>
-        <p>&copy; S&A CAFE 2024</p>
-        <div class="changecontent">
-        </div>
-    </footer>
+        </footer>
 </body>
 
 

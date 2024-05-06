@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../../css/8Suosikit.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <title>S&A CAFE</title>
 
   <style>
@@ -38,41 +40,7 @@
       }
     }
   </style>
-
-  <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
-
-  <style>
-    .changecontent::after {
-      content: "Welcome to enjoy cake and coffee!";
-      color: rgb(192, 160, 122);
-      animation: changetext2 10s infinite linear;
-      margin: 10px;
-      font-weight: bold;
-    }
-
-    @keyframes changetext2 {
-      20% {
-        content: "Join our loyalty program and get 15% off your first order!";
-      }
-
-      40% {
-        content: "Membership is free";
-      }
-
-      60% {
-        content: "Create your dream cake!";
-      }
-
-      80% {
-        content: "Home delivery starting from €2.95";
-      }
-
-      100% {
-        content: "Welcome to enjoy cake and coffee!";
-      }
-    }
-  </style>
-  <script src="/javascript/default.js"></script>
+  <script src="/javascript/default.js" defer></script>
   <script src="/javascript/8Suosikit.js" defer></script>
 </head>
 
@@ -92,21 +60,21 @@
             </select>
           </li>
           <li>
-            <a href="11Login.html">
-              <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+            <a href="11Login_en.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
             </a>
-        </li>
-        <li>
-            <a href="8Suosikit.html">
-              <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+          </li>
+          <li>
+            <a href="8Suosikit_en.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
             </a>
-        </li>
-        <li>
-            <a href="9Ostoskori.html">
-              <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+          </li>
+          <li>
+            <a href="9Ostoskori_en.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
             </a>
-        </li>
+          </li>
         </ul>
 
       </nav>
@@ -133,32 +101,12 @@
       <a href="6Poytavaraus_en.html" class="navItem">Book a venue</a>
     </nav>
 
-    <div class="table">
-      <h1>Favorites</h1>
-      <table>
-        <tr>
-          <th>Product Image</th>
-          <th>Product Description</th>
-          <th>Price</th>
-          <th>Remove from Favorites</th>
-        </tr>
-        <tr>
-          <td>
-            <div>
-              <img src="../../css/kuvat/cake_piece.jpg" alt="Product image">
-              <i class="fas fa-heart"></i>
-            </div>
-          </td>
-          <td>Cake slice</td>
-          <td>5€</td>
-          <td class="delete-btn"><img src="../../css/kuvat/heart_red.png" alt="Trash can"
-              style="width: 35px; height: 30px; padding-left: 30px;"></td>
-        </tr>
-      </table>
+    <div class="table, cake-list" id="cakeList">
     </div>
 
     <h1>Our Favorites</h1>
-    <div class="image-box table2">
+    <div class="carousel">
+      <button class="prev-button">&lt;</button>
       <div class="image-container">
         <img src="../../css/kuvat/whitecake.jpg" alt="Kuva 1">
         <img src="../../css/kuvat/cake_piece.jpg" alt="Kuva 2">
@@ -169,7 +117,6 @@
         <img src="../../css/kuvat/kindercake.jpg" alt="Kuva 7">
         <img src="../../css/kuvat/whitecake.jpg" alt="Kuva 8">
       </div>
-      <button class="prev-button">&lt;</button>
       <button class="next-button">&gt;</button>
     </div>
 

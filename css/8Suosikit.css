@@ -64,6 +64,7 @@ header {
   background-size: cover;
 
 }
+
 .suosikit {
   display: inline-block;
   margin: 10px;
@@ -149,6 +150,7 @@ nav li {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   top: 100%;
   left: 0;
+  z-index: 1000;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -225,13 +227,13 @@ nav li {
 }
 
 .image-container img {
-  width: 200px;
+  width: 300px;
   height: 300px;
   margin-right: 10px;
 }
 
-/* Määritä kuvakkeen koko ja väri */
-.cart-button i, .favorite-button i {
+.cart-button i,
+.favorite-button i {
   font-size: 20px;
   color: rgb(208, 111, 14);
   margin-right: 30px;
@@ -254,26 +256,26 @@ nav li {
 }
 
 .cake-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
 }
 
 .cake-item h3 {
-    font-size: 18px;
-    margin-top: 10px;
-    gap: 20px;
+  font-size: 18px;
+  margin-top: 10px;
+  gap: 20px;
 }
 
 .cake-item p {
-    margin-top: 5px;
-    color: #666;
+  margin-top: 5px;
+  color: #666;
 }
 
 .cake-item button {
-  display: flex; /* Lisätty flexbox */
-  justify-content: center; /* Keskittää lapsielementit vaakasuunnassa */
-  align-items: center; /* Keskittää lapsielementit pystysuunnassa */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 30%;
   padding: 10px;
   margin-top: 10px;
@@ -283,10 +285,39 @@ nav li {
   border-radius: 5px;
   margin-right: 10%;
   float: right;
+  cursor: pointer;
 }
 
 .cake-item button i {
-  margin-right: 5px; /* Lisätty välimarginaali ikonin ja tekstin välille */
+  margin-right: 5px;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 20px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
 }
 
 /* footer */
@@ -308,6 +339,7 @@ footer {
     height: auto;
     width: 100%;
   }
+
   .cakeImg {
     width: 100%;/
   }
@@ -321,8 +353,8 @@ footer {
   }
 
   .cake-item {
-    width: 23% ;
-}
+    width: 23%;
+  }
 
   .footer-container {
     margin: 0;
@@ -330,8 +362,7 @@ footer {
 }
 
 @media screen and (max-width:800px) {
-  .table
-  .table2 {
+  .table .table2 {
     width: 100%;
     padding-bottom: 5%;
   }
@@ -370,9 +401,10 @@ footer {
     width: 100%;
     padding-bottom: 5%;
   }
-.cake-item {
-  width: 100%;
-}
+
+  .cake-item {
+    width: 100%;
+  }
 
   .content h2 {
     font-size: 40px;

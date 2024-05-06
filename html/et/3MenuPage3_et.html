@@ -41,7 +41,7 @@
     </style>
 
     <script src="/javascript/default.js" defer></script>
-    <script src="/javascript/3MenuPage3.js" defer></script>
+    <script src="/javascript/3MenuPage1.js" defer></script>
 </head>
 
 <body>
@@ -60,21 +60,22 @@
                         </select>
                     </li>
                     <li>
-                      <a href="11Login.html">
-                        <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+                        <a href="11Login_et.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
-                      </a>
-                  </li>
-                  <li>
-                      <a href="8Suosikit.html">
-                        <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="9Ostoskori.html">
-                        <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
-                      </a>
-                  </li>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_et.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_et.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
                 </ul>
 
             </nav>
@@ -104,54 +105,26 @@
     </nav>
 
     <div class="sweets-section">
-        <h2>MAKEAD LEIVONNAISET</h2>
+        <h2>MAKEAD KONDIITRITOOTED</h2>
 
-        <input type="text" id="sweetSearch" placeholder="Otsi makeaa...">
         <div class="filter-options">
-            <label for="sweetType">Vali tüüp:</label>
-            <select id="sweetType">
-                <option value="kaikki">Kõik</option>
-                <option value="leivonnaiset">Kondiitritooted</option>
-                <option value="muut_makeat">Muud magusad</option>
-                <!-- Lisää -->
+            <label for="cakeType">Vali tüüp:</label>
+            <select id="cakeType">
+                <option value="koik4">Kõik</option>
+                <option value="saiakesed">Kondiitritooted</option>
+                <option value="muudmaiustused">Muud magusad</option>
             </select>
         </div>
 
-        <div class="sweet-category">
-            <h3>Kondiitritooted</h3>
-            <div class="sweet-list">
-                <div class="sweet-item">
-                    <img src="leivos1.jpg" alt="Leib 1">
-                    <h4>Mansikkatorttu</h4>
-                    <p>Täidetud värskete maasikatega ja kreemjase täidisega.</p>
-                    <button>Lisa ostukorvi</button>
-                </div>
-                <!-- Lisää-->
+        <div class="sweet-category" id="cakeList">
+        </div>
+
+
+        <footer>
+            <p>&copy; S&A CAFE 2024</p>
+            <div class="changecontent">
             </div>
-        </div>
-
-        <div class="sweet-category">
-            <h3>Muud magusad</h3>
-            <div class="sweet-list">
-                <div class="sweet-item">
-                    <img src="makealeivos.jpg" alt="Magus leib">
-                    <h4>Magus leib</h4>
-                    <p>-</p>
-                    <button>Lisa ostukorvi</button>
-                </div>
-                <!-- Lisää-->
-            </div>
-        </div>
-
-        <!-- Lisää -->
-
-    </div>
-
-    <footer>
-        <p>&copy; S&A CAFE 2024</p>
-        <div class="changecontent">
-        </div>
-    </footer>
+        </footer>
 </body>
 
 </html>

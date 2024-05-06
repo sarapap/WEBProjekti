@@ -25,28 +25,28 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0g
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_nimi"
 
-Unistav Maasikakook
+Fanta
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kuvaus"
 
-Unistav Maasikakook on maitsev ja värskendav magustoit, mis on täidetud mahlaste maasikate ja kreemja täidisega. See kook on suussulav valik, ideaalne pidudeks või erilisteks sündmusteks.
+0,33 l pudel
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_hinta"
 
-44.00
+2.90
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kustannus"
 
-23.00
+1.00
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tyyppi_id"
 
-43
+55
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="tuote_kuva"; filename="strawberry_cake.jpg"
+Content-Disposition: form-data; name="tuote_kuva"; filename="fanta.jpg"
 Content-Type: image/jpeg
 
-< kuvat/kakut/strawberry_cake.jpg
+< kuvat/juomat/fanta.jpg
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
 
