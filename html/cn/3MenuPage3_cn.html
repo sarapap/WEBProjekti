@@ -65,7 +65,7 @@
   </style>
 
   <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/3MenuPage3.js" defer></script>
+  <script src="/javascript/3MenuPage1.js" defer></script>
 </head>
 
 <body>
@@ -133,52 +133,23 @@
     <div class="sweets-section">
       <h2>甜味点心</h2>
 
-      <input type="text" id="sweetSearch" placeholder="搜索糕点...">
       <div class="filter-options">
-        <label for="sweetType">选择种类:</label>
-        <select id="sweetType">
-          <option value="kaikki">全部</option>
-          <option value="leivonnaiset">糕点</option>
-          <option value="muut_makeat">其他甜品</option>
-          <!-- Lisää -->
+        <label for="cakeType">选择种类:</label>
+        <select id="cakeType">
+          <option value="kaikkicn3">全部</option>
+          <option value="leivonnaisetcn">糕点</option>
+          <option value="muutmakeatcn">其他甜品</option>
         </select>
       </div>
 
-      <div class="sweet-category">
-        <h3>糕点</h3>
-        <div class="sweet-list">
-          <div class="sweet-item">
-            <img src="leivos1.jpg" alt="糕点 1">
-            <h4>草莓蛋糕卷</h4>
-            <p>用料： 新鲜的草莓和奶油类产品</p>
-            <button>加入购物筐</button>
-          </div>
-          <!-- Lisää-->
+      <div class="sweet-category" id="cakeList">
+      </div>
+
+      <footer>
+        <p>&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
         </div>
-      </div>
-
-      <div class="sweet-category">
-        <h3>其他甜品</h3>
-        <div class="sweet-list">
-          <div class="sweet-item">
-            <img src="makealeivos.jpg" alt="甜味糕点">
-            <h4>甜味糕点</h4>
-            <p>-</p>
-            <button>加入购物筐</button>
-          </div>
-          <!-- Lisää-->
-        </div>
-      </div>
-
-      <!-- Lisää -->
-
-    </div>
-
-    <footer>
-      <p>&copy; S&A CAFE 2024</p>
-      <div class="changecontent">
-      </div>
-    </footer>
+      </footer>
   </main>
 </body>
 

@@ -87,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = redirectPage;
       });
     }
-    window.location.href = redirectPage;
   });
 }
 );
@@ -99,14 +98,11 @@ const getUserId = () => {
   const payload = atob(base64Payload);
   const parsedPayload = JSON.parse(payload);
   let userId = parsedPayload.asiakas_id;
-  console.log('asiakas id:', userId);
   return userId;
 }
 
 const userId = getUserId();
-console.log('userId:', userId);
 
-// Päivitä ostoskorin numero
 const paivitaOstoskorinNumero = async () => {
   const userId = getUserId();
 
@@ -130,7 +126,6 @@ const getSuosikinMaaraByUserId = async (userId) => {
     }
 
     if (response.status === 404) {
-      console.log('Suosikkeja ei löytynyt');
       const suosikit = 0;
       const suosikkiLkmElement = document.getElementById('suosikki-lkm');
       suosikkiLkmElement.textContent = suosikit.toString();
@@ -138,7 +133,6 @@ const getSuosikinMaaraByUserId = async (userId) => {
     }
 
     const suosikit = await response.json();
-    console.log('Suosikkien määrä:', suosikit.length.toString());
 
     const suosikkiLkmElement = document.getElementById('suosikki-lkm');
     suosikkiLkmElement.textContent = suosikit.length.toString();
@@ -160,10 +154,9 @@ const getTuotteenMaaraByUserId = async (userId) => {
 
 
     if (!response.ok) {
-      if (response.status === 404) { // Jos ostoskoria ei löydy, palautetaan tyhjä taulukko
+      if (response.status === 404) {
         const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
         ostoskoriLkmElement.textContent = '0';
-        console.log('Ostoskoria ei löydy tai se on tyhjä.');
         return [];
       }
       throw new Error('Virhe ostoskorin hakemisessa');
@@ -173,11 +166,10 @@ const getTuotteenMaaraByUserId = async (userId) => {
     const tuotteet = await response.json();
     const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
     ostoskoriLkmElement.textContent = tuotteet.length.toString();
-    console.log('Tuoteen määrä ostoskorissa:', tuotteet.length.toString());
-    return tuotteet; // Palautetaan tuotteet
+    return tuotteet;
   } catch (error) {
     console.error('Virhe ostoskorin hakemisessa:', error.message);
-    return 0; // Palautetaan tyhjä taulukko virhetilanteessa
+    return 0;
   }
 }
 
