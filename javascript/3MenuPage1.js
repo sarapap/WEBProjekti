@@ -550,11 +550,9 @@ const displaySingleTuote = async (tuote) => {
 
     if (isCurrentlyFavorite) {
       buttonElement2.textContent = addFavoriteText;
-      alert(removefavorite);
       await removeSuosikista(userId, tuote.tuote_id);
     } else {
       buttonElement2.textContent = unfavorateText;
-      alert(addfavorite);
       await addFavorite(userId, tuote.tuote_id);
     }
   });

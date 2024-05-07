@@ -25,28 +25,28 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0g
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_nimi"
 
-Americano
+Custom Kakku
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kuvaus"
 
-En espressobaserad kaffedryck där varmt vatten tillsätts till en espressoshot, vilket skapar en mjukare och mindre intensiv smak.
+Tarjoamme uniikkeja kustomoituja kakkuja, jotka luodaan juuri asiakkaan toiveiden mukaan. Kun teet tilauksen, olemme yhteydessä sähköpostitse varmistaaksemme kaikki yksityiskohdat. Teemme kakkuja erilaisiin tilaisuuksiin, kuten syntymäpäiviin, häihin ja yritystapahtumiin, ja varmistamme, että lopputulos halujesi mukainen.
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_hinta"
 
-4.35
+
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kustannus"
 
-1.25
+
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tyyppi_id"
 
-38
+2
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="tuote_kuva"; filename="americano.jpg"
+Content-Disposition: form-data; name="tuote_kuva"; filename="custom.jpg"
 Content-Type: image/jpeg
 
-< kuvat/juomat/americano.jpg
+< kuvat/kakut/custom.jpg
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
 
