@@ -273,143 +273,389 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
-const haeButton = document.getElementById('haeRaport');
-haeButton.addEventListener('click', async () => {
-  const startDate = document.getElementById('aloituspvm1').value;
-  const endDate = document.getElementById('lopetuspvm1').value;
+/* tuotehallinta */
 
-
-  try {
-    const response = await fetch(`http://localhost:3000/api/v1/yritystoiminta/${startDate.value}/${endDate.value}`, {
-      method: 'GET',
-    });
-
-    if (!response.ok) {
-      throw new Error('Virhe raportin hakemisessa');
-    }
-
-    const raports = await response.json();
-
-    if (Array.isArray(raports)) {
-      raports.forEach(async (raport) => {
-      await displaySingleTuote(raport);
-      await displayRaportit(raport);
-      });
-    } else {
-      await displayRaportit(raports);
-    }
-
-  } catch (error) {
-    console.error("Virhe tuotteiden hakemisessa:", error.message);
-  }
-});
-
-const displayRaportit = async (raport) => {
-  console.log('raport:', raport);
-  console.log('raport.tilaus_pvm:', raport.tilaus_pvm);
-
-  try {
-    const kieli = document.getElementById('kieli');
-    const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
-
-    let tilausPvmTeksti = '';
-    let tilausIdTeksti = '';
-    let myynttiHintaTeksti = '';
-    let kustannusTeksti = '';
-    let voittoTeksti = '';
-
-    switch (selectedLanguage) {
-      case 'EN':
-        tilausPvmTeksti = 'Order date';
-        tilausIdTeksti = 'Order number';
-        myynttiHintaTeksti = 'Sales price';
-        kustannusTeksti = 'Cost';
-        voittoTeksti = 'Profit';
-        break;
-      case 'CN':
-        tilausPvmTeksti = '订单日期';
-        tilausIdTeksti = '订单号';
-        myynttiHintaTeksti = '销售价格';
-        kustannusTeksti = '成本';
-        voittoTeksti = '利润';
-        break;
-      case 'SE':
-        tilausPvmTeksti = 'Orderdatum';
-        tilausIdTeksti = 'Ordernummer';
-        myynttiHintaTeksti = 'Försäljningspris';
-        kustannusTeksti = 'Kostnad';
-        voittoTeksti = 'Vinst';
-        break;
-      case 'FI':
-      default:
-        tilausPvmTeksti = 'Tilauspäivä';
-        tilausIdTeksti = 'Tilausnumero';
-        myynttiHintaTeksti = 'Myyntihinta';
-        kustannusTeksti = 'Kustannus';
-        voittoTeksti = 'Voitto';
-        break;
-    }
-
-    const raportList = document.getElementById('raportList');
-
-    const tuoteElement = document.createElement('tr');
-    tuoteElement.classList.add('raport-item');
-
-    const thElement1 = document.createElement('th');
-    thElement1.textContent = tilausPvmTeksti;
-    tuoteElement.appendChild(thElement1);
-
-    const thElement2 = document.createElement('th');
-    thElement2.textContent = tilausIdTeksti;
-    tuoteElement.appendChild(thElement2);
-
-    const thElement3 = document.createElement('th');
-    thElement3.textContent = myynttiHintaTeksti;
-    tuoteElement.appendChild(thElement3);
-
-    const thElement4 = document.createElement('th');
-    thElement4.textContent = kustannusTeksti;
-    tuoteElement.appendChild(thElement4);
-
-    const thElement5 = document.createElement('th');
-    thElement5.textContent = voittoTeksti;
-    tuoteElement.appendChild(thElement5);
-
-    const thElement6 = document.createElement('td');
-    pElement1.textContent = "";
-    raportList.appendChild(thElement6);
-
-
-
-    const pElement1 = document.createElement('td');
-    pElement1.textContent = raport.tilaus_pvm;
-    tuoteElement.appendChild(pElement1);
-
-    const pElement2 = document.createElement('td');
-    pElement2.textContent = raport.tilaus_id;
-    tuoteElement.appendChild(pElement2);
-
-    const pElement3 = document.createElement('td');
-    pElement3.textContent = raport.myyntti_hinta;
-    tuoteElement.appendChild(pElement3);
-
-    const pElement4 = document.createElement('td');
-    pElement4.textContent = raport.kustannus;
-    tuoteElement.appendChild(pElement4);
-
-    const pElement5 = document.createElement('td');
-    pElement5.textContent = raport.voitto;
-    tuoteElement.appendChild(pElement5);
-
-    tuoteList.appendChild(tuoteElement);
-    const hrElement = document.createElement('hr');
-    tuoteList.appendChild(hrElement);
-
-    raportList.appendChild(tuoteElement);
-
-  } catch (error) {
-    console.error('Virhe raportin hakemisessa:', error);
-  }
+const handleNewValue = async () => {
+    const alatyyppi = getSelectedAlaTyyppi();
+    await updateSubtypes(alatyyppi);
 };
 
-getRaportit();
+const updateSelectedAlatyyppi = () => {
+    const selectedAlatyyppi = document.getElementById('cakeType').value;
+    cakeList.innerHTML = '';
+    return selectedAlatyyppi;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cakeType = document.getElementById('cakeType');
+    if (cakeType) {
+        cakeType.addEventListener('change', async () => {
+            await fetchAndDisplayTuotteet();
+        });
+    } else {
+        console.error("Element 'cakeType' ei löytynyt.");
+    }
+});
+
+const getSelectedAlaTyyppi = async () => {
+    const selectedAlatyyppi = await updateSelectedAlatyyppi('cakeType').value;
+    return selectedAlatyyppi;
+};
+
+const getTyyppiIdLista = async () => {
+    try {
+        const selectedAlatyyppi = await updateSelectedAlatyyppi();
+
+        let url;
+        if (selectedAlatyyppi === 'kakut') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/kakut';
+        } else if (selectedAlatyyppi === 'suolaista') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/suolaista';
+        } else if (selectedAlatyyppi === 'makeaa') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/makeaa';
+        } else if (selectedAlatyyppi === 'lammintaruokaa') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/lammintaruokaa';
+        } else if (selectedAlatyyppi === 'juotavaa') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/juotavaa';
+
+        } else if (selectedAlatyyppi === 'cakes') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/cakes';
+        } else if (selectedAlatyyppi === 'savory') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/savory';
+        } else if (selectedAlatyyppi === 'sweet') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/sweet';
+        } else if (selectedAlatyyppi === 'hotmeals') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/hotmeals';
+        } else if (selectedAlatyyppi === 'drinks') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/drinks';
+
+        } else if (selectedAlatyyppi === 'tårtor') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/tårtor';
+        } else if (selectedAlatyyppi === 'saltet') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/saltet';
+        } else if (selectedAlatyyppi === 'sött') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/sött';
+        } else if (selectedAlatyyppi === 'varmarätter') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/varmarätter';
+        } else if (selectedAlatyyppi === 'drycker') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/drycker';
+
+        } else if (selectedAlatyyppi === 'koogid') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/koogid';
+        } else if (selectedAlatyyppi === 'soolane') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/soolane';
+        } else if (selectedAlatyyppi === 'magus') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/magus';
+        } else if (selectedAlatyyppi === 'kuumtoit') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/kuumtoit';
+        } else if (selectedAlatyyppi === 'joogid') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/joogid';
+
+        } else if (selectedAlatyyppi === 'kakutcn') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/kakutcn';
+        } else if (selectedAlatyyppi === 'suolaistacn') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/suolaistacn';
+        } else if (selectedAlatyyppi === 'makeaacn') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/makeaacn';
+        } else if (selectedAlatyyppi === 'lammintaruokaacn') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/lammintaruokaacn';
+        } else if (selectedAlatyyppi === 'juotavaacn') {
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/juotavaacn';
+        }
+
+        const response = await fetch(url, {
+            method: 'GET',
+        });
+
+        if (!response.ok) {
+            throw new Error('Virhe alatyyppien hakemisessa');
+        }
+
+        const tyyppiList = await response.json();
+
+        if (Array.isArray(tyyppiList)) {
+            const tyyppiIdList = tyyppiList.map((tyyppi) => tyyppi.tyyppi_id);
+            return tyyppiIdList;
+
+        } else if (tyyppiList.tyyppi_id) {
+            return tyyppiList.tyyppi_id;
+        }
+    } catch (error) {
+        console.error('Virhe tuote_id hakemisessa:', error.message);
+        return [];
+    }
+};
+
+const fetchAndDisplayTuotteet = async () => {
+    const IdResult = await getTyyppiIdLista();
+
+    if (!Array.isArray(IdResult)) {
+        const tyyppiId = IdResult;
+
+        await fetchAndDisplayByTyyppiId(tyyppiId);
+    } else {
+        for (const tyyppiId of IdResult) {
+            await fetchAndDisplayByTyyppiId(tyyppiId);
+        }
+    }
+}
+
+const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
+    try {
+        const response = await fetch(`http://localhost:3000/api/v1/tuote/tyyppi_id/${tyyppiId}`, {
+            method: 'GET',
+        });
+
+        if (!response.ok) {
+            throw new Error("Virhe tuotteiden hakemisessa");
+        }
+
+        const tuotteet = await response.json();
+
+        if (Array.isArray(tuotteet)) {
+            tuotteet.forEach((tuote) => {
+                displaySingleTuote(tuote);
+            });
+        } else {
+            displaySingleTuote(tuotteet);
+        }
+    } catch (error) {
+    }
+};
+
+const displaySingleTuote = async (tuote) => {
+    const kieli = document.getElementById('kieli');
+    const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+    let hintaTeksti = '';
+    let maaraTeksti = '';
+    switch (selectedLanguage) {
+        case 'EN':
+            hintaTeksti = 'Price: ';
+            maaraTeksti = 'Amount: ';
+            break;
+        case 'CN':
+            hintaTeksti = '价格: ';
+            maaraTeksti = '数量: ';
+            break;
+        case 'ET':
+            hintaTeksti = 'Hind: ';
+            maaraTeksti = 'Kogus: ';
+            break;
+        case 'SV':
+            hintaTeksti = 'Pris: ';
+            maaraTeksti = 'Mängd: ';
+            break;
+        case 'FI':
+        default:
+            hintaTeksti = 'Hinta: ';
+            maaraTeksti = 'Määrä: ';
+            break;
+    }
+
+    const cakeList = document.getElementById('cakeList');
+
+    const tuoteElement = document.createElement('div');
+    tuoteElement.classList.add('cake-item');
+
+    // Lisää kuvakehys
+    const imgElement = document.createElement('img');
+    imgElement.src = `../../../uploads/${tuote.tuote_kuva}`;
+    tuoteElement.appendChild(imgElement);
+
+    // Lisää tuotteen nimi
+    const h3Element = document.createElement('h3');
+    h3Element.textContent = tuote.tuote_nimi;
+    tuoteElement.appendChild(h3Element);
+
+    // Lisää tuotteen kuvaus
+    const pElement = document.createElement('p');
+    pElement.textContent = tuote.tuote_kuvaus;
+    tuoteElement.appendChild(pElement);
+
+    const pElement2 = document.createElement('p');
+    const kategoriaIdResult = await getKategoriaIdByTuoteId(tuote.tuote_id);
+
+
+    if (kategoriaIdResult.length > 0) {
+        const kategoriaNimet = await Promise.all(
+            kategoriaIdResult.map(async (kategoria) => {
+                try {
+                    return await getKategoriaById(kategoria);
+                } catch (error) {
+                    return null;
+                }
+            })
+        );
+
+        const validKategoriaNimet = kategoriaNimet.filter(Boolean);
+        pElement2.textContent = validKategoriaNimet.join(', ');
+    } else {
+        pElement2.textContent = "-";
+    }
+
+    tuoteElement.appendChild(pElement2);
+
+    // Lisää hinta
+    const pElement3 = document.createElement('p');
+    const hintaElement = document.createElement('span');
+    hintaElement.textContent = hintaTeksti + tuote.tuote_hinta + '€';
+
+    pElement3.appendChild(hintaElement);
+    tuoteElement.appendChild(pElement3);
+
+    cakeList.appendChild(tuoteElement);
+};
+
+const getKategoriaIdByTuoteId = async (tuoteId) => {
+    try {
+        const response = await fetch(`http://localhost:3000/api/v1/kategoria_tuote/tuote/${tuoteId}`);
+
+        if (response.status === 404) {
+            return [];
+        }
+
+        if (!response.ok) {
+            return [];
+        }
+
+        const data = await response.json();
+        if (Array.isArray(data)) {
+            return data.map(item => item.kategoria_id);
+        } else {
+            return [data.kategoria_id];
+        }
+    } catch (error) {
+        return [];
+    }
+};
+
+
+const getKategoriaById = async (kategoriaId) => {
+    try {
+        const response = await fetch(`http://localhost:3000/api/v1/kategoria/${kategoriaId}`);
+        if (!response.ok) {
+            return '';
+        }
+
+        const data = await response.json();
+        return data.kategoria_nimi;
+    } catch (error) {
+        return '';
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cakeSearch = document.getElementById('cakeSearch');
+    if (cakeSearch) {
+        cakeSearch.addEventListener('input', (event) => {
+            const searchTerm = event.target.value.toLowerCase();
+            filterProducts(searchTerm);
+        });
+    } else {
+        console.error("Element 'cakeSearch' ei löytynyt.");
+    }
+});
+
+
+const filterProducts = (searchTerm) => {
+    const cakeItems = document.querySelectorAll('.cake-item');
+
+    cakeItems.forEach((item) => {
+        const productName = item.querySelector('h3').textContent.toLowerCase();
+        const productDescription = item.querySelector('p').textContent.toLowerCase();
+
+        if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+};
+
+
+
+/* uusi tuote */
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tuoteModal = document.getElementById('tuoteModal');
+    const newProductButton = document.getElementById('newProductButton');
+    const saveButton = document.getElementById('saveButton');
+    const closeButton = document.getElementById('closeButton');
+    const tyyppiSelect = document.getElementById('tuote_tyyppi');
+    const alatyyppiSelect = document.getElementById('tuote_alatyyppi');
+
+    if (newProductButton && tuoteModal) {
+        newProductButton.addEventListener('click', () => {
+            tuoteModal.showModal();
+        });
+    } else {
+        console.error("Uusi tuote -painiketta tai dialogia ei löytynyt.");
+    }
+
+    if (tuoteModal && closeButton) {
+        closeButton.addEventListener('click', () => {
+            tuoteModal.close();
+        });
+    }
+
+    if (saveButton) {
+        saveButton.addEventListener('click', async () => {
+            const tuoteForm = document.getElementById('tuoteForm');
+            if (tuoteForm) {
+                const formData = new FormData(tuoteForm);
+
+                for (let [key, value] of formData.entries()) {
+                    console.log(`${key}: ${value}`);
+                }
+
+                try {
+                    const response = await fetch('http://localhost:3000/api/v1/tuote', {
+                        method: 'POST',
+                        body: formData,
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Tuotteen lisääminen epäonnistui: ${response.status}`);
+                    }
+
+                    console.log('Tuote lisätty onnistuneesti');
+                } catch (error) {
+                    console.error('Virhe tuotteen lisäämisessä:', error.message);
+                }
+            }
+        });
+    }
+
+    if (tyyppiSelect && alatyyppiSelect) {
+        tyyppiSelect.addEventListener('change', async () => {
+            const selectedType = tyyppiSelect.value;
+
+            alatyyppiSelect.innerHTML = '';
+
+            try {
+                const response = await fetch(`http://localhost:3000/api/v1/tyyppi/paatyyppi/${selectedType}`);
+
+                if (!response.ok) {
+                    throw new Error('Alatyyppien haku epäonnistui');
+                }
+
+                const data = await response.json();
+
+                if (Array.isArray(data)) {
+                    data.forEach((subtype) => {
+                        const option = document.createElement('option');
+                        option.value = subtype.tyyppi_id;
+                        option.textContent = subtype.alatyyppi;
+                        alatyyppiSelect.appendChild(option);
+                    });
+                }
+
+            } catch (error) {
+                console.error('Virhe alatyyppien hakemisessa:', error.message);
+            }
+        });
+    }
+});
+
+
+

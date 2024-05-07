@@ -7,6 +7,7 @@
   <link href="../../css/8Suosikit.css" rel="stylesheet">
   <title>S&A CAFE</title>
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
   <style>
     .changecontent::after {
@@ -83,21 +84,21 @@
             </select>
           </li>
           <li>
-            <a href="11Login.html">
-              <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+            <a href="11Login_cn.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
             </a>
-        </li>
-        <li>
-            <a href="8Suosikit.html">
-              <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+          </li>
+          <li>
+            <a href="8Suosikit_cn.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
             </a>
-        </li>
-        <li>
-            <a href="9Ostoskori.html">
-              <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+          </li>
+          <li>
+            <a href="9Ostoskori_cn.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
             </a>
-        </li>
+          </li>
         </ul>
       </nav>
     </div>
@@ -116,59 +117,38 @@
           <a class="dropdown-item" href="3MenuPage1_cn.html">蛋糕</a>
           <a class="dropdown-item" href="3MenuPage2_cn.html">咸味食品</a>
           <a class="dropdown-item" href="3MenuPage3_cn.html">甜味点心</a>
-            <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
-            <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
+          <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
+          <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
         </div>
       </div>
       <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
       <a href="6Poytavaraus_cn.html" class="navItem">预订场地</a>
     </nav>
 
-    <div class="table">
-      <h1>我的收藏</h1>
-      <table>
-        <tr>
-          <th>产品照片</th>
-          <th>产品介绍</th>
-          <th>价格</th>
-          <th>移除收藏</th>
-        </tr>
-        <tr>
-          <td>
-            <div>
-              <img src="../../css/kuvat/cake_piece.jpg" alt="tuote Kuva">
-              <i class="fas fa-heart"></i>
-            </div>
-          </td>
+    <div class="table, cake-list" id="cakeList">
+    </div>
 
-          <td>点心</td>
-          <td>5欧</td>
-          <td class="delete-btn"><img src="../../css/kuvat/heart_red.png" alt="Roskakori"
-              style="width: 35px; height: 30px; padding-left: 30px;"></td>
-        </tr>
-      </table>
-
-      <h1>店家推荐</h1>
-      <div class="image-box table2">
-        <div class="image-container">
-          <img src="../../css/kuvat/whitecake.jpg" alt="Kuva 1">
-          <img src="../../css/kuvat/cake_piece.jpg" alt="Kuva 2">
-          <img src="../../css/kuvat/strawberry_cake.jpg" alt="Kuva 3">
-          <img src="../../css/kuvat/creamcake.jpg" alt="Kuva 4">
-          <img src="../../css/kuvat/oreocake.jpg" alt="Kuva 5">
-          <img src="../../css/kuvat/pink_dream.jpg" alt="Kuva 6">
-          <img src="../../css/kuvat/kindercake.jpg" alt="Kuva 7">
-          <img src="../../css/kuvat/whitecake.jpg" alt="Kuva 8">
-        </div>
-        <button class="prev-button">&lt;</button>
-        <button class="next-button">&gt;</button>
+    <h1>店家推荐</h1>
+    <div class="carousel">
+      <button class="prev-button">&lt;</button>
+      <div class="image-container">
+        <img src="../../css/kuvat/whitecake.jpg" alt="Kuva 1">
+        <img src="../../css/kuvat/cake_piece.jpg" alt="Kuva 2">
+        <img src="../../css/kuvat/strawberry_cake.jpg" alt="Kuva 3">
+        <img src="../../css/kuvat/creamcake.jpg" alt="Kuva 4">
+        <img src="../../css/kuvat/oreocake.jpg" alt="Kuva 5">
+        <img src="../../css/kuvat/pink_dream.jpg" alt="Kuva 6">
+        <img src="../../css/kuvat/kindercake.jpg" alt="Kuva 7">
+        <img src="../../css/kuvat/whitecake.jpg" alt="Kuva 8">
       </div>
+      <button class="next-button">&gt;</button>
+    </div>
 
-      <footer>
-        <p>&copy; S&A CAFE 2024</p>
-        <div class="changecontent">
-        </div>
-      </footer>
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+      <div class="changecontent">
+      </div>
+    </footer>
   </main>
 
 </body>

@@ -65,7 +65,7 @@
   </style>
 
   <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/3MenuPage2.js" defer></script>
+  <script src="/javascript/3MenuPage1.js" defer></script>
 </head>
 
 <body>
@@ -84,21 +84,21 @@
             </select>
           </li>
           <li>
-            <a href="11Login.html">
-              <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+            <a href="11Login_cn.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
             </a>
-        </li>
-        <li>
-            <a href="8Suosikit.html">
-              <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+          </li>
+          <li>
+            <a href="8Suosikit_cn.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
             </a>
-        </li>
-        <li>
-            <a href="9Ostoskori.html">
-              <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+          </li>
+          <li>
+            <a href="9Ostoskori_cn.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
             </a>
-        </li>
+          </li>
         </ul>
       </nav>
     </div>
@@ -123,8 +123,8 @@
           <a class="dropdown-item" href="3MenuPage1_cn.html">蛋糕</a>
           <a class="dropdown-item" href="3MenuPage2_cn.html">咸味食品</a>
           <a class="dropdown-item" href="3MenuPage3_cn.html">甜味点心</a>
-            <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
-            <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
+          <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
+          <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
         </div>
       </div>
       <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
@@ -134,64 +134,25 @@
     <div class="salty-section">
       <h2>咸食</h2>
 
-      <input type="text" id="saltySearch" placeholder="搜索咸味蛋糕或点心...">
       <div class="filter-options">
-        <label for="saltyType">选择种类:</label>
-        <select id="saltyType">
-          <option value="kaikki">全部</option>
-          <option value="piirakat">派</option>
-          <option value="salaatit">沙拉</option>
-          <option value="pasteijat">馅饼</option>
-          <!-- Lisää -->
+        <label for="cakeType">选择种类:</label>
+        <select id="cakeType">
+          <option value="kaikkicn2">全部</option>
+          <option value="piirakatcn">派</option>
+          <option value="salaatitcn">沙拉</option>
+          <option value="pasteijatcn">馅饼</option>
         </select>
       </div>
 
-      <div class="salty-category">
-        <h3>派</h3>
-        <div class="salty-list">
-          <div class="salty-item">
-            <img src="piirakka1.jpg" alt="咸味派1 ">
-            <h4>菠菜-羊奶酪派</h4>
-            <p>派里包含新鲜的菠菜和羊奶酪</p>
-            <button>加入购物筐</button>
-          </div>
-          <!-- Lisää -->
-        </div>
-      </div>
-      <div class="salty-category">
-        <h3>沙拉</h3>
-        <div class="salty-list">
-          <div class="salty-item">
-            <img src="salaatti1.jpg" alt="沙拉 1">
-            <h4>希腊沙拉</h4>
-            <p>-</p>
-            <button>加入购物筐</button>
-          </div>
-          <!-- Lisää -->
-        </div>
-      </div>
-      <div class="salty-category">
-        <h3>馅饼</h3>
-        <div class="salty-list">
-          <div class="salty-item">
-            <img src="pasteija1.jpg" alt="馅饼 1">
-            <h4>火腿奶酪馅饼</h4>
-            <p>-</p>
-            <button>加入购物筐</button>
-          </div>
-          <!-- Lisää -->
-        </div>
+      <div class="salty-category" id="cakeList">
       </div>
 
-      <!-- Lisää -->
 
-    </div>
-
-    <footer>
-      <p>&copy; S&A CAFE 2024</p>
-      <div class="changecontent">
-      </div>
-    </footer>
+      <footer>
+        <p>&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
+        </div>
+      </footer>
 </body>
 
 

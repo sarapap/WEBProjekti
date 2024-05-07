@@ -60,18 +60,18 @@
             </select>
           </li>
           <li>
-            <a href="11Login.html">
+            <a href="11Login_en.html">
               <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
             </a>
           </li>
           <li>
-            <a href="8Suosikit.html">
+            <a href="8Suosikit_en.html">
               <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
             </a>
           </li>
           <li>
-            <a href="9Ostoskori.html">
+            <a href="9Ostoskori_en.html">
               <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
             </a>
           </li>
@@ -117,7 +117,7 @@
 
   <div>
     <p>Check editing details by searching for products.</p>
-    <input type="text" id="cakeSearch" placeholder="Search for cake...">
+    <input type="text" id="cakeSearch" placeholder="Search for product...">
     <div class="filter-options">
       <label for="cakeType">Select type:</label>
       <select id="cakeType">
@@ -129,6 +129,7 @@
         <option value="beverages">Beverages</option>
       </select>
     </div>
+    <div id="cakeList" class="cake-list"></div>
     <hr>
 
     <div>
@@ -211,8 +212,11 @@
 
           <br>
           <br>
-          <label for="ehdot_hyvaksytty">Terms Accepted:</label>
-          <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
+
+          <div class="form-group checkbox-group">
+            <label for="ehdot_hyvaksytty">Terms Accepted</label>
+            <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
+          </div>
 
           <button class="userButton" type="submit">Add User</button>
         </form>

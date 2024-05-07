@@ -58,90 +58,70 @@ const getTuoteByTuoteId = async (tuote_id) => {
     const kieli = document.getElementById('kieli');
     const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
-    let tuoteNimiTeksti = '';
-    let tuoteKuvaTeksti = '';
-    let tuoteKuvausTeksti = '';
+
+
     let tuoteHintaTeksti = '';
     let tuoteMaaraTeksti = '';
 
     switch (selectedLanguage) {
       case 'EN':
 
-        tuoteNimiTeksti = 'Product name';
-        tuoteKuvaTeksti = 'Product image';
-        tuoteKuvausTeksti = 'Product description';
         tuoteHintaTeksti = 'Price';
         tuoteMaaraTeksti = 'Amount';
         break;
 
       case 'CN':
 
-        tuoteNimiTeksti = '产品名称';
-        tuoteKuvaTeksti = '产品图片';
-        tuoteKuvausTeksti = '产品描述';
         tuoteHintaTeksti = '价格';
         tuoteMaaraTeksti = '数量';
         break;
       case 'ET':
-        tuoteNimiTeksti = 'Toote nimi';
-        tuoteKuvaTeksti = 'Toote pilt';
-        tuoteKuvausTeksti = 'Toote kirjeldus';
+
         tuoteHintaTeksti = 'Hind ';
         tuoteMaaraTeksti = 'Kogus';
         break;
       case 'SV':
-        tuoteNimiTeksti = 'Produktnamn';
-        tuoteKuvaTeksti = 'Produktbild ';
-        tuoteKuvausTeksti = 'Produktbeskrivning';
+
         tuoteHintaTeksti = 'Pris';
         tuoteMaaraTeksti = 'Mängd';
         break;
       case 'FI':
       default:
-        valintaTeksti = 'Valitse';
-        tuoteNimiTeksti = 'Tuotteen nimi';
 
-        tuoteKuvausTeksti = 'Tuote kuvaus';
         tuoteHintaTeksti = 'Hinta';
         tuoteMaaraTeksti = 'Määrä';
         break;
     }
 
-    // Etsitään taulukko, johon tuotteet lisätään
+
     const tuoteList = document.getElementById('tuoteList');
 
-    // Luodaan uusi rivi (tr) taulukkoon
     const tuoteElement = document.createElement('tr');
     tuoteElement.classList.add('cake-item');
 
     const imgElement = document.createElement('img');
     imgElement.src = `../../../uploads/${tuote.tuote_kuva}`;
-    imgElement.style.maxWidth = '200px'; // Asetetaan maksimileveys 100px
 
-    // imgElement.addEventListener('click', () => {
-    //   window.location.href = `http://127.0.0.1:5501/uploads/tuote_kuva-1714649302841.png`;
-    // });
+    imgElement.style.maxWidth = '200px';
 
     tuoteElement.appendChild(imgElement);
 
-    // Lisätään soluun tuotteen kuvaus
-    // Luodaan solu tuotteen nimen ja kuvauksen tallentamista varten
     const tdElement = document.createElement('td');
     tdElement.innerHTML = `${tuote.tuote_nimi}<br><br>${tuote.tuote_kuvaus}<br><br>${tuoteHintaTeksti}: ${tuote.tuote_hinta} €
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`;
     tdElement.style
     tuoteElement.appendChild(tdElement);
 
-    // Luodaan numero input ja määräelementti samalle riville
 
     const numberInput = document.createElement('input');
 
-    numberInput.classList.add('maara-input'); // Lisätään luokka
+    numberInput.classList.add('maara-input');
     numberInput.type = 'number';
     numberInput.name = 'maara';
     numberInput.value = '1';
     numberInput.min = '1';
     numberInput.max = '100';
+
 
     numberInput.addEventListener('input', async () => {
       const tarkistus = await ostoskoriTarkistus(userId, tuote_id);
@@ -169,26 +149,23 @@ const getTuoteByTuoteId = async (tuote_id) => {
     tdElement.appendChild(maaraElement);
     tdElement.appendChild(numberInput);
 
-    // Luodaan painike poistoa varten
+
     const deleteButtonElement = document.createElement('button');
-    deleteButtonElement.innerHTML = '<i class="fas fa-trash-alt"></i>';
+    deleteButtonElement.innerHTML = '<i class="fas fa-trash-alt" style="cursor:pointer;"></i>';
     deleteButtonElement.classList.add('delete-button');
 
-    // Lisätään tapahtumankuuntelija poistopainikkeelle
     deleteButtonElement.addEventListener('click', async () => {
       await deleteTuoteFromCart(userId, tuote_id);
       deleteTuoteFromTilauksenTuotelist(tuote_id);
     });
 
-    // Luodaan div, johon poistopainike lisätään
     const buttonContainer = document.createElement('div');
     buttonContainer.classList.add('button-container');
     buttonContainer.appendChild(deleteButtonElement);
 
-    // Lisätään poistopainike ja sen sisältävä div soluun
+
     tuoteElement.appendChild(buttonContainer);
 
-    // Lisätään rivit taulukkoon
     tuoteList.appendChild(tuoteElement);
     const hrElement = document.createElement('hr');
     tuoteList.appendChild(hrElement);
@@ -232,7 +209,7 @@ const deleteTuoteFromCart = async (userId, tuote_id) => {
       if (!response.ok) {
         throw new Error('Virhe tuotteen poistamisessa');
       }
-      //päivitä sivu
+
       fetchAndDisplayTuotteet();
       console.log('Tuote poistettu ostoskorista');
     } catch (error) {
@@ -274,7 +251,7 @@ const getTuoteMaaraFromOstoskori = async (userId, tuote_id) => {
     });
     if (!response.ok) {
       throw new Error('Virhe tuotteen hakemisessa');
-      return 0;
+
     }
     const data = await response.json();
     const maara = data.tuote_maara;
@@ -306,7 +283,9 @@ const lisaaTilausSisalto = async (tilaus_id, tuote_id, tuote_hinta, tuote_kustan
 
   try {
     const response = await fetch(`http://localhost:3000/api/v1/tilaus_sisalto`, {
-      method: 'POST', // Käytä POST-kutsua uuden tilauksen lisäämiseen
+
+      method: 'POST',
+
       headers: {
         'Content-Type': 'application/json',
       },
@@ -357,45 +336,6 @@ const lisaaTilaus = async (userId, tuote_id) => {
     return null;
   }
 };
-// const lisaaTilausJaGetTilausId = async (userId) => {
-//   try {
-//     const response = await fetch(`http://localhost:3000/api/v1/tilaus`, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({
-//         asiakas_id: userId,
-//       }),
-//     });
-
-//     if (!response.ok) {
-//       throw new Error('Virhe tilauksen tekemisessä');
-//     }
-
-//     // Haetaan tilaus_id toisella pyynnöllä
-//     const response2 = await fetch(`http://localhost:3000/api/v1/tilaus/${userId}`, {
-//       method: 'GET',
-//     });
-
-//     if (!response2.ok) {
-//       throw new Error('Virhe tilauksen hakemisessa');
-//     }
-
-//     const data = await response2.json();
-//     if (!Array.isArray(data) || data.length < 1) {
-//       const tilaus_id = data.tilaus_id;
-//     } else if (Array.isArray(data)) {
-//       const tilaus_id = data[data.length - 1].tilaus_id;
-
-//       console.log('Tilaus id:', tilaus_id);
-//       return tilaus_id;
-//      }
-//   } catch (error) {
-//     console.error('Virhe tilauksen hakemisessa:', error.message);
-//   }
-// };
-
 
 
 const getLastTilausId = async (userId) => {
@@ -447,42 +387,56 @@ const lisaaYritystoiminta = async (tilais_pvm, tilaus_id, myynti_hinta, kustannu
     fetchAndDisplayYritystoiminta();
   } catch (error) {
     console.error('Virhe yritystoiminnan lisäämisessä:', error.message);
+
   }
 }
 
+// Valitse maksupainike
 const payButton = document.getElementById('payButton');
+
+// Funktio hakee käyttäjän kielen ja palauttaa oikean sivun URL:n
+function getPaymentPageUrl(kieli) {
+  switch (kieli) {
+    case 'EN':
+      return '../../html/en/9Maksu_en.html';
+    case 'CN':
+      return '../../html/cn/9Maksu_cn.html';
+    case 'ET':
+      return '../../html/et/9Maksu_et.html';
+    case 'SV':
+      return '../../html/sv/9Maksu_sv.html';
+    case 'FI':
+    default:
+      return '../../html/fi/9Maksu.html';
+  }
+}
+
 payButton.addEventListener('click', async () => {
-  console.log('Tilauksen tuotelista:', tilauksenTuoteList);
+  if (tilauksenTuoteList.length < 1) {
+    alert('Ostoskori on tyhjä');
+    return;
+  }
+
+  const kieli = getSelectedLanguage();
+  const targetPage = getPaymentPageUrl(kieli);
+
+  window.location.href = targetPage;
 
   try {
-    if (tilauksenTuoteList.length < 1) {
-      alert('Ostoskori on tyhjä');
-      return;
-    }
-
-    // const tilaus_id = await lisaaTilausJaGetTilausId(userId); // Lisää tilaus ja odota sen valmistumista
-    // if (!tilaus_id) {
-    //   throw new Error('Virhe tilauksen tekemisessä');
-    // }
-
     for (const tuote of tilauksenTuoteList) {
       const tuote_id = tuote.tuote_id;
       const tuote_hinta = tuote.tuote_hinta;
       const tuote_kustannus = tuote.tuote_kustannus;
       const tilaus_id = await getLastTilausId(userId);
 
-      console.log(userId, tuote_id, 'tuote_hinta:', tuote_hinta, 'tuote_kustannus:', tuote_kustannus);
-      console.log('tilaus_id:', tilaus_id);
-
       const maara = await getTuoteMaaraFromOstoskori(userId, tuote_id);
-      console.log('Tuotteen määrä:', maara);
-
 
       await lisaaTilausSisalto(tilaus_id, tuote_id, tuote_hinta, tuote_kustannus, maara);
-      await lisaaTilaus(userId);
+      await lisaaTilaus(userId, tuote_id);
       await deleteTuoteFromCart(userId, tuote_id);
       await paivitaOstoskorinNumero();
     }
+
   } catch (error) {
     console.error('Virhe tilauksen tekemisessä:', error.message);
   }

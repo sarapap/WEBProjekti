@@ -60,18 +60,18 @@
             </select>
           </li>
           <li>
-            <a href="11Login.html">
+            <a href="11Login_et.html">
               <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
             </a>
           </li>
           <li>
-            <a href="8Suosikit.html">
+            <a href="8Suosikit_et.html">
               <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
             </a>
           </li>
           <li>
-            <a href="9Ostoskori.html">
+            <a href="9Ostoskori_et.html">
               <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
             </a>
           </li>
@@ -118,7 +118,7 @@
 
     <div>
       <p>Kontrollige toimetamise üksikasju, otsides tooteid.</p>
-      <input type="text" id="cakeSearch" placeholder="Otsi kooki...">
+      <input type="text" id="cakeSearch" placeholder="Otsi toodet...">
       <div class="filter-options">
         <label for="cakeType">Valige tüüp:</label>
         <select id="cakeType">
@@ -130,6 +130,7 @@
           <option value="joogid">Joogid</option>
         </select>
       </div>
+      <div id="cakeList" class="cake-list"></div>
       <hr>
 
       <div>
@@ -210,9 +211,11 @@
 
           <br>
           <br>
-          <label for="ehdot_hyvaksytty">Tingimustega nõus:</label>
-          <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
 
+          <div class="form-group checkbox-group">
+            <label for="ehdot_hyvaksytty">Tingimustega nõus</label>
+            <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
+          </div>
           <button class="userButton" type="submit">Lisa kasutaja</button>
         </form>
       </div>

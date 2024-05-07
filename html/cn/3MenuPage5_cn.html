@@ -64,7 +64,7 @@
     }
   </style>
   <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/3MenuPage5.js" defer></script>
+  <script src="/javascript/3MenuPage1.js" defer></script>
 </head>
 
 <body>
@@ -83,21 +83,21 @@
             </select>
           </li>
           <li>
-            <a href="11Login.html">
-              <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+            <a href="11Login_cn.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
             </a>
-        </li>
-        <li>
-            <a href="8Suosikit.html">
-              <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+          </li>
+          <li>
+            <a href="8Suosikit_cn.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
             </a>
-        </li>
-        <li>
-            <a href="9Ostoskori.html">
-              <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+          </li>
+          <li>
+            <a href="9Ostoskori_cn.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
             </a>
-        </li>
+          </li>
         </ul>
       </nav>
     </div>
@@ -121,8 +121,8 @@
           <a class="dropdown-item" href="3MenuPage1_cn.html">蛋糕</a>
           <a class="dropdown-item" href="3MenuPage2_cn.html">咸味食品</a>
           <a class="dropdown-item" href="3MenuPage3_cn.html">甜味点心</a>
-            <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
-            <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
+          <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
+          <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
         </div>
       </div>
       <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
@@ -132,102 +132,26 @@
     <div class="drinks-section">
       <h2>饮品选择</h2>
 
-      <input type="text" id="drinkSearch" placeholder="搜索饮品...">
       <div class="filter-options">
-        <label for="drinkType">选择种类:</label>
-        <select id="drinkType">
-          <option value="kaikki">全部</option>
-          <option value="lämmin_kahvi">热咖啡</option>
-          <option value="jääkahvi">冰咖啡</option>
-          <option value="tee">茶</option>
-          <option value="virvoitusjuomat">软饮料</option>
-          <!-- Lisää -->
+        <label for="cakeType">选择种类:</label>
+        <select id="cakeType">
+          <option value="kaikkicn5">全部</option>
+          <option value="lammintajuotavaacn">热咖啡</option>
+          <option value="jääkahvitcn">冰咖啡</option>
+          <option value="teetcn">茶</option>
+          <option value="virvoitusjuomatcn">软饮料</option>
         </select>
       </div>
 
-      <div class="drink-category">
-        <h3>热咖啡</h3>
-        <div class="drink-list">
-          <div class="drink-item">
-            <img src="lammin_kahvi1.jpg" alt="热咖啡 1">
-            <h4>拿铁咖啡</h4>
-            <p>新鲜的浓缩咖啡，牛奶蒸汽和牛奶泡沫。</p>
-            <button>加入购物筐</button>
-          </div>
-          <div class="drink-item">
-            <img src="lammin_kahvi2.jpg" alt="热咖啡 2">
-            <h4>卡布奇诺</h4>
-            <p>浓缩咖啡和奶油牛奶泡沫。</p>
-            <button>加入购物筐</button>
-          </div>
-          <!-- Lisää -->
-        </div>
+      <div class="drink-category" id="cakeList">
       </div>
 
-      <div class="drink-category">
-        <h3>冰咖啡</h3>
-        <div class="drink-list">
-          <div class="drink-item">
-            <img src="jaakahvi1.jpg" alt="冰咖啡 1">
-            <h4>星冰乐</h4>
-            <p>香草冰咖啡配鲜奶油。</p>
-            <button>加入购物筐</button>
-          </div>
-          <div class="drink-item">
-            <img src="jaakahvi2.jpg" alt="冰咖啡 2">
-            <h4>冰咖啡</h4>
-            <p>新鲜的咖啡豆和冰水。</p>
-            <button>加入购物筐</button>
-          </div>
-          <!-- Lisää -->
-        </div>
-      </div>
-      <div class="drink-category">
-        <h3>茶</h3>
-        <div class="drink-list">
-          <div class="drink-item">
-            <img src="tee1.jpg" alt="茶 1">
-            <h4>菊花茶</h4>
-            <p>-</p>
-            <button>加入购物筐</button>
-          </div>
-          <div class="drink-item">
-            <img src="tee2.jpg" alt="茶 2">
-            <h4>南非博士茶</h4>
-            <p>-</p>
-            <button>加入购物筐</button>
-          </div>
-          <!-- Lisää -->
-        </div>
-        <div class="drink-category">
-          <h3>软饮料</h3>
-          <div class="drink-list">
-            <div class="drink-item">
-              <img src="Virvoitusjuomat1.jpg" alt="软饮料 1">
-              <h4>可口可乐</h4>
-              <p>-</p>
-              <button>加入购物筐/button>
-            </div>
-            <div class="drink-item">
-              <img src="Virvoitusjuomat2.jpg" alt="软饮料 2">
-              <h4>百事可乐</h4>
-              <p>-</p>
-              <button>加入购物筐</button>
-            </div>
-            <!-- Lisää -->
-          </div>
 
-          <!-- Lisää  -->
-
-        </div>
-
-
-
-        <footer class="footer-container">
-          <p class="footerP">&copy; S&A CAFE 2024</p>
-          <p class="changecontent2">
-          </p>
-        </footer>
+      <footer class="footer-container">
+        <p class="footerP">&copy; S&A CAFE 2024</p>
+        <p class="changecontent2">
+        </p>
+      </footer>
   </main>
 </body>
 

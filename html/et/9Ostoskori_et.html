@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
 
 <head>
   <meta charset="UTF-8">
@@ -7,6 +7,7 @@
   <link href="../../css/9Ostoskori.css" rel="stylesheet">
   <title>S&A CAFE</title>
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 
   <style>
@@ -85,21 +86,21 @@
             </select>
           </li>
           <li>
-            <a href="11Login.html">
-              <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+            <a href="11Login.html_et">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
             </a>
-        </li>
-        <li>
-            <a href="8Suosikit.html">
-              <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+          </li>
+          <li>
+            <a href="8Suosikit.html_et">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
             </a>
-        </li>
-        <li>
-            <a href="9Ostoskori.html">
-              <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+          </li>
+          <li>
+            <a href="9Ostoskori.html_et">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
             </a>
-        </li>
+          </li>
         </ul>
       </nav>
     </div>
@@ -123,55 +124,21 @@
     <a href="6Poytavaraus_et.html" class="navItem">Broneeri ruum</a>
   </nav>
 
-  <div class="table">
-    <h1>Ostukorv</h1>
-    <table>
-      <tr>
-        <th>Vali</th>
-        <th>Toote pilt</th>
-        <th>Toote nimi</th>
-        <th>Hind</th>
-        <th>Kogus</th>
-        <th class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Prügikast"></th>
-      </tr>
-      <tr>
-        <td><input type="checkbox" name="valinta" value="kook"></td>
-        <td><img src="" alt="">Toote pilt</td>
-        <td>Kook</td>
-        <td>5€</td>
-        <td><input type="number" name="maara" value="1" min="1" max="10"></td>
-        <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Prügikast"></td>
-      </tr>
-      <tr>
-        <td><input type="checkbox" name="valinta" value="küpsetis"></td>
-        <td><img src="" alt="">Toote pilt</td>
-        <td>Küpsetis</td>
-        <td>3€</td>
-        <td><input type="number" name="maara" value="1" min="1" max="10"></td>
-        <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Prügikast"></td>
-      </tr>
-      <tr>
-        <td><input type="checkbox" name="valinta" value="jook"></td>
-        <td><img src="" alt="">Toote pilt</td>
-        <td>Jook</td>
-        <td>2€</td>
-        <td><input type="number" name="maara" value="1" min="1" max="10"></td>
-        <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Prügikast"></td>
-      </tr>
-      <tr>
-        <td>
-        <td></td>
-        </td>
-        <td>Kokku</td>
-        <td>10€</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
+  <div>
+    <h1>
+      <div class="changetext"></div>
+    </h1>
+  </div>
+  <p></p>
+  <h1>Ostukorv</h1>
+  <hr>
+  <div class="table" id="tuoteList">
+    <p>Teie ostukorv on tühi. Palun jätkake ostlemist.</p>
   </div>
   <div class="div-class">
-    <button type="submit" class="pay_btn">Maksa</button>
+    <button type="submit" class="pay_btn" id="payButton">Maksa</button>
   </div>
+
 
   <footer class="footer-container">
     <p class="footerP">&copy; S&A CAFE 2024</p>

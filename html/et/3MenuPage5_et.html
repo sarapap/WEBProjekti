@@ -41,7 +41,7 @@
     </style>
 
     <script src="/javascript/default.js" defer></script>
-    <script src="/javascript/3MenuPage5.js" defer></script>
+    <script src="/javascript/3MenuPage1.js" defer></script>
 </head>
 
 <body>
@@ -60,21 +60,22 @@
                         </select>
                     </li>
                     <li>
-                      <a href="11Login.html">
-                        <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+                        <a href="11Login_et.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
-                      </a>
-                  </li>
-                  <li>
-                      <a href="8Suosikit.html">
-                        <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="9Ostoskori.html">
-                        <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
-                      </a>
-                  </li>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_et.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_et.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
                 </ul>
 
             </nav>
@@ -106,103 +107,25 @@
     <div class="drinks-section">
         <h2>JUOMAVALIK</h2>
 
-        <input type="text" id="drinkSearch" placeholder="Otsi jooki...">
         <div class="filter-options">
-            <label for="drinkType">Vali tüüp:</label>
-            <select id="drinkType">
-                <option value="kaikki">Kõik</option>
-                <option value="lämmin_kahvi">Soojad kohvid</option>
-                <option value="jääkahvi">Jääkohvid</option>
-                <option value="tee">Tee</option>
-                <option value="virvoitusjuomat">Gaseeritud joogid</option>
-                <!-- Lisää -->
+            <label for="cakeType">Vali tüüp:</label>
+            <select id="cakeType">
+                <option value="koik3">Kõik</option>
+                <option value="kuumadjoogid">Soojad kohvid</option>
+                <option value="jääkohv">Jääkohvid</option>
+                <option value="teed">Teed</option>
+                <option value="karastusjoogid">Gaseeritud joogid</option>
             </select>
         </div>
 
-        <div class="drink-category">
-            <h3>Soojad kohvid</h3>
-            <div class="drink-list">
-                <div class="drink-item">
-                    <img src="lammin_kahvi1.jpg" alt="Sooja kohvi 1">
-                    <h4>Kohvi Latte</h4>
-                    <p>Värskelt valmistatud espresso, aurutatud piim ja piimavaht.</p>
-                    <button>Lisa ostukorvi</button>
-                </div>
-                <div class="drink-item">
-                    <img src="lammin_kahvi2.jpg" alt="Sooja kohvi 2">
-                    <h4>Cappuccino</h4>
-                    <p>Tugev espresso ja koorene piimavaht.</p>
-                    <button>Lisa ostukorvi</button>
-                </div>
-                <!-- Lisää -->
+        <div class="drink-category" id="cakeList">
+        </div>
+
+        <footer>
+            <p>&copy; S&A CAFE 2024</p>
+            <div class="changecontent">
             </div>
-        </div>
-
-        <div class="drink-category">
-            <h3>Jääkohvid</h3>
-            <div class="drink-list">
-                <div class="drink-item">
-                    <img src="jaakahvi1.jpg" alt="Jääkohvi 1">
-                    <h4>Frappuccino</h4>
-                    <p>Vaniljeline jääkohvi koos vahukoorega.</p>
-                    <button>Lisää ostoskoriin</button>
-                </div>
-                <div class="drink-item">
-                    <img src="jaakahvi2.jpg" alt="Jääkohvi 2">
-                    <h4>Külm kohv</h4>
-                    <p>Värsked kohvioad jäävees.</p>
-                    <button>Lisa ostukorvi</button>
-                </div>
-                <!-- Lisää -->
-            </div>
-        </div>
-        <div class="drink-category">
-            <h3>Tee</h3>
-            <div class="drink-list">
-                <div class="drink-item">
-                    <img src="tee1.jpg" alt="Tee 1">
-                    <h4>Kummelittee</h4>
-                    <p>-</p>
-                    <button>Lisa ostukorvi</button>
-                </div>
-                <div class="drink-item">
-                    <img src="tee2.jpg" alt="Tee 2">
-                    <h4>Rooibos</h4>
-                    <p>-</p>
-                    <button>Lisa ostukorvi</button>
-                </div>
-                <!-- Lisää -->
-            </div>
-        </div>
-        <div class="drink-category">
-            <h3>Gaseeritud joogid</h3>
-            <div class="drink-list">
-                <div class="drink-item">
-                    <img src="Virvoitusjuomat1.jpg" alt="Gaseeritud joogid 1">
-                    <h4>Coca Cola</h4>
-                    <p>-</p>
-                    <button>Lisa ostukorvi</button>
-                </div>
-                <div class="drink-item">
-                    <img src="Virvoitusjuomat2.jpg" alt="Gaseeritud joogid 2">
-                    <h4>Pepsi</h4>
-                    <p>-</p>
-                    <button>Lisa ostukorvi</button>
-                </div>
-                <!-- Lisää -->
-            </div>
-        </div>
-
-        <!-- Lisää  -->
-
-    </div>
-
-
-    <footer>
-        <p>&copy; S&A CAFE 2024</p>
-        <div class="changecontent">
-        </div>
-    </footer>
+        </footer>
 </body>
 
 </html>

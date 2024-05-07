@@ -25,7 +25,7 @@ POST http://localhost:3000/api/v1/asiakas/login
 Content-Type: application/json
 
 {
-"tunnus": "squirrel", "salasana": "squirrel21"
+"tunnus": "squirrel", "salasana": "squirrel22"
 }
 
 ###get user by username
@@ -68,7 +68,7 @@ PUT http://localhost:3000/api/v1/asiakas/password/71
 Content-Type: application/json
 
 {
-  "salasana": "squirrel27"
+  "salasana": "squirrel22"
 }
 
 ###

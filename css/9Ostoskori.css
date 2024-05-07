@@ -67,6 +67,7 @@ header {
   background-size: cover;
 
 }
+
 .suosikit {
   display: inline-block;
   margin: 10px;
@@ -84,6 +85,7 @@ header {
 .kieli {
   margin: 7px 10px 0px 0px;
 }
+
 #kieli {
   background-color: rgb(192, 160, 122);
   color: white;
@@ -259,10 +261,14 @@ nav li {
   color: white;
   padding: 10px;
   border-radius: 1rem;
-  font-size: large;
   margin-bottom: 20px;
+  font-size: 14px;
   border: none;
-  box-shadow: 0 15px 25px 0 rgba(117, 115, 111, 0.939)
+  cursor: pointer;
+}
+
+.pay_btn:hover {
+  background-color: rgb(174, 94, 30);
 }
 
 .div-class {
@@ -281,6 +287,7 @@ hr {
   padding-left: 15px;
 
 }
+
 /* footer */
 
 footer {

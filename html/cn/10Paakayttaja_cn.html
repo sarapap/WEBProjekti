@@ -62,18 +62,18 @@
             </select>
           </li>
           <li>
-            <a href="11Login.html">
+            <a href="11Login_cn.html">
               <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
             </a>
           </li>
           <li>
-            <a href="8Suosikit.html">
+            <a href="8Suosikit_cn.html">
               <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
             </a>
           </li>
           <li>
-            <a href="9Ostoskori.html">
+            <a href="9Ostoskori_cn.html">
               <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
             </a>
           </li>
@@ -117,69 +117,11 @@
       <button class="button" id="openButton">添加新产品</button>
     </div>
 
-    <!-- Modaali dialogi -->
-    <dialog id="tuoteModal">
-
-      <div>
-        <h2>Lisää uusi tuote</h2>
-        <form id="tuoteForm">
-          <label for="name">Tuote nimi:</label>
-          <input type="text" id="name" name="name"><br>
-
-          <label for="kuvaus">Tuote kuvaus:</label><br>
-          <textarea id="kuvaus" name="kuvaus" rows="4" cols="500"></textarea><br>
-
-          <label for="image">Kuva:</label>
-          <input type="file" id="image" name="image"><br>
-
-          <label for="hinta">Hinta:</label>
-          <input type="text" id="hinta" name="hinta"><br>
-
-          <label for="kustannus">Kustannus:</label>
-          <input type="text" id="kustannus" name="kustannus"><br>
-
-          <label for="tyyppi">Tuotetyyppi:</label>
-          <select id="tyyppi" name="tyyppi">
-
-            <option value="kakut">Kakut</option>
-            <option value="suolaista">Suolaiset ruuat</option>
-            <option value="makeaa">Makeaa</option>
-            <option value="lämmintä ruokaa">Lämmintä ruuat</option>
-            <option value="juotavaa">Juotavaa</option>
-          </select><br>
-
-          <label for="subtype">Alatyyppi:</label>
-          <select id="subtype" name="subtype">
-            <!-- Tähän tulee päätyypin valinnasta-->
-          </select><br>
-
-          <div id="kategoriat">
-            <p>Kategoria:</p><br>
-            <input type="checkbox" id="glugoositon" name="status" value="1">
-            <label for="glugoositon">Glugoositon</label><br>
-
-            <input type="checkbox" id="laktoositon" name="status" value="2">
-            <label for="laktoositon">Laktoositon</label><br>
-
-            <input type="checkbox" id="maidoton" name="status" value="3">
-            <label for="maidoton">Maidoton</label><br>
-
-            <input type="checkbox" id="munaton" name="status" value="4">
-            <label for="munaton">Munaton</label><br>
-          </div>
-
-          <button id="saveButton" type="button">Lisää tuote</button>
-          <button id="closeButton" type="button">Sulje</button>
-        </form>
-      </div>
-
-    </dialog>
-
 
     <div>
 
       <p>搜索并选定产品， 然后可进行编辑或删除。</p>
-      <input type="text" id="cakeSearch" placeholder="搜索并选定产品...">
+      <input type="text" id="cakeSearch" placeholder="搜索产品...">
       <div class="filter-options">
         <label for="cakeType">选择类型:</label>
         <select id="cakeType">
@@ -189,6 +131,7 @@
           <option value="vaniljakakut">饮品</option>
         </select>
       </div>
+      <div id="cakeList" class="cake-list"></div>
       <hr>
 
       <div>
@@ -196,10 +139,8 @@
         <h4>可查看您所选择期间的运营报告。</h4>
         <p>请选择时间段: </p>
         <form action="/varauksen-vahvistus" method="post">
-          &nbsp;&nbsp;&nbsp;&nbsp;
           <label for="aloituspvm1">开始日期：</label>
           <input type="date" id="aloituspvm1" name="aloituspvm1">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <label for="lopetuspvm1">截止日期:</label>
           <input type="date" id="lopetuspvm1" name="lopetuspvm1">
           <button type="submit" class="button2">搜索</button>
@@ -273,9 +214,11 @@
 
           <br>
           <br>
-          <label for="ehdot_hyvaksytty">条款接受：</label>
-          <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
 
+          <div class="form-group checkbox-group">
+            <label for="ehdot_hyvaksytty">条款接受：</label>
+            <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
+          </div>
           <button class="userButton" type="submit">添加用户</button>
         </form>
 

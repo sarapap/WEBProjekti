@@ -63,6 +63,7 @@ header {
   background-size: cover;
 
 }
+
 .suosikit {
   display: inline-block;
   margin: 10px;
@@ -236,23 +237,27 @@ nav li {
   cursor: pointer;
 }
 
+/*modaali uusi käyttäjä*/
 #openModal {
   width: 200px;
   height: 48px;
   background-color: rgb(217, 124, 48);
   color: white;
-  padding: 15px 20px 15px 20px;
-  margin: 10px 0px 10px 5px;
-  border-radius: 1rem;
-  font-size: medium;
+  padding: 12px 20px;
+  margin: 10px 5px;
+  border-radius: 12px;
+  font-size: 16px;
   border: none;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#openModal:hover {
+  background-color: rgb(156, 100, 55);
 }
 
 .modal {
-  z-index: 1000;
-  left: 0;
-  top: 0;
+  position: fixed;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
@@ -261,102 +266,274 @@ nav li {
 }
 
 .modal-content {
-  background-color: rgb(227, 223, 220);
-  border: 1px solid #888;
-  border-radius: 10px;
-  padding: 25px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  width: 40%;
+  background-color: #f7f7f7;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  margin-left: 380px;
   flex-direction: column;
   display: flex;
-  margin-left: 400px;
 }
 
 .modal-content label {
   font-weight: bold;
-  margin-top: 10px;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .modal-content input,
 .modal-content select {
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 1rem;
-  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid white;
   width: 100%;
+  margin-bottom: 15px;
 }
 
 .userButton {
-  margin-top: 20px;
-  padding: 12px;
-  border-radius: 1rem;
+  padding: 15px;
+  border-radius: 12px;
   background-color: rgb(217, 124, 48);
   color: white;
+  border: none;
   cursor: pointer;
   align-self: center;
-  border: none;
+  transition: background-color 0.3s;
 }
 
-.modal-content button:hover {
-  background-color: rgb(168, 94, 32);
+.userButton:hover {
+  background-color: rgb(148, 96, 53);
 }
 
 .close {
-  color: #aaa;
-  float: right;
+  position: absolute;
+  top: 15px;
+  right: 15px;
   font-size: 28px;
   font-weight: bold;
+  color: #aaa;
   cursor: pointer;
+  transition: color 0.3s;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-}
-
-.allergia {
-  margin-bottom: -15px;
+.close:hover {
+  color: #333;
 }
 
 .background-overlay {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(15px);
+  display: none;
 }
 
 .custom-modal {
-  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
+  background: #f7f7f7;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  display: none;
 }
 
 #popup {
-  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
+  background-color: #f7f7f7;
+  padding: 25px;
+  border: 1px solid #888;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px;
+}
+
+
+/* tuotteet */
+.cake-section {
   padding: 20px;
-  border: 1px solid rgb(86, 84, 84);
+}
+
+.cake-section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#cakeSearch {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.filter-options {
+  margin-bottom: 20px;
+}
+
+.filter-options label {
+  font-weight: bold;
+}
+
+.filter-options select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.cake-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.cake-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.cake-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.cake-item h3 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.cake-item p {
+  margin-top: 5px;
+  color: #666;
+}
+
+.cake-item button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cake-item button:hover {
+  background-color: rgb(208, 194, 178);
+}
+
+/* uusi tuote modaali */
+
+#tuoteModal {
+  border: none;
+  background: white;
+  padding: 20px;
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#tuoteModal form {
+  display: flex;
+  flex-direction: column;
+}
+
+#tuoteModal form label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#tuoteModal form input,
+#tuoteModal form select,
+#tuoteModal form textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#tuoteModal form button {
+  background-color: rgb(217, 124, 48);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+#tuoteModal form button:hover {
+  background-color: rgb(190, 99, 25);
+}
+
+#tuoteModal form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* checkbox */
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-group label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-group label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.checkbox-group input[type="checkbox"]:checked+label::before {
+  background-color: rgb(217, 124, 48);
+  ;
+  border: none;
+}
+
+.checkbox-group label::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background-color: transparent;
 }
 
 /* footer */

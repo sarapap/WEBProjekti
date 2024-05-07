@@ -41,7 +41,7 @@
     </style>
 
     <script src="/javascript/default.js" defer></script>
-    <script src="/javascript/3MenuPage4.js" defer></script>
+    <script src="/javascript/3MenuPage1.js" defer></script>
 </head>
 
 <body>
@@ -60,21 +60,22 @@
                         </select>
                     </li>
                     <li>
-                      <a href="11Login.html">
-                        <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+                        <a href="11Login_sv.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
-                      </a>
-                  </li>
-                  <li>
-                      <a href="8Suosikit.html">
-                        <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="9Ostoskori.html">
-                        <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
-                      </a>
-                  </li>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_sv.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_sv.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
                 </ul>
 
             </nav>
@@ -106,53 +107,25 @@
     <div class="hot-food-section">
         <h2>VARM MAT</h2>
 
-        <input type="text" id="hotFoodSearch" placeholder="Sök efter varm mat...">
         <div class="filter-options">
-            <label for="hotFoodType">Välj typ:</label>
-            <select id="hotFoodType">
-                <option value="kaikki">Alla</option>
-                <option value="kana">Kycklingrätter</option>
-                <option value="muut_ruuat">Andra varma rätter</option>
-                <!-- Lisää -->
+            <label for="cakeType">Välj typ:</label>
+            <select id="cakeType">
+                <option value="alla2">Alla</option>
+                <option value="kycklingrätter">Kycklingrätter</option>
+                <option value="andravarmarätter">Andra varma rätter</option>
             </select>
         </div>
 
-        <div class="hot-food-category">
-            <h3>Kycklingrätter</h3>
-            <div class="hot-food-list">
-                <div class="hot-food-item">
-                    <img src="kanacurry.jpg" alt="Kycklingcurry">
-                    <h4>Kycklingcurry</h4>
-                    <p>-</p>
-                    <button>Lägg till i varukorgen</button>
-                </div>
-                <!-- Lisää -->
+        <div class="hot-food-category" id="cakeList">
+        </div>
+
+
+
+        <footer>
+            <p>&copy; S&A CAFE 2024</p>
+            <div class="changecontent">
             </div>
-        </div>
-
-        <div class="hot-food-category">
-            <h3>Andra varma rätter</h3>
-            <div class="hot-food-list">
-                <div class="hot-food-item">
-                    <img src="lasagne.jpg" alt="Lasagne">
-                    <h4>Lasagne</h4>
-                    <p>Husets egen lasagne</p>
-                    <button>Lägg till i varukorgen</button>
-                </div>
-                <!-- Lisää-->
-            </div>
-        </div>
-
-        <!-- Lisää-->
-
-    </div>
-
-
-    <footer>
-        <p>&copy; S&A CAFE 2024</p>
-        <div class="changecontent">
-        </div>
-    </footer>
+        </footer>
 </body>
 
 </html>
