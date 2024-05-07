@@ -11,11 +11,9 @@ const tilausList = document.getElementById('tilaus-list');
 
 const fetchAndDisplayTuotteet = async () => {
   const tilausIdList = await findTilausIdByUserId(userId);
-  console.log('tilausIdList:', tilausIdList);
 
   const allIdFromTs = await getAllTilausIdFromTilaus();
   console.log('allIdFromTs:', allIdFromTs);
-
 
 
   allIdFromTs.forEach(id => {
@@ -166,11 +164,42 @@ const displayTuotteet = async (tuotteet) => {
         summaTeksti = 'Summa';
         break;
     }
+    // const tilausList = document.getElementById('tilaus-list');
+    // const tuoteElement = document.createElement('tr');
+    // tuoteElement.classList.add('tilaus-item');
+
+    // const thElmet = document.createElement('th');
+    // thElmet.textContent = tilausPVMTeksti;
+    // tuoteElement.appendChild(thElmet);
+
+    // const thElmet2 = document.createElement('th');
+    // thElmet2.textContent = tilausIDTeksti;
+    // tuoteElement.appendChild(thElmet2);
+
+    // const thElmet3 = document.createElement('th');
+    // thElmet3.textContent = tuoteNimiTeksti;
+    // tuoteElement.appendChild(thElmet3);
+
+    // const thElmet4 = document.createElement('th');
+    // thElmet4.textContent = tuoteHintaTeksti;
+    // tuoteElement.appendChild(thElmet4);
+
+    // const thElmet5 = document.createElement('th');
+    // thElmet5.textContent = tuoteMaaraTeksti;
+    // tuoteElement.appendChild(thElmet5);
+
+    // const thElmet6 = document.createElement('th');
+    // thElmet6.textContent = summaTeksti;
+    // tuoteElement.appendChild(thElmet6);
+
+    // tilausList.appendChild(tuoteElement);
+
+
 
     if (tuotteet.length > 0) {
       tuotteet.forEach(async (tuote) => {
         console.log('Tuote 139:', tuote);
-    const tilausList = document.getElementById('tilaus-list');
+
     const nimi_hinta = await getTuoteNimiJaHintaByTuoteId(tuote.tuote_id);
     const tuote_nimi = nimi_hinta.tuote_nimi;
     const tuote_hinta = nimi_hinta.tuote_hinta;
@@ -180,32 +209,9 @@ const displayTuotteet = async (tuotteet) => {
     const pvmIlmanAikaa = date.toISOString().split('T')[0]
 
     // Luodaan uusi rivi (tr) taulukkoon
-    const tuoteElement = document.createElement('tr');
+    const tilausList = document.getElementById('tilaus-list');
+    const tuoteElement = document.createElement('td');
     tuoteElement.classList.add('tilaus-item');
-
-    const thElmet = document.createElement('th');
-    thElmet.textContent = tilausPVMTeksti;
-    tuoteElement.appendChild(thElmet);
-
-    const thElmet2 = document.createElement('th');
-    thElmet2.textContent = tilausIDTeksti;
-    tuoteElement.appendChild(thElmet2);
-
-    const thElmet3 = document.createElement('th');
-    thElmet3.textContent = tuoteNimiTeksti;
-    tuoteElement.appendChild(thElmet3);
-
-    const thElmet4 = document.createElement('th');
-    thElmet4.textContent = tuoteHintaTeksti;
-    tuoteElement.appendChild(thElmet4);
-
-    const thElmet5 = document.createElement('th');
-    thElmet5.textContent = tuoteMaaraTeksti;
-    tuoteElement.appendChild(thElmet5);
-
-    const thElmet6 = document.createElement('th');
-    thElmet6.textContent = summaTeksti;
-    tuoteElement.appendChild(thElmet6);
 
     tilausList.appendChild(tuoteElement);
     const tdElement = document.createElement('td');
@@ -221,21 +227,26 @@ const displayTuotteet = async (tuotteet) => {
     tuoteElement.appendChild(tdElement3);
 
     const tdElement4 = document.createElement('td');
-    tdElement4.innerHTML = tuote.tuote_hinta;
+    tdElement4.innerHTML = tuote_hinta + ' €';
     tuoteElement.appendChild(tdElement4);
 
     const tdElement5 = document.createElement('td');
-    tdElement5.innerHTML = tuote.maara;
+    tdElement5.innerHTML = tuote.maara + ' kpl';
     tuoteElement.appendChild(tdElement5);
 
     const tdElement6 = document.createElement('td');
-    tdElement6.innerHTML = tuote.myynti_summa;
+    tdElement6.innerHTML = tuote.myynti_summa + ' €'  ;
     tuoteElement.appendChild(tdElement6);
 
     tilausList.appendChild(tuoteElement);
 
     const hrElement = document.createElement('hr');
     tilausList.appendChild(hrElement);
+
+
+
+
+
     });
   };
 };
