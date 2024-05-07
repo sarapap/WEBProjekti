@@ -180,10 +180,19 @@
                 <input type="time" id="toimitusaika" name="toimitusaika">
             </div>
 
+            <div class="form-group">
+                <label for="alennus">Rabattkod:</label>
+                <input type="text" id="alennus" name="alennus">
+                <button id="applyDiscountButton">Använd koden</button>
+            </div>
+
+            <div id="discountResult"></div>
+
             <div class="form-group checkbox-group">
                 <input type="checkbox" id="hyvaksyminen" name="hyvaksyminen" required>
                 <label for="hyvaksyminen">Jag accepterar villkoren</label>
             </div>
+
 
             <div class="form-group">
                 <button type="submit">Skicka beställning</button>

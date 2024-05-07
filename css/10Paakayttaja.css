@@ -487,6 +487,55 @@ dialog::backdrop {
   cursor: not-allowed;
 }
 
+/* checkbox */
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-group label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-group label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.checkbox-group input[type="checkbox"]:checked+label::before {
+  background-color: rgb(217, 124, 48);
+  ;
+  border: none;
+}
+
+.checkbox-group label::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background-color: transparent;
+}
+
 /* footer */
 
 footer {
