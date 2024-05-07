@@ -102,7 +102,7 @@ const getUserId = () => {
   return userId;
 
 }
-);
+
 
 
 const userId = getUserId();
