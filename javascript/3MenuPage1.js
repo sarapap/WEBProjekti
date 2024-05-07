@@ -728,4 +728,4 @@ const getKategoriaById = async (kategoriaId) => {
   }
 };
 
-fetchAndDisplayTuotteet();
+await fetchAndDisplayTuotteet();

@@ -2,6 +2,7 @@ import{
   listAllTilausSisalto,
   findTilausSisaltoById,
   findTilausSisaltoByTilausId,
+  findTilausPvmByTilausId,
   findTilausSisaltoByPvm,
   findTilausSisaltoByDateRange,
   addTilausSisalto,
@@ -26,6 +27,16 @@ const getTilausSisaltoById = async(req, res) => {
       res.sendStatus(404);
   }
 };
+
+const getTilausPvmByTilausId = async(req, res) => {
+  const tilausSisalto = await findTilausPvmByTilausId(req.params.tilaus_id);
+  if (tilausSisalto) {
+      res.json(tilausSisalto);
+  } else {
+      res.sendStatus(404);
+  }
+}
+
 
 const getTilausSisaltoByTilausId = async(req, res) => {
   const tilausSisalto = await findTilausSisaltoByTilausId(req.params.tilaus_id);
@@ -92,6 +103,7 @@ export {
 getTilausSisalto,
 getTilausSisaltoById,
 getTilausSisaltoByTilausId,
+getTilausPvmByTilausId,
 getTilausSisaltoByTilausPvm,
 getTilasSisaltoByDateRange,
 postTilausSisalto,

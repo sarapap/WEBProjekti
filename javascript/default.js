@@ -27,88 +27,84 @@ document.getElementById("kieli").addEventListener("change", function () {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-     const links = document.querySelectorAll('a');
+  const links = document.querySelectorAll('a');
 
-    const loginEndings = ['11Login.html', '11Login_en.html', '11login_cn.html', '11Login_et.html', '11Login_sv.html'];
+  const loginEndings = ['11Login.html', '11Login_en.html', '11login_cn.html', '11Login_et.html', '11Login_sv.html'];
 
-    links.forEach(link => {
-        const isLoginLink = loginEndings.some(ending => link.href.endsWith(ending));
+  links.forEach(link => {
+    const isLoginLink = loginEndings.some(ending => link.href.endsWith(ending));
 
-        if (isLoginLink) {
-            link.addEventListener('click', function (event) {
-                event.preventDefault();
+    if (isLoginLink) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
 
-                const authToken = localStorage.getItem('authToken');
+        const authToken = localStorage.getItem('authToken');
 
-                let redirectPage;
+        let redirectPage;
 
-                const kieli = document.getElementById('kieli');
-                const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+        const kieli = document.getElementById('kieli');
+        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
-                if (authToken) {
-                    switch (selectedLanguage) {
-                        case 'EN':
-                            redirectPage = '../../html/en/7Kayttaja_en.html';
-                            break;
-                        case 'CN':
-                            redirectPage = '../../html/cn/7Kayttaja_cn.html';
-                            break;
-                        case 'ET':
-                            redirectPage = '../../html/et/7Kayttaja_et.html';
-                            break;
-                        case 'SV':
-                            redirectPage = '../../html/sv/7Kayttaja_sv.html';
-                            break;
-                        case 'FI':
-                        default:
-                            redirectPage = '../../html/fi/7Kayttaja.html';
-                            break;
-                    }
-                } else {
-                    switch (selectedLanguage) {
-                        case 'EN':
-                            redirectPage = '../../html/en/11Login_en.html';
-                            break;
-                        case 'CN':
-                            redirectPage = '../../html/cn/11login_cn.html';
-                            break;
-                        case 'ET':
-                            redirectPage = '../../html/et/11Login_et.html';
-                            break;
-                        case 'SV':
-                            redirectPage = '../../html/sv/11Login_sv.html';
-                            break;
-                        case 'FI':
-                        default:
-                            redirectPage = '../../html/fi/11Login.html';
-                            break;
-                    }
-                }
-                window.location.href = redirectPage;
-            });
+        if (authToken) {
+          switch (selectedLanguage) {
+            case 'EN':
+              redirectPage = '../../html/en/7Kayttaja_en.html';
+              break;
+            case 'CN':
+              redirectPage = '../../html/cn/7Kayttaja_cn.html';
+              break;
+            case 'ET':
+              redirectPage = '../../html/et/7Kayttaja_et.html';
+              break;
+            case 'SV':
+              redirectPage = '../../html/sv/7Kayttaja_sv.html';
+              break;
+            case 'FI':
+            default:
+              redirectPage = '../../html/fi/7Kayttaja.html';
+              break;
+          }
+        } else {
+          switch (selectedLanguage) {
+            case 'EN':
+              redirectPage = '../../html/en/11Login_en.html';
+              break;
+            case 'CN':
+              redirectPage = '../../html/cn/11login_cn.html';
+              break;
+            case 'ET':
+              redirectPage = '../../html/et/11Login_et.html';
+              break;
+            case 'SV':
+              redirectPage = '../../html/sv/11Login_sv.html';
+              break;
+            case 'FI':
+            default:
+              redirectPage = '../../html/fi/11Login.html';
+              break;
+          }
         }
         window.location.href = redirectPage;
       });
     }
-  );
-
-// get asiakas id from local storage
-const getUserId = () => {
-  const token = localStorage.getItem('authToken');
-  const base64Payload = token.split('.')[1];
-  const payload = atob(base64Payload);
-  const parsedPayload = JSON.parse(payload);
-  let userId = parsedPayload.asiakas_id;
-  console.log('asiakas id:', userId);
-  return userId;
+  });
 }
+);
 
-const userId = getUserId();
-console.log('userId:', userId);
+//get asiakas id from local storage
+// const getUserId = () => {
+//   const token = localStorage.getItem('authToken');
+//   const base64Payload = token.split('.')[1];
+//   const payload = atob(base64Payload);
+//   const parsedPayload = JSON.parse(payload);
+//   let userId = parsedPayload.asiakas_id;
+//   return userId;
+// }
 
-// Päivitä ostoskorin numero
+//  const userId = getUserId();
+
 const paivitaOstoskorinNumero = async () => {
-  const userId = getUserId();
+  // const userId = getUserId();
 
   const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
   const tuotteet = await getTuotteenMaaraByUserId(userId);
@@ -130,7 +126,6 @@ const getSuosikinMaaraByUserId = async (userId) => {
     }
 
     if (response.status === 404) {
-      console.log('Suosikkeja ei löytynyt');
       const suosikit = 0;
       const suosikkiLkmElement = document.getElementById('suosikki-lkm');
       suosikkiLkmElement.textContent = suosikit.toString();
@@ -138,7 +133,6 @@ const getSuosikinMaaraByUserId = async (userId) => {
     }
 
     const suosikit = await response.json();
-    console.log('Suosikkien määrä:', suosikit.length.toString());
 
     const suosikkiLkmElement = document.getElementById('suosikki-lkm');
     suosikkiLkmElement.textContent = suosikit.length.toString();
@@ -160,10 +154,9 @@ const getTuotteenMaaraByUserId = async (userId) => {
 
 
     if (!response.ok) {
-      if (response.status === 404) { // Jos ostoskoria ei löydy, palautetaan tyhjä taulukko
+      if (response.status === 404) {
         const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
         ostoskoriLkmElement.textContent = '0';
-        console.log('Ostoskoria ei löydy tai se on tyhjä.');
         return [];
       }
       throw new Error('Virhe ostoskorin hakemisessa');
@@ -173,11 +166,10 @@ const getTuotteenMaaraByUserId = async (userId) => {
     const tuotteet = await response.json();
     const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
     ostoskoriLkmElement.textContent = tuotteet.length.toString();
-    console.log('Tuoteen määrä ostoskorissa:', tuotteet.length.toString());
-    return tuotteet; // Palautetaan tuotteet
+    return tuotteet;
   } catch (error) {
     console.error('Virhe ostoskorin hakemisessa:', error.message);
-    return 0; // Palautetaan tyhjä taulukko virhetilanteessa
+    return 0;
   }
 }
 

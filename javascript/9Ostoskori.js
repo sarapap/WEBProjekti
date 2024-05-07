@@ -107,91 +107,91 @@ const getTuoteByTuoteId = async (tuote_id) => {
         break;
     }
 
-   // Etsitään taulukko, johon tuotteet lisätään
-const tuoteList = document.getElementById('tuoteList');
+    // Etsitään taulukko, johon tuotteet lisätään
+    const tuoteList = document.getElementById('tuoteList');
 
-// Luodaan uusi rivi (tr) taulukkoon
-const tuoteElement = document.createElement('tr');
-tuoteElement.classList.add('cake-item');
+    // Luodaan uusi rivi (tr) taulukkoon
+    const tuoteElement = document.createElement('tr');
+    tuoteElement.classList.add('cake-item');
 
-const imgElement = document.createElement('img');
-imgElement.src = `../../../uploads/${tuote.tuote_kuva}`;
-imgElement.style.maxWidth = '200px'; // Asetetaan maksimileveys 100px
+    const imgElement = document.createElement('img');
+    imgElement.src = `../../../uploads/${tuote.tuote_kuva}`;
+    imgElement.style.maxWidth = '200px'; // Asetetaan maksimileveys 100px
 
-// imgElement.addEventListener('click', () => {
-//   window.location.href = `http://127.0.0.1:5501/uploads/tuote_kuva-1714649302841.png`;
-// });
+    // imgElement.addEventListener('click', () => {
+    //   window.location.href = `http://127.0.0.1:5501/uploads/tuote_kuva-1714649302841.png`;
+    // });
 
-tuoteElement.appendChild(imgElement);
+    tuoteElement.appendChild(imgElement);
 
-// Lisätään soluun tuotteen kuvaus
-// Luodaan solu tuotteen nimen ja kuvauksen tallentamista varten
-const tdElement = document.createElement('td');
-tdElement.innerHTML = `${tuote.tuote_nimi}<br><br>${tuote.tuote_kuvaus}<br><br>${tuoteHintaTeksti}: ${tuote.tuote_hinta} €
+    // Lisätään soluun tuotteen kuvaus
+    // Luodaan solu tuotteen nimen ja kuvauksen tallentamista varten
+    const tdElement = document.createElement('td');
+    tdElement.innerHTML = `${tuote.tuote_nimi}<br><br>${tuote.tuote_kuvaus}<br><br>${tuoteHintaTeksti}: ${tuote.tuote_hinta} €
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`;
-tdElement.style
-tuoteElement.appendChild(tdElement);
+    tdElement.style
+    tuoteElement.appendChild(tdElement);
 
-// Luodaan numero input ja määräelementti samalle riville
+    // Luodaan numero input ja määräelementti samalle riville
 
-const numberInput = document.createElement('input');
+    const numberInput = document.createElement('input');
 
-numberInput.classList.add('maara-input'); // Lisätään luokka
-numberInput.type = 'number';
-numberInput.name = 'maara';
-numberInput.value = '1';
-numberInput.min = '1';
-numberInput.max = '100';
+    numberInput.classList.add('maara-input'); // Lisätään luokka
+    numberInput.type = 'number';
+    numberInput.name = 'maara';
+    numberInput.value = '1';
+    numberInput.min = '1';
+    numberInput.max = '100';
 
-numberInput.addEventListener('input', async () => {
-  const tarkistus = await ostoskoriTarkistus(userId, tuote_id);
-  if (tarkistus) {
-    const tuoteMaara = await getTuoteMaaraFromOstoskori(userId, tuote_id);
-    numberInput.value = tuoteMaara;
-  } else {
-    const tuote_maara = parseInt(numberInput.value);
-  }
-});
+    numberInput.addEventListener('input', async () => {
+      const tarkistus = await ostoskoriTarkistus(userId, tuote_id);
+      if (tarkistus) {
+        const tuoteMaara = await getTuoteMaaraFromOstoskori(userId, tuote_id);
+        numberInput.value = tuoteMaara;
+      } else {
+        const tuote_maara = parseInt(numberInput.value);
+      }
+    });
 
-numberInput.addEventListener('click', async () => {
-  const tuote_maara = parseInt(numberInput.value);
-  await updateCart(userId, tuote_id, tuote_maara);
-});
+    numberInput.addEventListener('click', async () => {
+      const tuote_maara = parseInt(numberInput.value);
+      await updateCart(userId, tuote_id, tuote_maara);
+    });
 
 
-const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
-const tuotteet = await getTuotteenMaaraByUserId(userId);
-ostoskoriLkmElement.textContent = tuotteet.length.toString();
+    const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
+    const tuotteet = await getTuotteenMaaraByUserId(userId);
+    ostoskoriLkmElement.textContent = tuotteet.length.toString();
 
-const maaraElement = document.createElement('span');
-maaraElement.textContent = tuoteMaaraTeksti + ': ';
+    const maaraElement = document.createElement('span');
+    maaraElement.textContent = tuoteMaaraTeksti + ': ';
 
-tdElement.appendChild(maaraElement);
-tdElement.appendChild(numberInput);
+    tdElement.appendChild(maaraElement);
+    tdElement.appendChild(numberInput);
 
-// Luodaan painike poistoa varten
-const deleteButtonElement = document.createElement('button');
-deleteButtonElement.innerHTML = '<i class="fas fa-trash-alt"></i>';
-deleteButtonElement.classList.add('delete-button');
+    // Luodaan painike poistoa varten
+    const deleteButtonElement = document.createElement('button');
+    deleteButtonElement.innerHTML = '<i class="fas fa-trash-alt"></i>';
+    deleteButtonElement.classList.add('delete-button');
 
-// Lisätään tapahtumankuuntelija poistopainikkeelle
-deleteButtonElement.addEventListener('click', async () => {
-  await deleteTuoteFromCart(userId, tuote_id);
-  deleteTuoteFromTilauksenTuotelist(tuote_id);
-});
+    // Lisätään tapahtumankuuntelija poistopainikkeelle
+    deleteButtonElement.addEventListener('click', async () => {
+      await deleteTuoteFromCart(userId, tuote_id);
+      deleteTuoteFromTilauksenTuotelist(tuote_id);
+    });
 
-// Luodaan div, johon poistopainike lisätään
-const buttonContainer = document.createElement('div');
-buttonContainer.classList.add('button-container');
-buttonContainer.appendChild(deleteButtonElement);
+    // Luodaan div, johon poistopainike lisätään
+    const buttonContainer = document.createElement('div');
+    buttonContainer.classList.add('button-container');
+    buttonContainer.appendChild(deleteButtonElement);
 
-// Lisätään poistopainike ja sen sisältävä div soluun
-tuoteElement.appendChild(buttonContainer);
+    // Lisätään poistopainike ja sen sisältävä div soluun
+    tuoteElement.appendChild(buttonContainer);
 
-// Lisätään rivit taulukkoon
-tuoteList.appendChild(tuoteElement);
-const hrElement = document.createElement('hr');
-tuoteList.appendChild(hrElement);
+    // Lisätään rivit taulukkoon
+    tuoteList.appendChild(tuoteElement);
+    const hrElement = document.createElement('hr');
+    tuoteList.appendChild(hrElement);
 
   } catch (error) {
     console.error('Virhe tuotteen hakemisessa:', error.message);
@@ -293,15 +293,15 @@ const deleteTuoteFromTilauksenTuotelist = (tuote_id) => {
   }
 };
 
-const lisaaTilausSisalto = async ( tilaus_id, tuote_id, tuote_hinta, tuote_kustannus, maara) => {
+const lisaaTilausSisalto = async (tilaus_id, tuote_id, tuote_hinta, tuote_kustannus, maara) => {
 
-    const myynti_summa = maara * tuote_hinta;
-    const kustannus_summa = maara * tuote_kustannus;
-    const voitto = myynti_summa - kustannus_summa;
-    const tilaus_pvm = new Date().toISOString().slice(0, 10);
-    const statusTeksti= 'Tilaus vastaanotettu';
+  const myynti_summa = maara * tuote_hinta;
+  const kustannus_summa = maara * tuote_kustannus;
+  const voitto = myynti_summa - kustannus_summa;
+  const tilaus_pvm = new Date().toISOString().slice(0, 10);
+  const statusTeksti = 'Tilaus vastaanotettu';
 
-    await lisaaYritystoiminta(tilaus_pvm, tilaus_id, myynti_summa, kustannus_summa, voitto);
+  await lisaaYritystoiminta(tilaus_pvm, tilaus_id, myynti_summa, kustannus_summa, voitto);
 
 
   try {
@@ -327,7 +327,7 @@ const lisaaTilausSisalto = async ( tilaus_id, tuote_id, tuote_hinta, tuote_kusta
       throw new Error('Virhe tilauksen tekemisessä');
     }
     const data = await response.json();
-   console.log('data', data);
+    console.log('data', data);
     console.log('Tilaus tehty');
     alert('Kiitos! Tilaus tehty');
 
@@ -357,6 +357,46 @@ const lisaaTilaus = async (userId, tuote_id) => {
     return null;
   }
 };
+// const lisaaTilausJaGetTilausId = async (userId) => {
+//   try {
+//     const response = await fetch(`http://localhost:3000/api/v1/tilaus`, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({
+//         asiakas_id: userId,
+//       }),
+//     });
+
+//     if (!response.ok) {
+//       throw new Error('Virhe tilauksen tekemisessä');
+//     }
+
+//     // Haetaan tilaus_id toisella pyynnöllä
+//     const response2 = await fetch(`http://localhost:3000/api/v1/tilaus/${userId}`, {
+//       method: 'GET',
+//     });
+
+//     if (!response2.ok) {
+//       throw new Error('Virhe tilauksen hakemisessa');
+//     }
+
+//     const data = await response2.json();
+//     if (!Array.isArray(data) || data.length < 1) {
+//       const tilaus_id = data.tilaus_id;
+//     } else if (Array.isArray(data)) {
+//       const tilaus_id = data[data.length - 1].tilaus_id;
+
+//       console.log('Tilaus id:', tilaus_id);
+//       return tilaus_id;
+//      }
+//   } catch (error) {
+//     console.error('Virhe tilauksen hakemisessa:', error.message);
+//   }
+// };
+
+
 
 const getLastTilausId = async (userId) => {
   try {
@@ -370,12 +410,12 @@ const getLastTilausId = async (userId) => {
 
     const data = await response.json();
     if (!Array.isArray(data) || data.length < 1) {
-    const tilaus_id = data.tilaus_id;
+      const tilaus_id = data.tilaus_id;
     } else if (Array.isArray(data)) {
       const tilaus_id = data[data.length - 1].tilaus_id;
 
-    console.log('Tilaus id:', tilaus_id);
-    return tilaus_id;
+      console.log('Tilaus id:', tilaus_id);
+      return tilaus_id;
 
     }
   } catch (error) {
@@ -383,7 +423,7 @@ const getLastTilausId = async (userId) => {
   }
 }
 
-const lisaaYritystoiminta = async ( tilais_pvm, tilaus_id, myynti_hinta, kustannus, voitto) => {
+const lisaaYritystoiminta = async (tilais_pvm, tilaus_id, myynti_hinta, kustannus, voitto) => {
   console.log('tilais_pvm:', tilais_pvm, 'tilaus_id:', tilaus_id, 'myynti_hinta:', myynti_hinta, 'kustannus:', kustannus, 'voitto:', voitto);
 
   try {
@@ -413,28 +453,35 @@ const lisaaYritystoiminta = async ( tilais_pvm, tilaus_id, myynti_hinta, kustann
 const payButton = document.getElementById('payButton');
 payButton.addEventListener('click', async () => {
   console.log('Tilauksen tuotelista:', tilauksenTuoteList);
+
   try {
     if (tilauksenTuoteList.length < 1) {
       alert('Ostoskori on tyhjä');
       return;
-    } else {
-      for (const tuote of tilauksenTuoteList) {
-        const tuote_id = tuote.tuote_id;
-        const tuote_hinta = tuote.tuote_hinta;
-        const tuote_kustannus = tuote.tuote_kustannus;
-        const tilaus_id = await getLastTilausId(userId);
+    }
 
-        console .log(userId, tuote_id, 'tuote_hinta:', tuote_hinta, 'tuote_kustannus:', tuote_kustannus);//ok
-        console.log('tilaus_id:', tilaus_id);//ok
+    // const tilaus_id = await lisaaTilausJaGetTilausId(userId); // Lisää tilaus ja odota sen valmistumista
+    // if (!tilaus_id) {
+    //   throw new Error('Virhe tilauksen tekemisessä');
+    // }
 
-        const maara = await getTuoteMaaraFromOstoskori(userId, tuote_id);
-        console.log('Tuotteen määrä: 412', maara);
+    for (const tuote of tilauksenTuoteList) {
+      const tuote_id = tuote.tuote_id;
+      const tuote_hinta = tuote.tuote_hinta;
+      const tuote_kustannus = tuote.tuote_kustannus;
+      const tilaus_id = await getLastTilausId(userId);
 
-        await lisaaTilausSisalto(tilaus_id, tuote_id, tuote_hinta, tuote_kustannus, maara);
-        await lisaaTilaus(userId, tuote_id);
-        await deleteTuoteFromCart(userId, tuote_id);
-        await paivitaOstoskorinNumero();
-      }
+      console.log(userId, tuote_id, 'tuote_hinta:', tuote_hinta, 'tuote_kustannus:', tuote_kustannus);
+      console.log('tilaus_id:', tilaus_id);
+
+      const maara = await getTuoteMaaraFromOstoskori(userId, tuote_id);
+      console.log('Tuotteen määrä:', maara);
+
+
+      await lisaaTilausSisalto(tilaus_id, tuote_id, tuote_hinta, tuote_kustannus, maara);
+      await lisaaTilaus(userId);
+      await deleteTuoteFromCart(userId, tuote_id);
+      await paivitaOstoskorinNumero();
     }
   } catch (error) {
     console.error('Virhe tilauksen tekemisessä:', error.message);
@@ -442,3 +489,4 @@ payButton.addEventListener('click', async () => {
 });
 
 fetchAndDisplayTuotteet();
+
