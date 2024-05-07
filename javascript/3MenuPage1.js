@@ -314,7 +314,6 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/suolaistacn/pasteijatcn';
     }
 
-
     const response = await fetch(url, {
       method: 'GET',
     });
@@ -831,4 +830,3 @@ const getKategoriaById = async (kategoriaId) => {
 };
 
 fetchAndDisplayTuotteet();
-

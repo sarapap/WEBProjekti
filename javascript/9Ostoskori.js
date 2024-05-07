@@ -238,7 +238,6 @@ const getTuoteMaaraFromOstoskori = async (userId, tuote_id) => {
     });
     if (!response.ok) {
       throw new Error('Virhe tuotteen hakemisessa');
-      return 0;
     }
     const data = await response.json();
     const maara = data.tuote_maara;
@@ -374,54 +373,56 @@ const lisaaYritystoiminta = async (tilais_pvm, tilaus_id, myynti_hinta, kustannu
   }
 }
 
+// Valitse maksupainike
 const payButton = document.getElementById('payButton');
-payButton.addEventListener('click', async () => {
-  const kieli = getSelectedLanguage();
-  let targetPage = '';
+
+// Funktio hakee käyttäjän kielen ja palauttaa oikean sivun URL:n
+function getPaymentPageUrl(kieli) {
   switch (kieli) {
     case 'EN':
-      targetPage = '../../html/en/9Maksu_en.html';
-      break;
+      return '../../html/en/9Maksu_en.html';
     case 'CN':
-      targetPage = '../../html/cn/9Maksu_cn.html';
-      break;
+      return '../../html/cn/9Maksu_cn.html';
     case 'ET':
-      targetPage = '../../html/et/9Maksu_et.html';
-      break;
+      return '../../html/et/9Maksu_et.html';
     case 'SV':
-      targetPage = '../../html/sv/9Maksu_sv.html';
-      break;
+      return '../../html/sv/9Maksu_sv.html';
     case 'FI':
     default:
-      targetPage = '../../html/fi/9Maksu.html';
-      break;
+      return '../../html/fi/9Maksu.html';
+  }
+}
+
+payButton.addEventListener('click', async () => {
+  if (tilauksenTuoteList.length < 1) {
+    alert('Ostoskori on tyhjä');
+    return;
   }
 
+  const kieli = getSelectedLanguage();
+  const targetPage = getPaymentPageUrl(kieli);
+
   window.location.href = targetPage;
-  console.log('Tilauksen tuotelista:', tilauksenTuoteList);
+
   try {
-    if (tilauksenTuoteList.length < 1) {
-      alert('Ostoskori on tyhjä');
-      return;
-    } else {
-      for (const tuote of tilauksenTuoteList) {
-        const tuote_id = tuote.tuote_id;
-        const tuote_hinta = tuote.tuote_hinta;
-        const tuote_kustannus = tuote.tuote_kustannus;
-        const tilaus_id = await getLastTilausId(userId);
+    for (const tuote of tilauksenTuoteList) {
+      const tuote_id = tuote.tuote_id;
+      const tuote_hinta = tuote.tuote_hinta;
+      const tuote_kustannus = tuote.tuote_kustannus;
+      const tilaus_id = await getLastTilausId(userId);
 
-        const maara = await getTuoteMaaraFromOstoskori(userId, tuote_id);
+      const maara = await getTuoteMaaraFromOstoskori(userId, tuote_id);
 
-        await lisaaTilausSisalto(tilaus_id, tuote_id, tuote_hinta, tuote_kustannus, maara);
-        await lisaaTilaus(userId, tuote_id);
-        await deleteTuoteFromCart(userId, tuote_id);
-        await paivitaOstoskorinNumero();
-      }
+      await lisaaTilausSisalto(tilaus_id, tuote_id, tuote_hinta, tuote_kustannus, maara);
+      await lisaaTilaus(userId, tuote_id);
+      await deleteTuoteFromCart(userId, tuote_id);
+      await paivitaOstoskorinNumero();
     }
   } catch (error) {
     console.error('Virhe tilauksen tekemisessä:', error.message);
   }
 });
+
 
 fetchAndDisplayTuotteet();
 
