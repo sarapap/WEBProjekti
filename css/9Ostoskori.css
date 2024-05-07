@@ -257,10 +257,14 @@ nav li {
   color: white;
   padding: 10px;
   border-radius: 1rem;
-  font-size: large;
   margin-bottom: 20px;
+  font-size: 14px;
   border: none;
-  box-shadow: 0 15px 25px 0 rgba(117, 115, 111, 0.939)
+  cursor: pointer;
+}
+
+.pay_btn:hover {
+  background-color: rgb(174, 94, 30);
 }
 
 .div-class {

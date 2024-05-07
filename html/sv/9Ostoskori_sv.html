@@ -7,6 +7,7 @@
   <link href="../../css/9Ostoskori.css" rel="stylesheet">
   <title>S&A CAFE</title>
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
   <style>
     /* footer */
@@ -110,57 +111,15 @@
       <div class="changetext"></div>
     </h1>
   </div>
-
-  <div class="table">
-    <h1>Varukorg</h1>
-    <table>
-      <tr>
-        <th>Välj</th>
-        <th>Produktbild</th>
-        <th>Produktnamn</th>
-        <th>Pris</th>
-        <th>Antal</th>
-        <th class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Papperskorgen"></th>
-      </tr>
-      <tr>
-        <td><input type="checkbox" name="val" value="kaka"></td>
-        <td><img src="" alt="">Produktbild</td>
-        <td>Kaka</td>
-        <td>5€</td>
-        <td><input type="number" name="antal" value="1" min="1" max="10"></td>
-        <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Papperskorgen"></td>
-      </tr>
-      <tr>
-        <td><input type="checkbox" name="val" value="bakverk"></td>
-        <td><img src="" alt="">Produktbild</td>
-        <td>Bakverk</td>
-        <td>3€</td>
-        <td><input type="number" name="antal" value="1" min="1" max="10"></td>
-        <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Papperskorgen"></td>
-      </tr>
-      <tr>
-        <td><input type="checkbox" name="val" value="dryck"></td>
-        <td><img src="" alt="">Produktbild</td>
-        <td>Dryck</td>
-        <td>2€</td>
-        <td><input type="number" name="antal" value="1" min="1" max="10"></td>
-        <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="Papperskorgen"></td>
-      </tr>
-      <tr>
-        <td>
-        <td></td>
-        </td>
-        <td>Tillsammans</td>
-        <td>10€</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
+  <p></p>
+  <h1>Varukorg</h1>
+  <hr>
+  <div class="table" id="tuoteList">
+    <p>Din varukorg är tom. Vänligen fortsätt att handla.</p>
   </div>
   <div class="div-class">
-    <button type="submit" class="pay_btn">Betala</button>
+    <button type="submit" class="pay_btn" id="payButton">Betala</button>
   </div>
-
 
   <footer class="footer-container">
     <p class="footerP">&copy; S&A CAFE 2024</p>

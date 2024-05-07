@@ -7,6 +7,7 @@
   <link href="../../css/9Ostoskori.css" rel="stylesheet">
   <title>S&A CAFE</title>
   <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
   <style>
     .changecontent::after {
@@ -123,66 +124,22 @@
       <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
       <a href="6Poytavaraus_cn.html" class="navItem">预订场地</a>
     </nav>
+
     <div>
       <h1>
         <div class="changetext"></div>
       </h1>
     </div>
-
-    <div class="table">
-      <h1>购物筐</h1>
-      <table>
-        <tr>
-          <th>选择</th>
-          <th>图片</th>
-          <th>产品名称</th>
-          <th>产品价格</th>
-          <th>数量</th>
-          <th class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="购物筐图片"></th>
-        </tr>
-
-        <tr>
-          <td><input type="checkbox" name="valinta" value="kakku"></td>
-          <td><img src="" alt="">产品照片</td>
-          <td>蛋糕</td>
-          <td>5€</td>
-          <td><input type="number" name="maara" value="1" min="1" max="10"></td>
-          <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="购物筐图片"></td>
-        </tr>
-
-        <tr>
-          <td><input type="checkbox" name="valinta" value="leivos"></td>
-          <td><img src="" alt="">产品照片</td>
-          <td>点心</td>
-          <td>3€</td>
-          <td><input type="number" name="maara" value="1" min="1" max="10"></td>
-          <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="购物筐图片"></td>
-        </tr>
-
-        <tr>
-          <td><input type="checkbox" name="valinta" value="juoma"></td>
-          <td><img src="" alt="">产品照片</td>
-          <td>饮料</td>
-          <td>2€</td>
-          <td><input type="number" name="maara" value="1" min="1" max="10"></td>
-          <td class="delete-btn"><img src="../../css/kuvat/roskakori.png" alt="购物筐图片"></td>
-        </tr>
-
-        <tr>
-          <td>
-          <td></td>
-          </td>
-          <td>总价格</td>
-          <td>10€</td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
+    <p></p>
+    <h1>购物车</h1>
+    <hr>
+    <div class="table" id="tuoteList">
+      <p>您的购物车是空的，请继续购物。</p>
     </div>
-
     <div class="div-class">
-      <button type="submit" class="pay_btn">付款</button>
+      <button type="submit" class="pay_btn" id="payButton">支付</button>
     </div>
+
 
     <footer>
       <p>&copy; S&A CAFE 2024</p>

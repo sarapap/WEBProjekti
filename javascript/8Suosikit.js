@@ -34,7 +34,6 @@ nextButton.addEventListener('click', () => {
 
 updateCarousel();
 
-
 let tuote_id = null;
 const fetchAndDisplayTuotteet = async () => {
   const userId = getUserId();
@@ -91,10 +90,6 @@ const getTuoteByTuoteId = async (tuote_id, userId) => {
     const h3Element = document.createElement('h3');
     h3Element.textContent = tuote.tuote_nimi;
     tuoteElement.appendChild(h3Element);
-
-    const pElement = document.createElement('p');
-    pElement.textContent = tuote.tuote_kuvaus;
-    tuoteElement.appendChild(pElement);
 
     // lisää ostoskori- ja suosikkipainikkeet
     const buttonElement = document.createElement('button');

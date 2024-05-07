@@ -178,5 +178,52 @@ const disPlayIconNumerot = async () => {
   await paivitaSuosikkiMaara();
 }
 
+const tyhjennaOstoskori = async (userId) => {
+  try {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
+      method: 'DELETE',
+    });
+
+    if (!response.ok) {
+      throw new Error('Virhe ostoskorin tyhjentämisessä');
+    }
+
+    const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
+    ostoskoriLkmElement.textContent = '0';
+
+    return true;
+  } catch (error) {
+    console.error('Virhe ostoskorin tyhjentämisessä:', error.message);
+    return false;
+  }
+};
+
+const vahvistaJaTyhjenna = async () => {
+  const userId = getUserId();
+  await tyhjennaOstoskori(userId);
+  const kieli = getSelectedLanguage();
+  let targetPage = '';
+  switch (kieli) {
+    case 'EN':
+      targetPage = '../../html/en/9Vahvistus_en.html';
+      break;
+    case 'CN':
+      targetPage = '../../html/cn/9Vahvistus_cn.html';
+      break;
+    case 'ET':
+      targetPage = '../../html/et/9Vahvistus_et.html';
+      break;
+    case 'SV':
+      targetPage = '../../html/sv/9Vahvistus_sv.html';
+      break;
+    case 'FI':
+    default:
+      targetPage = '../../html/fi/9Vahvistus.html';
+      break;
+  }
+  window.location.href = targetPage;
+};
+
+
 disPlayIconNumerot();
 
