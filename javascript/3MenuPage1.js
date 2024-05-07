@@ -76,7 +76,7 @@
 // };
 
 const handleNewValue = async () => {
-  const alatyyppi = getSelectedAlaTyyppi();
+  const alatyyppi = await getSelectedAlaTyyppi();
   await updateSubtypes(alatyyppi);
 };
 
@@ -146,6 +146,7 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/koogid/soolasedkoogid';
     } else if (selectedAlatyyppi === 'magusadkoogid') {
       url = 'http://localhost:3000/api/v1/tyyppi/koogid/magusadkoogid';
+
     } else if (selectedAlatyyppi === 'kaikkicn') {
       url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/kakutcn';
     } else if (selectedAlatyyppi === 'juhlakakutcn') {
@@ -154,6 +155,7 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/kakutcn/suolaisetkakutcn';
     } else if (selectedAlatyyppi === 'makeatkakutcn') {
       url = 'http://localhost:3000/api/v1/tyyppi/kakutcn/makeatkakutcn';
+
     }
 
     else if (selectedAlatyyppi === 'kaikki2') {
@@ -180,13 +182,13 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/kuumtoit/kanaroad';
     } else if (selectedAlatyyppi === 'muudkuumadtoidud') {
       url = 'http://localhost:3000/api/v1/tyyppi/kuumtoit/muudkuumadtoidud';
+
     } else if (selectedAlatyyppi === 'kaikkicn4') {
       url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/lammintaruokaacn';
     } else if (selectedAlatyyppi === 'kanaruuatcn') {
       url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaacn/kanaruuatcn';
     } else if (selectedAlatyyppi === 'muutlampimatruuatcn') {
       url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaacn/muutlampimatruuatcn';
-
 
     } else if (selectedAlatyyppi === 'kaikki3') {
       url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/juotavaa';
@@ -228,6 +230,7 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/joogid/teed';
     } else if (selectedAlatyyppi === 'karastusjoogid') {
       url = 'http://localhost:3000/api/v1/tyyppi/joogid/karastusjoogid';
+
     } else if (selectedAlatyyppi === 'kaikkicn5') {
       url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/juotavaacn';
     } else if (selectedAlatyyppi === 'lammintajuotavaacn') {
@@ -312,6 +315,7 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/suolaistacn/salaatitcn';
     } else if (selectedAlatyyppi === 'pasteijatcn') {
       url = 'http://localhost:3000/api/v1/tyyppi/suolaistacn/pasteijatcn';
+
     }
 
     const response = await fetch(url, {
@@ -340,6 +344,7 @@ const getTyyppiIdLista = async () => {
 const fetchAndDisplayTuotteet = async () => {
   const IdResult = await getTyyppiIdLista();
 
+
   if (!Array.isArray(IdResult)) {
     const tyyppiId = IdResult;
 
@@ -364,8 +369,8 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
     const tuotteet = await response.json();
 
     if (Array.isArray(tuotteet)) {
-      tuotteet.forEach((tuote) => {
-        displaySingleTuote(tuote);
+      tuotteet.forEach( async(tuote) => {
+        await displaySingleTuote(tuote);
       });
     } else {
       displaySingleTuote(tuotteet);
@@ -440,6 +445,7 @@ const displaySingleTuote = async (tuote) => {
   }
 
   const userId = getUserId();
+
 
   const cakeList = document.getElementById('cakeList');
 
@@ -523,7 +529,9 @@ const displaySingleTuote = async (tuote) => {
   const isFavorite = await favorateTarkistus(userId, tuote.tuote_id);
   buttonElement2.textContent = isFavorite ? unfavorateText : addFavoriteText;
 
+
   tuoteElement.appendChild(buttonElement2);
+
 
   buttonElement.addEventListener('click', async () => {
     const lisaaTuoteMaara = parseInt(numberInput.value, 10);
@@ -829,4 +837,6 @@ const getKategoriaById = async (kategoriaId) => {
   }
 };
 
+
 fetchAndDisplayTuotteet();
+

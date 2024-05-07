@@ -58,33 +58,41 @@ const getTuoteByTuoteId = async (tuote_id) => {
     const kieli = document.getElementById('kieli');
     const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
 
+
+
     let tuoteHintaTeksti = '';
     let tuoteMaaraTeksti = '';
 
     switch (selectedLanguage) {
       case 'EN':
+
         tuoteHintaTeksti = 'Price';
         tuoteMaaraTeksti = 'Amount';
         break;
 
       case 'CN':
+
         tuoteHintaTeksti = '价格';
         tuoteMaaraTeksti = '数量';
         break;
       case 'ET':
+
         tuoteHintaTeksti = 'Hind ';
         tuoteMaaraTeksti = 'Kogus';
         break;
       case 'SV':
+
         tuoteHintaTeksti = 'Pris';
         tuoteMaaraTeksti = 'Mängd';
         break;
       case 'FI':
       default:
+
         tuoteHintaTeksti = 'Hinta';
         tuoteMaaraTeksti = 'Määrä';
         break;
     }
+
 
     const tuoteList = document.getElementById('tuoteList');
 
@@ -93,6 +101,7 @@ const getTuoteByTuoteId = async (tuote_id) => {
 
     const imgElement = document.createElement('img');
     imgElement.src = `../../../uploads/${tuote.tuote_kuva}`;
+
     imgElement.style.maxWidth = '200px';
 
     tuoteElement.appendChild(imgElement);
@@ -112,6 +121,7 @@ const getTuoteByTuoteId = async (tuote_id) => {
     numberInput.value = '1';
     numberInput.min = '1';
     numberInput.max = '100';
+
 
     numberInput.addEventListener('input', async () => {
       const tarkistus = await ostoskoriTarkistus(userId, tuote_id);
@@ -139,6 +149,7 @@ const getTuoteByTuoteId = async (tuote_id) => {
     tdElement.appendChild(maaraElement);
     tdElement.appendChild(numberInput);
 
+
     const deleteButtonElement = document.createElement('button');
     deleteButtonElement.innerHTML = '<i class="fas fa-trash-alt" style="cursor:pointer;"></i>';
     deleteButtonElement.classList.add('delete-button');
@@ -151,6 +162,7 @@ const getTuoteByTuoteId = async (tuote_id) => {
     const buttonContainer = document.createElement('div');
     buttonContainer.classList.add('button-container');
     buttonContainer.appendChild(deleteButtonElement);
+
 
     tuoteElement.appendChild(buttonContainer);
 
@@ -197,6 +209,7 @@ const deleteTuoteFromCart = async (userId, tuote_id) => {
       if (!response.ok) {
         throw new Error('Virhe tuotteen poistamisessa');
       }
+
       fetchAndDisplayTuotteet();
       console.log('Tuote poistettu ostoskorista');
     } catch (error) {
@@ -238,6 +251,7 @@ const getTuoteMaaraFromOstoskori = async (userId, tuote_id) => {
     });
     if (!response.ok) {
       throw new Error('Virhe tuotteen hakemisessa');
+
     }
     const data = await response.json();
     const maara = data.tuote_maara;
@@ -269,7 +283,9 @@ const lisaaTilausSisalto = async (tilaus_id, tuote_id, tuote_hinta, tuote_kustan
 
   try {
     const response = await fetch(`http://localhost:3000/api/v1/tilaus_sisalto`, {
+
       method: 'POST',
+
       headers: {
         'Content-Type': 'application/json',
       },
@@ -321,6 +337,7 @@ const lisaaTilaus = async (userId, tuote_id) => {
   }
 };
 
+
 const getLastTilausId = async (userId) => {
   try {
     const response = await fetch(`http://localhost:3000/api/v1/tilaus`, {
@@ -370,6 +387,7 @@ const lisaaYritystoiminta = async (tilais_pvm, tilaus_id, myynti_hinta, kustannu
     fetchAndDisplayYritystoiminta();
   } catch (error) {
     console.error('Virhe yritystoiminnan lisäämisessä:', error.message);
+
   }
 }
 
@@ -418,11 +436,11 @@ payButton.addEventListener('click', async () => {
       await deleteTuoteFromCart(userId, tuote_id);
       await paivitaOstoskorinNumero();
     }
+
   } catch (error) {
     console.error('Virhe tilauksen tekemisessä:', error.message);
   }
 });
-
 
 fetchAndDisplayTuotteet();
 

@@ -18,8 +18,10 @@ POST http://localhost:3000/api/v1/kategoria_tuote
 Content-Type: application/json
 
 {
+
     "tuote_id": "321",
     "kategoria_id": "13"
+
 }
 
 

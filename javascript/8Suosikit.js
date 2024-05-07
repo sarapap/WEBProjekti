@@ -103,6 +103,7 @@ const getTuoteByTuoteId = async (tuote_id, userId) => {
     } else {
       buttonElement2.innerHTML = '<i class="far fa-heart"></i>';
     }
+
     buttonElement2.classList.add('favorite-button');
 
     const buttonContainer = document.createElement('div');
@@ -112,6 +113,7 @@ const getTuoteByTuoteId = async (tuote_id, userId) => {
 
     tuoteElement.appendChild(buttonContainer);
     cakeList.appendChild(tuoteElement);
+
 
     buttonElement.addEventListener('click', async () => {
       const tarkista = await ostoskoriTarkistus(userId, tuote_id);

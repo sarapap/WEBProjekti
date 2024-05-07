@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
   });
+
 }
 );
 
@@ -99,12 +100,16 @@ const getUserId = () => {
   const parsedPayload = JSON.parse(payload);
   let userId = parsedPayload.asiakas_id;
   return userId;
+
 }
+);
+
 
 const userId = getUserId();
 
+
 const paivitaOstoskorinNumero = async () => {
-  const userId = getUserId();
+  // const userId = getUserId();
 
   const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
   const tuotteet = await getTuotteenMaaraByUserId(userId);
@@ -226,4 +231,3 @@ const vahvistaJaTyhjenna = async () => {
 
 
 disPlayIconNumerot();
-

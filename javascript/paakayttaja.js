@@ -272,6 +272,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
 /* tuotehallinta */
 
 const handleNewValue = async () => {

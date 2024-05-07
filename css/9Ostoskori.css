@@ -41,6 +41,10 @@ header {
 .image-container {
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin: 0;
+  max-height: 100px;
+  max-width: 100px;
 }
 
 .logo {
@@ -337,11 +341,22 @@ footer {
   .cakeImg {
     margin-top: 0;
   }
+  .cake-item td:first-child {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* Määritellään toisen td:n koko 34%:ksi taulukon leveydestä */
+  /* .cake-item td:nth-child(2) {
+    width: 34%;
+  }
+
 
   .footer-container {
     margin: 0;
   }
-}
+}*/
+
 
 @media screen and (max-width:534px) {
   .table {
