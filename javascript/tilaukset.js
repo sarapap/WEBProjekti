@@ -205,7 +205,6 @@ const displayTuotteet = async (tuotteet) => {
     const tuote_hinta = nimi_hinta.tuote_hinta;
     const tilaus_pvm = tuote.tilaus_pvm;
     const date = new Date(tilaus_pvm);
-    // Haetaan päivämäärä merkkijonona ilman aikaa
     const pvmIlmanAikaa = date.toISOString().split('T')[0]
 
     // Luodaan uusi rivi (tr) taulukkoon
