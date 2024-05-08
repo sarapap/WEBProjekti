@@ -5,16 +5,12 @@ const fetchAndDisplayTuotteet = async () => {
   const userId = getUserId();
   const tuoteList = document.getElementById('tuoteList');
   tuoteList.innerHTML = '';
+
   const tuoteIdList = await findTuoteIdByUserId(userId);
 
-  if (!Array.isArray(tuoteIdList)) {
-    tuote_id = tuoteIdList;
-    await getTuoteByTuoteId(tuote_id);
-
-  } else {
-    for (const tuoteId of tuoteIdList) {
-      await getTuoteByTuoteId(tuoteId);
-    }
+  for (const tuoteId of tuoteIdList) {
+    const tuoteMaara = await getTuoteMaaraFromOstoskori(userId, tuoteId);
+    await getTuoteByTuoteId(tuoteId, tuoteMaara);
   }
 };
 
@@ -55,46 +51,42 @@ const getTuoteByTuoteId = async (tuote_id) => {
     console.log('tuoteLista lenght:', tilauksenTuoteList.length);
     console.log('Tuote:', tuote);
 
-    const kieli = document.getElementById('kieli');
-    const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
-
-
+    const selectedLanguage = getSelectedLanguage();
 
     let tuoteHintaTeksti = '';
     let tuoteMaaraTeksti = '';
+    let paivitys = '';
 
     switch (selectedLanguage) {
       case 'EN':
-
+        paivitys = 'Update';
         tuoteHintaTeksti = 'Price';
         tuoteMaaraTeksti = 'Amount';
         break;
-
       case 'CN':
-
+        paivitys = '更新';
         tuoteHintaTeksti = '价格';
         tuoteMaaraTeksti = '数量';
         break;
       case 'ET':
-
+        paivitys = 'Uuenda';
         tuoteHintaTeksti = 'Hind ';
         tuoteMaaraTeksti = 'Kogus';
         break;
       case 'SV':
-
+        paivitys = 'Uppdatera';
         tuoteHintaTeksti = 'Pris';
         tuoteMaaraTeksti = 'Mängd';
         break;
       case 'FI':
       default:
-
+        paivitys = 'Päivitä';
         tuoteHintaTeksti = 'Hinta';
         tuoteMaaraTeksti = 'Määrä';
         break;
     }
 
-
-    const tuoteList = document.getElementById('tuoteList');
+    const tuoteMaara = await getTuoteMaaraFromOstoskori(userId, tuote_id);
 
     const tuoteElement = document.createElement('tr');
     tuoteElement.classList.add('cake-item');
@@ -112,43 +104,50 @@ const getTuoteByTuoteId = async (tuote_id) => {
     tdElement.style
     tuoteElement.appendChild(tdElement);
 
-
     const numberInput = document.createElement('input');
-
-    numberInput.classList.add('maara-input');
     numberInput.type = 'number';
-    numberInput.name = 'maara';
-    numberInput.value = '1';
     numberInput.min = '1';
     numberInput.max = '100';
+    numberInput.value = tuoteMaara;
 
+    numberInput.addEventListener('blur', async (event) => {
+      const uusiMaara = parseInt(event.target.value, 10);
 
-    numberInput.addEventListener('input', async () => {
-      const tarkistus = await ostoskoriTarkistus(userId, tuote_id);
-      if (tarkistus) {
-        const tuoteMaara = await getTuoteMaaraFromOstoskori(userId, tuote_id);
-        numberInput.value = tuoteMaara;
+      if (uusiMaara < 1) {
+        numberInput.value = '1';
       } else {
-        const tuote_maara = parseInt(numberInput.value);
+        await paivitaOstoskorinNumero();
+        await updateCart(getUserId(), tuote_id, uusiMaara);
       }
     });
+    numberInput.addEventListener('blur', paivitaLoppusumma);
 
-    numberInput.addEventListener('click', async () => {
-      const tuote_maara = parseInt(numberInput.value);
-      await updateCart(userId, tuote_id, tuote_maara);
+    const updateButton = document.createElement('button');
+    updateButton.textContent = paivitys;
+    updateButton.classList.add('update-button');
+
+    updateButton.addEventListener('click', async () => {
+      const uusiMaara = parseInt(numberInput.value, 10);
+
+      if (isNaN(uusiMaara) || uusiMaara < 1) {
+        numberInput.value = '1';
+        return;
+      }
+
+      await updateCart(getUserId(), tuote_id, uusiMaara);
+      await paivitaOstoskorinNumero();
     });
-
 
     const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
     const tuotteet = await getTuotteenMaaraByUserId(userId);
-    ostoskoriLkmElement.textContent = tuotteet.length.toString();
+    ostoskoriLkmElement.textContent = tuotteet.reduce((sum, tuote) => sum + tuote.tuote_maara, 0);
 
     const maaraElement = document.createElement('span');
     maaraElement.textContent = tuoteMaaraTeksti + ': ';
 
     tdElement.appendChild(maaraElement);
     tdElement.appendChild(numberInput);
-
+    tdElement.appendChild(updateButton);
 
     const deleteButtonElement = document.createElement('button');
     deleteButtonElement.innerHTML = '<i class="fas fa-trash-alt" style="cursor:pointer;"></i>';
@@ -157,12 +156,13 @@ const getTuoteByTuoteId = async (tuote_id) => {
     deleteButtonElement.addEventListener('click', async () => {
       await deleteTuoteFromCart(userId, tuote_id);
       deleteTuoteFromTilauksenTuotelist(tuote_id);
+      paivitaLoppusumma();
     });
+
 
     const buttonContainer = document.createElement('div');
     buttonContainer.classList.add('button-container');
     buttonContainer.appendChild(deleteButtonElement);
-
 
     tuoteElement.appendChild(buttonContainer);
 
@@ -172,6 +172,34 @@ const getTuoteByTuoteId = async (tuote_id) => {
 
   } catch (error) {
     console.error('Virhe tuotteen hakemisessa:', error.message);
+  }
+};
+
+const laskeLoppusumma = (tuotteet) => {
+  const kokonaissumma = tuotteet.reduce((summa, tuote) => {
+    if (tuote && typeof tuote.tuote_hinta === "number" && typeof tuote.tuote_maara === "number") {
+      return summa + (tuote.tuote_hinta * tuote.tuote_maara);
+    } else {
+      throw new Error("Tuotteen hinta tai määrä ei ole numero.");
+    }
+  }, 0);
+
+  const alv = kokonaissumma * 0.24;
+  const loppusumma = kokonaissumma + alv;
+
+  return loppusumma.toFixed(2);
+};
+
+
+
+const paivitaLoppusumma = async () => {
+  const tuotteet = await getTuotteenMaaraByUserId(userId);
+  const loppusummaElement = document.getElementById('loppusumma');
+
+  if (loppusummaElement) {
+    const loppusumma = laskeLoppusumma(tuotteet);
+    console.log('Loppusumma:', loppusumma);
+    loppusummaElement.textContent = `Loppusumma: ${loppusumma} €`;
   }
 };
 
@@ -218,11 +246,7 @@ const deleteTuoteFromCart = async (userId, tuote_id) => {
   }
 };
 
-const updateCart = async (userId, tuote_id, uusimaara) => {
-  const tuoteMaaraKorissa = await getTuoteMaaraFromOstoskori(userId, tuote_id);
-  console.log('Korissa oleva määrä:', tuoteMaaraKorissa);
-  console.log('Tuotteen uusi määrä:', uusimaara);
-
+const updateCart = async (userId, tuote_id, uusiMaara) => {
   try {
     const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}/${tuote_id}`, {
       method: 'PUT',
@@ -232,15 +256,18 @@ const updateCart = async (userId, tuote_id, uusimaara) => {
       body: JSON.stringify({
         asiakas_id: userId,
         tuote_id: tuote_id,
-        tuote_maara: uusimaara,
+        tuote_maara: uusiMaara,
       }),
     });
+
     if (!response.ok) {
-      throw new Error('Virhe tuotteen päivittämisessä');
+      throw new Error("Virhe ostoskorin päivittämisessä");
     }
-    console.log('Tuote päivitetty ostoskoriin');
+
+    console.log("Tuote päivitetty ostoskoriin");
+
   } catch (error) {
-    console.error('Virhe tuotteen päivittämisessä:', error.message);
+    console.error("Virhe ostoskorin päivittämisessä:", error.message);
   }
 };
 
@@ -249,16 +276,16 @@ const getTuoteMaaraFromOstoskori = async (userId, tuote_id) => {
     const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}/${tuote_id}`, {
       method: 'GET',
     });
+
     if (!response.ok) {
       throw new Error('Virhe tuotteen hakemisessa');
-
     }
+
     const data = await response.json();
-    const maara = data.tuote_maara;
-    console.log('Tuotteen määrä:', maara);
-    return maara;
+    return data.tuote_maara;
   } catch (error) {
     console.error('Virhe tuotteen hakemisessa:', error.message);
+    return 0;
   }
 };
 
@@ -391,10 +418,8 @@ const lisaaYritystoiminta = async (tilais_pvm, tilaus_id, myynti_hinta, kustannu
   }
 }
 
-// Valitse maksupainike
 const payButton = document.getElementById('payButton');
 
-// Funktio hakee käyttäjän kielen ja palauttaa oikean sivun URL:n
 function getPaymentPageUrl(kieli) {
   switch (kieli) {
     case 'EN':

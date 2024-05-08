@@ -424,31 +424,42 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
 };
 
 const displaySingleTuote = async (tuote) => {
-    const kieli = document.getElementById('kieli');
-    const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+    const selectedLanguage = getSelectedLanguage();
     let hintaTeksti = '';
     let maaraTeksti = '';
+    let button = '';
+    let button2 = '';
     switch (selectedLanguage) {
         case 'EN':
             hintaTeksti = 'Price: ';
             maaraTeksti = 'Amount: ';
+            button = 'Edit';
+            button2 = 'Add special diets';
             break;
         case 'CN':
             hintaTeksti = '价格: ';
             maaraTeksti = '数量: ';
+            button = '编辑';
+            button2 = '添加特殊饮食';
             break;
         case 'ET':
             hintaTeksti = 'Hind: ';
             maaraTeksti = 'Kogus: ';
+            button = 'Muuda';
+            button2 = 'Lisa eridieete';
             break;
         case 'SV':
             hintaTeksti = 'Pris: ';
             maaraTeksti = 'Mängd: ';
+            button = 'Redigera';
+            button2 = 'Lägg till specialkost';
             break;
         case 'FI':
         default:
             hintaTeksti = 'Hinta: ';
             maaraTeksti = 'Määrä: ';
+            button = 'Muokkaa';
+            button2 = 'Lisää erityisruokavalioita';
             break;
     }
 
@@ -467,14 +478,14 @@ const displaySingleTuote = async (tuote) => {
     h3Element.textContent = tuote.tuote_nimi;
     tuoteElement.appendChild(h3Element);
 
-    // Lisää tuotteen kuvaus
     const pElement = document.createElement('p');
     pElement.textContent = tuote.tuote_kuvaus;
     tuoteElement.appendChild(pElement);
 
     const pElement2 = document.createElement('p');
-    const kategoriaIdResult = await getKategoriaIdByTuoteId(tuote.tuote_id);
 
+    const kategoriaIdResult = await getKategoriaIdByTuoteId(tuote.tuote_id);
+    const existingKategoriat = kategoriaIdResult.map((id) => parseInt(id, 10));
 
     if (kategoriaIdResult.length > 0) {
         const kategoriaNimet = await Promise.all(
@@ -482,6 +493,7 @@ const displaySingleTuote = async (tuote) => {
                 try {
                     return await getKategoriaById(kategoria);
                 } catch (error) {
+                    console.error("Virhe kategoriahaussa:", error);
                     return null;
                 }
             })
@@ -502,6 +514,19 @@ const displaySingleTuote = async (tuote) => {
 
     pElement3.appendChild(hintaElement);
     tuoteElement.appendChild(pElement3);
+
+    const buttonElement = document.createElement('button');
+    buttonElement.textContent = button;
+    buttonElement.style.backgroundColor = 'rgb(192, 160, 122)';
+    tuoteElement.appendChild(buttonElement);
+
+    const buttonElement2 = document.createElement('button');
+    buttonElement2.textContent = button2;
+    buttonElement.style.backgroundColor = 'rgb(192, 160, 122)';
+
+    buttonElement2.addEventListener('click', () => openKategoriatModal(tuote.tuote_id, existingKategoriat, pElement2));
+
+    tuoteElement.appendChild(buttonElement2);
 
     cakeList.appendChild(tuoteElement);
 };
@@ -529,7 +554,6 @@ const getKategoriaIdByTuoteId = async (tuoteId) => {
     }
 };
 
-
 const getKategoriaById = async (kategoriaId) => {
     try {
         const response = await fetch(`http://localhost:3000/api/v1/kategoria/${kategoriaId}`);
@@ -544,6 +568,147 @@ const getKategoriaById = async (kategoriaId) => {
     }
 };
 
+const addKategoriaToTuote = async (tuoteId, kategoriaId) => {
+    try {
+        const response = await fetch('http://localhost:3000/api/v1/kategoria_tuote', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                tuote_id: tuoteId,
+                kategoria_id: kategoriaId,
+            }),
+        });
+
+        if (!response.ok) {
+            console.error(`Virhe kategorian lisäämisessä: ${response.statusText}`);
+            return false;
+        }
+
+        console.log('Kategoria lisätty onnistuneesti');
+        return true;
+    } catch (error) {
+        console.error('Virhe POST-pyynnössä:', error.message);
+        return false;
+    }
+};
+
+const deleteKategoriaFromTuote = async (tuoteId, kategoriatuote_id) => {
+    if (!tuoteId || !kategoriatuote_id) {
+        console.error("Tuote ID tai Kategoria ID on määrittelemätön");
+        return false;
+    }
+
+    console.log("Poistetaan kategoria tuotteelta", tuoteId, kategoriatuote_id);
+
+    try {
+        const response = await fetch(`http://localhost:3000/api/v1/kategoria_tuote/${kategoriatuote_id}`, {
+            method: 'DELETE',
+        });
+
+        if (!response.ok) {
+            throw new Error(`Virhe kategorian poistamisessa: ${response.statusText}`);
+        }
+
+        console.log("Kategoria poistettu onnistuneesti");
+        return true;
+    } catch (error) {
+        console.error("Virhe DELETE-pyynnössä:", error.message);
+        return false;
+    }
+};
+
+const resetKategoriatCheckboxes = () => {
+    const kategoriat = document.querySelectorAll('#tuote_kategoriat input[type="checkbox"]');
+    kategoriat.forEach((checkbox) => {
+        checkbox.checked = false;
+    });
+};
+
+const openKategoriatModal = (tuoteId, existingKategoriat, updateKategoriaElement) => {
+    const kategoriatModal = document.getElementById('kategoriatModal');
+    kategoriatModal.showModal();
+
+    const addKategoriat = document.getElementById('addKategoriat');
+    const closeKategoriat = document.getElementById('closeKategoriat');
+
+    closeKategoriat?.addEventListener('click', () => {
+        kategoriatModal.close();
+        resetKategoriatCheckboxes();
+    });
+
+    addKategoriat?.addEventListener('click', async () => {
+        const kategoriat = document.querySelectorAll('#tuote_kategoriat input[type="checkbox"]');
+        let newKategoriat = [];
+        let errors = false;
+
+        for (const checkbox of kategoriat) {
+            if (checkbox.checked) {
+                const kategoriaId = parseInt(checkbox.value, 10);
+
+                if (existingKategoriat.includes(kategoriaId)) {
+                    alert(`Kategoria ${checkbox.labels[0].textContent} on jo lisätty.`);
+                } else {
+                    alert('Kategoria lisätty onnistuneesti');
+                    kategoriatModal.close();
+                    resetKategoriatCheckboxes();
+                    const success = await addKategoriaToTuote(tuoteId, kategoriaId);
+                    if (success) {
+                        newKategoriat.push(checkbox.labels[0].textContent);
+                    } else {
+                        console.error(`Virhe kategorian lisäämisessä: ${checkbox.value}`);
+                        errors = true;
+                    }
+                }
+            }
+        }
+
+        if (!errors) {
+            if (newKategoriat.length > 0) {
+                if (updateKategoriaElement) {
+                    const currentKategoriat = updateKategoriaElement.textContent.split(', ').filter(Boolean);
+                    const updatedKategoriat = [...currentKategoriat, ...newKategoriat].filter(
+                        (value, index, self) => self.indexOf(value) === index
+                    );
+                    updateKategoriaElement.textContent = updatedKategoriat.join(', ');
+                }
+
+                kategoriatModal.close();
+                resetKategoriatCheckboxes();
+            }
+        }
+    });
+
+    deleteKategoriat?.addEventListener('click', async () => {
+        const kategoriat = document.querySelectorAll('#tuote_kategoriat2 input[type="checkbox"]');
+        let errors = false;
+
+        for (const checkbox of kategoriat) {
+            if (checkbox.checked) {
+                const kategoriaId = parseInt(checkbox.value, 10);
+
+                if (!existingKategoriat.includes(kategoriaId)) {
+                    console.log(`Kategoria ei ole vielä lisätty.`);
+                } else {
+                    const success = await deleteKategoriaFromTuote(tuoteId, kategoriaId);
+                    if (success) {
+                    } else {
+                        errors = true;
+                    }
+                }
+            }
+        }
+
+        if (!errors) {
+            kategoriatModal.close();
+            resetKategoriatCheckboxes();
+        }
+    });
+};
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const cakeSearch = document.getElementById('cakeSearch');
     if (cakeSearch) {
@@ -551,11 +716,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const searchTerm = event.target.value.toLowerCase();
             filterProducts(searchTerm);
         });
-    } else {
-        console.error("Element 'cakeSearch' ei löytynyt.");
     }
 });
-
 
 const filterProducts = (searchTerm) => {
     const cakeItems = document.querySelectorAll('.cake-item');
@@ -572,8 +734,6 @@ const filterProducts = (searchTerm) => {
     });
 };
 
-
-
 /* uusi tuote */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -581,81 +741,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const newProductButton = document.getElementById('newProductButton');
     const saveButton = document.getElementById('saveButton');
     const closeButton = document.getElementById('closeButton');
-    const tyyppiSelect = document.getElementById('tuote_tyyppi');
-    const alatyyppiSelect = document.getElementById('tuote_alatyyppi');
 
-    if (newProductButton && tuoteModal) {
-        newProductButton.addEventListener('click', () => {
-            tuoteModal.showModal();
-        });
-    } else {
-        console.error("Uusi tuote -painiketta tai dialogia ei löytynyt.");
-    }
+    newProductButton?.addEventListener('click', () => {
+        tuoteModal?.showModal();
+    });
 
-    if (tuoteModal && closeButton) {
-        closeButton.addEventListener('click', () => {
-            tuoteModal.close();
-        });
-    }
+    closeButton?.addEventListener('click', () => {
+        tuoteModal?.close();
+    });
 
-    if (saveButton) {
-        saveButton.addEventListener('click', async () => {
-            const tuoteForm = document.getElementById('tuoteForm');
-            if (tuoteForm) {
-                const formData = new FormData(tuoteForm);
+    saveButton?.addEventListener('click', async () => {
+        const tuoteForm = document.getElementById('tuoteForm');
+        if (tuoteForm) {
+            const formData = new FormData(tuoteForm);
 
-                for (let [key, value] of formData.entries()) {
-                    console.log(`${key}: ${value}`);
-                }
-
-                try {
-                    const response = await fetch('http://localhost:3000/api/v1/tuote', {
-                        method: 'POST',
-                        body: formData,
-                    });
-
-                    if (!response.ok) {
-                        throw new Error(`Tuotteen lisääminen epäonnistui: ${response.status}`);
-                    }
-
-                    console.log('Tuote lisätty onnistuneesti');
-                } catch (error) {
-                    console.error('Virhe tuotteen lisäämisessä:', error.message);
-                }
+            console.log("FormData sisältö:");
+            for (let [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
             }
-        });
-    }
-
-    if (tyyppiSelect && alatyyppiSelect) {
-        tyyppiSelect.addEventListener('change', async () => {
-            const selectedType = tyyppiSelect.value;
-
-            alatyyppiSelect.innerHTML = '';
 
             try {
-                const response = await fetch(`http://localhost:3000/api/v1/tyyppi/paatyyppi/${selectedType}`);
+                const response = await fetch('http://localhost:3000/api/v1/tuote', {
+                    method: 'POST',
+                    body: formData,
+                });
 
                 if (!response.ok) {
-                    throw new Error('Alatyyppien haku epäonnistui');
+                    console.error(`Virhe tuotteen lisäämisessä: ${response.statusText}`);
+                } else {
+                    console.log('Tuote lisätty onnistuneesti');
+                    tuoteModal?.close();
                 }
-
-                const data = await response.json();
-
-                if (Array.isArray(data)) {
-                    data.forEach((subtype) => {
-                        const option = document.createElement('option');
-                        option.value = subtype.tyyppi_id;
-                        option.textContent = subtype.alatyyppi;
-                        alatyyppiSelect.appendChild(option);
-                    });
-                }
-
             } catch (error) {
-                console.error('Virhe alatyyppien hakemisessa:', error.message);
+                console.error('Virhe tuotteen lisäämisessä:', error.message);
             }
-        });
-    }
+        }
+    });
 });
+
+
 
 
 

@@ -344,7 +344,6 @@ const getTyyppiIdLista = async () => {
 const fetchAndDisplayTuotteet = async () => {
   const IdResult = await getTyyppiIdLista();
 
-
   if (!Array.isArray(IdResult)) {
     const tyyppiId = IdResult;
 
@@ -369,7 +368,7 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
     const tuotteet = await response.json();
 
     if (Array.isArray(tuotteet)) {
-      tuotteet.forEach( async(tuote) => {
+      tuotteet.forEach(async (tuote) => {
         await displaySingleTuote(tuote);
       });
     } else {
@@ -380,9 +379,9 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
 };
 
 const displaySingleTuote = async (tuote) => {
-  const kieli = document.getElementById('kieli');
-  const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+  const selectedLanguage = getSelectedLanguage();
   let addCartText = '';
+  let addToCartText = '';
   let removeCart = '';
   let addFavoriteText = '';
   let unfavorateText = '';
@@ -393,6 +392,7 @@ const displaySingleTuote = async (tuote) => {
   switch (selectedLanguage) {
     case 'EN':
       addCartText = 'Add to cart';
+      addToCartText = 'Added to cart!';
       removeCart = 'Remove from cart';
       addFavoriteText = 'Add to favorites';
       unfavorateText = 'Unlike';
@@ -403,6 +403,7 @@ const displaySingleTuote = async (tuote) => {
       break;
     case 'CN':
       addCartText = '添加到购物车';
+      addToCartText = '已添加到购物车！';
       removeCart = '从购物车中删除';
       addFavoriteText = '添加收藏';
       unfavorateText = '删除收藏';
@@ -413,6 +414,7 @@ const displaySingleTuote = async (tuote) => {
       break;
     case 'ET':
       addCartText = 'Lisa ostukorvi';
+      addToCartText = 'Lisatud ostukorvi!';
       removeCart = 'Eemalda ostukorvist';
       addFavoriteText = 'Lisa lemmikutesse';
       unfavorateText = 'Eemalda';
@@ -423,6 +425,7 @@ const displaySingleTuote = async (tuote) => {
       break;
     case 'SV':
       addCartText = 'Lägg till i kundvagnen';
+      addToCartText = 'Lagt till i kundvagnen!';
       removeCart = 'Ta bort från kundvagnen';
       addFavoriteText = 'Lägg till i favoriter';
       unfavorateText = 'Olikt';
@@ -434,6 +437,7 @@ const displaySingleTuote = async (tuote) => {
     case 'FI':
     default:
       addCartText = 'Lisää ostoskoriin';
+      addToCartText = 'Lisätty ostoskoriin!';
       removeCart = 'Poista ostoskorista';
       addFavoriteText = 'Tallenna suosikkeihin';
       unfavorateText = 'Poista suosikkeista';
@@ -444,8 +448,12 @@ const displaySingleTuote = async (tuote) => {
       break;
   }
 
-  const userId = getUserId();
-
+  const userId = getUserId(); // Hae käyttäjän ID
+  if (!userId) {
+    console.warn("Käyttäjä ei ole kirjautuneena."); // Ilmoita varoitus
+    // Näytä tuote silti, mutta ilman kirjautumiseen liittyviä ominaisuuksia
+    return;
+  }
 
   const cakeList = document.getElementById('cakeList');
 
@@ -469,7 +477,6 @@ const displaySingleTuote = async (tuote) => {
 
   const pElement2 = document.createElement('p');
   const kategoriaIdResult = await getKategoriaIdByTuoteId(tuote.tuote_id);
-
 
   if (kategoriaIdResult.length > 0) {
     const kategoriaNimet = await Promise.all(
@@ -529,12 +536,10 @@ const displaySingleTuote = async (tuote) => {
   const isFavorite = await favorateTarkistus(userId, tuote.tuote_id);
   buttonElement2.textContent = isFavorite ? unfavorateText : addFavoriteText;
 
-
   tuoteElement.appendChild(buttonElement2);
 
-
   buttonElement.addEventListener('click', async () => {
-    const lisaaTuoteMaara = parseInt(numberInput.value, 10);
+    const tuoteMaara = parseInt(numberInput.value, 10);
     const userId = getUserId();
     const tuoteId = tuote.tuote_id;
 
@@ -542,15 +547,17 @@ const displaySingleTuote = async (tuote) => {
 
     try {
       if (ostoskoriTarkistusTulos === false) {
-        buttonElement.textContent = removeCart;
-        await addToCart(userId, tuoteId, lisaaTuoteMaara);
+        await addToCart(userId, tuoteId, tuoteMaara);
       } else {
-        buttonElement.textContent = addCartText;
-        await deleteTuoteFromCart(userId, tuoteId);
+        alert(addToCartText);
+        await updateCart(userId, tuoteId, tuoteMaara);
+        await paivitaOstoskorinNumero();
       }
     } catch (error) {
+      console.error('Error adding/removing from cart:', error);
     }
   });
+
 
   buttonElement2.addEventListener('click', async () => {
     const isCurrentlyFavorite = await favorateTarkistus(userId, tuote.tuote_id);
@@ -639,23 +646,30 @@ const geTuoteMaaraFromCart = async (userId, tuote_id) => {
 
     if (!response.ok) {
       throw new Error('Virhe tuotteen hakemisessa');
+    }
+
+    const data = await response.json();
+    if (!data || !data.tuote_maara) {
       return 0;
     }
 
-    const tuoteMaara = await response.json();
-    const maara = tuoteMaaratuote_maara;
-    console.log('Tuote maara:', tuoteMaara);
+    const maara = data.tuote_maara;
     return maara;
+
   } catch (error) {
     console.error('Virhe tuotteen hakemisessa:', error.message);
     return 0;
   }
-}
+};
+
 
 const addToCart = async (userId, tuote_id, tuote_maara) => {
-  const maaraKorissa = await geTuoteMaaraFromCart(userId, tuote_id);
-  const uusimaara = tuote_maara + maaraKorissa;
   try {
+    const maaraKorissa = await geTuoteMaaraFromCart(userId, tuote_id);
+    const uusimaara = maaraKorissa ? tuote_maara + maaraKorissa : tuote_maara;
+
+    console.log("Uusi määrä ostoskorissa:", uusimaara);
+
     const response = await fetch(`http://localhost:3000/api/v1/ostoskori`, {
       method: 'POST',
       headers: {
@@ -669,10 +683,11 @@ const addToCart = async (userId, tuote_id, tuote_maara) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe tuote hakemisessa');
+      throw new Error("Virhe ostoskorin päivittämisessä");
     }
+
   } catch (error) {
-    console.error('Virhe tuotteen hakemisessa:', error.message);
+    console.error("Virhe tuotteen lisäämisessä ostoskoriin:", error.message);
   }
 };
 
@@ -794,6 +809,9 @@ const getTuoteMaaraFromCart = async (userId, tuote_id) => {
     }
     const data = await response.json();
     const maara = data.tuote_maara;
+    console.log('Tuotteen määrä:', maara);
+    console.log('user id ', userId);
+    console.log('tuote id ', tuote_id);
     return maara;
   } catch (error) {
   }

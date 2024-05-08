@@ -3,7 +3,7 @@ GET http://localhost:3000/api/v1/kategoria_tuote
 
 
 ###get Kategoria_tuote by id
-GET http://localhost:3000/api/v1/kategoria_tuote/4
+GET http://localhost:3000/api/v1/kategoria_tuote/69
 
 ###get Kategoria_tuote by tuote_id
 GET http://localhost:3000/api/v1/kategoria_tuote/tuote/17
@@ -26,7 +26,7 @@ Content-Type: application/json
 
 
 ###Delete Kategoria_tuote by id
-DELETE http://localhost:3000/api/v1/kategoria_tuote/4
+DELETE http://localhost:3000/api/v1/kategoria_tuote/464
 
 
 ###Update Kategoria_tuote by id

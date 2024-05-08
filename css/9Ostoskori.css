@@ -93,7 +93,6 @@ header {
   border-radius: 5px;
   padding: 5px;
   font-family: 'Tahoma', sans-serif;
-
 }
 
 #kieli {
@@ -236,8 +235,8 @@ nav li {
 .table table td {
   padding-left: 80px;
   text-align: left;
-
 }
+
 
 .table table tr:nth-child(even) {
   background-color: #f2f2f2;
@@ -269,6 +268,17 @@ nav li {
 
 .pay_btn:hover {
   background-color: rgb(174, 94, 30);
+}
+
+.update-button {
+  background-color: rgb(192, 160, 122);
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 5px 10px 5px 10px;
+  font-size: 12px;
+  border-radius: 3px;
 }
 
 .div-class {
@@ -341,21 +351,12 @@ footer {
   .cakeImg {
     margin-top: 0;
   }
+
   .cake-item td:first-child {
     width: 200px;
     height: 200px;
   }
-
-  /* Määritellään toisen td:n koko 34%:ksi taulukon leveydestä */
-  /* .cake-item td:nth-child(2) {
-    width: 34%;
-  }
-
-
-  .footer-container {
-    margin: 0;
-  }
-}*/
+}
 
 
 @media screen and (max-width:534px) {

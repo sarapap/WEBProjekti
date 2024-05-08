@@ -371,8 +371,9 @@ nav li {
 
 
 }
-.raport-item > td {
-  width: 18%;  /* Vähennetään paddingin leveys */
+
+.raport-item>td {
+  width: 18%;
   padding-left: px;
 
 }
@@ -397,23 +398,23 @@ nav li {
   display: block;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 10px 25px; /* Muokattu paddingia */
+  padding: 10px 25px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(225, 150, 89, 0.2);
   background-color: #f9f9f9;
 }
 
-.palaute-item > div {
-  width: calc(25% - 20px); /* Vähennetään paddingin leveys */
-  margin-bottom: 10px; /* Lisätään tilaa alapuolelle */
-}
-
-.palaute-item > div:not(:last-child) {
+.palaute-item>div {
+  width: calc(25% - 20px);
   margin-bottom: 10px;
 }
 
-.palaute-item > div hr {
+.palaute-item>div:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.palaute-item>div hr {
   width: 100%;
   margin: 10px 0;
 }

@@ -72,24 +72,25 @@ const findLastTuoteId = async () => {
 const addTuote = async (tuote, file) => {
   const { tuote_nimi, tuote_kuvaus, tuote_hinta, tuote_kustannus, tyyppi_id } = tuote;
 
-  const sql = `INSERT INTO tuote (tuote_nimi, tuote_kuvaus, tuote_hinta, tuote_kustannus,
-              tyyppi_id, tuote_kuva) VALUES (?, ?, ?, ?, ?, ?)`;
+  const sql = `INSERT INTO tuote (tuote_nimi, tuote_kuvaus, tuote_hinta, tuote_kustannus, tyyppi_id, tuote_kuva) 
+               VALUES (?, ?, ?, ?, ?, ?)`;
 
-  console.log('file', file);
-  const params = [tuote_nimi, tuote_kuvaus, tuote_hinta, tuote_kustannus, tyyppi_id, file.filename || null];
+  const params = [tuote_nimi, tuote_kuvaus, tuote_hinta, tuote_kustannus, tyyppi_id, file?.filename || null];
+
+  console.log("SQL-parametrit:", params);
 
   try {
     const [rows] = await promisePool.execute(sql, params);
     if (rows.affectedRows === 0) {
+      console.error("SQL-kysely ei tuottanut tulosta");
       return false;
     }
     return { tuote_id: rows.insertId };
   } catch (error) {
-    console.error("Error executing SQL query:", error);
+    console.error("Virhe SQL-kyselyssä:", error);
     return false;
   }
 };
-
 
 const removeTuoteById = async (tuote_id) => {
   const connection = await promisePool.getConnection();

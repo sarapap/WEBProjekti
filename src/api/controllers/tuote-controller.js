@@ -62,26 +62,22 @@ const getLastTuoteId = async (req, res) => {
 
 
 const postTuote = async (req, res) => {
-  console.log("body", req.body);
-  console.log("file", req.file);
+  try {
+    const result = await addTuote(req.body, req.file);
 
-  let params = [
-    req.body.tuote_nimi,
-    req.body.tuote_kuvaus,
-    req.body.tuote_hinta,
-    req.body.tuote_kustannus,
-    req.body.tyyppi_id,
-    req.file.path
-  ];
-
-  const result = await addTuote(req.body, req.file);
-  if (!result) {
-    res.sendStatus(400);
-    return;
+    if (!result) {
+      console.error("Tuotteen lisääminen epäonnistui");
+      res.sendStatus(400);
+    } else {
+      console.log("Tuote lisätty onnistuneesti:", result);
+      res.status(200).json(result);
+    }
+  } catch (error) {
+    console.error("Virhe POST-pyynnössä:", error);
+    res.sendStatus(500);
   }
-  res.status(200);
-  res.json(result);
 };
+
 
 const putTuote = async (req, res, next) => {
   const data = {

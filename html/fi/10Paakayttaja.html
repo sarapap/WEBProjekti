@@ -139,32 +139,23 @@
         <input type="number" step="0.01" id="tuote_kustannus" name="tuote_kustannus"><br>
 
         <label for="tuote_tyyppi">Tuotetyyppi:</label>
-        <select id="tuote_tyyppi" name="tuote_tyyppi">
-          <option value="kakut">Kakut</option>
-          <option value="suolaista">Suolaista</option>
-          <option value="makeaa">Makeaa</option>
-          <option value="lammintaruokaa">Lämmintä ruokaa</option>
-          <option value="juotavaa">Juotavaa</option>
-        </select><br>
-
-        <label for="tuote_alatyyppi">Alatyyppi:</label>
-        <select id="tuote_alatyyppi" name="tuote_alatyyppi">
-        </select><br>
-
-        <div id="tuote_kategoriat">
-          <p>Kategoriat:</p>
-          <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
-          <label for="gluteeniton">Gluteeniton</label><br>
-
-          <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
-          <label for="laktoositon">Laktoositon</label><br>
-
-          <input type="checkbox" id="maidoton" name="kategoriat" value="4">
-          <label for="maidoton">Maidoton</label><br>
-
-          <input type="checkbox" id="munaton" name="kategoriat" value="5">
-          <label for="munaton">Munaton</label><br>
-        </div>
+        <select id="tuote_tyyppi" name="tyyppi_id">
+          <option value="2">Juhlakakut</option>
+          <option value="3">Makeat kakut</option>
+          <option value="4">Suolaiset kakut</option>
+          <option value="5">Piirakat</option>
+          <option value="6">Salaatit</option>
+          <option value="7">Pasteijat</option>
+          <option value="8">Leivonnaiset</option>
+          <option value="9">Muut makeat</option>
+          <option value="10">Kanaruuat</option>
+          <option value="11">Muut lämpimät ruuat</option>
+          <option value="12">Lämmintä juotavaa</option>
+          <option value="13">Jääkahvit</option>
+          <option value="14">Teet</option>
+          <option value="15">Virvoitusjuomat</option>
+        </select>
+        <br>
 
         <button id="saveButton" type="button">Lisää tuote</button>
         <button id="closeButton" type="button">Sulje</button>
@@ -172,6 +163,49 @@
     </div>
   </dialog>
 
+  <dialog id="kategoriatModal">
+    <h2>Lisää erityisruokavalioita</h2>
+    <div id="tuote_kategoriat">
+      <p>Kategoriat:</p>
+      <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
+      <label for="gluteeniton">Gluteeniton</label><br>
+
+      <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
+      <label for="laktoositon">Laktoositon</label><br>
+
+      <input type="checkbox" id="maidoton" name="kategoriat" value="4">
+      <label for="maidoton">Maidoton</label><br>
+
+      <input type="checkbox" id="munaton" name="kategoriat" value="5">
+      <label for="munaton">Munaton</label><br>
+
+      <input type="checkbox" id="kasvis" name="kategoriat" value="6">
+      <label for="kasvis">Kasvis</label><br>
+    </div>
+    <button id="addKategoriat" type="button">Lisää</button>
+
+    <div id="tuote_kategoriat2">
+      <h2>Poista erityisruokavalioita </h2>
+      <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
+      <label for="gluteeniton">Gluteeniton</label><br>
+
+      <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
+      <label for="laktoositon">Laktoositon</label><br>
+
+      <input type="checkbox" id="maidoton" name="kategoriat" value="4">
+      <label for="maidoton">Maidoton</label><br>
+
+      <input type="checkbox" id="munaton" name="kategoriat" value="5">
+      <label for="munaton">Munaton</label><br>
+
+      <input type="checkbox" id="kasvis" name="kategoriat" value="6">
+      <label for="kasvis">Kasvis</label><br>
+
+    </div>
+    <button id="deleteKategoriat" type="button">Poista</button><br>
+
+    <button id="closeKategoriat" type="button">Sulje</button>
+  </dialog>
 
 
   <div>
@@ -199,22 +233,22 @@
       <h1>Yritystoiminnan seuranta</h1>
       <h4>Tarkista raportti valitulla ajanjaksolla.</h4>
 
-        <label for="aloituspvm1">Aloituspäivämäärä:</label>
-        <input type="date" id="aloituspvm1" name="startDate">
-        <label for="lopetuspvm1">Lopetuspäivämäärä:</label>
-        <input type="date" id="lopetuspvm1" name="endDate">
-        <button id="haeRaport" class="button2">Hae</button>
+      <label for="aloituspvm1">Aloituspäivämäärä:</label>
+      <input type="date" id="aloituspvm1" name="startDate">
+      <label for="lopetuspvm1">Lopetuspäivämäärä:</label>
+      <input type="date" id="lopetuspvm1" name="endDate">
+      <button id="haeRaport" class="button2">Hae</button>
 
 
       <div>
 
-        <table >
+        <table>
           <tbody>
 
 
           <tbody id="raportList" clas="raport-item">
 
-            <tr ></tr>
+            <tr></tr>
 
             <p>Tähän tulee raportti valitulla ajanjaksolla.</p>
           </tbody>
@@ -222,83 +256,83 @@
         </table>
 
       </div>
-    <hr>
-    <div>
+      <hr>
       <div>
-        <h1>Palaute</h1>
-        <label for="aloituspvm">Aloituspäivämäärä:</label>
-        <input type="date" id="aloituspvm" name="startDate">
+        <div>
+          <h1>Palaute</h1>
+          <label for="aloituspvm">Aloituspäivämäärä:</label>
+          <input type="date" id="aloituspvm" name="startDate">
 
-        <label for="lopetuspvm">Lopetuspäivämäärä:</label>
-        <input type="date" id="lopetuspvm" name="endDate">
+          <label for="lopetuspvm">Lopetuspäivämäärä:</label>
+          <input type="date" id="lopetuspvm" name="endDate">
 
-        <button id="haePalaute" class="button2">Hae</button>
-        <table>
-          <tbody id="palaute" class="palaute-item" ></tbody>
-        </table>
+          <button id="haePalaute" class="button2">Hae</button>
+          <table>
+            <tbody id="palaute" class="palaute-item"></tbody>
+          </table>
+        </div>
+
       </div>
+      <h1>Lisää käyttäjä</h1>
+      <p>Tästä voit lisätä uuden käyttäjän</p>
+      <button id="openModal">Lisää uusi käyttäjä</button>
 
-    </div>
-    <h1>Lisää käyttäjä</h1>
-    <p>Tästä voit lisätä uuden käyttäjän</p>
-    <button id="openModal">Lisää uusi käyttäjä</button>
+      <!-- Modaali dialogi -->
+      <dialog id="userModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeModal">&times;</span>
+          <h2>Lisää uusi käyttäjä</h2>
+          <form id="userForm">
+            <label for="etunimi">Etunimi:</label>
+            <input type="text" id="etunimi" name="etunimi" required>
 
-    <!-- Modaali dialogi -->
-    <dialog id="userModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closeModal">&times;</span>
-        <h2>Lisää uusi käyttäjä</h2>
-        <form id="userForm">
-          <label for="etunimi">Etunimi:</label>
-          <input type="text" id="etunimi" name="etunimi" required>
+            <label for="sukunimi">Sukunimi:</label>
+            <input type="text" id="sukunimi" name="sukunimi" required>
 
-          <label for="sukunimi">Sukunimi:</label>
-          <input type="text" id="sukunimi" name="sukunimi" required>
+            <label for="tunnus">Käyttäjätunnus:</label>
+            <input type="text" id="tunnus" name="tunnus" required>
 
-          <label for="tunnus">Käyttäjätunnus:</label>
-          <input type="text" id="tunnus" name="tunnus" required>
+            <label for="salasana">Salasana:</label>
+            <input type="password" id="salasana" name="salasana" required>
 
-          <label for="salasana">Salasana:</label>
-          <input type="password" id="salasana" name="salasana" required>
+            <label for="email">Sähköposti:</label>
+            <input type="email" id="email" name="email" required>
 
-          <label for="email">Sähköposti:</label>
-          <input type="email" id="email" name="email" required>
+            <label for="puhelin">Puhelin:</label>
+            <input type="tel" id="puhelin" name="puhelin" required>
 
-          <label for="puhelin">Puhelin:</label>
-          <input type="tel" id="puhelin" name="puhelin" required>
+            <label for="syntymapaiva">Syntymäaika:</label>
+            <input type="date" id="syntymapaiva" name="syntymapaiva">
 
-          <label for="syntymapaiva">Syntymäaika:</label>
-          <input type="date" id="syntymapaiva" name="syntymapaiva">
+            <label for="rooli">Rooli:</label>
+            <select id="rooli" name="rooli">
+              <option value="user">Käyttäjä</option>
+              <option value="admin">Admin</option>
+            </select>
+            <br>
+            <label for="alennus">Alennusryhmä:</label>
+            <select id="alennus" name="alennus">
+              <option value="none">Valitse</option>
+              <option value="opiskelija">Opiskelija</option>
+              <option value="elakelainen">Eläkeläinen</option>
+            </select>
 
-          <label for="rooli">Rooli:</label>
-          <select id="rooli" name="rooli">
-            <option value="user">Käyttäjä</option>
-            <option value="admin">Admin</option>
-          </select>
-          <br>
-          <label for="alennus">Alennusryhmä:</label>
-          <select id="alennus" name="alennus">
-            <option value="none">Valitse</option>
-            <option value="opiskelija">Opiskelija</option>
-            <option value="elakelainen">Eläkeläinen</option>
-          </select>
+            <br>
+            <br>
+            <div class="form-group checkbox-group">
+              <label class="ehdot" for="ehdot_hyvaksytty">Ehdot hyväksytty</label>
+              <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
+            </div>
+            <button class="userButton" type="submit">Lisää käyttäjä</button>
+          </form>
+        </div>
+      </dialog>
 
-          <br>
-          <br>
-          <div class="form-group checkbox-group">
-            <label class="ehdot" for="ehdot_hyvaksytty">Ehdot hyväksytty</label>
-            <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
-          </div>
-          <button class="userButton" type="submit">Lisää käyttäjä</button>
-        </form>
-      </div>
-    </dialog>
-
-    <footer>
-      <p>&copy; S&A CAFE 2024</p>
-      <div class="changecontent">
-      </div>
-    </footer>
+      <footer>
+        <p>&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
+        </div>
+      </footer>
 </body>
 
 </html>

@@ -92,29 +92,41 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 );
 
-// get asiakas id from local storage
+// Funktio käyttäjän tunnisteen hakemiseen
 const getUserId = () => {
   const token = localStorage.getItem('authToken');
+  if (!token) {
+    console.warn('authToken puuttuu.');
+    return null;
+  }
+
   const base64Payload = token.split('.')[1];
   const payload = atob(base64Payload);
   const parsedPayload = JSON.parse(payload);
-  let userId = parsedPayload.asiakas_id;
-  return userId;
+  return parsedPayload.asiakas_id || null;
+};
 
-}
-
-
-
+// Hakee käyttäjän tunnisteen
 const userId = getUserId();
+
+if (userId === null) {
+  console.warn('Käyttäjän ID puuttuu. Näytetään sisältö ilman kirjautumisominaisuuksia.');
+  fetchAndDisplayTuotteet();
+} else {
+  console.log('Käyttäjä on kirjautuneena, ID:', userId);
+  // Suorita toiminnot, jotka vaativat käyttäjän ID:tä
+}
 
 
 const paivitaOstoskorinNumero = async () => {
-  // const userId = getUserId();
-
+  const userId = getUserId();
   const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
+
   const tuotteet = await getTuotteenMaaraByUserId(userId);
-  ostoskoriLkmElement.textContent = tuotteet.length.toString();
-}
+  const tuotteenLkm = tuotteet.reduce((sum, tuote) => sum + tuote.tuote_maara, 0);
+
+  ostoskoriLkmElement.textContent = tuotteenLkm.toString();
+};
 
 const paivitaSuosikkiMaara = async () => {
   await getSuosikinMaaraByUserId(userId);
@@ -151,12 +163,10 @@ const getSuosikinMaaraByUserId = async (userId) => {
 }
 
 const getTuotteenMaaraByUserId = async (userId) => {
-
   try {
     const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
       method: 'GET',
     });
-
 
     if (!response.ok) {
       if (response.status === 404) {
@@ -165,7 +175,6 @@ const getTuotteenMaaraByUserId = async (userId) => {
         return [];
       }
       throw new Error('Virhe ostoskorin hakemisessa');
-
     }
 
     const tuotteet = await response.json();
