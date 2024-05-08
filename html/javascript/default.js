@@ -92,26 +92,100 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 );
 
-// get asiakas id from local storage
-const getUserId = () => {
-  const token = localStorage.getItem('authToken');
-  if(token) {
-    const base64Payload = token.split('.')[1];
-    const payload = atob(base64Payload);
-    const parsedPayload = JSON.parse(payload);
-    let userId = parsedPayload.asiakas_id;
+const generateUniqueIdentifier = () => {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+  const randomNumber = Math.floor(Math.random() * 1000);
+  return randomLetter + randomNumber;
+};
+
+const addVierasUser = async () => {
+  const tunnusNumero = generateUniqueIdentifier();
+  try {
+    const response = await fetch('http://localhost:3000/api/v1/asiakas', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        etunimi: 'vierasUser',
+        sukunimi: 'vieras',
+        tunnus: tunnusNumero,
+        salasana: '123',
+        rooli: 'vieras',
+        email: ' ',
+        puhelin: '123',
+        syntymapaiva: '1923-02-25',
+        ehdot_hyvaksytty: '0',
+        allennus_ryhma: ''
+      }),
+
+    });
+
+    if (!response.ok) {
+      throw new Error('Virhe vierasasiakkaan lisäämisessä');
+    }
+
+    const userId = await getLastUserId();
+    console.log('Vierasasiakas lisätty onnistuneesti:', userId);
+    localStorage.setItem('userId', userId); // Save userId to localStorage
+    const token = localStorage.getItem('authToken');
+    console.log('token:', token);
+
+    setTimeout(() => {
+      removeOstoskoristaById(userId);
+    }, 2 * 60 * 60 * 1000); // 2 hours * 60 minutes * 60 seconds * 1000 milliseconds
     return userId;
+  } catch (error) {
+    console.error('Error adding guest user:', error);
+    return null; // Return null or another appropriate value to indicate an error
+  }
+};
+
+const getUserId = () => {
+  const userId = localStorage.getItem('userId');
+  return userId;
+}
+
+
+
+const userId = getUserId() || addVierasUser();
+console.log('userId:', userId);
+
+const getLastUserId = async() => {
+  try {
+    const response = await fetch('http://localhost:3000/api/v1/asiakas', {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      throw new Error('Virhe viimeisen käyttäjän hakemisessa');
+    }
+    const data = await response.json();
+    const userId = data[data.length - 1].asiakas_id;
+    console.log('Last userId:', userId);
+    return userId;
+  } catch (error) {
+    console.error('Virhe viimeisen käyttäjän hakemisessa:', error.message);
+    return 0;
   }
 }
 
 
 
-const userId = getUserId();
 
+
+
+
+
+const disPlayIconNumerot = async () => {
+  await paivitaOstoskorinNumero();
+  await paivitaSuosikkiMaara();
+}
 
 const paivitaOstoskorinNumero = async () => {
-  // const userId = getUserId();
-
+  const userId = getUserId();
+console.log
   const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
   const tuotteet = await getTuotteenMaaraByUserId(userId);
   ostoskoriLkmElement.textContent = tuotteet?.length?.toString() || '0';
@@ -155,6 +229,8 @@ const getSuosikinMaaraByUserId = async (userId) => {
   }
 }
 
+
+
 const getTuotteenMaaraByUserId = async (userId) => {
 
   try {
@@ -162,11 +238,9 @@ const getTuotteenMaaraByUserId = async (userId) => {
       throw new Error('userid not found');
     }
 
-
     const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
       method: 'GET',
     });
-
 
     if (!response.ok) {
       if (response.status === 404) {
@@ -175,7 +249,6 @@ const getTuotteenMaaraByUserId = async (userId) => {
         return [];
       }
       throw new Error('Virhe ostoskorin hakemisessa');
-
     }
 
     const tuotteet = await response.json();
@@ -188,10 +261,26 @@ const getTuotteenMaaraByUserId = async (userId) => {
   }
 }
 
-const disPlayIconNumerot = async () => {
-  await paivitaOstoskorinNumero();
-  await paivitaSuosikkiMaara();
+
+
+const removeOstoskoristaById = async (userId) => {
+  try {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${UserId}`, {
+      method: 'DELETE',
+    });
+
+    if (!response.ok) {
+      throw new Error('Virhe ostoskorin poistamisessa');
+    }
+
+    console.log('Ostoskori poistettu onnistuneesti');
+  } catch (error) {
+    console.error('Virhe ostoskorin poistamisessa:', error.message);
+  }
 }
+
+
+
 
 const tyhjennaOstoskori = async (userId) => {
   try {

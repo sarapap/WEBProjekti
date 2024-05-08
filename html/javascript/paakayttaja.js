@@ -85,24 +85,24 @@ document.addEventListener("DOMContentLoaded", function () {
                     let targetPage = '';
                     switch (selectedLanguage) {
                         case 'EN':
-                            targetPage = '../../en/10Paakayttaja_en.html';
+                            targetPage = '../../html/en/10Paakayttaja_en.html';
                             alert("User added successfully.");
                             break;
                         case 'CN':
-                            targetPage = '../../cn/10Paakayttaja_cn.html';
+                            targetPage = '../../html/cn/10Paakayttaja_cn.html';
                             alert("用户已成功添加。");
                             break;
                         case 'ET':
-                            targetPage = '../../et/10Paakayttaja_et.html';
+                            targetPage = '../../html/et/10Paakayttaja_et.html';
                             alert("Kasutaja on edukalt lisatud.");
                             break;
                         case 'SV':
-                            targetPage = '../../sv/10Paakayttaja_sv.html';
+                            targetPage = '../../html/sv/10Paakayttaja_sv.html';
                             alert("Användare har lagts till framgångsrikt.");
                             break;
                         case 'FI':
                         default:
-                            targetPage = '../../fi/10Paakayttaja.html';
+                            targetPage = '../../html/fi/10Paakayttaja.html';
                             alert("Käyttäjä lisätty onnistuneesti.");
                             break;
                     }
@@ -173,20 +173,20 @@ document.addEventListener("DOMContentLoaded", function () {
         let redirectPage;
         switch (selectedLanguage) {
             case 'EN':
-                redirectPage = '../../en/11Login_en.html';
+                redirectPage = '../../html/en/11Login_en.html';
                 break;
             case 'CN':
-                redirectPage = '../../cn/11login_cn.html';
+                redirectPage = '../../html/cn/11login_cn.html';
                 break;
             case 'ET':
-                redirectPage = '../../et/11Login_et.html';
+                redirectPage = '../../html/et/11Login_et.html';
                 break;
             case 'SV':
-                redirectPage = '../../sv/11Login_sv.html';
+                redirectPage = '../../html/sv/11Login_sv.html';
                 break;
             case 'FI':
             default:
-                redirectPage = '../../fi/11Login.html';
+                redirectPage = '../../html/fi/11Login.html';
                 break;
         }
 
@@ -210,20 +210,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 let redirectPage;
                 switch (selectedLanguage) {
                     case 'EN':
-                        redirectPage = '../../en/1Etusivu_en.html';
+                        redirectPage = '../../html/en/1Etusivu_en.html';
                         break;
                     case 'CN':
-                        redirectPage = '../../cn/1Etusivu_cn.html';
+                        redirectPage = '../../html/cn/1Etusivu_cn.html';
                         break;
                     case 'ET':
-                        redirectPage = '../../et/1Etusivu_et.html';
+                        redirectPage = '../../html/et/1Etusivu_et.html';
                         break;
                     case 'SV':
-                        redirectPage = '../../sv/1Etusivu_sv.html';
+                        redirectPage = '../../html/sv/1Etusivu_sv.html';
                         break;
                     case 'FI':
                     default:
-                        redirectPage = '../../fi/1Etusivu.html';
+                        redirectPage = '../../html/fi/1Etusivu.html';
                         break;
                 }
 
@@ -596,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
       closeButton.addEventListener('click', () => {
           tuoteModal.close();
       });
-  }
+  }z
 
   if (saveButton) {
       saveButton.addEventListener('click', async () => {

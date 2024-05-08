@@ -1,79 +1,11 @@
 
-// const generateUniqueIdentifier = () => {
-//   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
-//   const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
-//   const randomNumber = Math.floor(Math.random() * 1000);
-//   return randomLetter + randomNumber;
-// };
-
-// const addVierasUser = async () => {
-//   const tunnusNumero = generateUniqueIdentifier();
-//   try {
-//     const response = await fetch('http://localhost:3000/api/v1/asiakas', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({
-//         etunimi: 'vierasUser',
-//         sukunimi: 'vieras',
-//         tunnus: tunnusNumero,
-//         salasana: '123',
-//         rooli: 'vieras',
-//         email: ' ',
-//         puhelin: '123',
-//         syntymapaiva: '1923-02-25',
-//         ehdot_hyvaksytty: '0',
-//         allennus_ryhma: ''
-//       }),
-//     });
-
-//     if (!response.ok) {
-//       throw new Error('Virhe vierasasiakkaan lisäämisessä');
-//     }
-
-//     const data = await response.json();
-//     const userId = data.asiakas_id;
-//     console.log('Vierasasiakas lisätty onnistuneesti:', data);
-
-//     console.log('Vierasasiakas lisätty onnistuneesti:', userId);
-//     localStorage.setItem('userId', userId);
-
-//     const token = localStorage.getItem('authToken');
-//     setTimeout(() => {
-//       removeOstoskoristaById(userId);
-//     }, 2 * 60 * 60 * 1000); // 2 tuntia * 60 minuuttia * 60 sekuntia * 1000 millisekuntia
-//     return userId;
-//   } catch (error) {
-//     console.error('Virhe vierasasiakkaan lisäämisessä:', error.message);
-//     return 0;
-//   }
-// };
-
-// let userId = getUserId() || addVierasUser();
-// console.log('userId:', userId);
-
-// const removeOstoskoristaById = async (userId) => {
-//   try {
-//     const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${UserId}`, {
-//       method: 'DELETE',
-//     });
-
-//     if (!response.ok) {
-//       throw new Error('Virhe ostoskorin poistamisessa');
-//     }
-
-//     console.log('Ostoskori poistettu onnistuneesti');
-//   } catch (error) {
-//     console.error('Virhe ostoskorin poistamisessa:', error.message);
-//   }
-// }
 
 // const kirjautuUlos = () => {
 //   localStorage.removeItem('authToken');
 //   localStorage.removeItem('userId');
 //   window.location.href = '11Login.html';
 // };
+
 
 const handleNewValue = async () => {
   const alatyyppi = await getSelectedAlaTyyppi();
