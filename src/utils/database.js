@@ -13,7 +13,12 @@ const pool = mysql.createPool({
 });
 
 const promisePool = pool.promise();
-export default promisePool;
+
+export const closePool = async () => {
+  await promisePool.end();
+};
+
+export default promisePool
 
 
 

@@ -131,6 +131,7 @@ const displayRaportit = async (raport) => {
   } catch (error) {
     console.error('Virhe raportin hakemisessa:', error);
   }
+  return;
 };
 
 }
@@ -179,13 +180,7 @@ const displayRaportit2 = async (th) => {
         break;
     }
 
-    const th ={
-      tilaus_id: tilausIdTeksti,
-      hinta: myynttiHintaTeksti,
-      kustannus: kustannusTeksti,
-      voitto: voittoTeksti,
-       pvm: tilausPvmTeksti
-    }
+    const raportList = document.getElementById('raportList');
 
     const tuoteElement = document.createElement('tr');
     tuoteElement.classList.add('raport-item');
@@ -210,14 +205,13 @@ const displayRaportit2 = async (th) => {
     thElement5.textContent = voittoTeksti;
     tuoteElement.appendChild(thElement5);
 
-    const thElement6 = document.createElement('td');
-    pElement1.textContent = "";
+
     raportList.appendChild(thElement6);
   } catch (error) {
     console.error('Virhe raportin hakemisessa:', error);
   }
 }
 });
-displayRaportit2();
-displayRaportit();
+
+
 
