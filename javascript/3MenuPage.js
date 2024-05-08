@@ -1,6 +1,8 @@
 'use strict';
 
-/* kuvat */
+/**
+ * Luettelo kuvista, joita käytetään näyttöfunktioissa.
+ */
 const images = [
     '../../css/kuvat/cakeMenu.jpg',
     '../../css/kuvat/pastryMenu.jpg',
@@ -13,18 +15,33 @@ const images = [
     '../../css/kuvat/sweetMenu2.jpg',
     '../../css/kuvat/coffeeMenu.jpg',
 ];
+
+/**
+ * Tämänhetkinen kuvaindeksi kuvien listassa.
+ */
 let currentIndex = 0;
 
+/**
+ * Näyttää kuvan annetulla indeksillä.
+ *
+ * @param {number} index - Kuvaindeksi, joka halutaan näyttää.
+ */
 function showImage(index) {
     const image = document.querySelector('.food-image');
     image.src = images[index];
 }
 
+/**
+ * Näyttää edellisen kuvan listassa.
+ */
 function prevImage() {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     showImage(currentIndex);
 }
 
+/**
+ * Näyttää seuraavan kuvan listassa.
+ */
 function nextImage() {
     currentIndex = (currentIndex + 1) % images.length;
     showImage(currentIndex);
