@@ -147,8 +147,6 @@ const getUserId = () => {
   return userId;
 }
 
-
-
 const userId = getUserId() || addVierasUser();
 console.log('userId:', userId);
 
@@ -170,13 +168,6 @@ const getLastUserId = async() => {
     return 0;
   }
 }
-
-
-
-
-
-
-
 
 const disPlayIconNumerot = async () => {
   await paivitaOstoskorinNumero();
@@ -229,8 +220,6 @@ const getSuosikinMaaraByUserId = async (userId) => {
   }
 }
 
-
-
 const getTuotteenMaaraByUserId = async (userId) => {
 
   try {
@@ -261,8 +250,6 @@ const getTuotteenMaaraByUserId = async (userId) => {
   }
 }
 
-
-
 const removeOstoskoristaById = async (userId) => {
   try {
     const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${UserId}`, {
@@ -278,9 +265,6 @@ const removeOstoskoristaById = async (userId) => {
     console.error('Virhe ostoskorin poistamisessa:', error.message);
   }
 }
-
-
-
 
 const tyhjennaOstoskori = async (userId) => {
   try {
