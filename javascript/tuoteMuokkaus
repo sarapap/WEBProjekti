@@ -1,0 +1,84 @@
+
+buttonElement.addEventListener('click', () => {
+    const tuoteModal = document.getElementById('tuoteModal');
+    if (tuoteModal) {
+        const tuoteForm = document.getElementById('tuoteForm');
+        if (tuoteForm) {
+            tuoteForm.tuote_id.value = tuote.tuote_id;
+            tuoteForm.tuote_nimi.value = tuote.tuote_nimi;
+            tuoteForm.tuote_kuvaus.value = tuote.tuote_kuvaus;
+            tuoteForm.tuote_hinta.value = tuote.tuote_hinta;
+            tuoteForm.tuote_kuva.value = tuote.tuote_kuva;
+        }
+        tuoteModal.showModal();
+    } else {
+        console.error("Tuoteikkunaa ei löytynyt.");
+    }
+});
+
+const closeButton = document.getElementById('closeButton');
+if (closeButton) {
+    closeButton.addEventListener('click', () => {
+        const tuoteModal = document.getElementById('tuoteModal');
+        if (tuoteModal) {
+          tuoteModal.close();
+        } else {
+            console.error("Suljinta ei löytynyt.");
+        }
+    });
+}
+
+const saveButton = document.getElementById('saveButton');
+if (saveButton) {
+    saveButton.addEventListener('click', async () => {
+        const tuoteForm = document.getElementById('tuoteForm');
+        if (tuoteForm) {
+            const formData = new FormData(tuoteForm);
+            try {
+                const response = await fetch('http://localhost:3000/api/v1/tuote', {
+                    method: 'POST',
+                    body: formData,
+                });
+                if (!response.ok) {
+                    throw new Error(`Tuotteen lisääminen epäonnistui: ${response.status}`);
+                }
+                console.log('Tuote lisätty onnistuneesti');
+            } catch (error) {
+                console.error('Virhe tuotteen lisäämisessä:', error.message);
+            }
+        }
+    });
+}
+
+
+
+
+
+
+cakeList.appendChild(tuoteElement);
+
+};
+
+
+//tieto esillä
+document.addEventListener("DOMContentLoaded", async () => {
+    const token = localStorage.getItem("authToken");
+
+    const base64Payload = token.split('.')[1];
+    const payload = atob(base64Payload);
+    const parsedPayload = JSON.parse(payload);
+
+    const userId = parsedPayload.asiakas_id;
+
+    const response = await fetch(`http://localhost:3000/api/v1/asiakas/info/${userId}`);
+
+    if (response.ok) {
+        const userData = await response.json();
+
+        document.getElementById("etunimi").value = userData.nimi || '';
+        document.getElementById("sukunimi").value = userData.sukunimi || '';
+        document.getElementById("tunnus").value = userData.tunnus || '';
+        document.getElementById("email").value = userData.email || '';
+        document.getElementById("puhelin").value = userData.puhelin || '';
+    }
+});

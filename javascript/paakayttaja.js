@@ -210,10 +210,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 let redirectPage;
                 switch (selectedLanguage) {
                     case 'EN':
-                        redirectPage = '../../html/en/1Etusivu_en.html';
+                        redirectPage = '../html/en/1Etusivu_en.html';
                         break;
                     case 'CN':
-                        redirectPage = '../../html/cn/1Etusivu_cn.html';
+                        redirectPage = '../html/cn/1Etusivu_cn.html';
                         break;
                     case 'ET':
                         redirectPage = '../../html/et/1Etusivu_et.html';
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         break;
                     case 'FI':
                     default:
-                        redirectPage = '../../html/fi/1Etusivu.html';
+                        redirectPage = '../html/fi/1Etusivu.html';
                         break;
                 }
 
@@ -679,21 +679,13 @@ const displaySingleTuote = async (tuote) => {
     buttonElement.textContent = 'Muokkaa';
     tuoteElement.appendChild(buttonElement);
 
-    buttonElement.addEventListener('click', () => {
-        const tuoteModal = document.getElementById('tuoteModal');
-        tuoteModal.showModal();
 
-        const tuoteForm = document.getElementById('tuoteForm');
-        tuoteForm.tuote_id.value = tuote.tuote_id;
-        tuoteForm.tuote_nimi.value = tuote.tuote_nimi;
-        tuoteForm.tuote_kuvaus.value = tuote.tuote_kuvaus;
-        tuoteForm.tuote_hinta.value = tuote.tuote_hinta;
-        tuoteForm.tuote_kuva.value = tuote.tuote_kuva;
 
-    });
 
-    cakeList.appendChild(tuoteElement);
-};
+
+
+
+
 
 
 const getKategoriaIdByTuoteId = async (tuoteId) => {
@@ -761,6 +753,7 @@ const filterProducts = (searchTerm) => {
         }
     });
 };
+
 
 
 

@@ -348,7 +348,7 @@ document.getElementById("allergiaForm").addEventListener("submit", function (eve
                 alert("Allergy field cannot be empty.");
                 break;
             case 'CN':
-                alert("过敏字段不能为空。");
+                alert("过敏信息不能为空。");
                 break;
             case 'ET':
                 alert("Allergia väli ei tohi olla tühi.");
