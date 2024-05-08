@@ -23,6 +23,14 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     const raports = await response.json();
+    const raportList = document.getElementById('raportList');
+
+
+
+
+    DOMStringList
+    raportList.innerHTML = "";
+    await displayRaportit2();
 
     if (Array.isArray(raports)) {
       raports.forEach(async (r) => {
@@ -45,9 +53,89 @@ const displayRaportit = async (raport) => {
   const tilaus_pvm = raport.tapahtu_pvm;
   const date = new Date(tilaus_pvm);
   const pvmIlmanAikaa = date.toISOString().split('T')[0]
-  console.log('pvmIlmanAikaa:', pvmIlmanAikaa);
 
 
+
+  try {
+    // const kieli = document.getElementById('kieli');
+    // const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+
+    // let tilausPvmTeksti = '';
+    // let tilausIdTeksti = '';
+    // let myynttiHintaTeksti = '';
+    // let kustannusTeksti = '';
+    // let voittoTeksti = '';
+
+    // switch (selectedLanguage) {
+    //   case 'EN':
+    //     tilausPvmTeksti = 'Order date';
+    //     tilausIdTeksti = 'Order number';
+    //     myynttiHintaTeksti = 'Sales price';
+    //     kustannusTeksti = 'Cost';
+    //     voittoTeksti = 'Profit';
+    //     break;
+    //   case 'CN':
+    //     tilausPvmTeksti = '订单日期';
+    //     tilausIdTeksti = '订单号';
+    //     myynttiHintaTeksti = '销售价格';
+    //     kustannusTeksti = '成本';
+    //     voittoTeksti = '利润';
+    //     break;
+    //   case 'SE':
+    //     tilausPvmTeksti = 'Orderdatum';
+    //     tilausIdTeksti = 'Ordernummer';
+    //     myynttiHintaTeksti = 'Försäljningspris';
+    //     kustannusTeksti = 'Kostnad';
+    //     voittoTeksti = 'Vinst';
+    //     break;
+    //   case 'FI':
+    //   default:
+    //     tilausPvmTeksti = 'Tilauspäivä';
+    //     tilausIdTeksti = 'Tilausnumero';
+    //     myynttiHintaTeksti = 'Myyntihinta';
+    //     kustannusTeksti = 'Kustannus';
+    //     voittoTeksti = 'Voitto';
+
+    //     break;
+    // }
+
+    const raportList = document.getElementById('raportList');
+
+    const tuoteElement = document.createElement('tr');
+    tuoteElement.classList.add('raport-item');
+
+
+    const pElement2 = document.createElement('td');
+    pElement2.textContent = raport.tilaus_id;
+    tuoteElement.appendChild(pElement2);
+
+    const pElement3 = document.createElement('td');
+    pElement3.textContent = raport.myynti_hinta + '€' +"  ";
+    tuoteElement.appendChild(pElement3);
+
+    const pElement4 = document.createElement('td');
+    pElement4.textContent = raport.kustannus + '€';
+    tuoteElement.appendChild(pElement4);
+
+    const pElement5 = document.createElement('td');
+    pElement5.textContent = raport.voitto + '€';
+    tuoteElement.appendChild(pElement5);
+    raportList.appendChild(tuoteElement);
+
+    const pElement1 = document.createElement('td');
+    pElement1.textContent = pvmIlmanAikaa;
+    pElement1.style.minWidth = '100px';
+    tuoteElement.appendChild(pElement1);
+    raportList.appendChild(tuoteElement);
+
+  } catch (error) {
+    console.error('Virhe raportin hakemisessa:', error);
+  }
+};
+
+}
+
+const displayRaportit2 = async (th) => {
   try {
     const kieli = document.getElementById('kieli');
     const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
@@ -87,66 +175,49 @@ const displayRaportit = async (raport) => {
         myynttiHintaTeksti = 'Myyntihinta';
         kustannusTeksti = 'Kustannus';
         voittoTeksti = 'Voitto';
+
         break;
     }
 
+    const th ={
+      tilaus_id: tilausIdTeksti,
+      hinta: myynttiHintaTeksti,
+      kustannus: kustannusTeksti,
+      voitto: voittoTeksti,
+       pvm: tilausPvmTeksti
+    }
 
-    // const tuoteElement = document.createElement('tr');
-    // tuoteElement.classList.add('raport-item');
-
-    // const thElement1 = document.createElement('th');
-    // thElement1.textContent = tilausPvmTeksti;
-    // tuoteElement.appendChild(thElement1);
-
-    // const thElement2 = document.createElement('th');
-    // thElement2.textContent = tilausIdTeksti;
-    // tuoteElement.appendChild(thElement2);
-
-    // const thElement3 = document.createElement('th');
-    // thElement3.textContent = myynttiHintaTeksti;
-    // tuoteElement.appendChild(thElement3);
-
-    // const thElement4 = document.createElement('th');
-    // thElement4.textContent = kustannusTeksti;
-    // tuoteElement.appendChild(thElement4);
-
-    // const thElement5 = document.createElement('th');
-    // thElement5.textContent = voittoTeksti;
-    // tuoteElement.appendChild(thElement5);
-
-    // const thElement6 = document.createElement('td');
-    // pElement1.textContent = "";
-    // raportList.appendChild(thElement6);
-    const raportList = document.getElementById('raportList');
     const tuoteElement = document.createElement('tr');
     tuoteElement.classList.add('raport-item');
 
-    const pElement1 = document.createElement('td');
-    pElement1.textContent = pvmIlmanAikaa;
-    tuoteElement.appendChild(pElement1);
+    const thElement1 = document.createElement('th');
+    thElement1.textContent = tilausPvmTeksti;
+    tuoteElement.appendChild(thElement1);
 
-    const pElement2 = document.createElement('td');
-    pElement2.textContent = raport.tilaus_id;
-    tuoteElement.appendChild(pElement2);
+    const thElement2 = document.createElement('th');
+    thElement2.textContent = tilausIdTeksti;
+    tuoteElement.appendChild(thElement2);
 
-    const pElement3 = document.createElement('td');
-    pElement3.textContent = raport.myynti_hinta + '€' +"  ";
-    tuoteElement.appendChild(pElement3);
+    const thElement3 = document.createElement('th');
+    thElement3.textContent = myynttiHintaTeksti;
+    tuoteElement.appendChild(thElement3);
 
-    const pElement4 = document.createElement('td');
-    pElement4.textContent = raport.kustannus + '€';
-    tuoteElement.appendChild(pElement4);
+    const thElement4 = document.createElement('th');
+    thElement4.textContent = kustannusTeksti;
+    tuoteElement.appendChild(thElement4);
 
-    const pElement5 = document.createElement('td');
-    pElement5.textContent = raport.voitto + '€';
-    tuoteElement.appendChild(pElement5);
+    const thElement5 = document.createElement('th');
+    thElement5.textContent = voittoTeksti;
+    tuoteElement.appendChild(thElement5);
 
-    raportList.appendChild(tuoteElement);
-
+    const thElement6 = document.createElement('td');
+    pElement1.textContent = "";
+    raportList.appendChild(thElement6);
   } catch (error) {
     console.error('Virhe raportin hakemisessa:', error);
   }
-};
-
 }
 });
+displayRaportit2();
+displayRaportit();
+
