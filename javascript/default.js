@@ -92,41 +92,19 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 );
 
-// Funktio käyttäjän tunnisteen hakemiseen
-
-// Funktio vieraskäyttäjän ID:n luomiseen ja tarkistamiseen
-const getGuestUserId = () => {
-  let guestUserId = localStorage.getItem('guestUserId');
-
-  if (!guestUserId) {
-    guestUserId = `guest-${Math.floor(Math.random() * 10000)}-${Date.now()}`;
-    localStorage.setItem('guestUserId', guestUserId);
-  }
-
-  return guestUserId;
-};
-
-// Funktio käyttäjän ID:n hakemiseen, käyttäen authTokenia tai vieraskäyttäjän ID:tä
+// get asiakas id from local storage
 const getUserId = () => {
   const token = localStorage.getItem('authToken');
   if (token) {
-    try {
-      const base64Payload = token.split('.')[1];
-      const payload = atob(base64Payload);
-      const parsedPayload = JSON.parse(payload);
-      return parsedPayload.asiakas_id;
-    } catch (e) {
-      console.error("Virhe authTokenin purkamisessa:", e);
-    }
+    const base64Payload = token.split('.')[1];
+    const payload = atob(base64Payload);
+    const parsedPayload = JSON.parse(payload);
+    let userId = parsedPayload.asiakas_id;
+    return userId;
   }
+}
 
-  return getGuestUserId();
-};
-
-// Tarkista ID ja suorita sovelluksen logiikka
 const userId = getUserId();
-
-// Jos ID löytyy, voit jatkaa sovelluksen logiikkaa. Jos ei, varmista, ettei sovellus yritä suorittaa toimintoja, jotka vaativat ID:tä.
 
 
 const paivitaOstoskorinNumero = async () => {

@@ -17,6 +17,10 @@ GET http://localhost:3000/api/v1/tuote/lastid/
 ### get kategoria by name
 GET http://localhost:3000/api/v1/tuote/name/jääkahvi
 
+### get tuote by kuva
+GET http://localhost:3000/api/v1/tuote/tuote_kuva-1714741116519.png/FI
+
+
 
 ### uusi tuote
 POST http://localhost:3000/api/v1/tuote

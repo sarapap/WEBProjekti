@@ -7,6 +7,7 @@ import {
   addTuote,
   removeTuoteById,
   updateTuote,
+  findTuoteByKuva
 } from '../models/tuote-model.js';
 
 const getTuote = async (req, res) => {
@@ -110,6 +111,28 @@ const deleteTuote = async (req, res) => {
   res.json(result);
 };
 
+const getTuoteByKuva = async (req, res) => {
+  const { tuote_kuva, kieli } = req.query;
+
+  // Tarkistetaan, että molemmat parametrit ovat määritettyjä
+  if (!tuote_kuva || !kieli) {
+    return res.status(400).json({ message: 'Puuttuvat parametrit: tuote_kuva tai kieli.' });
+  }
+
+  try {
+    const tuotteet = await findTuoteByKuva(tuote_kuva, kieli);
+
+    if (!tuotteet) {
+      return res.status(404).json({ message: 'Tuotetta ei löytynyt.' });
+    }
+
+    return res.status(200).json(tuotteet);
+  } catch (error) {
+    console.error('Virhe tuotteen haussa:', error);
+    return res.status(500).json({ message: 'Virhe tuotteen haussa.', error });
+  }
+};
+
 
 
 export {
@@ -120,5 +143,6 @@ export {
   getLastTuoteId,
   postTuote,
   putTuote,
-  deleteTuote
+  deleteTuote,
+  getTuoteByKuva
 };

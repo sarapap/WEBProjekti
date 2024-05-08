@@ -1,4 +1,17 @@
 let statusText = '';
+let virhesuosikit = '';
+let virhesuosikit2 = '';
+let virhesuosikit3 = '';
+let virhetuote = '';
+let virhetuote2 = '';
+let virheostoskori = '';
+let virheostoskori2 = '';
+let virheostoskori3 = '';
+let virheTilaus = '';
+let tyhjaOstoskori = '';
+let yritystoimintavirhe = '';
+let tilausvirhe = '';
+let lisattytoiminta = '';
 const selectedLanguage = getSelectedLanguage();
 switch (selectedLanguage) {
   case 'EN':

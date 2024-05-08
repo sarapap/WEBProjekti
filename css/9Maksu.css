@@ -323,3 +323,54 @@ hr {
     cursor: pointer;
     margin-top: 5px;
 }
+
+/* media */
+
+@media screen and (min-width:801px) {
+
+    .cakeImg {
+        width: 80%
+    }
+}
+
+@media screen and (max-width:800px) {
+
+    .icons ul li {
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .icons ul li a {
+        display: block;
+        padding: 5px;
+    }
+
+    .logo {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    .cakeImg {
+        margin-top: 0;
+    }
+
+    .cake-item td:first-child {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+
+@media screen and (max-width:534px) {
+
+    .content h2 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width:330px) {
+    .content h2 {
+        font-size: 20px;
+    }
+}

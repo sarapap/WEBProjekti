@@ -8,6 +8,9 @@ function getSelectedLanguage() {
 
 /* tekstit eri kielillä  */
 
+let virhetuote = '';
+let virhetuote2 = '';
+let virhekategoria = '';
 const selectedLanguage = getSelectedLanguage();
 switch (selectedLanguage) {
     case 'EN':

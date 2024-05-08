@@ -134,6 +134,23 @@ const updateTuote = async (tuote, file, tuote_id) => {
   }
 };
 
+const findTuoteByKuva = async (tuote_kuva, kieli) => {
+  try {
+    const [rows] = await promisePool.execute(
+      'SELECT * FROM tuote WHERE tuote_kuva = ? AND tuote_kieli = ?',
+      [tuote_kuva, kieli]
+    );
+
+    if (rows.length === 0) {
+      return null;
+    }
+
+    return rows;
+  } catch (error) {
+    console.error('Virhe tuotteen haussa tuotekuvan perusteella:', error);
+    throw error;
+  }
+};
 
 export {
   listAllTuote,
@@ -144,5 +161,6 @@ export {
   findLastTuoteId,
   addTuote,
   removeTuoteById,
-  updateTuote
+  updateTuote,
+  findTuoteByKuva,
 };

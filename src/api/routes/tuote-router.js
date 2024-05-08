@@ -7,7 +7,8 @@ import {
   getLastTuoteId,
   postTuote,
   putTuote,
-  deleteTuote
+  deleteTuote,
+  getTuoteByKuva
 } from '../controllers/tuote-controller.js';
 import multer from 'multer';
 
@@ -46,6 +47,11 @@ tuoteRouter.route('/:tuote_id')
 tuoteRouter.route('/name/:tuote_nimi').get(getTuoteByname);
 tuoteRouter.route('/lastid/').get(getLastTuoteId);
 tuoteRouter.route('/tyyppi_id/:tyyppi_id').get(getTuoteByTyyppiId);
+
+tuoteRouter.route('/:tuote_kuva/:kieli').get((req, res) => {
+  const { tuote_kuva, kieli } = req.params; // Tässä käytetään parametreja URL-osasta
+  return getTuoteByKuva({ query: { tuote_kuva, kieli } }, res); // Lähetä parametrit kontrollerille
+});
 
 
 export default tuoteRouter;

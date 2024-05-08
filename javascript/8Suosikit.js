@@ -35,6 +35,13 @@ nextButton.addEventListener('click', () => {
 updateCarousel();
 
 const selectedLanguage = getSelectedLanguage();
+let virhesuosikit = '';
+let virhesuosikit2 = '';
+let virhesuosikit3 = '';
+let virhetuote = '';
+let virheostoskori = '';
+let virheostoskori2 = '';
+let virheostoskori3 = '';
 switch (selectedLanguage) {
   case 'EN':
     virhesuosikit = 'Error fetching favorites!';
@@ -83,7 +90,6 @@ switch (selectedLanguage) {
     virheostoskori3 = 'Virhe tuotteen päivittämisessä ostoskoriin!';
     break;
 }
-
 let tuote_id = null;
 const fetchAndDisplayTuotteet = async () => {
   const userId = getUserId();
@@ -106,7 +112,7 @@ const findTuoteIdByUserId = async (userId) => {
     });
 
     if (!response.ok) {
-      throw new Error(virhesuosikit);
+      throw new Error('Virhe suosikkien hakemisessa');
     }
 
     const result = await response.json();
@@ -125,7 +131,7 @@ const getTuoteByTuoteId = async (tuote_id, userId) => {
     });
 
     if (!response.ok) {
-      throw new Error(virhetuote);
+      throw new Error('Virhe tuotteen hakemisessa');
     }
     const tuote = await response.json();
 
@@ -188,8 +194,10 @@ const getTuoteByTuoteId = async (tuote_id, userId) => {
       }
     });
   } catch (error) {
+    console.error('Virhe tuotteen hakemisessa:', error.message);
   }
 };
+
 
 const isFavorite = async (userId, tuote_id) => {
   try {
