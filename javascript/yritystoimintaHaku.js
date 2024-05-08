@@ -26,9 +26,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const raportList = document.getElementById('raportList');
 
 
-
-
-    DOMStringList
     raportList.innerHTML = "";
     await displayRaportit2();
 
@@ -206,7 +203,7 @@ const displayRaportit2 = async (th) => {
     tuoteElement.appendChild(thElement5);
 
 
-    raportList.appendChild(thElement6);
+    raportList.appendChild(tuoteElement);
   } catch (error) {
     console.error('Virhe raportin hakemisessa:', error);
   }
