@@ -467,7 +467,6 @@ const displaySingleTuote = async (tuote) => {
 
   buttonElement.addEventListener('click', async () => {
     const lisaaTuoteMaara = parseInt(numberInput.value, 10);
-    const userId = getUserId();
     const tuoteId = tuote.tuote_id;
 
     const ostoskoriTarkistusTulos = await ostoskoriTarkistus(userId, tuoteId);
@@ -476,9 +475,11 @@ const displaySingleTuote = async (tuote) => {
       if (ostoskoriTarkistusTulos === false) {
         buttonElement.textContent = removeCart;
         await addToCart(userId, tuoteId, lisaaTuoteMaara);
+        await paivitaOstoskorinNumero();
       } else {
         buttonElement.textContent = addCartText;
         await deleteTuoteFromCart(userId, tuoteId);
+        await paivitaOstoskorinNumero();
       }
     } catch (error) {
     }
@@ -490,9 +491,11 @@ const displaySingleTuote = async (tuote) => {
     if (isCurrentlyFavorite) {
       buttonElement2.textContent = addFavoriteText;
       await removeSuosikista(userId, tuote.tuote_id);
+      await paivitaSuosikkiMaara();
     } else {
       buttonElement2.textContent = unfavorateText;
       await addFavorite(userId, tuote.tuote_id);
+      await paivitaSuosikkiMaara();
     }
   });
 

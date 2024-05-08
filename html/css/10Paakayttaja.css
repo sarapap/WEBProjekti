@@ -456,6 +456,7 @@ nav li {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
+  padding-bottom: 10px;;
 }
 
 .cake-item {
@@ -489,10 +490,12 @@ nav li {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  background-color: rgb(217, 124, 48);
 }
 
 .cake-item button:hover {
-  background-color: rgb(208, 194, 178);
+
+  background-color: rgb(225, 159, 84);
 }
 
 /* uusi tuote modaali */
@@ -537,11 +540,11 @@ dialog::backdrop {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin: 5px 0;
+  margin:margin-bottom 10px
 }
 
 #tuoteModal form button:hover {
-  background-color: rgb(190, 99, 25);
+  background-color: rgb(207, 143, 90);
 }
 
 #tuoteModal form button:disabled {

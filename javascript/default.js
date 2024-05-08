@@ -182,6 +182,7 @@ console.log
   ostoskoriLkmElement.textContent = tuotteet?.length?.toString() || '0';
 }
 
+
 const paivitaSuosikkiMaara = async () => {
   await getSuosikinMaaraByUserId(userId);
 }
