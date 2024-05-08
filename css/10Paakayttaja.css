@@ -599,6 +599,66 @@ dialog::backdrop {
   background-color: transparent;
 }
 
+/* erityisruokavalio */
+
+dialog {
+  border: none;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+dialog h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+dialog input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+dialog label {
+  font-size: 16px;
+}
+
+dialog button {
+  background-color: rgb(217, 124, 48);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+dialog button:hover {
+  background-color: rgb(190, 99, 25);
+}
+
+#tuote_kategoriat,
+#tuote_kategoriat2 {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+#tuote_kategoriat2 {
+  margin-top: 10px;
+}
+
+dialog button#closeKategoriat {
+  background-color: #6c757d;
+  margin-top: 5px;
+}
+
+dialog button#closeKategoriat:hover {
+  background-color: #5a6268;
+}
+
+
 /* footer */
 
 footer {

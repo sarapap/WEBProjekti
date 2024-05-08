@@ -93,29 +93,40 @@ document.addEventListener('DOMContentLoaded', function () {
 );
 
 // Funktio käyttäjän tunnisteen hakemiseen
-const getUserId = () => {
-  const token = localStorage.getItem('authToken');
-  if (!token) {
-    console.warn('authToken puuttuu.');
-    return null;
+
+// Funktio vieraskäyttäjän ID:n luomiseen ja tarkistamiseen
+const getGuestUserId = () => {
+  let guestUserId = localStorage.getItem('guestUserId');
+
+  if (!guestUserId) {
+    guestUserId = `guest-${Math.floor(Math.random() * 10000)}-${Date.now()}`;
+    localStorage.setItem('guestUserId', guestUserId);
   }
 
-  const base64Payload = token.split('.')[1];
-  const payload = atob(base64Payload);
-  const parsedPayload = JSON.parse(payload);
-  return parsedPayload.asiakas_id || null;
+  return guestUserId;
 };
 
-// Hakee käyttäjän tunnisteen
+// Funktio käyttäjän ID:n hakemiseen, käyttäen authTokenia tai vieraskäyttäjän ID:tä
+const getUserId = () => {
+  const token = localStorage.getItem('authToken');
+  if (token) {
+    try {
+      const base64Payload = token.split('.')[1];
+      const payload = atob(base64Payload);
+      const parsedPayload = JSON.parse(payload);
+      return parsedPayload.asiakas_id;
+    } catch (e) {
+      console.error("Virhe authTokenin purkamisessa:", e);
+    }
+  }
+
+  return getGuestUserId();
+};
+
+// Tarkista ID ja suorita sovelluksen logiikka
 const userId = getUserId();
 
-if (userId === null) {
-  console.warn('Käyttäjän ID puuttuu. Näytetään sisältö ilman kirjautumisominaisuuksia.');
-  fetchAndDisplayTuotteet();
-} else {
-  console.log('Käyttäjä on kirjautuneena, ID:', userId);
-  // Suorita toiminnot, jotka vaativat käyttäjän ID:tä
-}
+// Jos ID löytyy, voit jatkaa sovelluksen logiikkaa. Jos ei, varmista, ettei sovellus yritä suorittaa toimintoja, jotka vaativat ID:tä.
 
 
 const paivitaOstoskorinNumero = async () => {

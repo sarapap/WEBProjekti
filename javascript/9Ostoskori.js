@@ -1,3 +1,88 @@
+let statusText = '';
+const selectedLanguage = getSelectedLanguage();
+switch (selectedLanguage) {
+  case 'EN':
+    virhesuosikit = 'Error fetching favorites!';
+    virhesuosikit2 = 'Error adding favorite!';
+    virhesuosikit3 = 'Error removing favorite!';
+    virhetuote = 'Error fetching product!';
+    virhetuote2 = 'Error removing product';
+    virheostoskori = 'Error fetching cart!';
+    virheostoskori2 = 'Error adding product to cart!';
+    virheostoskori3 = 'Error updating product in cart!';
+    statusText = 'Order received';
+    virheTilaus = 'Error making order';
+    tyhjaOstoskori = 'Your cart is empty';
+    yritystoimintavirhe = 'Error adding business activity';
+    tilausvirhe = 'Error fetching order';
+    lisattytoiminta = 'Business activity added';
+    break;
+  case 'CN':
+    virhesuosikit = '获取收藏夹时出错！';
+    virhesuosikit2 = '添加收藏夹时出错！';
+    virhesuosikit3 = '删除收藏夹时出错！';
+    virhetuote = '获取产品时出错！';
+    virhetuote2 = '删除产品时出错';
+    virheostoskori = '获取购物车时出错！';
+    virheostoskori2 = '将产品添加到购物车时出错！';
+    virheostoskori3 = '在购物车中更新产品时出错！';
+    statusText = '订单已接收';
+    virheTilaus = '下订单时出错';
+    tyhjaOstoskori = '您的购物车是空的';
+    yritystoimintavirhe = '添加企业活动时出错';
+    tilausvirhe = '获取订单时出错';
+    lisattytoiminta = '企业活动已添加';
+    break;
+  case 'ET':
+    virhesuosikit = 'Viga lemmikute laadimisel!';
+    virhesuosikit2 = 'Viga lemmiku lisamisel!';
+    virhesuosikit3 = 'Viga lemmiku eemaldamisel!';
+    virhetuote = 'Viga toote laadimisel!';
+    virhetuote2 = 'Viga toote eemaldamisel';
+    virheostoskori = 'Viga ostukorvi laadimisel!';
+    virheostoskori2 = 'Viga toote lisamisel ostukorvi!';
+    virheostoskori3 = 'Viga toote uuendamisel ostukorvis!';
+    statusText = 'Tellimus vastu võetud';
+    virheTilaus = 'Viga tellimuse tegemisel';
+    tyhjaOstoskori = 'Teie ostukorv on tühi';
+    yritystoimintavirhe = 'Viga ettevõtluse lisamisel';
+    tilausvirhe = 'Viga tellimuse hankimisel';
+    lisattytoiminta = 'Ettevõtlus lisatud';
+    break;
+  case 'SV':
+    virhesuosikit = 'Fel vid hämtning av favoriter!';
+    virhesuosikit2 = 'Fel vid lägg till favorit!';
+    virhesuosikit3 = 'Fel vid borttagning av favorit!';
+    virhetuote = 'Fel vid hämtning av produkt!';
+    virhetuote2 = 'Fel vid borttagning av produkt';
+    virheostoskori = 'Fel vid hämtning av kundvagn!';
+    virheostoskori2 = 'Fel vid lägg till produkt i kundvagn!';
+    virheostoskori3 = 'Fel vid uppdatering av produkt i kundvagn!';
+    statusText = 'Order mottagen';
+    virheTilaus = 'Fel vid beställning';
+    tyhjaOstoskori = 'Din varukorg är tom';
+    yritystoimintavirhe = 'Fel vid läggning av företagsverksamhet';
+    tilausvirhe = 'Fel vid hämtning av beställning';
+    lisattytoiminta = 'Företagsverksamhet tillagd';
+    break;
+  case 'FI':
+  default:
+    virhesuosikit = 'Virhe suosikkien hakemisessa!';
+    virhesuosikit2 = 'Virhe suosikin lisäämisessä!';
+    virhesuosikit3 = 'Virhe suosikin poistamisessa!';
+    virhetuote = 'Virhe tuotteen hakemisessa!';
+    virhetuote2 = 'Virhe tuotteen poistamisessa'
+    virheostoskori = 'Virhe ostoskorin hakemisessa!';
+    virheostoskori2 = 'Virhe tuotteen lisäämisessä ostoskoriin!';
+    virheostoskori3 = 'Virhe tuotteen päivittämisessä ostoskoriin!';
+    statusText = 'Tilaus vastaanotettu';
+    virheTilaus = 'Virhe tilauksen tekemisessä';
+    tyhjaOstoskori = 'Ostoskorisi on tyhjä';
+    yritystoimintavirhe = 'Virhe yritystoiminnan lisäämisessä';
+    tilausvirhe = 'Virhe tilauksen hakemisessa';
+    lisattytoiminta = 'Yritystoiminta lisätty';
+    break;
+}
 
 let tuote_id = null;
 
@@ -21,17 +106,13 @@ const findTuoteIdByUserId = async (userId) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe tuotteiden hakemisessa');
+      throw new Error(virhetuote);
     }
 
     const result = await response.json();
     const tuoteIdList = result.map((item) => item.tuote_id);
-    console.log('Tuote id:', tuoteIdList);
-
     return tuoteIdList;
-
   } catch (error) {
-    console.error('Virhe tuotteiden hakemisessa:', error.message);
   }
 };
 
@@ -43,15 +124,14 @@ const getTuoteByTuoteId = async (tuote_id) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe tuotteen hakemisessa');
+      throw new Error(virhetuote);
     }
+
     const tuote = await response.json();
     tilauksenTuoteList.push(tuote);
     console.log('Tilauksen tuotelista:', tilauksenTuoteList);
     console.log('tuoteLista lenght:', tilauksenTuoteList.length);
     console.log('Tuote:', tuote);
-
-    const selectedLanguage = getSelectedLanguage();
 
     let tuoteHintaTeksti = '';
     let tuoteMaaraTeksti = '';
@@ -101,7 +181,6 @@ const getTuoteByTuoteId = async (tuote_id) => {
     const tdElement = document.createElement('td');
     tdElement.innerHTML = `${tuote.tuote_nimi}<br><br>${tuote.tuote_kuvaus}<br><br>${tuoteHintaTeksti}: ${tuote.tuote_hinta} €
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`;
-    tdElement.style
     tuoteElement.appendChild(tdElement);
 
     const numberInput = document.createElement('input');
@@ -171,10 +250,11 @@ const getTuoteByTuoteId = async (tuote_id) => {
     tuoteList.appendChild(hrElement);
 
   } catch (error) {
-    console.error('Virhe tuotteen hakemisessa:', error.message);
   }
 };
 
+
+//TODO
 const laskeLoppusumma = (tuotteet) => {
   const kokonaissumma = tuotteet.reduce((summa, tuote) => {
     if (tuote && typeof tuote.tuote_hinta === "number" && typeof tuote.tuote_maara === "number") {
@@ -191,7 +271,7 @@ const laskeLoppusumma = (tuotteet) => {
 };
 
 
-
+//TODO
 const paivitaLoppusumma = async () => {
   const tuotteet = await getTuotteenMaaraByUserId(userId);
   const loppusummaElement = document.getElementById('loppusumma');
@@ -210,7 +290,7 @@ const ostoskoriTarkistus = async (userId, tuote_id) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe ostoskorin hakemisessa');
+      throw new Error(virheostoskori);
     }
     const ostoskoriList = await response.json();
     const tuoteIdList = ostoskoriList.map((tuote) => tuote.tuote_id);
@@ -221,9 +301,7 @@ const ostoskoriTarkistus = async (userId, tuote_id) => {
     } else {
       return true;
     }
-
   } catch (error) {
-    console.error('Virhe ostoskorin hakemisessa:', error.message);
   }
 };
 
@@ -235,13 +313,11 @@ const deleteTuoteFromCart = async (userId, tuote_id) => {
         method: 'DELETE',
       });
       if (!response.ok) {
-        throw new Error('Virhe tuotteen poistamisessa');
+        throw new Error(virhetuote2);
       }
 
       fetchAndDisplayTuotteet();
-      console.log('Tuote poistettu ostoskorista');
     } catch (error) {
-      console.error('Virhe tuotteen poistamisessa:', error.message);
     }
   }
 };
@@ -261,13 +337,10 @@ const updateCart = async (userId, tuote_id, uusiMaara) => {
     });
 
     if (!response.ok) {
-      throw new Error("Virhe ostoskorin päivittämisessä");
+      throw new Error(virheostoskori3);
     }
 
-    console.log("Tuote päivitetty ostoskoriin");
-
   } catch (error) {
-    console.error("Virhe ostoskorin päivittämisessä:", error.message);
   }
 };
 
@@ -278,13 +351,12 @@ const getTuoteMaaraFromOstoskori = async (userId, tuote_id) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe tuotteen hakemisessa');
+      throw new Error(virhetuote);
     }
 
     const data = await response.json();
     return data.tuote_maara;
   } catch (error) {
-    console.error('Virhe tuotteen hakemisessa:', error.message);
     return 0;
   }
 };
@@ -293,7 +365,6 @@ const deleteTuoteFromTilauksenTuotelist = (tuote_id) => {
   const index = tilauksenTuoteList.findIndex((tuote) => tuote.tuote_id === tuote_id);
   if (index !== -1) {
     tilauksenTuoteList.splice(index, 1);
-    console.log('Tuote poistettu tilaukslistasta:', tilauksenTuoteList);
   }
 };
 
@@ -303,7 +374,7 @@ const lisaaTilausSisalto = async (tilaus_id, tuote_id, tuote_hinta, tuote_kustan
   const kustannus_summa = maara * tuote_kustannus;
   const voitto = myynti_summa - kustannus_summa;
   const tilaus_pvm = new Date().toISOString().slice(0, 10);
-  const statusTeksti = 'Tilaus vastaanotettu';
+  const statusTeksti = statusText;
 
   await lisaaYritystoiminta(tilaus_pvm, tilaus_id, myynti_summa, kustannus_summa, voitto);
 
@@ -330,15 +401,11 @@ const lisaaTilausSisalto = async (tilaus_id, tuote_id, tuote_hinta, tuote_kustan
     });
 
     if (!response.ok) {
-      throw new Error('Virhe tilauksen tekemisessä');
+      throw new Error(virheTilaus);
     }
-    const data = await response.json();
-    console.log('data', data);
-    console.log('Tilaus tehty');
-    alert('Kiitos! Tilaus tehty');
 
+    const data = await response.json();
   } catch (error) {
-    console.error('Virhe tilauksen tekemisessä:', error.message);
   }
 };
 
@@ -355,11 +422,10 @@ const lisaaTilaus = async (userId, tuote_id) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe tilauksen tekemisessä');
+      throw new Error(virheTilaus);
     }
 
   } catch (error) {
-    console.error('Virhe tilauksen tekemisessä:', error.message);
     return null;
   }
 };
@@ -372,7 +438,7 @@ const getLastTilausId = async (userId) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe tilauksen hakemisessa');
+      throw new Error(tilausvirhe);
     }
 
     const data = await response.json();
@@ -380,13 +446,9 @@ const getLastTilausId = async (userId) => {
       const tilaus_id = data.tilaus_id;
     } else if (Array.isArray(data)) {
       const tilaus_id = data[data.length - 1].tilaus_id;
-
-      console.log('Tilaus id:', tilaus_id);
       return tilaus_id;
-
     }
   } catch (error) {
-    console.error('Virhe tilauksen hakemisessa:', error.message);
   }
 }
 
@@ -408,13 +470,11 @@ const lisaaYritystoiminta = async (tilais_pvm, tilaus_id, myynti_hinta, kustannu
       }),
     });
     if (!response.ok) {
-      throw new Error('Virhe yritystoiminnan lisäämisessä');
+      throw new Error(yritystoimintavirhe);
     }
     alert('Yritystoiminta lisätty');
     fetchAndDisplayYritystoiminta();
   } catch (error) {
-    console.error('Virhe yritystoiminnan lisäämisessä:', error.message);
-
   }
 }
 
@@ -438,7 +498,7 @@ function getPaymentPageUrl(kieli) {
 
 payButton.addEventListener('click', async () => {
   if (tilauksenTuoteList.length < 1) {
-    alert('Ostoskori on tyhjä');
+    alert(tyhjaOstoskori);
     return;
   }
 
@@ -463,7 +523,6 @@ payButton.addEventListener('click', async () => {
     }
 
   } catch (error) {
-    console.error('Virhe tilauksen tekemisessä:', error.message);
   }
 });
 

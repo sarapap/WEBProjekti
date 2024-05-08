@@ -6,6 +6,38 @@ function getSelectedLanguage() {
     return kieli && kieli.value ? kieli.value : 'FI';
 }
 
+/* tekstit eri kielillä  */
+
+const selectedLanguage = getSelectedLanguage();
+switch (selectedLanguage) {
+    case 'EN':
+        virhetuote = 'Error fetching product!';
+        virhetuote2 = 'Error adding product!';
+        virhekategoria = 'Error removing category!';
+        break;
+    case 'CN':
+        virhetuote = '获取产品时出错！';
+        virhetuote2 = '添加产品时出错！';
+        virhekategoria = '删除类别时出错！';
+        break;
+    case 'ET':
+        virhetuote = 'Viga toote laadimisel!';
+        virhetuote2 = 'Viga toote lisamisel!';
+        virhekategoria = 'Viga kategooria eemaldamisel!';
+        break;
+    case 'SV':
+        virhetuote = 'Fel vid hämtning av produkt!';
+        virhetuote2 = 'Fel vid lägg till produkt!';
+        virhekategoria = 'Fel vid borttagning av kategori!';
+        break;
+    case 'FI':
+    default:
+        virhetuote = 'Virhe tuotteen hakemisessa!';
+        virhetuote2 = 'Virhe tuotteen lisäämisessä!';
+        virhekategoria = 'Virhe kategorian poistamisessa!';
+        break;
+}
+
 /* uuden käyttäjän lisäys adminin puolesta */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -292,8 +324,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cakeType.addEventListener('change', async () => {
             await fetchAndDisplayTuotteet();
         });
-    } else {
-        console.error("Element 'cakeType' ei löytynyt.");
     }
 });
 
@@ -367,10 +397,6 @@ const getTyyppiIdLista = async () => {
             method: 'GET',
         });
 
-        if (!response.ok) {
-            throw new Error('Virhe alatyyppien hakemisessa');
-        }
-
         const tyyppiList = await response.json();
 
         if (Array.isArray(tyyppiList)) {
@@ -381,7 +407,6 @@ const getTyyppiIdLista = async () => {
             return tyyppiList.tyyppi_id;
         }
     } catch (error) {
-        console.error('Virhe tuote_id hakemisessa:', error.message);
         return [];
     }
 };
@@ -407,7 +432,7 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
         });
 
         if (!response.ok) {
-            throw new Error("Virhe tuotteiden hakemisessa");
+            throw new Error(virhetuote);
         }
 
         const tuotteet = await response.json();
@@ -582,24 +607,16 @@ const addKategoriaToTuote = async (tuoteId, kategoriaId) => {
         });
 
         if (!response.ok) {
-            console.error(`Virhe kategorian lisäämisessä: ${response.statusText}`);
             return false;
         }
 
-        console.log('Kategoria lisätty onnistuneesti');
         return true;
     } catch (error) {
-        console.error('Virhe POST-pyynnössä:', error.message);
         return false;
     }
 };
 
 const deleteKategoriaFromTuote = async (tuoteId, kategoriatuote_id) => {
-    if (!tuoteId || !kategoriatuote_id) {
-        console.error("Tuote ID tai Kategoria ID on määrittelemätön");
-        return false;
-    }
-
     console.log("Poistetaan kategoria tuotteelta", tuoteId, kategoriatuote_id);
 
     try {
@@ -608,13 +625,11 @@ const deleteKategoriaFromTuote = async (tuoteId, kategoriatuote_id) => {
         });
 
         if (!response.ok) {
-            throw new Error(`Virhe kategorian poistamisessa: ${response.statusText}`);
+            throw new Error(virhekategoria);
         }
 
-        console.log("Kategoria poistettu onnistuneesti");
         return true;
     } catch (error) {
-        console.error("Virhe DELETE-pyynnössä:", error.message);
         return false;
     }
 };
@@ -755,7 +770,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (tuoteForm) {
             const formData = new FormData(tuoteForm);
 
-            console.log("FormData sisältö:");
             for (let [key, value] of formData.entries()) {
                 console.log(`${key}: ${value}`);
             }
@@ -767,13 +781,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (!response.ok) {
-                    console.error(`Virhe tuotteen lisäämisessä: ${response.statusText}`);
+                    console.error(virhetuote2);
                 } else {
-                    console.log('Tuote lisätty onnistuneesti');
                     tuoteModal?.close();
                 }
             } catch (error) {
-                console.error('Virhe tuotteen lisäämisessä:', error.message);
             }
         }
     });
