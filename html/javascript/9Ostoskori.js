@@ -398,16 +398,16 @@ const payButton = document.getElementById('payButton');
 function getPaymentPageUrl(kieli) {
   switch (kieli) {
     case 'EN':
-      return '../../html/en/9Maksu_en.html';
+      return '../../en/9Maksu_en.html';
     case 'CN':
-      return '../../html/cn/9Maksu_cn.html';
+      return '../../cn/9Maksu_cn.html';
     case 'ET':
-      return '../../html/et/9Maksu_et.html';
+      return '../../et/9Maksu_et.html';
     case 'SV':
-      return '../../html/sv/9Maksu_sv.html';
+      return '../../sv/9Maksu_sv.html';
     case 'FI':
     default:
-      return '../../html/fi/9Maksu.html';
+      return '../../fi/9Maksu.html';
   }
 }
 

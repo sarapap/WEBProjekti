@@ -155,11 +155,11 @@ document.addEventListener("DOMContentLoaded", async function () {
         };
 
         const anotherPage = {
-            FI: "../../html/fi/7KayttajaMuutos.html",
-            EN: "../../html/en/7KayttajaMuutos_en.html",
-            CN: "../../html/cn/7KayttajaMuutos_cn.html",
-            ET: "../../html/et/7KayttajaMuutos_et.html",
-            SV: "../../html/sv/7KayttajaMuutos_sv.html",
+            FI: "../../fi/7KayttajaMuutos.html",
+            EN: "../../en/7KayttajaMuutos_en.html",
+            CN: "../../cn/7KayttajaMuutos_cn.html",
+            ET: "../../et/7KayttajaMuutos_et.html",
+            SV: "../../sv/7KayttajaMuutos_sv.html",
         };
 
         const t = translations[selectedLanguage];
@@ -192,12 +192,12 @@ document.addEventListener("DOMContentLoaded", async function () {
             <p>${t.birthday}: ${displayDate}</p>
             <p>${t.discountGroup}: ${translatedDiscountGroup}</p>
             <label for="allergia">${t.foodAllergies}:</label><br>
-            <li name="allergia" id="allergia" 
+            <li name="allergia" id="allergia"
             style="color: rgb(219, 146, 56); font-weight: bold; list-style: none;
             border: 1px solid black; border-radius: 5px; font-size: 14px;">
             ${allergiaText}
             </li><br>
-            <button class="edit" type="button" onclick="window.location.href = '../../html/${editPage}'"><b>${t.edit}</b></button><br>
+            <button class="edit" type="button" onclick="window.location.href = '../../${editPage}'"><b>${t.edit}</b></button><br>
             <button class="logOut" type="button" onclick="logOut()"><b>${t.logout}</b></button>
         `;
 

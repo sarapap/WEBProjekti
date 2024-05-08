@@ -71,24 +71,24 @@ document.addEventListener('DOMContentLoaded', function () {
                         switch (selectedLanguage) {
                             case 'EN':
                                 alert('Registration successful. Welcome!')
-                                targetPage = '../../html/en/7Kayttaja_en.html';
+                                targetPage = '../../en/7Kayttaja_en.html';
                                 break;
                             case 'CN':
                                 alert('注册成功。欢迎！')
-                                targetPage = '../../html/cn/7Kayttaja_cn.html';
+                                targetPage = '../../cn/7Kayttaja_cn.html';
                                 break;
                             case 'ET':
                                 alert('Registreerimine õnnestus. Tere tulemast!')
-                                targetPage = '../../html/et/7Kayttaja_et.html';
+                                targetPage = '../../et/7Kayttaja_et.html';
                                 break;
                             case 'SV':
                                 alert('Registreringen lyckades. Välkommen!')
-                                targetPage = '../../html/sv/7Kayttaja_sv.html';
+                                targetPage = '../../sv/7Kayttaja_sv.html';
                                 break;
                             case 'FI':
                             default:
                                 alert('Rekisteröinti onnistui. Tervetuloa!')
-                                targetPage = '../../html/fi/7Kayttaja.html';
+                                targetPage = '../../fi/7Kayttaja.html';
                                 break;
                         }
 

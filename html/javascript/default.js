@@ -48,39 +48,39 @@ document.addEventListener('DOMContentLoaded', function () {
         if (authToken) {
           switch (selectedLanguage) {
             case 'EN':
-              redirectPage = '../../html/en/7Kayttaja_en.html';
+              redirectPage = '../../en/7Kayttaja_en.html';
               break;
             case 'CN':
-              redirectPage = '../../html/cn/7Kayttaja_cn.html';
+              redirectPage = '../../cn/7Kayttaja_cn.html';
               break;
             case 'ET':
-              redirectPage = '../../html/et/7Kayttaja_et.html';
+              redirectPage = '../../et/7Kayttaja_et.html';
               break;
             case 'SV':
-              redirectPage = '../../html/sv/7Kayttaja_sv.html';
+              redirectPage = '../../sv/7Kayttaja_sv.html';
               break;
             case 'FI':
             default:
-              redirectPage = '../../html/fi/7Kayttaja.html';
+              redirectPage = '../../fi/7Kayttaja.html';
               break;
           }
         } else {
           switch (selectedLanguage) {
             case 'EN':
-              redirectPage = '../../html/en/11Login_en.html';
+              redirectPage = '../../en/11Login_en.html';
               break;
             case 'CN':
-              redirectPage = '../../html/cn/11login_cn.html';
+              redirectPage = '../../cn/11login_cn.html';
               break;
             case 'ET':
-              redirectPage = '../../html/et/11Login_et.html';
+              redirectPage = '../../et/11Login_et.html';
               break;
             case 'SV':
-              redirectPage = '../../html/sv/11Login_sv.html';
+              redirectPage = '../../sv/11Login_sv.html';
               break;
             case 'FI':
             default:
-              redirectPage = '../../html/fi/11Login.html';
+              redirectPage = '../../fi/11Login.html';
               break;
           }
         }
@@ -95,12 +95,13 @@ document.addEventListener('DOMContentLoaded', function () {
 // get asiakas id from local storage
 const getUserId = () => {
   const token = localStorage.getItem('authToken');
-  const base64Payload = token.split('.')[1];
-  const payload = atob(base64Payload);
-  const parsedPayload = JSON.parse(payload);
-  let userId = parsedPayload.asiakas_id;
-  return userId;
-
+  if(token) {
+    const base64Payload = token.split('.')[1];
+    const payload = atob(base64Payload);
+    const parsedPayload = JSON.parse(payload);
+    let userId = parsedPayload.asiakas_id;
+    return userId;
+  }
 }
 
 
@@ -113,7 +114,7 @@ const paivitaOstoskorinNumero = async () => {
 
   const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
   const tuotteet = await getTuotteenMaaraByUserId(userId);
-  ostoskoriLkmElement.textContent = tuotteet.length.toString();
+  ostoskoriLkmElement.textContent = tuotteet?.length?.toString() || '0';
 }
 
 const paivitaSuosikkiMaara = async () => {
@@ -122,6 +123,10 @@ const paivitaSuosikkiMaara = async () => {
 
 const getSuosikinMaaraByUserId = async (userId) => {
   try {
+    if(!userId) {
+      throw new Error('userid not found');
+    }
+
     const response = await fetch(`http://localhost:3000/api/v1/suosikit/${userId}`, {
       method: 'GET',
     });
@@ -153,6 +158,11 @@ const getSuosikinMaaraByUserId = async (userId) => {
 const getTuotteenMaaraByUserId = async (userId) => {
 
   try {
+    if(!userId) {
+      throw new Error('userid not found');
+    }
+
+
     const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
       method: 'GET',
     });
@@ -210,20 +220,20 @@ const vahvistaJaTyhjenna = async () => {
   let targetPage = '';
   switch (kieli) {
     case 'EN':
-      targetPage = '../../html/en/9Vahvistus_en.html';
+      targetPage = '../../en/9Vahvistus_en.html';
       break;
     case 'CN':
-      targetPage = '../../html/cn/9Vahvistus_cn.html';
+      targetPage = '../../cn/9Vahvistus_cn.html';
       break;
     case 'ET':
-      targetPage = '../../html/et/9Vahvistus_et.html';
+      targetPage = '../../et/9Vahvistus_et.html';
       break;
     case 'SV':
-      targetPage = '../../html/sv/9Vahvistus_sv.html';
+      targetPage = '../../sv/9Vahvistus_sv.html';
       break;
     case 'FI':
     default:
-      targetPage = '../../html/fi/9Vahvistus.html';
+      targetPage = '../../fi/9Vahvistus.html';
       break;
   }
   window.location.href = targetPage;

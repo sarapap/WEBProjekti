@@ -41,24 +41,24 @@ async function submitForm(event) {
             switch (selectedLanguage) {
                 case 'EN':
                     alert("Information updated successfully.")
-                    targetPage = '../../html/en/7Kayttaja_en.html';
+                    targetPage = '../../en/7Kayttaja_en.html';
                     break;
                 case 'CN':
                     alert("信息已成功更新。")
-                    targetPage = '../../html/cn/7Kayttaja_cn.html';
+                    targetPage = '../../cn/7Kayttaja_cn.html';
                     break;
                 case 'ET':
                     alert("Teave on edukalt uuendatud.")
-                    targetPage = '../../html/et/7Kayttaja_et.html';
+                    targetPage = '../../et/7Kayttaja_et.html';
                     break;
                 case 'SV':
                     alert("Informationen har uppdaterats framgångsrikt.")
-                    targetPage = '../../html/sv/7Kayttaja_sv.html';
+                    targetPage = '../../sv/7Kayttaja_sv.html';
                     break;
                 case 'FI':
                 default:
                     alert("Tiedot päivitetty onnistuneesti.");
-                    targetPage = '../../html/fi/7Kayttaja.html';
+                    targetPage = '../../fi/7Kayttaja.html';
                     break;
             }
 
@@ -204,24 +204,24 @@ document.getElementById("changePasswordForm").addEventListener("submit", functio
                 switch (selectedLanguage) {
                     case 'EN':
                         alert("Password has been changed.")
-                        targetPage = '../../html/en/7Kayttaja_en.html';
+                        targetPage = '../../en/7Kayttaja_en.html';
                         break;
                     case 'CN':
                         alert("密码已更改。")
-                        targetPage = '../../html/cn/7Kayttaja_cn.html';
+                        targetPage = '../../cn/7Kayttaja_cn.html';
                         break;
                     case 'ET':
                         alert("Parool on muudetud.")
-                        targetPage = '../../html/et/7Kayttaja_et.html';
+                        targetPage = '../../et/7Kayttaja_et.html';
                         break;
                     case 'SV':
                         alert("Lösenordet har ändrats.")
-                        targetPage = '../../html/sv/7Kayttaja_sv.html';
+                        targetPage = '../../sv/7Kayttaja_sv.html';
                         break;
                     case 'FI':
                     default:
                         alert("Salasana on vaihdettu.");
-                        targetPage = '../../html/fi/7Kayttaja.html';
+                        targetPage = '../../fi/7Kayttaja.html';
                         break;
                 }
 
@@ -319,7 +319,7 @@ function updateAllergiaList() {
     allergies.forEach((allergia, index) => {
         const allergiaItem = document.createElement("div");
         allergiaItem.innerHTML = `
-            ${allergia} 
+            ${allergia}
             <button data-index="${index}" class="deleteButton">${getDeleteButtonText()}</button>
         `;
         allergiaList.appendChild(allergiaItem);
