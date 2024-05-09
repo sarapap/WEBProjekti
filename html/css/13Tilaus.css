@@ -201,49 +201,34 @@ nav li {
 }
 
 .aside2 {
-  background-color: #efece4;
-  height: 70%;
-  min-width: 100%;
+  padding-left: 5%;
+  height: 100%;
+  border-radius: 1rem;
+  border: 2px solid #ccc;
   border-radius: 10px;
+  padding: 20px;
+  margin-left: 5%;
+  margin-top: 30px;
 
 }
-
-/* .tilaus-item td {
- min-width: max-content;
-
-}
-
-.tilaus-lis td {
-  padding-left: 300px;
-} */
 
 .tilaus-item {
   min-width: 80%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+
+  justify-content: space-around;
   padding: 10px 60px 10px 10px;
-  border: 1px solid #d9cfcf;
+  border: 1px solid #ede9ca;
   border-radius: 5px;
 
 
 
 }
 .tilaus-item > td {
-  width: 15%;  /* Vähennetään paddingin leveys */
+  width: 20%;  /* Vähennetään paddingin leveys */
   padding-left: 5px;
 
 }
-
-/* .tilaus-item tbody {
-  display: flex;
-  min-width: 100%;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  border: 1px solid #ccc;
-  border-radius: 2rem;
-
-} */
 
 /* kuvat */
 
@@ -262,7 +247,7 @@ nav li {
   display: inline-block;
   width: 150px;
   height: 150px;
-  margin: 30px;
+  margin: 20px;
   background-image: url('kuvat/tietosdot.png');
   background-size: cover;
 
@@ -272,7 +257,7 @@ nav li {
   display: inline-block;
   width: 150px;
   height: 150px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   background-image: url('kuvat/tilaus.png');
   background-size: cover;
 
@@ -423,6 +408,7 @@ footer {
   .main {
     height: auto;
     display: flex;
+    width: 100%;
   }
 
   .aside1 {
@@ -438,16 +424,22 @@ footer {
 }
 
 @media screen and (max-width:800px) {
+  .main  main{
+    display: flexbox;
+    min-height: 100%;
+  }
   .aside1 {
     width: 20%;
     margin-bottom: 2rem;
-    margin-left: 2%;
+    min-height: 100%;
+
   }
 
   .aside2 {
     width: 75%;
     margin-bottom: 10rem;
     margin-left: 30%;
+    min-height: 100%;
 
   }
 
@@ -487,6 +479,9 @@ footer {
 }
 
 @media (min-width: 650px) {
+  .main {
+    min-height: 100%;
+  }
 
   button label {
     order: 2;

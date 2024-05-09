@@ -180,6 +180,7 @@ nav li {
 /* main */
 .main {
   width: 90%;
+  min-height: 100%;
   display: block;
   height: 100px;
   margin: 20px 0px 20px 0px;

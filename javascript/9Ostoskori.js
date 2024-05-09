@@ -246,6 +246,7 @@ const getTuoteByTuoteId = async (tuote_id) => {
     deleteButtonElement.classList.add('delete-button');
 
     deleteButtonElement.addEventListener('click', async () => {
+      console.log(tuote_id, userId)
       await deleteTuoteFromCart(userId, tuote_id);
       deleteTuoteFromTilauksenTuotelist(tuote_id);
       paivitaLoppusumma();
@@ -324,6 +325,7 @@ const ostoskoriTarkistus = async (userId, tuote_id) => {
 };
 
 const deleteTuoteFromCart = async (userId, tuote_id) => {
+  console.log('userId:', userId, 'tuote_id:', tuote_id);
   const onTuoteKorissa = await ostoskoriTarkistus(userId, tuote_id);
   if (onTuoteKorissa) {
     try {
