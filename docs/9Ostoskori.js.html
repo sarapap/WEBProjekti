@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: 9Ostoskori.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: 9Ostoskori.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * @file This script handles a shopping cart system with multiple functionalities including fetching products, 
  *       adding them to a cart, updating quantities, removing items, and placing orders. It also includes
  *       support for different languages with error messages and status texts tailored to each language.
@@ -116,7 +144,7 @@ let tuote_id = null;
  * 
  * @async
  * @function fetchAndDisplayTuotteet
- * @returns {Promise<void>} A promise that resolves when products are fetched and displayed.
+ * @returns {Promise&lt;void>} A promise that resolves when products are fetched and displayed.
  */
 const fetchAndDisplayTuotteet = async () => {
   const userId = getUserId();
@@ -137,7 +165,7 @@ const fetchAndDisplayTuotteet = async () => {
  * @async
  * @function findTuoteIdByUserId
  * @param {number} userId - The ID of the user.
- * @returns {Promise<number[]>} A list of product IDs.
+ * @returns {Promise&lt;number[]>} A list of product IDs.
  * @throws Will throw an error if there's an issue with fetching the data.
  */
 const findTuoteIdByUserId = async (userId) => {
@@ -166,7 +194,7 @@ const tilauksenTuoteList = [];
  * @function getTuoteByTuoteId
  * @param {number} tuote_id - The ID of the product.
  * @param {number} tuoteMaara - The quantity of the product.
- * @returns {Promise<void>} A promise that resolves when the product details are fetched.
+ * @returns {Promise&lt;void>} A promise that resolves when the product details are fetched.
  * @throws Will throw an error if there's an issue with fetching the product.
  */
 const getTuoteByTuoteId = async (tuote_id) => {
@@ -228,8 +256,8 @@ const getTuoteByTuoteId = async (tuote_id) => {
     tuoteElement.appendChild(imgElement);
 
     const tdElement = document.createElement('td');
-    tdElement.innerHTML = `${tuote.tuote_nimi}<br><br>${tuote.tuote_kuvaus}<br><br>${tuoteHintaTeksti}: ${tuote.tuote_hinta} €
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`;
+    tdElement.innerHTML = `${tuote.tuote_nimi}&lt;br>&lt;br>${tuote.tuote_kuvaus}&lt;br>&lt;br>${tuoteHintaTeksti}: ${tuote.tuote_hinta} €
+&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp`;
     tuoteElement.appendChild(tdElement);
 
     const numberInput = document.createElement('input');
@@ -241,7 +269,7 @@ const getTuoteByTuoteId = async (tuote_id) => {
     numberInput.addEventListener('blur', async (event) => {
       const uusiMaara = parseInt(event.target.value, 10);
 
-      if (uusiMaara < 1) {
+      if (uusiMaara &lt; 1) {
         numberInput.value = '1';
       } else {
         await paivitaOstoskorinNumero();
@@ -256,7 +284,7 @@ const getTuoteByTuoteId = async (tuote_id) => {
     updateButton.addEventListener('click', async () => {
       const uusiMaara = parseInt(numberInput.value, 10);
 
-      if (isNaN(uusiMaara) || uusiMaara < 1) {
+      if (isNaN(uusiMaara) || uusiMaara &lt; 1) {
         numberInput.value = '1';
         return;
       }
@@ -283,7 +311,7 @@ const getTuoteByTuoteId = async (tuote_id) => {
     tdElement.appendChild(updateButton);
 
     const deleteButtonElement = document.createElement('button');
-    deleteButtonElement.innerHTML = '<i class="fas fa-trash-alt" style="cursor:pointer;"></i>';
+    deleteButtonElement.innerHTML = '&lt;i class="fas fa-trash-alt" style="cursor:pointer;">&lt;/i>';
     deleteButtonElement.classList.add('delete-button');
 
     deleteButtonElement.addEventListener('click', async () => {
@@ -335,7 +363,7 @@ const ostoskoriTarkistus = async (userId, tuote_id) => {
  * @function deleteTuoteFromCart
  * @param {number} userId - The ID of the user.
  * @param {number} tuote_id - The ID of the product.
- * @returns {Promise<void>} A promise that resolves when the product is removed from the cart.
+ * @returns {Promise&lt;void>} A promise that resolves when the product is removed from the cart.
  * @throws Will throw an error if there's an issue with removing the product.
  */
 const deleteTuoteFromCart = async (userId, tuote_id) => {
@@ -363,7 +391,7 @@ const deleteTuoteFromCart = async (userId, tuote_id) => {
  * @param {number} userId - The ID of the user.
  * @param {number} tuote_id - The ID of the product.
  * @param {number} uusiMaara - The new quantity of the product.
- * @returns {Promise<void>} A promise that resolves when the cart is updated.
+ * @returns {Promise&lt;void>} A promise that resolves when the cart is updated.
  * @throws Will throw an error if there's an issue with updating the cart.
  */
 const updateCart = async (userId, tuote_id, uusiMaara) => {
@@ -395,7 +423,7 @@ const updateCart = async (userId, tuote_id, uusiMaara) => {
  * @function getTuoteMaaraFromOstoskori
  * @param {number} userId - The ID of the user.
  * @param {number} tuote_id - The ID of the product.
- * @returns {Promise<number>} The quantity of the product in the cart.
+ * @returns {Promise&lt;number>} The quantity of the product in the cart.
  * @throws Will throw an error if there's an issue with fetching the quantity.
  */
 const getTuoteMaaraFromOstoskori = async (userId, tuote_id) => {
@@ -436,7 +464,7 @@ const deleteTuoteFromTilauksenTuotelist = (tuote_id) => {
  * @async
  * @function tarkistaTilausId
  * @param {number} tilaus_id - The ID of the order.
- * @returns {Promise<boolean>} True if the order ID is valid, otherwise false.
+ * @returns {Promise&lt;boolean>} True if the order ID is valid, otherwise false.
  * @throws Will throw an error if there's an issue with fetching the order ID.
  */
 const tarkistaTilausId = async (tilaus_id) => {
@@ -446,7 +474,7 @@ const tarkistaTilausId = async (tilaus_id) => {
       return false;
     }
     const data = await response.json();
-    return data && data.tilaus_id === tilaus_id;
+    return data &amp;&amp; data.tilaus_id === tilaus_id;
   } catch (error) {
     return false;
   }
@@ -462,7 +490,7 @@ const tarkistaTilausId = async (tilaus_id) => {
  * @param {number} tuote_hinta - The price of the product.
  * @param {number} tuote_kustannus - The cost of the product.
  * @param {number} maara - The quantity of the product.
- * @returns {Promise<void>} A promise that resolves when the order content is added.
+ * @returns {Promise&lt;void>} A promise that resolves when the order content is added.
  * @throws Will throw an error if there's an issue with adding the order content.
  */
 const lisaaTilausSisalto = async (tilaus_id, tuote_id, tuote_hinta, tuote_kustannus, maara) => {
@@ -518,7 +546,7 @@ const lisaaTilausSisalto = async (tilaus_id, tuote_id, tuote_hinta, tuote_kustan
  * @function lisaaTilaus
  * @param {number} userId - The ID of the user.
  * @param {number} tuote_id - The ID of the product.
- * @returns {Promise<number | null>} The order ID, or null if an error occurs.
+ * @returns {Promise&lt;number | null>} The order ID, or null if an error occurs.
  */
 const lisaaTilaus = async (userId, tuote_id) => {
   try {
@@ -547,7 +575,7 @@ const lisaaTilaus = async (userId, tuote_id) => {
  * @async
  * @function getLastTilausId
  * @param {number} userId - The ID of the user.
- * @returns {Promise<number | null>} The last order ID, or null if an error occurs.
+ * @returns {Promise&lt;number | null>} The last order ID, or null if an error occurs.
  */
 const getLastTilausId = async (userId) => {
   const fetchLastTilausId = async () => {
@@ -560,7 +588,7 @@ const getLastTilausId = async (userId) => {
     }
 
     const data = await response.json();
-    if (Array.isArray(data) && data.length > 0) {
+    if (Array.isArray(data) &amp;&amp; data.length > 0) {
       const tilaus_id = data[data.length - 1].tilaus_id;
       return tilaus_id;
     }
@@ -582,7 +610,7 @@ const getLastTilausId = async (userId) => {
     }
 
     const newData = await response.json();
-    if (newData && newData.tilaus_id) {
+    if (newData &amp;&amp; newData.tilaus_id) {
       return newData.tilaus_id;
     }
 
@@ -613,7 +641,7 @@ const getLastTilausId = async (userId) => {
  * @param {number} myynti_hinta - The total sales price.
  * @param {number} kustannus - The total cost.
  * @param {number} voitto - The total profit.
- * @returns {Promise<void>} A promise that resolves when business activity details are added.
+ * @returns {Promise&lt;void>} A promise that resolves when business activity details are added.
  * @throws Will throw an error if there's an issue with adding business activity.
  */
 const lisaaYritystoiminta = async (tilais_pvm, tilaus_id, myynti_hinta, kustannus, voitto) => {
@@ -644,7 +672,7 @@ const lisaaYritystoiminta = async (tilais_pvm, tilaus_id, myynti_hinta, kustannu
 payButton.addEventListener('click', async () => {
 
   try {
-    if (tilauksenTuoteList.length < 1) {
+    if (tilauksenTuoteList.length &lt; 1) {
       alert(tyhjaOstoskori);
       return;
 
@@ -694,3 +722,26 @@ function getPaymentPageUrl(kieli) {
 
 fetchAndDisplayTuotteet();
 
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#deleteTuoteFromCart">deleteTuoteFromCart</a></li><li><a href="global.html#deleteTuoteFromTilauksenTuotelist">deleteTuoteFromTilauksenTuotelist</a></li><li><a href="global.html#fetchAndDisplayTuotteet">fetchAndDisplayTuotteet</a></li><li><a href="global.html#findTuoteIdByUserId">findTuoteIdByUserId</a></li><li><a href="global.html#getLastTilausId">getLastTilausId</a></li><li><a href="global.html#getPaymentPageUrl">getPaymentPageUrl</a></li><li><a href="global.html#getTuoteByTuoteId">getTuoteByTuoteId</a></li><li><a href="global.html#getTuoteMaaraFromOstoskori">getTuoteMaaraFromOstoskori</a></li><li><a href="global.html#lisaaTilaus">lisaaTilaus</a></li><li><a href="global.html#lisaaTilausSisalto">lisaaTilausSisalto</a></li><li><a href="global.html#lisaaYritystoiminta">lisaaYritystoiminta</a></li><li><a href="global.html#paivitaOstoskorinNumero">paivitaOstoskorinNumero</a></li><li><a href="global.html#selectedLanguage">selectedLanguage</a></li><li><a href="global.html#tarkistaTilausId">tarkistaTilausId</a></li><li><a href="global.html#updateCart">updateCart</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Fri May 10 2024 00:00:34 GMT+0300 (Eastern European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,11 +1,39 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: 8Suosikit.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: 8Suosikit.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * The container that holds a set of images.
  * @type {Element}
  */
 const imageContainer = document.querySelector('.image-container');
 /**
  * All the images within the image container.
- * @type {NodeListOf<Element>}
+ * @type {NodeListOf&lt;Element>}
  */
 const images = imageContainer.querySelectorAll('img');
 /**
@@ -61,7 +89,7 @@ prevButton.addEventListener('click', () => {
  * Moves to the next image in the carousel if the index is within bounds.
  */
 nextButton.addEventListener('click', () => {
-  if (currentIndex < totalImages - 1 && currentIndex < maxForwardPresses) {
+  if (currentIndex &lt; totalImages - 1 &amp;&amp; currentIndex &lt; maxForwardPresses) {
     currentIndex++;
     updateCarousel();
   }
@@ -159,7 +187,7 @@ const fetchAndDisplayTuotteet = async () => {
 /**
  * Finds the product IDs associated with a given user ID.
  * @param {string} userId - The ID of the user.
- * @returns {Promise<Array<string>>} A promise resolving to a list of product IDs.
+ * @returns {Promise&lt;Array&lt;string>>} A promise resolving to a list of product IDs.
  */
 const findTuoteIdByUserId = async (userId) => {
   try {
@@ -210,15 +238,15 @@ const getTuoteByTuoteId = async (tuote_id, userId) => {
 
     // lisää ostoskori- ja suosikkipainikkeet
     const buttonElement = document.createElement('button');
-    buttonElement.innerHTML = '<i class="fas fa-shopping-cart"></i>';
+    buttonElement.innerHTML = '&lt;i class="fas fa-shopping-cart">&lt;/i>';
     buttonElement.classList.add('cart-button');
 
     const buttonElement2 = document.createElement('button');
     const isAlreadyFavorite = await isFavorite(userId, tuote_id);
     if (isAlreadyFavorite) {
-      buttonElement2.innerHTML = '<i class="fas fa-heart"></i>';
+      buttonElement2.innerHTML = '&lt;i class="fas fa-heart">&lt;/i>';
     } else {
-      buttonElement2.innerHTML = '<i class="far fa-heart"></i>';
+      buttonElement2.innerHTML = '&lt;i class="far fa-heart">&lt;/i>';
     }
 
     buttonElement2.classList.add('favorite-button');
@@ -263,7 +291,7 @@ const getTuoteByTuoteId = async (tuote_id, userId) => {
  * Checks whether a product is marked as a favorite for a given user.
  * @param {string} userId - The ID of the user.
  * @param {string} tuote_id - The ID of the product.
- * @returns {Promise<boolean>} True if the product is a favorite, false otherwise.
+ * @returns {Promise&lt;boolean>} True if the product is a favorite, false otherwise.
  */
 const isFavorite = async (userId, tuote_id) => {
   try {
@@ -350,7 +378,7 @@ const removeSuosikista = async (userId, tuote_id) => {
  * Checks whether a product is in the user's cart.
  * @param {string} userId - The ID of the user.
  * @param {string} tuote_id - The ID of the product.
- * @returns {Promise<boolean>} True if the product is in the cart, false otherwise.
+ * @returns {Promise&lt;boolean>} True if the product is in the cart, false otherwise.
  */
 const ostoskoriTarkistus = async (userId, tuote_id) => {
   try {
@@ -426,3 +454,26 @@ const updateCart = async (userId, tuote_id, tuote_maara) => {
 
 // Start fetching and displaying products.
 fetchAndDisplayTuotteet();
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addFavorite">addFavorite</a></li><li><a href="global.html#addToCart">addToCart</a></li><li><a href="global.html#currentIndex">currentIndex</a></li><li><a href="global.html#fetchAndDisplayTuotteet">fetchAndDisplayTuotteet</a></li><li><a href="global.html#findTuoteIdByUserId">findTuoteIdByUserId</a></li><li><a href="global.html#getTuoteByTuoteId">getTuoteByTuoteId</a></li><li><a href="global.html#imageContainer">imageContainer</a></li><li><a href="global.html#images">images</a></li><li><a href="global.html#isFavorite">isFavorite</a></li><li><a href="global.html#maxForwardPresses">maxForwardPresses</a></li><li><a href="global.html#nextButton">nextButton</a></li><li><a href="global.html#ostoskoriTarkistus">ostoskoriTarkistus</a></li><li><a href="global.html#prevButton">prevButton</a></li><li><a href="global.html#removeSuosikista">removeSuosikista</a></li><li><a href="global.html#selectedLanguage">selectedLanguage</a></li><li><a href="global.html#toggleFavorite">toggleFavorite</a></li><li><a href="global.html#totalImages">totalImages</a></li><li><a href="global.html#updateCarousel">updateCarousel</a></li><li><a href="global.html#updateCart">updateCart</a></li><li><a href="global.html#virhesuosikit">virhesuosikit</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Fri May 10 2024 00:04:13 GMT+0300 (Eastern European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
