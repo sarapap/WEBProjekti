@@ -525,10 +525,60 @@ function getPaymentPageUrl(kieli) {
   }
 }
 
+// payButton.addEventListener('click', async () => {
+//   if (tilauksenTuoteList.length < 1) {
+//     alert('Ostoskori on tyhjä');
+//     return;
+//   }
+
+//   const kieli = getSelectedLanguage();
+//   const targetPage = getPaymentPageUrl(kieli);
+
+//   window.location.href = targetPage;
+
+//   try {
+//     for (const tuote of tilauksenTuoteList) {
+//       const tuote_id = tuote.tuote_id;
+//       const tuote_hinta = tuote.tuote_hinta;
+//       const tuote_kustannus = tuote.tuote_kustannus;
+//       const tilaus_id = await getLastTilausId(userId);
+
+//       const maara = await getTuoteMaaraFromOstoskori(userId, tuote_id);
+
+//       await lisaaTilausSisalto(tilaus_id, tuote_id, tuote_hinta, tuote_kustannus, maara);
+//       await lisaaTilaus(userId, tuote_id);
+//       await deleteTuoteFromCart(userId, tuote_id);
+//       await paivitaOstoskorinNumero();
+//     }
+
+//   } catch (error) {
+//   }
+// });
+
 payButton.addEventListener('click', async () => {
-  if (tilauksenTuoteList.length < 1) {
-    alert('Ostoskori on tyhjä');
-    return;
+
+  try {
+    if (tilauksenTuoteList.length < 1) {
+      alert('Ostoskori on tyhjä');
+      return;
+
+    } else {
+      for (const tuote of tilauksenTuoteList) {
+        const tuote_id = tuote.tuote_id;
+        const tuote_hinta = tuote.tuote_hinta;
+        const tuote_kustannus = tuote.tuote_kustannus;
+        const tilaus_id = await getLastTilausId(userId);
+
+        const maara = await getTuoteMaaraFromOstoskori(userId, tuote_id);
+
+        await lisaaTilausSisalto(tilaus_id, tuote_id, tuote_hinta, tuote_kustannus, maara);
+        await lisaaTilaus(userId, tuote_id);
+        await deleteTuoteFromCart(userId, tuote_id);
+        await paivitaOstoskorinNumero();
+      }
+    }
+  } catch (error) {
+    console.error('Virhe tilauksen tekemisessä:', error.message);
   }
 
   const kieli = getSelectedLanguage();
@@ -536,23 +586,6 @@ payButton.addEventListener('click', async () => {
 
   window.location.href = targetPage;
 
-  try {
-    for (const tuote of tilauksenTuoteList) {
-      const tuote_id = tuote.tuote_id;
-      const tuote_hinta = tuote.tuote_hinta;
-      const tuote_kustannus = tuote.tuote_kustannus;
-      const tilaus_id = await getLastTilausId(userId);
-
-      const maara = await getTuoteMaaraFromOstoskori(userId, tuote_id);
-
-      await lisaaTilausSisalto(tilaus_id, tuote_id, tuote_hinta, tuote_kustannus, maara);
-      await lisaaTilaus(userId, tuote_id);
-      await deleteTuoteFromCart(userId, tuote_id);
-      await paivitaOstoskorinNumero();
-    }
-
-  } catch (error) {
-  }
 });
 
 fetchAndDisplayTuotteet();
