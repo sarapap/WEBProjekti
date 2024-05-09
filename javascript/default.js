@@ -11,15 +11,15 @@ document.getElementById("kieli").addEventListener("change", function () {
   if (selectedLanguage === 'FI') {
     window.location.href = '../fi/1Etusivu.html';
   } else if (selectedLanguage === 'EN') {
-    window.location.href = 'en/1Etusivu_en.html';
+    window.location.href = '../en/1Etusivu_en.html';
   } else if (selectedLanguage === 'CN') {
-    window.location.href = "cn/1Etusivu_cn.html";
+    window.location.href = "../cn/1Etusivu_cn.html";
   }
   else if (selectedLanguage === 'ET') {
-    window.location.href = "et/1Etusivu_et.html";
+    window.location.href = "..7et/1Etusivu_et.html";
   }
   else if (selectedLanguage === 'SV') {
-    window.location.href = "sv/1Etusivu_sv.html";
+    window.location.href = "../sv/1Etusivu_sv.html";
   }
 });
 
@@ -92,63 +92,70 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 );
 
-const generateUniqueIdentifier = () => {
-  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
-  const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
-  const randomNumber = Math.floor(Math.random() * 1000);
-  return randomLetter + randomNumber;
-};
+// const generateUniqueIdentifier = () => {
+//   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+//   const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+//   const randomNumber = Math.floor(Math.random() * 1000);
+//   return randomLetter + randomNumber;
+// };
 
-const addVierasUser = async () => {
-  const tunnusNumero = generateUniqueIdentifier();
-  try {
-    const response = await fetch('http://localhost:3000/api/v1/asiakas', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        etunimi: 'vierasUser',
-        sukunimi: 'vieras',
-        tunnus: tunnusNumero,
-        salasana: '123',
-        rooli: 'vieras',
-        email: ' ',
-        puhelin: '123',
-        syntymapaiva: '1923-02-25',
-        ehdot_hyvaksytty: '0',
-        allennus_ryhma: ''
-      }),
+// const addVierasUser = async () => {
+//   const tunnusNumero = generateUniqueIdentifier();
+//   try {
+//     const response = await fetch('http://localhost:3000/api/v1/asiakas', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({
+//         etunimi: 'vierasUser',
+//         sukunimi: 'vieras',
+//         tunnus: tunnusNumero,
+//         salasana: '123',
+//         rooli: 'vieras',
+//         email: ' ',
+//         puhelin: '123',
+//         syntymapaiva: '1923-02-25',
+//         ehdot_hyvaksytty: '0',
+//         allennus_ryhma: ''
+//       }),
 
-    });
+//     });
 
-    if (!response.ok) {
-      throw new Error('Virhe vierasasiakkaan lisäämisessä');
-    }
+    // if (!response.ok) {
+    //   throw new Error('Virhe vierasasiakkaan lisäämisessä');
+    // }
 
-    const userId = await getLastUserId();
-    console.log('Vierasasiakas lisätty onnistuneesti:', userId);
-    localStorage.setItem('userId', userId); // Save userId to localStorage
-    const token = localStorage.getItem('authToken');
-    console.log('token:', token);
+//     const userId = await getLastUserId();
+//     console.log('Vierasasiakas lisätty onnistuneesti:', userId);
+//     localStorage.setItem('userId', userId); // Save userId to localStorage
+//     const token = localStorage.getItem('authToken');
+//     console.log('token:', token);
 
-    setTimeout(() => {
-      removeOstoskoristaById(userId);
-    }, 2 * 60 * 60 * 1000); // 2 hours * 60 minutes * 60 seconds * 1000 milliseconds
-    return userId;
-  } catch (error) {
-    console.error('Error adding guest user:', error);
-    return null; // Return null or another appropriate value to indicate an error
-  }
-};
+//     setTimeout(() => {
+//       removeOstoskoristaById(userId);
+//     }, 2 * 60 * 60 * 1000); // 2 hours * 60 minutes * 60 seconds * 1000 milliseconds
+//     return userId;
+//   } catch (error) {
+//     console.error('Error adding guest user:', error);
+//     return null; // Return null or another appropriate value to indicate an error
+//   }
+// };
 
+// get asiakas id from local storage
 const getUserId = () => {
-  const userId = localStorage.getItem('userId');
-  return userId;
+  const token = localStorage.getItem('authToken');
+  if (token) {
+    const base64Payload = token.split('.')[1];
+    const payload = atob(base64Payload);
+    const parsedPayload = JSON.parse(payload);
+    let userId = parsedPayload.asiakas_id;
+    return userId;
+  }
 }
 
-const userId = getUserId() || addVierasUser();
-console.log('userId:', userId);
+const userId = getUserId();
+console.log('userId alku:', userId);
 
 const getLastUserId = async() => {
   try {

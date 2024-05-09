@@ -8,11 +8,11 @@ POST http://localhost:3000/api/v1/asiakas
 Content-Type: application/json
 
 {
-    "etunimi": "vierasUser",
-    "sukunimi": "vieras",
-    "tunnus": "1",
+    "etunimi": "lala",
+    "sukunimi": "lilala",
+    "tunnus": "lala",
     "salasana": "123",
-    "rooli": "vieras",
+    "rooli": "admin",
     "email": " ",
     "puhelin": " 1234",
     "syntymapaiva": " 2002-01-01",

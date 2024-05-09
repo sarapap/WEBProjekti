@@ -1,9 +1,20 @@
+// function logOut() {
+//   localStorage.removeItem('authToken');
+// }
 
+
+// const userId = 12;
 
 const tilausIdList = [];
 const allIdFromTs = [];
 const uusiIdList = [];
-const userId = 12;
+
+// // const userId = getUserId() || addVierasUser();
+// const userId = getUserId();
+// console.log('userId:', userId);
+// logOut();
+
+
 
 console.log('userId:', userId);
 
