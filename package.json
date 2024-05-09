@@ -25,14 +25,20 @@
   },
   "type": "module",
   "devDependencies": {
+    "@testing-library/dom": "^10.1.0",
+    "@testing-library/jest-dom": "^6.4.5",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-import": "^2.25.3",
     "jest": "^29.7.0",
+    "jest-fetch-mock": "^3.0.3",
     "nodemon": "^3.1.0",
     "prettier": "^2.5.1",
     "supertest": "^7.0.0"
   },
   "description": ""
+
+
 }
+

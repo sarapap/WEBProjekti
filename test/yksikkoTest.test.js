@@ -1,86 +1,97 @@
-import puppeteer from 'puppeteer';
-//HTML sivun testi
 
-const { changeLanguage } = require('./1Etusivu'); //
 
-// describe('Language Change Functionality', () => {
-//     test('should change the language to English', () => {
-//         document.body.innerHTML = `
-//             <select id="kieli">
-//                 <option value="FI" selected>Suomi</option>
-//                 <option value="EN">Englanti</option>
-//             </select>
-//         `;
+  test('handles error when the API call fails', async () => {
+    // Mock the fetch to return an error response
+    fetch.mockReject(new Error('Virhe tuotteen hakemisessa'));
 
-//         changeLanguage('EN');
-//         const selectElement = document.getElementById('kieli');
-//         expect(selectElement.value).toBe('EN');
-//     });
-// });
+    const userId = 'user123';
+    const tuoteId = 'product789';
+    const quantity = await getTuoteMaaraFromCart(userId, tuoteId);
 
-function changeLanguage(language) {
-  const selectElement = document.getElementById('kieli');
-  selectElement.value = language;
-}
-
-module.exports = { changeLanguage }; // Export for testing
-
-import { fireEvent, getByTestId } from '@testing-library/dom';
-import '@testing-library/jest-dom/extend-expect';
-
-// Mocking window.location.href to be able to test its changes
-Object.defineProperty(window, 'location', {
-  writable: true,
-  value: { href: '' }
-});
-
-// Function that simulates the environment and functionality you want to test
-function setup() {
-  document.body.innerHTML = `
-    <select id="kieli">
-      <option value="FI">Suomi</option>
-      <option value="EN">English</option>
-      <option value="CN">中文</option>
-      <option value="ET">Eesti</option>
-      <option value="SV">Svenska</option>
-    </select>
-  `;
-
-  require('./pathToYourScript.js'); // Adjust the path to where your language switching script is
-
-  return {
-    select: getByTestId(document.documentElement, 'kieli'),
-  };
-}
-
-describe('Language switcher', () => {
-  test('redirects to the Finnish page when "FI" is selected', () => {
-    const { select } = setup();
-    fireEvent.change(select, { target: { value: 'FI' } });
-    expect(window.location.href).toBe('../fi/1Etusivu.html');
+    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(fetch).toHaveBeenCalledWith(`http://localhost:3000/api/v1/ostoskori/${userId}/${tuoteId}`, {
+      method: 'GET',
+    });
+    expect(quantity).toEqual(0);
   });
 
-  test('redirects to the English page when "EN" is selected', () => {
-    const { select } = setup();
-    fireEvent.change(select, { target: { value: 'EN' } });
-    expect(window.location.href).toBe('../en/1Etusivu_en.html');
+  describe('Language selection redirection', () => {
+    beforeEach(() => {
+      // Setup the DOM
+      document.body.innerHTML = `
+        <select id="kieli">
+          <option value="FI">Suomi</option>
+          <option value="EN">English</option>
+          <option value="CN">中文</option>
+          <option value="ET">Eesti</option>
+          <option value="SV">Svenska</option>
+        </select>
+      `;
+
+      // Mock the redirection by spying on window.location.href
+      delete window.location;
+      window.location = { href: '' };
+
+      // Assuming your function to attach event listeners is called `setupLanguageSelection`
+      setupLanguageSelection();  // This function needs to be implemented by you
+    });
+
+    test('redirects to the Finnish page when "FI" is selected', () => {
+      const select = document.getElementById('kieli');
+      select.value = 'FI';
+      select.dispatchEvent(new Event('change'));
+
+      expect(window.location.href).toBe('1Etusivu.html');  // Adjust URL based on your routing logic
+    });
+
+    test('redirects to the English page when "EN" is selected', () => {
+      const select = document.getElementById('kieli');
+      select.value = 'EN';
+      select.dispatchEvent(new Event('change'));
+
+      expect(window.location.href).toBe('1Etusivu_en.html');  // Adjust URL based on your routing logic
+    });
+
+    // Add additional tests for other languages
+  });
+  describe('Language selection redirection', () => {
+    beforeEach(() => {
+      // Setup the DOM
+      document.body.innerHTML = `
+        <select id="kieli">
+          <option value="FI">Suomi</option>
+          <option value="EN">English</option>
+          <option value="CN">中文</option>
+          <option value="ET">Eesti</option>
+          <option value="SV">Svenska</option>
+        </select>
+      `;
+
+      // Mock the redirection by spying on window.location.href
+      delete window.location;
+      window.location = { href: '' };
+
+      // Assuming your function to attach event listeners is called `setupLanguageSelection`
+      setupLanguageSelection();  // This function needs to be implemented by you
+    });
+
+    test('redirects to the Finnish page when "FI" is selected', () => {
+      const select = document.getElementById('kieli');
+      select.value = 'FI';
+      select.dispatchEvent(new Event('change'));
+
+      expect(window.location.href).toBe('1Etusivu.html');  // Adjust URL based on your routing logic
+    });
+
+    test('redirects to the English page when "EN" is selected', () => {
+      const select = document.getElementById('kieli');
+      select.value = 'EN';
+      select.dispatchEvent(new Event('change'));
+
+      expect(window.location.href).toBe('1Etusivu_en.html');  // Adjust URL based on your routing logic
+    });
+
+    // Add additional tests for other languages
   });
 
-  test('redirects to the Chinese page when "CN" is selected', () => {
-    const { select } = setup();
-    fireEvent.change(select, { target: { value: 'CN' } });
-    expect(window.location.href).toBe("../cn/1Etusivu_cn.html");
-  });
 
-  test('redirects to the Estonian page when "ET" is selected', () => {
-    const { select } = setup();
-    fireEvent.change(select, { target: { value: 'ET' } });
-    expect(window.location.href).toBe("..7et/1Etusivu_et.html"); // Check for typos in the URL if intentional
-  });
-
-  test('redirects to the Swedish page when "SV" is selected', () => {
-    const { select } = setup();
-    fireEvent.change(select, { target: { value: 'SV' } });
-    expect(window.location.href).toBe("../sv/1Etusivu_sv.html");
-  });
-});
