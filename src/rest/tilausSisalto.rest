@@ -28,14 +28,14 @@ Content-Type: application/json
 
 {
 
-    "tilaus_id": "23",
-    "tuote_id": "21",
-    "maara": "2",
-    "myynti_summa": "96.00",
-    "kustannus_summa": "44.00",
-    "tilaus_pvm": "2024-05-06",
+    "tilaus_id": "2",
+    "tuote_id": "7",
+    "maara": "1",
+    "myynti_summa": "48.00",
+    "kustannus_summa": "22.00",
+    "tilaus_pvm": "2024-05-09",
     "status": "Tilaus vastaanotettu",
-    "voitto": "52.00"
+    "voitto": "26.00"
 }
 
 

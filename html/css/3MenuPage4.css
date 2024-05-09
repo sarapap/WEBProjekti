@@ -177,11 +177,12 @@ nav li {
 
 .dropdown-menu a:hover {
     background-color: #eceae9;
+
 }
 
 /* main */
 
-.cake-section {
+.hot-food-section {
     padding: 20px;
 }
 
@@ -204,7 +205,7 @@ nav li {
     border-radius: 5px;
 }
 
-.cake-list {
+.hot-food-category {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
@@ -228,15 +229,14 @@ nav li {
 }
 
 .cake-item p {
-    margin-top: 5px;
     color: #666;
 }
 
 .cake-item button {
-    display: block;
     width: 100%;
     padding: 8px;
-    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(192, 160, 122);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -284,7 +284,7 @@ footer {
     }
 }
 
-@media screen and (max-width:470px) {
+@media screen and (max-width:600px) {
     .logo {
         width: 100px;
         height: 100px;
@@ -292,7 +292,20 @@ footer {
 
     .cakeImg {
         margin-top: 10px;
-        width: 250px;
+        width: 300px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .logo {
+        width: 100px;
         height: 100px;
+    }
+
+    .cakeImg {
+        margin-top: 10px;
+        width: 200px;
+        height: auto;
     }
 }

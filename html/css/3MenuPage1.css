@@ -47,20 +47,13 @@ header {
     width: 90%;
     height: 240px;
     padding: 7% 0;
-    margin-right: 50px;
+    margin-right: 20px;
 }
 
 .cakeImg {
     box-shadow: 0 5px 40px 0 rgba(147, 144, 144, 0.578);
     width: 80%;
     height: 300px;
-}
-
-.cakeImg2 {
-    width: 40%;
-    height: 300px;
-    box-shadow: 0 5px 40px 0 rgba(147, 144, 144, 0.578);
-    margin-left: 10px;
 }
 
 .käyttäjä {
@@ -184,12 +177,11 @@ nav li {
 
 .dropdown-menu a:hover {
     background-color: #eceae9;
-
 }
 
 /* main */
 
-.salty-section {
+.cake-section {
     padding: 20px;
 }
 
@@ -212,7 +204,7 @@ nav li {
     border-radius: 5px;
 }
 
-.salty-category {
+.cake-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
@@ -236,14 +228,15 @@ nav li {
 }
 
 .cake-item p {
+    margin-top: 5px;
     color: #666;
 }
 
 .cake-item button {
+    display: block;
     width: 100%;
     padding: 8px;
-    margin-bottom: 10px;
-    background-color: rgb(192, 160, 122);
+    margin-top: 10px;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -265,7 +258,6 @@ footer {
 }
 
 /* media */
-
 
 @media screen and (max-width:1024px) {
     .icons ul li {
@@ -292,7 +284,20 @@ footer {
     }
 }
 
-@media screen and (max-width:470px) {
+@media screen and (max-width:600px) {
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cakeImg {
+        margin-top: 10px;
+        width: 300px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width:400px) {
     .logo {
         width: 100px;
         height: 100px;
@@ -301,12 +306,6 @@ footer {
     .cakeImg {
         margin-top: 10px;
         width: 200px;
-        height: 80px;
-    }
-
-    .cakeImg2 {
-        margin-top: 10px;
-        width: 100px;
-        height: 80px;
+        height: auto;
     }
 }

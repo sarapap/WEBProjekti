@@ -193,7 +193,7 @@ nav li {
   text-align: center;
   border-radius: 1rem;
   margin-top: 20px;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
 }
 
@@ -359,7 +359,7 @@ nav li {
 
 .aside2 {
   padding-left: 5%;
-  height: 50%;
+  height: 80vh;
   border-radius: 1rem;
   border: 2px solid #ccc;
   padding: 20px;
@@ -386,11 +386,14 @@ footer {
   font-size: small;
 }
 
+/* media */
+
 @media screen and (min-width: 801px) {
   .main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: auto;
   }
 
   .aside1 {
@@ -406,32 +409,43 @@ footer {
 @media screen and (max-width: 800px) {
   .main {
     display: block;
+    height: auto;
   }
 
   .aside1 {
     width: 100%;
+    height: auto;
   }
 
   .aside2 {
     width: 100%;
+    height: auto;
   }
 
   .footer-container {
-    margin-top: 700px;
+    height: auto;
   }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 680px) {
   .main {
     padding: 10px;
+    height: auto;
   }
 
-  .footer-container {
-    margin-top: 700px;
+  .aside2 {
+    width: 80%;
+    height: auto;
   }
+
+  .aside1 {
+    width: 100%;
+    height: auto;
+  }
+
 }
 
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 300px) {
   .logo {
     width: 100px;
     height: 100px;
@@ -442,7 +456,16 @@ footer {
     height: 100px;
   }
 
-  .footer-container {
-    margin-top: 1000px;
+  .main {
+    padding: 10px;
+  }
+
+  .aside2 {
+    width: 80%;
+    margin-left: 20px;
+  }
+
+  .aside1 {
+    width: 100%;
   }
 }

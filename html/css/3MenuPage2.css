@@ -47,13 +47,20 @@ header {
     width: 90%;
     height: 240px;
     padding: 7% 0;
-    margin-right: 20px;
+    margin-right: 50px;
 }
 
 .cakeImg {
     box-shadow: 0 5px 40px 0 rgba(147, 144, 144, 0.578);
     width: 80%;
     height: 300px;
+}
+
+.cakeImg2 {
+    width: 40%;
+    height: 300px;
+    box-shadow: 0 5px 40px 0 rgba(147, 144, 144, 0.578);
+    margin-left: 10px;
 }
 
 .käyttäjä {
@@ -80,16 +87,6 @@ header {
 
 .kieli {
     margin: 7px 10px 0px 0px;
-}
-
-#kieli {
-    background-color: rgb(192, 160, 122);
-    color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px;
-    font-family: 'Tahoma', sans-serif;
-
 }
 
 #kieli {
@@ -128,7 +125,6 @@ nav ul {
 nav li {
     margin-left: 20px;
 }
-
 
 .navItem {
     display: inline-block;
@@ -193,148 +189,84 @@ nav li {
 
 /* main */
 
-h1 {
-    text-align: center;
-}
-
-.form-container {
-    width: 60%;
-    margin: 0 auto;
+.salty-section {
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #ffffff;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.cake-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
-.form-group label {
-    display: block;
+.filter-options {
+    margin-bottom: 20px;
+}
+
+.filter-options label {
     font-weight: bold;
-    margin-bottom: 5px;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+.filter-options select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.salty-category {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.cake-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.cake-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.cake-item h3 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.cake-item p {
+    color: #666;
+}
+
+.cake-item button {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.form-group textarea {
-    resize: vertical;
-}
-
-.form-group .checkbox-group {
-    display: flex;
-    align-items: center;
-}
-
-.form-group .checkbox-group input {
-    width: auto;
-    margin-right: 10px;
-}
-
-.form-group button {
-    width: 140px;
-    height: 48px;
-    background-color: rgb(217, 124, 48);
-    color: white;
-    padding: 10px;
-    border-radius: 1rem;
-    margin-bottom: 20px;
-    font-size: 14px;
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: rgb(192, 160, 122);
+    color: #fff;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.form-group button:hover {
-    background-color: rgb(174, 94, 30);
+.cake-item button:hover {
+    background-color: rgb(208, 194, 178);
 }
 
-hr {
-    border: 0;
-    border-top: 1px solid #ccc;
-    width: 100%;
-    margin: 20px 0;
-}
+/* footer */
 
-.checkbox-group {
-    display: flex;
-    align-items: center;
-}
-
-.checkbox-group input[type="checkbox"] {
-    display: none;
-}
-
-.checkbox-group label {
-    position: relative;
-    padding-left: 30px;
-    cursor: pointer;
-    user-select: none;
-}
-
-.checkbox-group label::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    border: 2px solid #333;
-    border-radius: 4px;
-    background-color: transparent;
-}
-
-.checkbox-group input[type="checkbox"]:checked+label::before {
-    background-color: rgb(217, 124, 48);
-    ;
-    border: none;
-}
-
-.checkbox-group label::after {
-    content: '';
-    position: absolute;
-    left: 6px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10px;
-    height: 10px;
-    border-radius: 2px;
-    background-color: transparent;
-}
-
-#applyDiscountButton {
-    width: 100px;
-    height: 48px;
-    background-color: rgb(217, 124, 48);
-    color: white;
-    padding: 10px;
-    border-radius: 1rem;
-    margin-bottom: 20px;
-    font-size: 12px;
-    border: none;
-    cursor: pointer;
-    margin-top: 5px;
+footer {
+    margin: 25px 10px 0px 25px;
+    padding: 5px;
+    text-align: center;
+    background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
+    box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
 }
 
 /* media */
 
-@media screen and (min-width:801px) {
-
-    .cakeImg {
-        width: 80%
-    }
-}
-
-@media screen and (max-width:800px) {
-
+@media screen and (max-width:1200px) {
     .icons ul li {
         display: block;
         text-align: center;
@@ -347,30 +279,57 @@ hr {
     }
 
     .logo {
-        position: static;
-        margin-bottom: 20px;
+        width: 125px;
     }
 
     .cakeImg {
-        margin-top: 0;
+        margin-top: 10px;
+        width: 40%;
+        height: auto
     }
 
-    .cake-item td:first-child {
-        width: 200px;
-        height: 200px;
+    .cakeImg2 {
+        width: 40%;
+        height: auto;
     }
-}
 
-
-@media screen and (max-width:534px) {
-
-    .content h2 {
-        font-size: 30px;
+    .footer-container {
+        margin: 0;
     }
 }
 
-@media screen and (max-width:330px) {
-    .content h2 {
-        font-size: 20px;
+@media screen and (min-width:1000px) {
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cakeImg {
+        margin-top: 10px;
+        width: 40%;
+        height: auto
+    }
+
+    .cakeImg2 {
+        width: 40%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cakeImg {
+        margin-top: 10px;
+        width: 20%;
+        height: auto
+    }
+
+    .cakeImg2 {
+        width: 20%;
+        height: auto;
     }
 }

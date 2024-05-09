@@ -1,23 +1,22 @@
 import {
-  listAllTilaukset,
-  findTilausByTilausId,
-  findTilausByAsiakasId,
-  addTilaus,
-  removeTilausByTilausId,
-  updateTilausByTilausId
+    listAllTilaukset,
+    findTilausByTilausId,
+    findTilausByAsiakasId,
+    addTilaus,
+    removeTilausByTilausId,
+    updateTilausByTilausId
 } from '../models/tilaus-model.js';
-import bcrypt from 'bcrypt';
 
 const getTilaus = async (req, res) => {
     const tilaus = await listAllTilaukset();
     if (!tilaus) {
         res.sendStatus(404);
         return;
-    }res
+    } res
     res.json(tilaus);
 };
 
-const getTilausByTilausId = async(req, res) => {
+const getTilausByTilausId = async (req, res) => {
     const tilaus = await findTilausByTilausId(req.params.tilaus_id);
     if (tilaus) {
         res.json(tilaus);
@@ -26,25 +25,25 @@ const getTilausByTilausId = async(req, res) => {
     }
 };
 
-const getTilausByAsiakasId = async(req, res) => {
-  const tilaus = await findTilausByAsiakasId(req.params.asiakas_id);
-  if (tilaus) {
-      res.json(tilaus);
-  } else {
-      res.sendStatus(404);
-  }
+const getTilausByAsiakasId = async (req, res) => {
+    const tilaus = await findTilausByAsiakasId(req.params.asiakas_id);
+    if (tilaus) {
+        res.json(tilaus);
+    } else {
+        res.sendStatus(404);
+    }
 }
 
 const postTilaus = async (req, res) => {
-  console.log(req.body);
+    console.log(req.body);
 
-  const result = await addTilaus(req.body);
-  if (!result) {
-      const error = new Error('Invalid or missing fields.');
-      error.status = 400;
-      return
-  }
-  res.status(201).json(result);
+    const result = await addTilaus(req.body);
+    if (!result) {
+        const error = new Error('Invalid or missing fields.');
+        error.status = 400;
+        return
+    }
+    res.status(201).json(result);
 };
 
 const putTilausByTilausId = async (req, res) => {
@@ -69,10 +68,10 @@ const deleteTilausByTilausId = async (req, res) => {
 };
 
 export {
-  getTilaus,
-  getTilausByTilausId,
-  getTilausByAsiakasId,
-  postTilaus,
-  putTilausByTilausId,
-  deleteTilausByTilausId
+    getTilaus,
+    getTilausByTilausId,
+    getTilausByAsiakasId,
+    postTilaus,
+    putTilausByTilausId,
+    deleteTilausByTilausId
 };

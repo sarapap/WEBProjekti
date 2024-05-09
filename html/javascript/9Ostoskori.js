@@ -287,8 +287,6 @@ const laskeLoppusumma = (tuotteet) => {
   return loppusumma.toFixed(2);
 };
 
-
-
 //TODO
 const paivitaLoppusumma = async () => {
   const tuotteet = await getTuotteenMaaraByUserId(userId);
@@ -589,4 +587,3 @@ payButton.addEventListener('click', async () => {
 });
 
 fetchAndDisplayTuotteet();
-

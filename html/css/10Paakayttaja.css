@@ -393,33 +393,6 @@ nav li {
 }
 
 
-.palaute-item {
-  min-width: 100%;
-  display: block;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 10px 25px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 5px 10px rgba(225, 150, 89, 0.2);
-  background-color: #f9f9f9;
-}
-
-.palaute-item>div {
-  width: calc(25% - 20px);
-  margin-bottom: 10px;
-}
-
-.palaute-item>div:not(:last-child) {
-  margin-bottom: 10px;
-}
-
-.palaute-item>div hr {
-  width: 100%;
-  margin: 10px 0;
-}
-
-
 /* tuotteet */
 .cake-section {
   padding: 20px;
@@ -579,7 +552,6 @@ dialog::backdrop {
 
 .checkbox-group input[type="checkbox"]:checked+label::before {
   background-color: rgb(217, 124, 48);
-  ;
   border: none;
 }
 

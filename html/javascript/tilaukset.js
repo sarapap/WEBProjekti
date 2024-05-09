@@ -1,6 +1,3 @@
-// function logOut() {
-//   localStorage.removeItem('authToken');
-// }
 
 
 const userId = 69;
@@ -105,7 +102,7 @@ const getTuoteListFromTsByTilausId = async (tilaus_id) => {
     if (!response.ok) {
       if (response.status === 404) {
         console.log(`Tilaus sisältöä tilaus_id:lle ${tilaus_id} ei löydy. Jatketaan seuraavaan tilaus_id:hen.`);
-        return; // Palauta tyhjä arvo, jotta funktion suoritus jatkuu seuraavalla tilaus_id:llä
+        return;
       }
       throw new Error('Virhe tuotteen hakemisessa');
     }

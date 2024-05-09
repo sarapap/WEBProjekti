@@ -9,17 +9,17 @@ function getSelectedLanguage() {
 document.getElementById("kieli").addEventListener("change", function () {
   var selectedLanguage = this.value;
   if (selectedLanguage === 'FI') {
-    window.location.href = '../fi/1Etusivu.html';
+    window.location.href = '../../html/fi/1Etusivu.html';
   } else if (selectedLanguage === 'EN') {
-    window.location.href = '../en/1Etusivu_en.html';
+    window.location.href = '../../html/en/1Etusivu_en.html';
   } else if (selectedLanguage === 'CN') {
-    window.location.href = "../cn/1Etusivu_cn.html";
+    window.location.href = "../../html/cn/1Etusivu_cn.html";
   }
   else if (selectedLanguage === 'ET') {
-    window.location.href = "../et/1Etusivu_et.html";
+    window.location.href = "../../html/et/1Etusivu_et.html";
   }
   else if (selectedLanguage === 'SV') {
-    window.location.href = "../sv/1Etusivu_sv.html";
+    window.location.href = "../../html/sv/1Etusivu_sv.html";
   }
 });
 
@@ -67,10 +67,10 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
           switch (selectedLanguage) {
             case 'EN':
-              redirectPage = '../../html/en/11Login_en.html';
+              redirectPage = '../../html/en/Login_en.html';
               break;
             case 'CN':
-              redirectPage = '../../html/cn/11login_cn.html';
+              redirectPage = '../../html/cn/Login_cn.html';
               break;
             case 'ET':
               redirectPage = '../../html/et/11Login_et.html';
@@ -92,6 +92,56 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 );
 
+// const generateUniqueIdentifier = () => {
+//   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+//   const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+//   const randomNumber = Math.floor(Math.random() * 1000);
+//   return randomLetter + randomNumber;
+// };
+
+// const addVierasUser = async () => {
+//   const tunnusNumero = generateUniqueIdentifier();
+//   try {
+//     const response = await fetch('http://localhost:3000/api/v1/asiakas', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({
+//         etunimi: 'vierasUser',
+//         sukunimi: 'vieras',
+//         tunnus: tunnusNumero,
+//         salasana: '123',
+//         rooli: 'vieras',
+//         email: ' ',
+//         puhelin: '123',
+//         syntymapaiva: '1923-02-25',
+//         ehdot_hyvaksytty: '0',
+//         allennus_ryhma: ''
+//       }),
+
+//     });
+
+// if (!response.ok) {
+//   throw new Error('Virhe vierasasiakkaan lisäämisessä');
+// }
+
+//     const userId = await getLastUserId();
+//     console.log('Vierasasiakas lisätty onnistuneesti:', userId);
+//     localStorage.setItem('userId', userId); // Save userId to localStorage
+//     const token = localStorage.getItem('authToken');
+//     console.log('token:', token);
+
+//     setTimeout(() => {
+//       removeOstoskoristaById(userId);
+//     }, 2 * 60 * 60 * 1000); // 2 hours * 60 minutes * 60 seconds * 1000 milliseconds
+//     return userId;
+//   } catch (error) {
+//     console.error('Error adding guest user:', error);
+//     return null; // Return null or another appropriate value to indicate an error
+//   }
+// };
+
 // get asiakas id from local storage
 const getUserId = () => {
   const token = localStorage.getItem('authToken');
@@ -106,6 +156,29 @@ const getUserId = () => {
 
 const userId = getUserId();
 
+const getLastUserId = async () => {
+  try {
+    const response = await fetch('http://localhost:3000/api/v1/asiakas', {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      throw new Error('Virhe viimeisen käyttäjän hakemisessa');
+    }
+    const data = await response.json();
+    const userId = data[data.length - 1].asiakas_id;
+    console.log('Last userId:', userId);
+    return userId;
+  } catch (error) {
+    console.error('Virhe viimeisen käyttäjän hakemisessa:', error.message);
+    return 0;
+  }
+}
+
+const disPlayIconNumerot = async () => {
+  await paivitaOstoskorinNumero();
+  await paivitaSuosikkiMaara();
+}
 
 const paivitaOstoskorinNumero = async () => {
   const userId = getUserId();
@@ -117,12 +190,17 @@ const paivitaOstoskorinNumero = async () => {
   ostoskoriLkmElement.textContent = tuotteenLkm.toString();
 };
 
+
 const paivitaSuosikkiMaara = async () => {
   await getSuosikinMaaraByUserId(userId);
 }
 
 const getSuosikinMaaraByUserId = async (userId) => {
   try {
+    if (!userId) {
+      throw new Error('userid not found');
+    }
+
     const response = await fetch(`http://localhost:3000/api/v1/suosikit/${userId}`, {
       method: 'GET',
     });
@@ -152,7 +230,12 @@ const getSuosikinMaaraByUserId = async (userId) => {
 }
 
 const getTuotteenMaaraByUserId = async (userId) => {
+
   try {
+    if (!userId) {
+      throw new Error('userid not found');
+    }
+
     const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
       method: 'GET',
     });
@@ -176,9 +259,20 @@ const getTuotteenMaaraByUserId = async (userId) => {
   }
 }
 
-const disPlayIconNumerot = async () => {
-  await paivitaOstoskorinNumero();
-  await paivitaSuosikkiMaara();
+const removeOstoskoristaById = async (userId) => {
+  try {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${UserId}`, {
+      method: 'DELETE',
+    });
+
+    if (!response.ok) {
+      throw new Error('Virhe ostoskorin poistamisessa');
+    }
+
+    console.log('Ostoskori poistettu onnistuneesti');
+  } catch (error) {
+    console.error('Virhe ostoskorin poistamisessa:', error.message);
+  }
 }
 
 const tyhjennaOstoskori = async (userId) => {
@@ -208,20 +302,20 @@ const vahvistaJaTyhjenna = async () => {
   let targetPage = '';
   switch (kieli) {
     case 'EN':
-      targetPage = '../../html/en/9Vahvistus_en.html';
+      targetPage = '../../en/9Vahvistus_en.html';
       break;
     case 'CN':
-      targetPage = '../../html/cn/9Vahvistus_cn.html';
+      targetPage = '../../cn/9Vahvistus_cn.html';
       break;
     case 'ET':
-      targetPage = '../../html/et/9Vahvistus_et.html';
+      targetPage = '../../et/9Vahvistus_et.html';
       break;
     case 'SV':
-      targetPage = '../../html/sv/9Vahvistus_sv.html';
+      targetPage = '../../sv/9Vahvistus_sv.html';
       break;
     case 'FI':
     default:
-      targetPage = '../../html/fi/9Vahvistus.html';
+      targetPage = '../../fi/9Vahvistus.html';
       break;
   }
   window.location.href = targetPage;

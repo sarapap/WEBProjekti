@@ -138,9 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
  * Kuvasarjan käsittelijät.
  */
 const images = [
-    '../../css/kuvat/weddingCake.jpg',
-    '../../css/kuvat/chocolateCake.jpg',
-    '../../css/kuvat/weddingCake2.jpg'
+    '../css/kuvat/weddingCake.jpg',
+    '../css/kuvat/chocolateCake.jpg',
+    '../css/kuvat/weddingCake2.jpg'
 ];
 let currentIndex = 0;
 

@@ -56,29 +56,31 @@ header {
     height: 300px;
 }
 
+
 .käyttäjä {
-  display: inline-block;
-  margin: 10px;
-  font-size: 20px;
-  background-size: cover;
+    display: inline-block;
+    margin: 10px;
+    font-size: 20px;
+    background-size: cover;
 
 }
+
 .suosikit {
-  display: inline-block;
-  margin: 10px;
-  font-size: 20px;
-  background-size: cover;
+    display: inline-block;
+    margin: 10px;
+    font-size: 20px;
+    background-size: cover;
 }
 
 .ostoskori {
-  display: inline-block;
-  margin: 10px;
-  font-size: 20px;
-  background-size: cover;
+    display: inline-block;
+    margin: 10px;
+    font-size: 20px;
+    background-size: cover;
 }
 
 .kieli {
-  margin: 7px 10px 0px 0px;
+    margin: 7px 10px 0px 0px;
 }
 
 #kieli {
@@ -181,7 +183,7 @@ nav li {
 
 /* main */
 
-.hot-food-section {
+.drinks-section {
     padding: 20px;
 }
 
@@ -204,7 +206,7 @@ nav li {
     border-radius: 5px;
 }
 
-.hot-food-category {
+.drink-category {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
@@ -283,7 +285,7 @@ footer {
     }
 }
 
-@media screen and (max-width:470px) {
+@media screen and (max-width:600px) {
     .logo {
         width: 100px;
         height: 100px;
@@ -291,8 +293,20 @@ footer {
 
     .cakeImg {
         margin-top: 10px;
-        width: 220px;
+        width: 350px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .logo {
+        width: 100px;
         height: 100px;
     }
 
+    .cakeImg {
+        margin-top: 10px;
+        width: 200px;
+        height: auto;
+    }
 }

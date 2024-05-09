@@ -4,16 +4,16 @@
  * Luettelo kuvista, joita käytetään näyttöfunktioissa.
  */
 const images = [
-    '../../css/kuvat/cakeMenu.jpg',
-    '../../css/kuvat/pastryMenu.jpg',
-    '../../css/kuvat/foodMenu.jpg',
-    '../../css/kuvat/pastryMenu2.jpg',
-    '../../css/kuvat/sweetMenu.jpg',
-    '../../css/kuvat/cakeMenu2.jpg',
-    '../../css/kuvat/drinkMenu.jpg',
-    '../../css/kuvat/foodMenu2.jpg',
-    '../../css/kuvat/sweetMenu2.jpg',
-    '../../css/kuvat/coffeeMenu.jpg',
+    '../css/kuvat/cakeMenu.jpg',
+    '../css/kuvat/pastryMenu.jpg',
+    '../css/kuvat/foodMenu.jpg',
+    '../css/kuvat/pastryMenu2.jpg',
+    '../css/kuvat/sweetMenu.jpg',
+    '../css/kuvat/cakeMenu2.jpg',
+    '../css/kuvat/drinkMenu.jpg',
+    '../css/kuvat/foodMenu2.jpg',
+    '../css/kuvat/sweetMenu2.jpg',
+    '../css/kuvat/coffeeMenu.jpg',
 ];
 
 /**
