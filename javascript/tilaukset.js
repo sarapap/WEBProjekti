@@ -1,22 +1,23 @@
+// function logOut() {
+//   localStorage.removeItem('authToken');
+// }
 
+
+const userId = 69;
 
 const tilausIdList = [];
 const allIdFromTs = [];
 const uusiIdList = [];
-const getUserId = () => {
-  const token = localStorage.getItem('authToken');
-  if (token) {
-    const base64Payload = token.split('.')[1];
-    const payload = atob(base64Payload);
-    const parsedPayload = JSON.parse(payload);
-    let userId = parsedPayload.asiakas_id;
-    return userId;
-  }
-}
 
-const userId = getUserId();
+// // const userId = getUserId() || addVierasUser();
+// const userId = getUserId();
+// console.log('userId:', userId);
+// logOut();
 
 const tilausList = document.getElementById('tilaus-list');
+
+console.log('userId:', userId);
+
 
 const fetchAndDisplayTuotteet = async () => {
   const tilausIdList = await findTilausIdByUserId(userId);
@@ -120,91 +121,6 @@ const getTuoteListFromTsByTilausId = async (tilaus_id) => {
 
 const displayTuotteet = async (tuotteet) => {
 
-  const kieli = document.getElementById('kieli');
-  const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
-
-  let tilausPVMTeksti = '';
-  let tilausIDTeksti = '';
-  let tuoteNimiTeksti = '';
-  let tuoteHintaTeksti = '';
-  let tuoteMaaraTeksti = '';
-  let summaTeksti = '';
-
-  switch (selectedLanguage) {
-    case 'EN':
-      tilausPVMTeksti = 'Order date';
-      tilausIDTeksti = 'Order ID';
-      tuoteNimiTeksti = 'Product name';
-      tuoteHintaTeksti = 'Price';
-      tuoteMaaraTeksti = 'Amount';
-      summaTeksti = 'Sum';
-      break;
-    case 'CN':
-      tilausPVMTeksti = '订单日期';
-      tilausIDTeksti = '订单编号';
-      tuoteNimiTeksti = '产品名称';
-      tuoteHintaTeksti = '价格';
-      tuoteMaaraTeksti = '数量';
-      summaTeksti = '总计';
-      break;
-    case 'ET':
-      tilausPVMTeksti = 'Tellimuse kuupäev';
-      tilausIDTeksti = 'Tellimuse ID';
-      tuoteNimiTeksti = 'Toote nimi';
-      tuoteHintaTeksti = 'Hind';
-      tuoteMaaraTeksti = 'Kogus';
-      summaTeksti = 'Summa';
-      break;
-    case 'SV':
-      tilausPVMTeksti = 'Beställningsdatum';
-      tilausIDTeksti = 'Beställningsnummer';
-      tuoteNimiTeksti = 'Produktnamn';
-      tuoteHintaTeksti = 'Pris';
-      tuoteMaaraTeksti = 'Mängd';
-      summaTeksti = 'Summa';
-      break;
-    case 'FI':
-    default:
-      tilausPVMTeksti = 'Tilauspäivämäärä';
-      tilausIDTeksti = 'Tilaus ID';
-      tuoteNimiTeksti = 'Tuotteen nimi';
-      tuoteHintaTeksti = 'Hinta';
-      tuoteMaaraTeksti = 'Määrä';
-      summaTeksti = 'Summa';
-      break;
-  }
-  // const tilausList = document.getElementById('tilaus-list');
-  // const tuoteElement = document.createElement('tr');
-  // tuoteElement.classList.add('tilaus-item');
-
-  // const thElmet = document.createElement('th');
-  // thElmet.textContent = tilausPVMTeksti;
-  // tuoteElement.appendChild(thElmet);
-
-  // const thElmet2 = document.createElement('th');
-  // thElmet2.textContent = tilausIDTeksti;
-  // tuoteElement.appendChild(thElmet2);
-
-  // const thElmet3 = document.createElement('th');
-  // thElmet3.textContent = tuoteNimiTeksti;
-  // tuoteElement.appendChild(thElmet3);
-
-  // const thElmet4 = document.createElement('th');
-  // thElmet4.textContent = tuoteHintaTeksti;
-  // tuoteElement.appendChild(thElmet4);
-
-  // const thElmet5 = document.createElement('th');
-  // thElmet5.textContent = tuoteMaaraTeksti;
-  // tuoteElement.appendChild(thElmet5);
-
-  // const thElmet6 = document.createElement('th');
-  // thElmet6.textContent = summaTeksti;
-  // tuoteElement.appendChild(thElmet6);
-
-  // tilausList.appendChild(tuoteElement);
-
-
-
   if (tuotteet.length > 0) {
     tuotteet.forEach(async (tuote) => {
       console.log('Tuote 139:', tuote);
@@ -227,7 +143,7 @@ const displayTuotteet = async (tuotteet) => {
       tuoteElement.appendChild(tdElement);
 
       const tdElement2 = document.createElement('td');
-      tdElement2.innerHTML = tuote.tilaus_id;
+      tdElement2.innerHTML = 'Nro: ' + tuote.tilaus_id;
       tuoteElement.appendChild(tdElement2);
 
       const tdElement3 = document.createElement('td');
@@ -248,17 +164,9 @@ const displayTuotteet = async (tuotteet) => {
 
       tilausList.appendChild(tuoteElement);
 
-      const hrElement = document.createElement('hr');
-      tilausList.appendChild(hrElement);
-
-
-
-
-
     });
   };
 };
-
 
 const tilausTarkistus = async (userId) => {
   try {
@@ -329,4 +237,98 @@ const getTuoteNimiJaHintaByTuoteId = async (tuote_id) => {
   }
 };
 
+const fetchAndDisplayTuotteet2 = async () => {
+  try {
+    const kieli = document.getElementById('kieli');
+    const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+
+    let tilausPVMTeksti = '';
+    let tilausIDTeksti = '';
+    let tuoteNimiTeksti = '';
+    let tuoteHintaTeksti = '';
+    let tuoteMaaraTeksti = '';
+    let summaTeksti = '';
+
+    switch (selectedLanguage) {
+      case 'EN':
+        tilausPVMTeksti = 'Order date';
+        tilausIDTeksti = 'Order ID';
+        tuoteNimiTeksti = 'Product name';
+        tuoteHintaTeksti = 'Price';
+        tuoteMaaraTeksti = 'Amount';
+        summaTeksti = 'Sum';
+        break;
+      case 'CN':
+        tilausPVMTeksti = '订单日期';
+        tilausIDTeksti = '订单编号';
+        tuoteNimiTeksti = '产品名称';
+        tuoteHintaTeksti = '价格';
+        tuoteMaaraTeksti = '数量';
+        summaTeksti = '总计';
+        break;
+      case 'ET':
+        tilausPVMTeksti = 'Tellimuse kuupäev';
+        tilausIDTeksti = 'Tellimuse ID';
+        tuoteNimiTeksti = 'Toote nimi';
+        tuoteHintaTeksti = 'Hind';
+        tuoteMaaraTeksti = 'Kogus';
+        summaTeksti = 'Summa';
+        break;
+      case 'SV':
+        tilausPVMTeksti = 'Beställningsdatum';
+        tilausIDTeksti = 'Beställningsnummer';
+        tuoteNimiTeksti = 'Produktnamn';
+        tuoteHintaTeksti = 'Pris';
+        tuoteMaaraTeksti = 'Mängd';
+        summaTeksti = 'Summa';
+        break;
+      case 'FI':
+      default:
+        tilausPVMTeksti = 'Tilauspäivämäärä';
+        tilausIDTeksti = 'Tilaus ID';
+        tuoteNimiTeksti = 'Tuotteen nimi';
+        tuoteHintaTeksti = 'Hinta';
+        tuoteMaaraTeksti = 'Määrä';
+        summaTeksti = 'Summa';
+        break;
+    }
+
+
+    const tilausList = document.getElementById('tilaus-list');
+    const tuoteElement = document.createElement('tr');
+    tuoteElement.classList.add('tilaus-item');
+
+    const thElmet = document.createElement('th');
+    thElmet.textContent = tilausPVMTeksti;
+    tuoteElement.appendChild(thElmet);
+
+    const thElmet2 = document.createElement('th');
+    thElmet2.textContent = tilausIDTeksti;
+    tuoteElement.appendChild(thElmet2);
+
+    const thElmet3 = document.createElement('th');
+    thElmet3.textContent = tuoteNimiTeksti;
+    tuoteElement.appendChild(thElmet3);
+
+    const thElmet4 = document.createElement('th');
+    thElmet4.textContent = tuoteHintaTeksti;
+    tuoteElement.appendChild(thElmet4);
+
+    const thElmet5 = document.createElement('th');
+    thElmet5.textContent = tuoteMaaraTeksti;
+    tuoteElement.appendChild(thElmet5);
+
+    const thElmet6 = document.createElement('th');
+    thElmet6.textContent = summaTeksti;
+    tuoteElement.appendChild(thElmet6);
+
+    tilausList.appendChild(tuoteElement);
+
+
+  } catch (error) {
+    console.error('Virhe raportin hakemisessa:', error);
+  };
+};
+
+fetchAndDisplayTuotteet2();
 fetchAndDisplayTuotteet();

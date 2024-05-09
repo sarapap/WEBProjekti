@@ -269,12 +269,16 @@ const getTuoteByTuoteId = async (tuote_id) => {
 
 //TODO
 const laskeLoppusumma = (tuotteet) => {
+
   const kokonaissumma = tuotteet.reduce((summa, tuote) => {
-    if (tuote && typeof tuote.tuote_hinta === "number" && typeof tuote.tuote_maara === "number") {
-      return summa + (tuote.tuote_hinta * tuote.tuote_maara);
-    } else {
-      throw new Error("Tuotteen hinta tai määrä ei ole numero.");
+    const tuote_hinta = Number(tuote.tuote_hinta);
+    const tuote_maara = Number(tuote.tuote_maara);
+
+    if (isNaN(tuote_hinta) || isNaN(tuote_maara)) {
+      throw new Error("Tuotteen hinta tai määrä ei ole kelvollinen numero.");
     }
+
+    return summa + (tuote_hinta * tuote_maara);
   }, 0);
 
   const alv = kokonaissumma * 0.24;
@@ -282,6 +286,7 @@ const laskeLoppusumma = (tuotteet) => {
 
   return loppusumma.toFixed(2);
 };
+
 
 
 //TODO
