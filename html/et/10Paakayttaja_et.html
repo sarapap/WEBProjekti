@@ -113,7 +113,7 @@
 
     <div class="ajan-section">
       <h1>Tootehaldus</h1>
-      <button class="button">Uus toode</button>
+      <button class="button" id="newProductButton">Uus toode</button>
     </div>
 
     <dialog id="tuoteModal">
@@ -161,6 +161,49 @@
       </div>
     </dialog>
 
+    <dialog id="kategoriatModal">
+      <h2>Lisa eridieedid</h2>
+      <div id="tuote_kategoriat">
+        <p>Kategooriad:</p>
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
+        <label for="gluteeniton">Gluteenivaba</label><br>
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
+        <label for="laktoositon">Laktoosivaba</label><br>
+
+        <input type="checkbox" id="maidoton" name="kategoriat" value="4">
+        <label for="maidoton">Piimatoodetevaba</label><br>
+
+        <input type="checkbox" id="munaton" name="kategoriat" value="5">
+        <label for="munaton">Munavaba</label><br>
+
+        <input type="checkbox" id="kasvis" name="kategoriat" value="6">
+        <label for="kasvis">Taimetoit</label><br>
+      </div>
+      <button id="addKategoriat" type="button">Lisa</button>
+
+      <div id="tuote_kategoriat2">
+        <h2>Eemalda eridieedid</h2>
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
+        <label for="gluteeniton">Gluteenivaba</label><br>
+
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
+        <label for="laktoositon">Laktoosivaba</label><br>
+
+        <input type="checkbox" id="maidoton" name="kategoriat" value="4">
+        <label for="maidoton">Piimatoodetevaba</label><br>
+
+        <input type="checkbox" id="munaton" name="kategoriat" value="5">
+        <label for="munaton">Munavaba</label><br>
+
+        <input type="checkbox" id="kasvis" name="kategoriat" value="6">
+        <label for="kasvis">Taimetoit</label><br>
+
+      </div>
+      <button id="deleteKategoriat" type="button">Eemalda</button><br>
+
+      <button id="closeKategoriat" type="button">Sulge</button>
+    </dialog>
+
 
     <div>
       <p>Kontrollige toimetamise üksikasju, otsides tooteid.</p>
@@ -168,11 +211,11 @@
       <div class="filter-options">
         <label for="cakeType">Valige tüüp:</label>
         <select id="cakeType">
-          <option value="kõik">Kõik</option>
+          <option value="valige">Valige</option>
           <option value="koogid">Koogid</option>
           <option value="soolane">Soolane</option>
           <option value="magus">Magus</option>
-          <option value="soe-toit">Soojad toidud</option>
+          <option value="kuumtoit">Soojad toidud</option>
           <option value="joogid">Joogid</option>
         </select>
       </div>

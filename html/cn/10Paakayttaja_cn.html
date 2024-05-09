@@ -114,7 +114,7 @@
 
     <div class="ajan-section">
       <h1>产品管理</h1>
-      <button class="button" id="openButton">添加新产品</button>
+      <button class="button" id="newProductButton">添加新产品</button>
     </div>
 
     <dialog id="tuoteModal">
@@ -162,6 +162,49 @@
       </div>
     </dialog>
 
+    <dialog id="kategoriatModal">
+      <h2>添加特殊饮食</h2>
+      <div id="tuote_kategoriat">
+        <p>类别：</p>
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
+        <label for="gluteeniton">无麸质</label><br>
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
+        <label for="laktoositon">无乳糖</label><br>
+
+        <input type="checkbox" id="maidoton" name="kategoriat" value="4">
+        <label for="maidoton">不含乳制品</label><br>
+
+        <input type="checkbox" id="munaton" name="kategoriat" value="5">
+        <label for="munaton">不含蛋</label><br>
+
+        <input type="checkbox" id="kasvis" name="kategoriat" value="6">
+        <label for="kasvis">素食</label><br>
+      </div>
+      <button id="addKategoriat" type="button">添加</button>
+
+      <div id="tuote_kategoriat2">
+        <h2>删除特殊饮食</h2>
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
+        <label for="gluteeniton">无麸质</label><br>
+
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
+        <label for="laktoositon">无乳糖</label><br>
+
+        <input type="checkbox" id="maidoton" name="kategoriat" value="4">
+        <label for="maidoton">不含乳制品</label><br>
+
+        <input type="checkbox" id="munaton" name="kategoriat" value="5">
+        <label for="munaton">不含蛋</label><br>
+
+        <input type="checkbox" id="kasvis" name="kategoriat" value="6">
+        <label for="kasvis">素食</label><br>
+
+      </div>
+      <button id="deleteKategoriat" type="button">删除</button><br>
+
+      <button id="closeKategoriat" type="button">关闭</button>
+    </dialog>
+
 
     <div>
 
@@ -170,10 +213,12 @@
       <div class="filter-options">
         <label for="cakeType">选择类型:</label>
         <select id="cakeType">
-          <option value="kaikki">全部</option>
-          <option value="suklaakakut">糕点</option>
-          <option value="mansikkakakut">热食</option>
-          <option value="vaniljakakut">饮品</option>
+          <option value="valitse">选择</option>
+          <option value="kakutcn">蛋糕</option>
+          <option value="suolaistacn">咸味食品</option>
+          <option value="makeaacn">甜点</option>
+          <option value="lammintaruokaacn">热食</option>
+          <option value="juotavaacn">饮料</option>
         </select>
       </div>
       <div id="cakeList" class="cake-list"></div>

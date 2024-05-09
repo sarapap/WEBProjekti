@@ -596,6 +596,26 @@ const getKategoriaById = async (kategoriaId) => {
     }
 };
 
+const getKategoriatuoteIdByTuoteAndKategoria = async (tuoteId, kategoriaId) => {
+    try {
+        const response = await fetch(
+            `http://localhost:3000/api/v1/kategoria_tuote/${tuoteId}/${kategoriaId}`,
+            { method: 'GET' }
+        );
+
+        if (!response.ok) {
+            throw new Error("Virhe haettaessa kategoriatuote_id");
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Virhe:", error);
+        return null;
+    }
+};
+
+
 const addKategoriaToTuote = async (tuoteId, kategoriaId) => {
     try {
         const response = await fetch('http://localhost:3000/api/v1/kategoria_tuote', {
@@ -619,8 +639,7 @@ const addKategoriaToTuote = async (tuoteId, kategoriaId) => {
     }
 };
 
-const deleteKategoriaFromTuote = async (tuoteId, kategoriatuote_id) => {
-    console.log("Poistetaan kategoria tuotteelta", tuoteId, kategoriatuote_id);
+const deleteKategoriaFromTuote = async (kategoriatuote_id) => {
 
     try {
         const response = await fetch(`http://localhost:3000/api/v1/kategoria_tuote/${kategoriatuote_id}`, {
@@ -628,14 +647,16 @@ const deleteKategoriaFromTuote = async (tuoteId, kategoriatuote_id) => {
         });
 
         if (!response.ok) {
-            throw new Error(virhekategoria);
+            throw new Error("Virhe poistettaessa kategoria_tuote");
         }
 
         return true;
     } catch (error) {
+        console.error("Virhe:", error);
         return false;
     }
 };
+
 
 const resetKategoriatCheckboxes = () => {
     const kategoriat = document.querySelectorAll('#tuote_kategoriat input[type="checkbox"]');
@@ -706,25 +727,32 @@ const openKategoriatModal = (tuoteId, existingKategoriat, updateKategoriaElement
             if (checkbox.checked) {
                 const kategoriaId = parseInt(checkbox.value, 10);
 
-                if (!existingKategoriat.includes(kategoriaId)) {
-                    console.log(`Kategoria ei ole vielä lisätty.`);
-                } else {
-                    const success = await deleteKategoriaFromTuote(tuoteId, kategoriaId);
-                    if (success) {
-                    } else {
-                        errors = true;
-                    }
+                const kategoriatuoteData = await getKategoriatuoteIdByTuoteAndKategoria(tuoteId, kategoriaId);
+
+                if (!kategoriatuoteData || !kategoriatuoteData.kategoriatuote_id) {
+                    alert("Virhe poistettaessa kategoriaa: tuntematon ID");
+                    errors = true;
+                }
+
+                const kategoriatuoteId = kategoriatuoteData.kategoriatuote_id;
+
+                const success = await deleteKategoriaFromTuote(kategoriatuoteId);
+
+                if (!success) {
+                    errors = true;
                 }
             }
         }
 
         if (!errors) {
+            alert('Kategoria poistettu onnistuneesti');
             kategoriatModal.close();
             resetKategoriatCheckboxes();
         }
     });
-};
 
+
+};
 
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -5,7 +5,8 @@ import {
     findKategoriaTuoteByKategoriaId,
     addKategoriaTuote,
     removeKategoriaTuoteById,
-    updateKategoriaTuoteById
+    updateKategoriaTuoteById,
+    findKategoriatuoteIdByTuoteAndKategoria
 } from '../models/kategoriaTuote-model.js';
 
 const getKategoriaTuoteeet = async (req, res) => {
@@ -37,6 +38,15 @@ const getKategoriaTuoteByTuoteId = async (req, res) => {
 
 const getKategoriaTuoteByKategoriaId = async (req, res) => {
     const kategoriaTuote = await findKategoriaTuoteByKategoriaId(req.params.kategoria_id);
+    if (kategoriaTuote) {
+        res.json(kategoriaTuote);
+    } else {
+        res.sendStatus(404);
+    }
+}
+
+const getKategoriatuoteIdByTuoteAndKategoria = async (req, res) => {
+    const kategoriaTuote = await findKategoriatuoteIdByTuoteAndKategoria(req.params.tuote_id, req.params.kategoria_id);
     if (kategoriaTuote) {
         res.json(kategoriaTuote);
     } else {
@@ -96,5 +106,6 @@ export {
     getKategoriaTuoteByTuoteId,
     postKategoriaTuote,
     putKategoriaTuoteById,
-    deleteKategoriaTuoteById
+    deleteKategoriaTuoteById,
+    getKategoriatuoteIdByTuoteAndKategoria
 };

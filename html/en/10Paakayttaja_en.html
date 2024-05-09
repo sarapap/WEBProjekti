@@ -112,7 +112,7 @@
 
   <div class="ajan-section">
     <h1>Product Management</h1>
-    <button class="button">New Product</button>
+    <button class="button" id="newProductButton">New Product</button>
   </div>
 
   <div>
@@ -121,12 +121,12 @@
     <div class="filter-options">
       <label for="cakeType">Select type:</label>
       <select id="cakeType">
-        <option value="all">All</option>
+        <option value="choose">Choose</option>
         <option value="cakes">Cakes</option>
         <option value="savory">Savory</option>
         <option value="sweet">Sweet</option>
-        <option value="hot-food">Hot Food</option>
-        <option value="beverages">Beverages</option>
+        <option value="hotmeals">Hot Food</option>
+        <option value="drinks">Refreshments</option>
       </select>
     </div>
     <div id="cakeList" class="cake-list"></div>
@@ -163,11 +163,11 @@
             <option value="23">Sweet Pastries</option>
             <option value="24">Other Sweets</option>
             <option value="25">Chicken Dishes</option>
-            <option value="26">Other Hot Dishes</option>
-            <option value="12">Hot Drinks</option>
-            <option value="13">Ice Coffees</option>
-            <option value="14">Teas</option>
-            <option value="15">Refreshments</option>
+            <option value="27">Other Hot Dishes</option>
+            <option value="27">Hot Drinks</option>
+            <option value="28">Ice Coffees</option>
+            <option value="29">Teas</option>
+            <option value="30">Refreshments</option>
           </select>
           <br>
 
@@ -175,6 +175,49 @@
           <button id="closeButton" type="button">Close</button>
         </form>
       </div>
+    </dialog>
+
+    <dialog id="kategoriatModal">
+      <h2>Add Special Diets</h2>
+      <div id="tuote_kategoriat">
+        <p>Categories:</p>
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
+        <label for="gluteeniton">Gluten-Free</label><br>
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
+        <label for="laktoositon">Lactose-Free</label><br>
+
+        <input type="checkbox" id="maidoton" name="kategoriat" value="4">
+        <label for="maidoton">Dairy-Free</label><br>
+
+        <input type="checkbox" id="munaton" name="kategoriat" value="5">
+        <label for="munaton">Egg-Free</label><br>
+
+        <input type="checkbox" id="kasvis" name="kategoriat" value="6">
+        <label for="kasvis">Vegetarian</label><br>
+      </div>
+      <button id="addKategoriat" type="button">Add</button>
+
+      <div id="tuote_kategoriat2">
+        <h2>Remove Special Diets</h2>
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
+        <label for="gluteeniton">Gluten-Free</label><br>
+
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
+        <label for="laktoositon">Lactose-Free</label><br>
+
+        <input type="checkbox" id="maidoton" name="kategoriat" value="4">
+        <label for="maidoton">Dairy-Free</label><br>
+
+        <input type="checkbox" id="munaton" name="kategoriat" value="5">
+        <label for="munaton">Egg-Free</label><br>
+
+        <input type="checkbox" id="kasvis" name="kategoriat" value="6">
+        <label for="kasvis">Vegetarian</label><br>
+
+      </div>
+      <button id="deleteKategoriat" type="button">Delete</button><br>
+
+      <button id="closeKategoriat" type="button">Close</button>
     </dialog>
 
     <div>

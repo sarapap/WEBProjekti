@@ -38,6 +38,17 @@ const findKategoriaTuoteByKategoriaId = async (id) => {
   return rows[0];
 };
 
+const findKategoriatuoteIdByTuoteAndKategoria = async (tuote_id, kategoria_id) => {
+  const [rows] = await promisePool.execute(
+    'SELECT * FROM kategoria_tuote WHERE tuote_id = ? AND kategoria_id = ?',
+    [tuote_id, kategoria_id]
+  );
+  if (rows.length === 0) {
+    return false;
+  }
+  return rows[0];
+}
+
 const addKategoriaTuote = async (kategoriaTuote) => {
   const { tuote_id, kategoria_id } = kategoriaTuote;
   const sql = `INSERT INTO kategoria_tuote (tuote_id, kategoria_id) VALUES (?, ?)`;
@@ -104,5 +115,5 @@ export {
   findKategoriaTuoteByKategoriaId,
   addKategoriaTuote,
   removeKategoriaTuoteById,
-  updateKategoriaTuoteById
+  updateKategoriaTuoteById, findKategoriatuoteIdByTuoteAndKategoria
 };

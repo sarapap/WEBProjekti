@@ -6,7 +6,8 @@ import {
   getKategoriaTuoteByTuoteId,
   postKategoriaTuote,
   putKategoriaTuoteById,
-  deleteKategoriaTuoteById
+  deleteKategoriaTuoteById,
+  getKategoriatuoteIdByTuoteAndKategoria
 
 } from '../controllers/kategoriaTuote-controller.js';
 
@@ -17,5 +18,6 @@ KategoriaTuoteRouter.route('/kategoria/:kategoria_id').get(getKategoriaTuoteByKa
 KategoriaTuoteRouter.route('/tuote/:tuote_id').get(getKategoriaTuoteByTuoteId);
 KategoriaTuoteRouter.route('/:id').get(getKategoriaTuoteById).put(putKategoriaTuoteById);
 KategoriaTuoteRouter.route('/:kategoriatuote_id').delete(deleteKategoriaTuoteById);
+KategoriaTuoteRouter.route('/:tuote_id/:kategoria_id').get(getKategoriatuoteIdByTuoteAndKategoria);
 
 export default KategoriaTuoteRouter;

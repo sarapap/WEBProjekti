@@ -116,7 +116,7 @@
 
     <div class="ajan-section">
       <h1>Produkthantering</h1>
-      <button class="button">Ny produkt</button>
+      <button class="button" id="newProductButton">Ny produkt</button>
     </div>
 
     <dialog id="tuoteModal">
@@ -164,6 +164,49 @@
       </div>
     </dialog>
 
+    <dialog id="kategoriatModal">
+      <h2>Lägg till specialdieter</h2>
+      <div id="tuote_kategoriat">
+        <p>Kategorier:</p>
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
+        <label for="gluteeniton">Glutenfri</label><br>
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
+        <label for="laktoositon">Laktosfri</label><br>
+
+        <input type="checkbox" id="maidoton" name="kategoriat" value="4">
+        <label for="maidoton">Mjölkfri</label><br>
+
+        <input type="checkbox" id="munaton" name="kategoriat" value="5">
+        <label for="munaton">Äggfri</label><br>
+
+        <input type="checkbox" id="kasvis" name="kategoriat" value="6">
+        <label for="kasvis">Vegetarisk</label><br>
+      </div>
+      <button id="addKategoriat" type="button">Lägg till</button>
+
+      <div id="tuote_kategoriat2">
+        <h2>Ta bort specialdieter</h2>
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
+        <label for="gluteeniton">Glutenfri</label><br>
+
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
+        <label for="laktoositon">Laktosfri</label><br>
+
+        <input type="checkbox" id="maidoton" name="kategoriat" value="4">
+        <label for="maidoton">Mjölkfri</label><br>
+
+        <input type="checkbox" id="munaton" name="kategoriat" value="5">
+        <label for="munaton">Äggfri</label><br>
+
+        <input type="checkbox" id="kasvis" name="kategoriat" value="6">
+        <label for="kasvis">Vegetarisk</label><br>
+
+      </div>
+      <button id="deleteKategoriat" type="button">Ta bort</button><br>
+
+      <button id="closeKategoriat" type="button">Stäng</button>
+    </dialog>
+
 
     <div>
       <p>Kontrollera redigeringsinformation genom att söka efter produkter.</p>
@@ -171,10 +214,11 @@
       <div class="filter-options">
         <label for="cakeType">Välj typ:</label>
         <select id="cakeType">
-          <option value="alla">Alla</option>
+          <option value="välja">Välja</option>
           <option value="tårtor">Tårtor</option>
-          <option value="söta">Söta</option>
-          <option value="heta">Heta rätter</option>
+          <option value="saltet">Salta rätter</option>
+          <option value="sött">Söta</option>
+          <option value="varmarätter">Varma Rätter</option>
           <option value="drycker">Drycker</option>
         </select>
       </div>
