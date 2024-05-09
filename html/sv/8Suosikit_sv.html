@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../css/8Suosikit.css" rel="stylesheet">
+    <link href="../css/8Suosikit.css" rel="stylesheet">
     <title>S&A CAFE</title>
-    <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <style>
         /* footer */
@@ -54,29 +55,32 @@
                     <li class="kieli">
                         <label for="kieli">Välj språk: </label>
                         <select id="kieli" onchange="changeLanguage(this.value)">
-                            <option value="FI">Finska</option>
-                            <option value="EN">Engelska</option>
-                            <option value="CN">Kinesiska</option>
-                            <option value="ET">Estniska</option>
+                            <option value="FI">Suomi</option>
+                            <option value="EN" >English</option>
+                            <option value="CN">中文</option>
+                            <option value="ET">Eesti</option>
+                            <option value="SV">Svenska</option>
+                            <option value="ET">Eesti</option>
                             <option value="SV" selected>Svenska</option>
                         </select>
                     </li>
                     <li>
-                      <a href="11Login.html">
-                        <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+                        <a href="11Login_sv.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
-                      </a>
-                  </li>
-                  <li>
-                      <a href="8Suosikit.html">
-                        <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="9Ostoskori.html">
-                        <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
-                      </a>
-                  </li>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_sv.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_sv.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
                 </ul>
 
             </nav>
@@ -103,52 +107,30 @@
 
 
 
-    <div class="table">
-        <h1>Favoriter</h1>
-        <table>
-            <tr>
-                <th>Produktbild</th>
-                <th>Produktbeskrivning</th>
-                <th>Pris</th>
-                <th>Ta bort från listan</th>
-            </tr>
-            <tr>
-                <td>
-                    <div>
-                        <img src="../../css/kuvat/cake_piece.jpg" alt="Produktbild">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                </td>
+    <div class="table, cake-list" id="cakeList"></div>
 
-                <td>Kakbit</td>
-                <td>5€</td>
-                <td class="delete-btn"><img src="../../css/kuvat/heart_red.png" alt="Papperskorgen"
-                        style="width: 35px; height: 30px; padding-left: 30px;"></td>
-            </tr>
-        </table>
-
-        <h1>Våra favoriter</h1>
-        <div class="image-box table2">
-            <div class="image-container">
-                <img src="../../css/kuvat/whitecake.jpg" alt="Kuva 1">
-                <img src="../../css/kuvat/cake_piece.jpg" alt="Kuva 2">
-                <img src="../../css/kuvat/strawberry_cake.jpg" alt="Kuva 3">
-                <img src="../../css/kuvat/creamcake.jpg" alt="Kuva 4">
-                <img src="../../css/kuvat/oreocake.jpg" alt="Kuva 5">
-                <img src="../../css/kuvat/pink_dream.jpg" alt="Kuva 6">
-                <img src="../../css/kuvat/kindercake.jpg" alt="Kuva 7">
-                <img src="../../css/kuvat/whitecake.jpg" alt="Kuva 8">
-            </div>
-            <button class="prev-button">&lt;</button>
-            <button class="next-button">&gt;</button>
+    <h1>Våra favoriter</h1>
+    <div class="carousel">
+        <button class="prev-button">&lt;</button>
+        <div class="image-container">
+            <img src="../css/kuvat/whitecake.jpg" alt="Kuva 1">
+            <img src="../css/kuvat/cake_piece.jpg" alt="Kuva 2">
+            <img src="../css/kuvat/strawberry_cake.jpg" alt="Kuva 3">
+            <img src="../css/kuvat/creamcake.jpg" alt="Kuva 4">
+            <img src="../css/kuvat/oreocake.jpg" alt="Kuva 5">
+            <img src="../css/kuvat/pink_dream.jpg" alt="Kuva 6">
+            <img src="../css/kuvat/kindercake.jpg" alt="Kuva 7">
+            <img src="../css/kuvat/whitecake.jpg" alt="Kuva 8">
         </div>
+        <button class="next-button">&gt;</button>
+    </div>
 
 
-        <footer class="footer-container">
-            <p class="footerP">&copy; S&A CAFE 2024</p>
-            <div class="changecontent">
-            </div>
-        </footer>
+    <footer class="footer-container">
+        <p class="footerP">&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
+        </div>
+    </footer>
 
 
 </body>

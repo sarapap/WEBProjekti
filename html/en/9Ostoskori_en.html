@@ -4,9 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../../css/9Ostoskori.css" rel="stylesheet">
+  <link href="../css/9Ostoskori.css" rel="stylesheet">
   <title>S&A CAFE</title>
-  <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
   <style>
     .changecontent::after {
@@ -84,29 +85,30 @@
           <li class="kieli">
             <label for="kieli">Select language: </label>
             <select id="kieli" onchange="changeLanguage(this.value)">
-              <option value="FI">Finnish</option>
+              ect id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI">Suomi</option>
               <option value="EN" selected>English</option>
-              <option value="CN">Chinese</option>
-              <option value="ET">Estonian</option>
-              <option value="SV">Swedish</option>
+              <option value="CN">中文</option>
+              <option value="ET">Eesti</option>
+              <option value="SV">Svenska</option>
             </select>
           </li>
           <li>
-            <a href="11Login.html">
-              <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+            <a href="11Login_en.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
             </a>
-        </li>
-        <li>
-            <a href="8Suosikit.html">
-              <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+          </li>
+          <li>
+            <a href="8Suosikit_en.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
             </a>
-        </li>
-        <li>
-            <a href="9Ostoskori.html">
-              <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+          </li>
+          <li>
+            <a href="9Ostoskori_en.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
             </a>
-        </li>
+          </li>
         </ul>
 
       </nav>
@@ -136,56 +138,16 @@
       <div class="changetext"></div>
     </h1>
   </div>
-
-  <div class="table">
-    <h1>Shopping Cart</h1>
-    <table>
-      <tr>
-        <th>Select</th>
-        <th>Product Image</th>
-        <th>Product Name</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th class="delete-btn"><img src="../../css/kuvat/trash_can.png" alt="Trash Can"></th>
-      </tr>
-      <tr>
-        <td><input type="checkbox" name="selection" value="cake"></td>
-        <td><img src="" alt="">Product Image</td>
-        <td>Cake</td>
-        <td>5€</td>
-        <td><input type="number" name="quantity" value="1" min="1" max="10"></td>
-        <td class="delete-btn"><img src="../../css/kuvat/trash_can.png" alt="Trash Can"></td>
-      </tr>
-      <tr>
-        <td><input type="checkbox" name="selection" value="pastry"></td>
-        <td><img src="" alt="">Product Image</td>
-        <td>Pastry</td>
-        <td>3€</td>
-        <td><input type="number" name="quantity" value="1" min="1" max="10"></td>
-        <td class="delete-btn"><img src="../../css/kuvat/trash_can.png" alt="Trash Can"></td>
-      </tr>
-      <tr>
-        <td><input type="checkbox" name="selection" value="drink"></td>
-        <td><img src="" alt="">Product Image</td>
-        <td>Drink</td>
-        <td>2€</td>
-        <td><input type="number" name="quantity" value="1" min="1" max="10"></td>
-        <td class="delete-btn"><img src="../../css/kuvat/trash_can.png" alt="Trash Can"></td>
-      </tr>
-      <tr>
-        <td>
-        <td></td>
-        </td>
-        <td>Total</td>
-        <td>10€</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
+  <p></p>
+  <h1>Shopping Cart</h1>
+  <hr>
+  <div class="table" id="tuoteList">
+    <p>Your shopping cart is empty. Please continue shopping.</p>
   </div>
   <div class="div-class">
-    <button type="submit" class="pay_btn">Pay</button>
+    <button type="submit" class="pay_btn" id="payButton">Pay</button>
   </div>
+
 
   <footer class="footer-container">
     <p class="footerP">&copy; S&A CAFE 2024</p>

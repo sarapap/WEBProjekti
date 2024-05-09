@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../css/3MenuPage3.css" rel="stylesheet">
+    <link href="../css/3MenuPage3.css" rel="stylesheet">
     <title>S&A CAFE</title>
-    <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
 
     <style>
         /* footer */
@@ -43,7 +43,7 @@
     </style>
 
     <script src="/javascript/default.js" defer></script>
-    <script src="/javascript/3MenuPage3.js" defer></script>
+    <script src="/javascript/3MenuPage1.js" defer></script>
 </head>
 
 <body>
@@ -54,36 +54,37 @@
                     <li class="kieli">
                         <label for="kieli">Valitse kieli: </label>
                         <select id="kieli" onchange="changeLanguage(this.value)">
-                            <option value="FI" selected>Suomi</option>
-                            <option value="EN">Englanti</option>
-                            <option value="CN">Kiina</option>
-                            <option value="ET">Viro</option>
-                            <option value="SV">Ruotsi</option>
+                            <option value="FI">Suomi</option>
+              <option value="EN" selected>English</option>
+              <option value="CN">中文</option>
+              <option value="ET">Eesti</option>
+              <option value="SV">Svenska</option>
                         </select>
                     </li>
-                  </li>
-                  <li>
-                      <a href="11Login.html">
-                        <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+                    </li>
+                    <li>
+                        <a href="11Login.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
-                      </a>
-                  </li>
-                  <li>
-                      <a href="8Suosikit.html">
-                        <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="9Ostoskori.html">
-                        <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
-                      </a>
-                  </li>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
                 </ul>
 
             </nav>
             <div class="image-container">
-                <a href="1Etusivu.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
-                <img src="../../css/kuvat/sweet.jpg" width="800px" height="300px" class="cakeImg" alt="cupcakes">
+                <a href="1Etusivu.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+                <img src="../css/kuvat/sweet.jpg" width="800px" height="300px" class="cakeImg" alt="cupcakes">
             </div>
         </div>
     </header>
@@ -109,52 +110,23 @@
     <div class="sweets-section">
         <h2>MAKEAT LEIVONNAISET</h2>
 
-        <input type="text" id="sweetSearch" placeholder="Etsi makeaa...">
         <div class="filter-options">
-            <label for="sweetType">Valitse tyyppi:</label>
-            <select id="sweetType">
-                <option value="kaikki">Kaikki</option>
+            <label for="cakeType">Valitse tyyppi:</label>
+            <select id="cakeType">
+                <option value="kaikki4">Kaikki</option>
                 <option value="leivonnaiset">Leivonnaiset</option>
-                <option value="muut_makeat">Muut makeat</option>
-                <!-- Lisää -->
+                <option value="muut makeat">Muut makeat</option>
             </select>
         </div>
 
-        <div class="sweet-category">
-            <h3>Leivonnaiset</h3>
-            <div class="sweet-list">
-                <div class="sweet-item">
-                    <img src="leivos1.jpg" alt="Leivos 1">
-                    <h4>Mansikkatorttu</h4>
-                    <p>Täytetty tuoreilla mansikoilla ja kermaisella täytteellä.</p>
-                    <button>Lisää ostoskoriin</button>
-                </div>
-                <!-- Lisää-->
+        <div class="sweet-category" id="cakeList">
+        </div>
+
+        <footer>
+            <p>&copy; S&A CAFE 2024</p>
+            <div class="changecontent">
             </div>
-        </div>
-
-        <div class="sweet-category">
-            <h3>Muut makeat</h3>
-            <div class="sweet-list">
-                <div class="sweet-item">
-                    <img src="makealeivos.jpg" alt="Makea leivos">
-                    <h4>Makea leivos</h4>
-                    <p>-</p>
-                    <button>Lisää ostoskoriin</button>
-                </div>
-                <!-- Lisää-->
-            </div>
-        </div>
-
-        <!-- Lisää -->
-
-    </div>
-
-    <footer>
-        <p>&copy; S&A CAFE 2024</p>
-        <div class="changecontent">
-        </div>
-    </footer>
+        </footer>
 </body>
 
 

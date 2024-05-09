@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../css/3MenuPage1.css" rel="stylesheet">
+    <link href="../css/3MenuPage1.css" rel="stylesheet">
     <title>S&A CAFE</title>
-    <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
 
     <style>
         .changecontent::after {
@@ -52,35 +52,37 @@
                     <li class="kieli">
                         <label for="kieli">Vali keel: </label>
                         <select id="kieli" onchange="changeLanguage(this.value)">
-                            <option value="FI">Soome</option>
-                            <option value="EN">Inglise</option>
-                            <option value="CN">Hiina</option>
-                            <option value="ET" selected>Eesti</option>
-                            <option value="SV">Rootsi</option>
+                          <option value="FI">Suomi</option>
+                          <option value="EN" >English</option>
+                          <option value="CN">中文</option>
+                          <option value="ET" selected>Eesti</option>
+                          <option value="SV">Svenska</option>
+
                         </select>
                     </li>
                     <li>
-                      <a href="11Login.html">
-                        <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+                        <a href="11Login_et.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
-                      </a>
-                  </li>
-                  <li>
-                      <a href="8Suosikit.html">
-                        <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="9Ostoskori.html">
-                        <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
-                      </a>
-                  </li>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_et.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_et.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
                 </ul>
 
             </nav>
             <div class="image-container">
-                <a href="1Etusivu_et.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
-                <img src="../../css/kuvat/cakes.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
+                <a href="1Etusivu_et.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+                <img src="../css/kuvat/cakes.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
             </div>
         </div>
     </header>
@@ -105,50 +107,25 @@
 
     <div class="cake-section">
         <h2>KOOKIDE VALIK</h2>
-        <input type="text" id="cakeSearch" placeholder="Otsi kooki...">
+
         <div class="filter-options">
             <label for="cakeType">Vali tüüp:</label>
             <select id="cakeType">
-                <option value="kaikki">Kõik</option>
-                <option value="suklaakakut">Šokolaadikook</option>
-                <option value="mansikkakakut">Maasikakook</option>
-                <option value="vaniljakakut">Vaniljekook</option>
+                <option value="koik">Kõik</option>
+                <option value="pidukoogid">Pidu Koogid</option>
+                <option value="magusadkoogid">Magusad Koogid</option>
+                <option value="soolasedkoogid">Soolased Koogid</option>
             </select>
         </div>
 
-        <div class="cake-list">
-            <div class="cake-item">
-                <img src="kuva1.jpg" alt="Kook 1">
-                <h3>Kook 1</h3>
-                <p>Kook 1 kirjeldus</p>
-                <button>Lisa ostukorvi</button>
-            </div>
-            <div class="cake-item">
-                <img src="kuva2.jpg" alt="Kook 2">
-                <h3>Kook 2</h3>
-                <p>Kook 2 kirjeldus</p>
-                <button>Lisa ostukorvi</button>
-            </div>
-            <div class="cake-item">
-                <img src="kuva3.jpg" alt="Kook 3">
-                <h3>Kook 3</h3>
-                <p>Kook 3 kirjeldus</p>
-                <button>Lisa ostukorvi</button>
-            </div>
-            <div class="cake-item">
-                <img src="kuva4.jpg" alt="Kook 4">
-                <h3>Kook 4</h3>
-                <p>Kook 4 kirjeldus</p>
-                <button>Lisa ostukorvi</button>
-            </div>
-            <!-- Lisa kooke -->
+        <div class="cake-list" id="cakeList">
+
         </div>
-    </div>
-    <footer>
-        <p>&copy; S&A CAFE 2024</p>
-        <div class="changecontent">
-        </div>
-    </footer>
+        <footer>
+            <p>&copy; S&A CAFE 2024</p>
+            <div class="changecontent">
+            </div>
+        </footer>
 </body>
 
 </html>

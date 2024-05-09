@@ -25,28 +25,28 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0g
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_nimi"
 
-Oreo-juustokakku
+定制蛋糕
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kuvaus"
 
-Herkullinen Oreo-juustokakku on valmistettu Oreo-kekseistä ja tuorejuustosta. Kakku on koristeltu Oreo-kekseillä ja suklaakastikkeella. Kakku on täydellinen jälkiruoka juhliin ja arkeen.
+我们提供独特的定制蛋糕，完全根据客户的要求设计。当您下订单时，我们会通过电子邮件与您联系，以确认所有细节。我们制作各种活动的蛋糕，如生日、婚礼和公司活动，确保最终产品符合您的期望。
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_hinta"
 
-47.00
+
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tuote_kustannus"
 
-20.00
+
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="tyyppi_id"
 
-3
+59
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="tuote_kuva"; filename="oreocake.jpg"
+Content-Disposition: form-data; name="tuote_kuva"; filename="custom.jpg"
 Content-Type: image/jpeg
 
-< kuvat/kakut/oreocake.jpg
+< kuvat/kakut/custom.jpg
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
 
@@ -56,14 +56,20 @@ DELETE http://localhost:3000/api/v1/tuote/2
 #
 
 ###Update tuote by id, käydä postman to update
-PUT http://localhost:3000/api/v1/tuote/2
-Content-Type: from-data
+PUT http://localhost:3000/api/v1/tuote/50
+Content-Type: application/json
 
 {
-    "tuote_nimi": "mansikkakakku_pala",
-    "tuote_kuva": "",
-    "tuote_hinta": "3.25",
+    "tuote_nimi": "Americano",
+    "tuote_hinta": "4.25",
     "tuote_kustannus": "2.00",
-    "tyyppi_id": ""
+    "tyyppi_id": "12"
 }
 
+
+### get tuote by id lang ja hinta
+GET http://localhost:3000/api/v1/tuote/137/EN/51.00
+
+
+### get tuote by id lang 
+GET http://localhost:3000/api/v1/tuote/FI/51.00

@@ -11,7 +11,7 @@ GET http://localhost:3000/api/v1/yritystoiminta/pvm/2021-01-19
 
 
 ###get all palaute between dates
-GET http://localhost:3000/api/v1/yritystoiminta/2021-01-19/2021-01-29
+GET http://localhost:3000/api/v1/yritystoiminta/2021-01-19/2024-05-06
 
 
 ### uusi yritystoiminta

@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../../css/10Paakayttaja.css" rel="stylesheet">
+  <link href="../css/10Paakayttaja.css" rel="stylesheet">
   <title>S&A CAFE</title>
-  <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
 
   <style>
     .changecontent::after {
@@ -52,26 +52,28 @@
           <li class="kieli">
             <label for="kieli">Vali keel: </label>
             <select id="kieli" onchange="changeLanguage(this.value)">
-              <option value="FI">Soome</option>
-              <option value="EN">Inglise</option>
-              <option value="CN">Hiina</option>
-              <option value="ET" selected>Eesti</option>
-              <option value="SV">Rootsi</option>
+              <option value="FI">Suomi</option>
+                            <option value="FI">Suomi</option>
+                            <option value="EN">English</option>
+                            <option value="CN">中文</option>
+                            <option value="ET" selected>Eesti</option>
+                            <option value="SV">Svenska</option>
+
             </select>
           </li>
           <li>
-            <a href="11Login.html">
+            <a href="11Login_et.html">
               <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
             </a>
           </li>
           <li>
-            <a href="8Suosikit.html">
+            <a href="8Suosikit_et.html">
               <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
             </a>
           </li>
           <li>
-            <a href="9Ostoskori.html">
+            <a href="9Ostoskori_et.html">
               <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
             </a>
           </li>
@@ -118,7 +120,7 @@
 
     <div>
       <p>Kontrollige toimetamise üksikasju, otsides tooteid.</p>
-      <input type="text" id="cakeSearch" placeholder="Otsi kooki...">
+      <input type="text" id="cakeSearch" placeholder="Otsi toodet...">
       <div class="filter-options">
         <label for="cakeType">Valige tüüp:</label>
         <select id="cakeType">
@@ -130,6 +132,7 @@
           <option value="joogid">Joogid</option>
         </select>
       </div>
+      <div id="cakeList" class="cake-list"></div>
       <hr>
 
       <div>
@@ -210,9 +213,11 @@
 
           <br>
           <br>
-          <label for="ehdot_hyvaksytty">Tingimustega nõus:</label>
-          <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
 
+          <div class="form-group checkbox-group">
+            <label for="ehdot_hyvaksytty">Tingimustega nõus</label>
+            <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
+          </div>
           <button class="userButton" type="submit">Lisa kasutaja</button>
         </form>
       </div>

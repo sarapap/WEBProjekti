@@ -4,9 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../../css/3MenuPage1.css" rel="stylesheet">
+  <link href="../css/3MenuPage1.css" rel="stylesheet">
   <title>S&A CAFE</title>
-  <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-BgwuL+3uwTr2/brmC4c3XM4WfIGFpxgMDtLzg1zTTyTLs1MxvyLNJNQ5mp6nNNpn9IasYTBGB6YCim31QEBXCw==" crossorigin="anonymous" />
+
 
   <style>
     /* footer */
@@ -56,13 +58,12 @@
           <li class="kieli">
             <label for="kieli">Valitse kieli: </label>
             <select id="kieli" onchange="changeLanguage(this.value)">
-              <option value="FI" selected>Suomi</option>
-              <option value="EN">Englanti</option>
-              <option value="CN">Kiina</option>
-              <option value="ET">Viro</option>
-              <option value="SV">Ruotsi</option>
+              <option value="FI">Suomi</option>
+              <option value="EN" selected>English</option>
+              <option value="CN">中文</option>
+              <option value="ET">Eesti</option>
+              <option value="SV">Svenska</option>
 
-              <header>
             </select>
           </li>
           <li>
@@ -85,8 +86,8 @@
 
       </nav>
       <div class="image-container">
-        <a href="1Etusivu.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
-        <img src="../../css/kuvat/cakes.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
+        <a href="1Etusivu.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+        <img src="../css/kuvat/cakes.jpg" width="800px" height="300px" class="cakeImg" alt="cakes">
       </div>
     </div>
   </header>
@@ -124,15 +125,13 @@
     </div>
 
     <div class="cake-list" id="cakeList">
-      <!-- Lisää kakkuja -->
     </div>
-    <!-- Lisää kakkuja -->
+
+
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+
   </div>
-
-  <footer>
-    <p>&copy; S&A CAFE 2024</p>
-
-    </div>
   </footer>
 </body>
 

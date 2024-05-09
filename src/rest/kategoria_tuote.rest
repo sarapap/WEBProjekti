@@ -13,14 +13,15 @@ GET http://localhost:3000/api/v1/kategoria_tuote/tuote/17
 GET http://localhost:3000/api/v1/kategoria_tuote/kategoria/4
 
 
-
 ### uusi Kategoria_tuote
 POST http://localhost:3000/api/v1/kategoria_tuote
 Content-Type: application/json
 
 {
-    "tuote_id": "25",
-    "kategoria_id": "4"
+
+    "tuote_id": "321",
+    "kategoria_id": "13"
+
 }
 
 

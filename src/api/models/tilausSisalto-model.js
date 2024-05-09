@@ -17,6 +17,17 @@ const findTilausSisaltoById = async (id) => {
   return rows[0];
 };
 
+const findTilausPvmByTilausId = async (id) => {
+  const [rows] = await promisePool.execute(
+      'SELECT tilaus_pvm FROM tilaus_sisalto WHERE tilaus_id = ?',
+      [id]
+  );
+  if (rows.length === 0) {
+      return false;
+  }
+  return rows;
+};
+
 const findTilausSisaltoByTilausId = async (id) => {
   const [rows] = await promisePool.execute(
       'SELECT * FROM tilaus_sisalto WHERE tilaus_id = ?',
@@ -147,6 +158,7 @@ export {
   findTilausSisaltoById,
   findTilausSisaltoByTilausId,
   findTilausSisaltoByPvm,
+  findTilausPvmByTilausId,
   findTilausSisaltoByDateRange,
   addTilausSisalto,
   removeTilausSisaltoById,

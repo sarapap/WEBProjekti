@@ -25,7 +25,7 @@ const findTilausByAsiakasId = async (id) => {
   if (rows.length === 0) {
       return false;
   }
-  return rows[0];
+  return rows;
 };
 
 const addTilaus = async (tilaus) => {

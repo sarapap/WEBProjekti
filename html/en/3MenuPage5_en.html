@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../css/3MenuPage5.css" rel="stylesheet">
+    <link href="../css/3MenuPage5.css" rel="stylesheet">
     <title>S&A CAFE</title>
-    <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
 
     <style>
         .changecontent::after {
@@ -41,7 +41,7 @@
     </style>
 
     <script src="/javascript/default.js" defer></script>
-    <script src="/javascript/3MenuPage5.js" defer></script>
+    <script src="/javascript/3MenuPage1.js" defer></script>
 </head>
 
 <body>
@@ -52,35 +52,36 @@
                     <li class="kieli">
                         <label for="kieli">Select language: </label>
                         <select id="kieli" onchange="changeLanguage(this.value)">
-                            <option value="FI">Finnish</option>
+                            <option value="FI">Suomi</option>
                             <option value="EN" selected>English</option>
-                            <option value="CN">Chinese</option>
-                            <option value="ET">Estonian</option>
-                            <option value="SV">Swedish</option>
+                            <option value="CN">中文</option>
+                            <option value="ET">Eesti</option>
+                            <option value="SV">Svenska</option>
                         </select>
                     </li>
                     <li>
-                      <a href="11Login.html">
-                        <div class = "käyttäjä" id="profiili-icon" class="icon">👤</div>
+                        <a href="11Login_en.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
 
-                      </a>
-                  </li>
-                  <li>
-                      <a href="8Suosikit.html">
-                        <div class ="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="9Ostoskori.html">
-                        <div class = "ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
-                      </a>
-                  </li>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_en.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_en.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
                 </ul>
 
             </nav>
             <div class="image-container">
-                <a href="1Etusivu_en.html"><img src="../../css/kuvat/logo.png" class="logo" alt="logo-image"></a>
-                <img src="../../css/kuvat/coffee.jpg" width="800px" height="300px" class="cakeImg" alt="coffee">
+                <a href="1Etusivu_en.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-image"></a>
+                <img src="../css/kuvat/coffee.jpg" width="800px" height="300px" class="cakeImg" alt="coffee">
             </div>
         </div>
     </header>
@@ -106,102 +107,25 @@
     <div class="drinks-section">
         <h2>DRINK MENU</h2>
 
-        <input type="text" id="drinkSearch" placeholder="Search for a drink...">
         <div class="filter-options">
-            <label for="drinkType">Select type:</label>
-            <select id="drinkType">
-                <option value="kaikki">All</option>
-                <option value="lämmin_kahvi">Hot Coffee</option>
-                <option value="jääkahvi">Iced Coffee</option>
-                <option value="tee">Tea</option>
-                <option value="virvoitusjuomat">Soft Drinks</option>
-                <!-- Add -->
+            <label for="cakeType">Select type:</label>
+            <select id="cakeType">
+                <option value="all3">All</option>
+                <option value="hotdrinks">Hot Drinks</option>
+                <option value="iceddrinks">Iced Coffees</option>
+                <option value="teas">Teas</option>
+                <option value="refreshments">Soft Drinks</option>
             </select>
         </div>
 
-        <div class="drink-category">
-            <h3>Hot Coffee</h3>
-            <div class="drink-list">
-                <div class="drink-item">
-                    <img src="lammin_kahvi1.jpg" alt="Hot Coffee 1">
-                    <h4>Coffee Latte</h4>
-                    <p>Fresh espresso, steamed milk, and milk foam.</p>
-                    <button>Add to cart</button>
-                </div>
-                <div class="drink-item">
-                    <img src="lammin_kahvi2.jpg" alt="Hot Coffee 2">
-                    <h4>Cappuccino</h4>
-                    <p>Strong espresso topped with creamy milk foam.</p>
-                    <button>Add to cart</button>
-                </div>
-                <!-- Add -->
-            </div>
+        <div class="drink-category" id="cakeList">
         </div>
 
-        <div class="drink-category">
-            <h3>Iced Coffee</h3>
-            <div class="drink-list">
-                <div class="drink-item">
-                    <img src="jaakahvi1.jpg" alt="Iced Coffee 1">
-                    <h4>Frappuccino</h4>
-                    <p>Vanilla-flavored iced coffee with whipped cream.</p>
-                    <button>Add to cart</button>
-                </div>
-                <div class="drink-item">
-                    <img src="jaakahvi2.jpg" alt="Iced Coffee 2">
-                    <h4>Cold Brew</h4>
-                    <p>Fresh coffee beans steeped in cold water.</p>
-                    <button>Add to cart</button>
-                </div>
-                <!-- Add -->
+        <footer>
+            <p>&copy; S&A CAFE 2024</p>
+            <div class="changecontent">
             </div>
-        </div>
-        <div class="drink-category">
-            <h3>Teas</h3>
-            <div class="drink-list">
-                <div class="drink-item">
-                    <img src="tee1.jpg" alt="Tea 1">
-                    <h4>Chamomile</h4>
-                    <p>-</p>
-                    <button>Add to cart</button>
-                </div>
-                <div class="drink-item">
-                    <img src="tee2.jpg" alt="Tea 2">
-                    <h4>Rooibos</h4>
-                    <p>-</p>
-                    <button>Add to cart</button>
-                </div>
-                <!-- Add -->
-            </div>
-            <div class="drink-category">
-                <h3>Soft Drinks</h3>
-                <div class="drink-list">
-                    <div class="drink-item">
-                        <img src="SoftDrinks1.jpg" alt="Soft Drinks 1">
-                        <h4>Coca Cola</h4>
-                        <p>-</p>
-                        <button>Add to cart</button>
-                    </div>
-                    <div class="drink-item">
-                        <img src="SoftDrinks2.jpg" alt="Soft Drinks 2">
-                        <h4>Pepsi</h4>
-                        <p>-</p>
-                        <button>Add to cart</button>
-                    </div>
-                    <!-- Add -->
-                </div>
-
-                <!-- Add  -->
-
-            </div>
-
-
-
-            <footer>
-                <p>&copy; S&A CAFE 2024</p>
-                <div class="changecontent">
-                </div>
-            </footer>
+        </footer>
 </body>
 
 
