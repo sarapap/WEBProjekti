@@ -242,10 +242,6 @@ const displayTuotteet = async (tuotteet) => {
     const hrElement = document.createElement('hr');
     tilausList.appendChild(hrElement);
 
-
-
-
-
     });
   };
 };

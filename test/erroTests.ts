@@ -1,21 +1,22 @@
 // import request from 'supertest';
 
-// // test error for some randol url, should return 404
-// const getNotFound = (url) => {
-//   return new Promise((resolve, reject) => {
-//     request(url)
-//       .get('/what-is-this')
-//       .expect(404, (err, response) => {
-//         if (err) {
-//           reject(err);
-//         } else {
-//           resolve(response.body);
-//         }
-//       });
-//   });
-// };
+// test error for some url, should return 404
+const getNotFound = (url) => {
+  return new Promise((resolve, reject) => {
+    request(url)
+      .get('/api/v1/kakut/1')
+      .expect(404, (err, response) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(response.body);
+        }
+      });
+  }
+};
 
-// // should generate error for cake not found, should return 404
+
+// should generate error for cake not found, should return 404
 // const getSingleStudentError = (url, id) => {
 //   return new Promise((resolve, reject) => {
 //     request(url)

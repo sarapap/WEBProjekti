@@ -474,7 +474,7 @@ const displaySingleTuote = async (tuote) => {
     try {
       if (ostoskoriTarkistusTulos === false) {
         buttonElement.textContent = removeCart;
-        await addToCart(userId, tuoteId, lisaaTuoteMaara);
+        await addToCart(user1Id, tuoteId, lisaaTuoteMaara);
         await paivitaOstoskorinNumero();
       } else {
         buttonElement.textContent = addCartText;

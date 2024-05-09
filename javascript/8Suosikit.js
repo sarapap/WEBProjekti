@@ -118,6 +118,7 @@ const getTuoteByTuoteId = async (tuote_id, userId) => {
     buttonElement.addEventListener('click', async () => {
       const tarkista = await ostoskoriTarkistus(userId, tuote_id);
       if (tarkista === false) {
+        await addToCart(1, 1, 1);
         await addToCart(userId, tuote_id, 1);
       } else {
         await updateCart(userId, tuote_id, 1);
