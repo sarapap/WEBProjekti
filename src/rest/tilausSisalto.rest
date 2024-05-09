@@ -28,8 +28,8 @@ Content-Type: application/json
 
 {
 
-    "tilaus_id": "2",
-    "tuote_id": "7",
+    "tilaus_id": "4",
+    "tuote_id": "9",
     "maara": "1",
     "myynti_summa": "48.00",
     "kustannus_summa": "22.00",

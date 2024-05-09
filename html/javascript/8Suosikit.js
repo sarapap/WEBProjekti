@@ -90,6 +90,7 @@ switch (selectedLanguage) {
     virheostoskori3 = 'Virhe tuotteen päivittämisessä ostoskoriin!';
     break;
 }
+
 let tuote_id = null;
 const fetchAndDisplayTuotteet = async () => {
   const userId = getUserId();

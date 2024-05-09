@@ -42,6 +42,7 @@
 
   <script src="../javascript/default.js" defer></script>
   <script src="../javascript/paakayttaja.js" defer></script>
+  <script src="../javascript/yritystoimintaHaku.js" defer></script>
 </head>
 
 <body>
@@ -252,21 +253,23 @@
         <h1>Ärijälgimine</h1>
         <h4>Kontrollige aruannet valitud perioodil, näiteks päev, kuu jne.</h4>
         <label for="periood">Valige periood: </label>
-        <form action="/broneerimise-kinnitus" method="post">
-          <label for="algusKuupäev1">Alguskuupäev:</label>
-          <input type="date" id="algusKuupäe1" name="algusKuupäev1">
-          <label for="loppKuupäev1">Lõppkuupäev:</label>
-          <input type="date" id="loppKuupäev1" name="loppKuupäev1">
-          <button type="submit" class="button2">Otsi</button>
-        </form>
+
+        <label for="algusKuupäev1">Alguskuupäev:</label>
+        <input type="date" id="aloituspvm1" name="algusKuupäev1">
+        <label for="loppKuupäev1">Lõppkuupäev:</label>
+        <input type="date" id="lopetuspvm1" name="loppKuupäev1">
+        <button id="haeRaport" class="button2">Otsi</button>
+
 
         <table>
-          <p>Raport valitud perioodil kuvatakse siin.</p>
-          <tbody id="raport">
+
+          <tbody id="raportList">
+            <p>Raport valitud perioodil kuvatakse siin.</p>
           </tbody>
         </table>
       </div>
       <hr>
+
       <div>
         <h1>Tagasiside</h1>
         <label for="aloituspvm">Alguskuupäev:</label>

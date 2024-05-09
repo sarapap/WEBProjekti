@@ -251,7 +251,7 @@ th {
 
 .imageFrontPage {
     position: relative;
-    width: 630px;
+    width: 620px;
     height: 432px;
     overflow: hidden;
     margin-left: 40px;
@@ -295,53 +295,81 @@ footer {
 
 /* media */
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width: 1450px) {
     .icons ul li {
-        display: block;
         text-align: center;
         margin-bottom: 10px;
     }
 
-    .icons ul li a {
-        display: block;
-        padding: 5px;
-    }
-
     .logo {
         width: 125px;
+        height: auto;
     }
 
-    .cakeImg {
-        margin-top: 10px;
+    .imageFrontPage {
+        width: 500px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .imageFrontPage {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .logo {
+        width: 100px;
+    }
+
+    .imageFrontPage {
+        width: 400px;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .imageFrontPage {
+        width: 350px;
+        height: auto;
+    }
+
+    .aside1 {
+        width: 100%;
+    }
+
+    .aside2 {
+        width: 100%;
+        margin-bottom: 2rem;
     }
 
     .footer-container {
-        margin: 0;
+        text-align: center;
     }
 }
 
-@media screen and (max-width:600px) {
-    .logo {
-        width: 100px;
-        height: 100px;
-    }
-
-    .cakeImg {
-        margin-top: 10px;
+@media screen and (max-width: 600px) {
+    .imageFrontPage {
         width: 300px;
-        height: 100px;
+    }
+
+    .logo {
+        width: 80px;
     }
 }
 
-@media screen and (max-width:400px) {
-    .logo {
-        width: 100px;
-        height: 100px;
+@media screen and (max-width: 470px) {
+    .imageFrontPage {
+        width: 250px;
     }
 
-    .cakeImg {
-        margin-top: 10px;
-        width: 200px;
-        height: 100px;
+    .footer-container {
+        text-align: center;
+        padding: 10px;
     }
 }

@@ -1,3 +1,22 @@
+let raporttivirhe = '';
+switch (selectedLanguage) {
+  case 'EN':
+    raporttivirhe = 'Error fetching report';
+    break;
+  case 'CN':
+    raporttivirhe = '报告检索错误';
+    break;
+  case 'ET':
+    raporttivirhe = 'Viga aruande hankimisel';
+    break;
+  case 'SV':
+    raporttivirhe = 'Fel vid hämtning av rapport';
+    break;
+  case 'FI':
+  default:
+    raporttivirhe = 'Virhe raportin hakemisessa';
+    break;
+}
 
 window.addEventListener('DOMContentLoaded', () => {
   const button = document.getElementById("haeRaport");
@@ -17,7 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
         });
 
         if (!response.ok) {
-          throw new Error('Virhe raportin hakemisessa');
+          throw new Error(raporttivirhe);
         }
 
         const raports = await response.json();
@@ -39,10 +58,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     const displayRaportit = async (raport) => {
-
-      console.log('raport:', raport);
-      console.log('raport.tilaus_pvm:', raport.tapahtu_pvm);
-
       const tilaus_pvm = raport.tapahtu_pvm;
       const date = new Date(tilaus_pvm);
       const pvmIlmanAikaa = date.toISOString().split('T')[0]
@@ -81,14 +96,9 @@ window.addEventListener('DOMContentLoaded', () => {
       }
       return;
     };
-
   }
-
   const displayRaportit2 = async (th) => {
     try {
-      const kieli = document.getElementById('kieli');
-      const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
-
       let tilausPvmTeksti = '';
       let tilausIdTeksti = '';
       let myynttiHintaTeksti = '';
@@ -124,6 +134,7 @@ window.addEventListener('DOMContentLoaded', () => {
           myynttiHintaTeksti = 'Myyntihinta';
           kustannusTeksti = 'Kustannus';
           voittoTeksti = 'Voitto';
+
           break;
       }
 

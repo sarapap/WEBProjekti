@@ -42,6 +42,7 @@
 
   <script src="../javascript/default.js" defer></script>
   <script src="../javascript/paakayttaja.js" defer></script>
+  <script src="../javascript/yritystoimintaHaku.js" defer></script>
 </head>
 
 <body>
@@ -248,101 +249,104 @@
     <div>
       <h1>Business Monitoring</h1>
       <h4>Check report for selected period, e.g., day, month, etc.</h4>
-      <label for="period">Select period: </label>
-      <form action="/reservation-confirmation" method="post">
-        <label for="startDate1">Start Date:</label>
-        <input type="date" id="startDate1" name="startDate1">
-        <label for="endDate1">End Date:</label>
-        <input type="date" id="endDate1" name="endDate1">
-        <button type="submit" class="button2">Search</button>
-      </form>
 
-      <table>
-        <p>Report for the selected period will appear here.</p>
-        <tbody id="report">
-        </tbody>
-      </table>
-    </div>
-    <hr>
+      <label for="startDate1">Start Date:</label>
+      <input type="date" id="aloituspvm1" name="startDate1">
+      <label for="endDate1">End Date:</label>
+      <input type="date" id="lopetuspvm1" name="endDate1">
+      <button id="haeRaport" class="button2">Hae</button>
 
-    <div>
-      <h1>Feedback</h1>
-      <label for="aloituspvm">Start Date:</label>
-      <input type="date" id="aloituspvm" name="startDate">
+      <div>
 
-      <label for="lopetuspvm">End Date:</label>
-      <input type="date" id="lopetuspvm" name="endDate">
+        <table>
+          <tbody id="raportList">
+            <tr></tr>
+            <p>Report for the selected period will appear here.</p>
 
-      <button id="haePalaute" class="button2">Search</button>
-      <table>
-        <tbody id="palaute"></tbody>
-      </table>
-    </div>
-
-    <h1>Add User</h1>
-    <p>Here you can add a new user</p>
-    <button id="openModal">Add New User</button>
-
-
-    <dialog id="userModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closeModal">&times;</span>
-        <h2>Add New User</h2>
-        <form id="userForm">
-          <label for="etunimi">First Name:</label>
-          <input type="text" id="etunimi" name="etunimi" required>
-
-          <label for="sukunimi">Last Name:</label>
-          <input type="text" id="sukunimi" name="sukunimi" required>
-
-          <label for="tunnus">Username:</label>
-          <input type="text" id="tunnus" name="tunnus" required>
-
-          <label for="salasana">Password:</label>
-          <input type="password" id="salasana" name="salasana" required>
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-
-          <label for="puhelin">Phone:</label>
-          <input type="tel" id="puhelin" name="puhelin" required>
-
-          <label for="syntymapaiva">Date of birth:</label>
-          <input type="date" id="syntymapaiva" name="syntymapaiva">
-
-          <label for="rooli">Role:</label>
-          <select id="rooli" name="rooli">
-            <option value="user">User</option>
-            <option value="admin">Administrator</option>
-          </select>
-          <br>
-          <label for="alennus">Discount Category:</label>
-          <select id="alennus" name="alennus">
-            <option value="none">Choose</option>
-            <option value="opiskelija">Student</option>
-            <option value="elakelainen">Pensioner</option>
-          </select>
-
-          <br>
-          <br>
-
-          <div class="form-group checkbox-group">
-            <input type="checkbox" id="hyvaksyminen" name="hyvaksyminen" required>
-            <label for="hyvaksyminen">Terms Accepted *</label>
-          </div>
-
-          <button class="userButton" type="submit">Add User</button>
-        </form>
-
+          </tbody>
+        </table>
       </div>
-    </dialog>
 
+      <hr>
 
-    <footer>
-      <p>&copy; S&A CAFE 2024</p>
-      <div class="changecontent">
+      <div>
+        <h1>Feedback</h1>
+        <label for="aloituspvm">Start Date:</label>
+        <input type="date" id="aloituspvm" name="startDate">
+
+        <label for="lopetuspvm">End Date:</label>
+        <input type="date" id="lopetuspvm" name="endDate">
+
+        <button id="haePalaute" class="button2">Search</button>
+        <table>
+          <tbody id="palaute"></tbody>
+        </table>
       </div>
-    </footer>
+
+      <h1>Add User</h1>
+      <p>Here you can add a new user</p>
+      <button id="openModal">Add New User</button>
+
+
+      <dialog id="userModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeModal">&times;</span>
+          <h2>Add New User</h2>
+          <form id="userForm">
+            <label for="etunimi">First Name:</label>
+            <input type="text" id="etunimi" name="etunimi" required>
+
+            <label for="sukunimi">Last Name:</label>
+            <input type="text" id="sukunimi" name="sukunimi" required>
+
+            <label for="tunnus">Username:</label>
+            <input type="text" id="tunnus" name="tunnus" required>
+
+            <label for="salasana">Password:</label>
+            <input type="password" id="salasana" name="salasana" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="puhelin">Phone:</label>
+            <input type="tel" id="puhelin" name="puhelin" required>
+
+            <label for="syntymapaiva">Date of birth:</label>
+            <input type="date" id="syntymapaiva" name="syntymapaiva">
+
+            <label for="rooli">Role:</label>
+            <select id="rooli" name="rooli">
+              <option value="user">User</option>
+              <option value="admin">Administrator</option>
+            </select>
+            <br>
+            <label for="alennus">Discount Category:</label>
+            <select id="alennus" name="alennus">
+              <option value="none">Choose</option>
+              <option value="opiskelija">Student</option>
+              <option value="elakelainen">Pensioner</option>
+            </select>
+
+            <br>
+            <br>
+
+            <div class="form-group checkbox-group">
+              <input type="checkbox" id="hyvaksyminen" name="hyvaksyminen" required>
+              <label for="hyvaksyminen">Terms Accepted *</label>
+            </div>
+
+            <button class="userButton" type="submit">Add User</button>
+          </form>
+
+        </div>
+      </dialog>
+
+
+      <footer>
+        <p>&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
+        </div>
+      </footer>
 </body>
 
 </html>

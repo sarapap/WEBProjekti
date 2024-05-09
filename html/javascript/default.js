@@ -42,8 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let redirectPage;
 
-        const kieli = document.getElementById('kieli');
-        const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
+        const selectedLanguage = getSelectedLanguage();
 
         if (authToken) {
           switch (selectedLanguage) {
@@ -67,10 +66,10 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
           switch (selectedLanguage) {
             case 'EN':
-              redirectPage = '../../html/en/Login_en.html';
+              redirectPage = '../../html/en/11Login_en.html';
               break;
             case 'CN':
-              redirectPage = '../../html/cn/Login_cn.html';
+              redirectPage = '../../html/cn/11login_cn.html';
               break;
             case 'ET':
               redirectPage = '../../html/et/11Login_et.html';
@@ -167,10 +166,8 @@ const getLastUserId = async () => {
     }
     const data = await response.json();
     const userId = data[data.length - 1].asiakas_id;
-    console.log('Last userId:', userId);
     return userId;
   } catch (error) {
-    console.error('Virhe viimeisen käyttäjän hakemisessa:', error.message);
     return 0;
   }
 }
@@ -197,10 +194,6 @@ const paivitaSuosikkiMaara = async () => {
 
 const getSuosikinMaaraByUserId = async (userId) => {
   try {
-    if (!userId) {
-      throw new Error('userid not found');
-    }
-
     const response = await fetch(`http://localhost:3000/api/v1/suosikit/${userId}`, {
       method: 'GET',
     });
@@ -224,7 +217,6 @@ const getSuosikinMaaraByUserId = async (userId) => {
     return suosikit.length;
 
   } catch (error) {
-    console.error('Virhe suosikkien hakemisessa:', error.message);
     return 0;
   }
 }
@@ -232,10 +224,6 @@ const getSuosikinMaaraByUserId = async (userId) => {
 const getTuotteenMaaraByUserId = async (userId) => {
 
   try {
-    if (!userId) {
-      throw new Error('userid not found');
-    }
-
     const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
       method: 'GET',
     });
@@ -254,7 +242,6 @@ const getTuotteenMaaraByUserId = async (userId) => {
     ostoskoriLkmElement.textContent = tuotteet.length.toString();
     return tuotteet;
   } catch (error) {
-    console.error('Virhe ostoskorin hakemisessa:', error.message);
     return 0;
   }
 }
@@ -269,9 +256,7 @@ const removeOstoskoristaById = async (userId) => {
       throw new Error('Virhe ostoskorin poistamisessa');
     }
 
-    console.log('Ostoskori poistettu onnistuneesti');
   } catch (error) {
-    console.error('Virhe ostoskorin poistamisessa:', error.message);
   }
 }
 
@@ -290,7 +275,6 @@ const tyhjennaOstoskori = async (userId) => {
 
     return true;
   } catch (error) {
-    console.error('Virhe ostoskorin tyhjentämisessä:', error.message);
     return false;
   }
 };
@@ -302,20 +286,20 @@ const vahvistaJaTyhjenna = async () => {
   let targetPage = '';
   switch (kieli) {
     case 'EN':
-      targetPage = '../../en/9Vahvistus_en.html';
+      targetPage = '../../html/en/9Vahvistus_en.html';
       break;
     case 'CN':
-      targetPage = '../../cn/9Vahvistus_cn.html';
+      targetPage = '../../html/cn/9Vahvistus_cn.html';
       break;
     case 'ET':
-      targetPage = '../../et/9Vahvistus_et.html';
+      targetPage = '../../html/et/9Vahvistus_et.html';
       break;
     case 'SV':
-      targetPage = '../../sv/9Vahvistus_sv.html';
+      targetPage = '../../html/sv/9Vahvistus_sv.html';
       break;
     case 'FI':
     default:
-      targetPage = '../../fi/9Vahvistus.html';
+      targetPage = '../../html/fi/9Vahvistus.html';
       break;
   }
   window.location.href = targetPage;

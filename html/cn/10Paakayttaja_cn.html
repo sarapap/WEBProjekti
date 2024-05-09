@@ -43,7 +43,7 @@
   </style>
   <script src="../javascript/default.js" defer></script>
   <script src="../javascript/paakayttaja.js" defer></script>
-  <script src="../javascript/uusituote.js" defer></script>
+  <script src="../javascript/yritystoimintaHaku.js" defer></script>
 </head>
 
 <body>
@@ -255,21 +255,22 @@
         <h1>公司商业运营监督</h1>
         <h4>可查看您所选择期间的运营报告。</h4>
         <p>请选择时间段: </p>
-        <form action="/varauksen-vahvistus" method="post">
-          <label for="aloituspvm1">开始日期：</label>
-          <input type="date" id="aloituspvm1" name="aloituspvm1">
-          <label for="lopetuspvm1">截止日期:</label>
-          <input type="date" id="lopetuspvm1" name="lopetuspvm1">
-          <button type="submit" class="button2">搜索</button>
-        </form>
+
+        <label for="aloituspvm1">开始日期：</label>
+        <input type="date" id="aloituspvm1" name="aloituspvm1">
+        <label for="lopetuspvm1">截止日期:</label>
+        <input type="date" id="lopetuspvm1" name="lopetuspvm1">
+        <button id="haeRaport" class="button2">搜索</button>
 
         <table>
-          <p>您所选择期间的报告会显示在这里。</p>
-          <tbody id="raportti">
+
+          <tbody id="raportList">
+            <p>您所选择期间的报告会显示在这里。</p>
           </tbody>
         </table>
       </div>
       <hr>
+
       <div>
         <h1>反馈</h1>
         <label for="aloituspvm">开始日期：</label>

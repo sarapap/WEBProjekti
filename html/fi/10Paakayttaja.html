@@ -265,100 +265,92 @@
       <input type="date" id="lopetuspvm1" name="endDate">
       <button id="haeRaport" class="button2">Hae</button>
 
+      <table>
+        <tbody id="raportList">
 
-      <div>
+          <p>Tähän tulee raportti valitulla ajanjaksolla.</p>
+        </tbody>
 
-        <table>
-          <tbody>
+      </table>
+    </div>
+    <hr>
 
+  </div>
+  <div>
+    <h1>Palaute</h1>
+    <label for="aloituspvm">Aloituspäivämäärä:</label>
+    <input type="date" id="aloituspvm" name="startDate">
 
-          <tbody id="raportList" clas="raport-item">
+    <label for="lopetuspvm">Lopetuspäivämäärä:</label>
+    <input type="date" id="lopetuspvm" name="endDate">
 
-            <tr></tr>
+    <button id="haePalaute" class="button2">Hae</button>
+    <table>
+      <tbody id="palaute" class="palaute-item"></tbody>
+    </table>
+  </div>
 
-            <p>Tähän tulee raportti valitulla ajanjaksolla.</p>
-          </tbody>
+  </div>
+  <h1>Lisää käyttäjä</h1>
+  <p>Tästä voit lisätä uuden käyttäjän</p>
+  <button id="openModal">Lisää uusi käyttäjä</button>
 
-        </table>
+  <!-- Modaali dialogi -->
+  <dialog id="userModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Lisää uusi käyttäjä</h2>
+      <form id="userForm">
+        <label for="etunimi">Etunimi:</label>
+        <input type="text" id="etunimi" name="etunimi" required>
 
-      </div>
-      <hr>
-      <div>
-        <div>
-          <h1>Palaute</h1>
-          <label for="aloituspvm">Aloituspäivämäärä:</label>
-          <input type="date" id="aloituspvm" name="startDate">
+        <label for="sukunimi">Sukunimi:</label>
+        <input type="text" id="sukunimi" name="sukunimi" required>
 
-          <label for="lopetuspvm">Lopetuspäivämäärä:</label>
-          <input type="date" id="lopetuspvm" name="endDate">
+        <label for="tunnus">Käyttäjätunnus:</label>
+        <input type="text" id="tunnus" name="tunnus" required>
 
-          <button id="haePalaute" class="button2">Hae</button>
-          <table>
-            <tbody id="palaute" class="palaute-item"></tbody>
-          </table>
+        <label for="salasana">Salasana:</label>
+        <input type="password" id="salasana" name="salasana" required>
+
+        <label for="email">Sähköposti:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="puhelin">Puhelin:</label>
+        <input type="tel" id="puhelin" name="puhelin" required>
+
+        <label for="syntymapaiva">Syntymäaika:</label>
+        <input type="date" id="syntymapaiva" name="syntymapaiva">
+
+        <label for="rooli">Rooli:</label>
+        <select id="rooli" name="rooli">
+          <option value="user">Käyttäjä</option>
+          <option value="admin">Admin</option>
+        </select>
+        <br>
+        <label for="alennus">Alennusryhmä:</label>
+        <select id="alennus" name="alennus">
+          <option value="none">Valitse</option>
+          <option value="opiskelija">Opiskelija</option>
+          <option value="elakelainen">Eläkeläinen</option>
+        </select>
+
+        <br>
+        <br>
+        <div class="form-group checkbox-group">
+          <input type="checkbox" id="hyvaksyminen" name="hyvaksyminen" required>
+          <label for="hyvaksyminen">Ehdot hyväksytty *</label>
         </div>
+        <button class="userButton" type="submit">Lisää käyttäjä</button>
+      </form>
+    </div>
+  </dialog>
 
-      </div>
-      <h1>Lisää käyttäjä</h1>
-      <p>Tästä voit lisätä uuden käyttäjän</p>
-      <button id="openModal">Lisää uusi käyttäjä</button>
-
-      <!-- Modaali dialogi -->
-      <dialog id="userModal" class="modal">
-        <div class="modal-content">
-          <span class="close" id="closeModal">&times;</span>
-          <h2>Lisää uusi käyttäjä</h2>
-          <form id="userForm">
-            <label for="etunimi">Etunimi:</label>
-            <input type="text" id="etunimi" name="etunimi" required>
-
-            <label for="sukunimi">Sukunimi:</label>
-            <input type="text" id="sukunimi" name="sukunimi" required>
-
-            <label for="tunnus">Käyttäjätunnus:</label>
-            <input type="text" id="tunnus" name="tunnus" required>
-
-            <label for="salasana">Salasana:</label>
-            <input type="password" id="salasana" name="salasana" required>
-
-            <label for="email">Sähköposti:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="puhelin">Puhelin:</label>
-            <input type="tel" id="puhelin" name="puhelin" required>
-
-            <label for="syntymapaiva">Syntymäaika:</label>
-            <input type="date" id="syntymapaiva" name="syntymapaiva">
-
-            <label for="rooli">Rooli:</label>
-            <select id="rooli" name="rooli">
-              <option value="user">Käyttäjä</option>
-              <option value="admin">Admin</option>
-            </select>
-            <br>
-            <label for="alennus">Alennusryhmä:</label>
-            <select id="alennus" name="alennus">
-              <option value="none">Valitse</option>
-              <option value="opiskelija">Opiskelija</option>
-              <option value="elakelainen">Eläkeläinen</option>
-            </select>
-
-            <br>
-            <br>
-            <div class="form-group checkbox-group">
-              <input type="checkbox" id="hyvaksyminen" name="hyvaksyminen" required>
-              <label for="hyvaksyminen">Ehdot hyväksytty *</label>
-            </div>
-            <button class="userButton" type="submit">Lisää käyttäjä</button>
-          </form>
-        </div>
-      </dialog>
-
-      <footer>
-        <p>&copy; S&A CAFE 2024</p>
-        <div class="changecontent">
-        </div>
-      </footer>
+  <footer>
+    <p>&copy; S&A CAFE 2024</p>
+    <div class="changecontent">
+    </div>
+  </footer>
 </body>
 
 </html>

@@ -259,6 +259,29 @@ document.getElementById("changePasswordForm").addEventListener("submit", functio
         });
 });
 
+const translations = {
+    FI: {
+        deleteButton: "Poista"
+    },
+    EN: {
+        deleteButton: "Delete"
+    },
+    CN: {
+        deleteButton: "删除"
+    },
+    ET: {
+        deleteButton: "Kustuta"
+    },
+    SV: {
+        deleteButton: "Ta bort"
+    }
+};
+
+function getDeleteButtonText() {
+    const lang = getSelectedLanguage();
+    return translations[lang]?.deleteButton || translations.FI.deleteButton;
+}
+
 /**
  * Palauttaa allergioiden tallennusavaimen käyttäjän ID:n perusteella.
  *

@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../../css/10Paakayttaja.css" rel="stylesheet">
+  <link href="../css/10Paakayttaja.css" rel="stylesheet">
   <title>S&A CAFE</title>
-  <link rel="shortcut icon" type="image" href="../../css/kuvat/cake.png">
+  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
 
   <style>
     /* footer */
@@ -42,9 +42,9 @@
     }
   </style>
 
-  <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/paakayttaja.js" defer></script>
-  <script src="/javascript/yritystoimintaHaku.js"></script>
+  <script src="../javascript/default.js" defer></script>
+  <script src="../javascript/paakayttaja.js" defer></script>
+  <script src="../javascript/yritystoimintaHaku.js" defer></script>
 </head>
 
 <body>
@@ -191,31 +191,6 @@
 
     </dialog>
 
-    <dialog id="updateTuoteModal">
-      <div>
-        <h2>Muokkaa tuotetta</h2>
-        <form id="updateTuoteForm" enctype="multipart/form-data">
-          <input type="hidden" id="tuote_id" name="tuote_id">
-          <label for="tuote_nimi">Tuotteen nimi:</label>
-          <input type="text" id="update_tuote_nimi" name="tuote_nimi"><br>
-
-          <label for="tuote_kuvaus">Tuotteen kuvaus:</label><br>
-          <textarea id="update_tuote_kuvaus" name="tuote_kuvaus" rows="4"></textarea><br>
-
-          <label for="tuote_kuva">Uusi kuva:</label>
-          <input type="file" id="update_tuote_kuva" name="tuote_kuva" accept="image/*"><br>
-
-          <label for="tuote_hinta">Hinta (€):</label>
-          <input type="number" step="0.01" id="update_tuote_hinta" name="tuote_hinta"><br>
-
-          <label for="tuote_kustannus">Kustannus (€):</label>
-          <input type="number" step="0.01" id="update_tuote_kustannus" name="tuote_kustannus"><br>
-
-          <button id="updateButton" type="button">Päivitä tuote</button>
-          <button id="closeUpdateButton" type="button">Sulje</button>
-        </form>
-      </div>
-    </dialog>
 
     <dialog id="kategoriatModal">
       <h2>Lägg till specialdieter</h2>
@@ -281,21 +256,21 @@
         <h1>Företagsövervakning</h1>
         <h4>Kontrollera rapport för vald period, t.ex. dag, månad, etc.</h4>
         <label for="period">Välj period: </label>
-        <form action="/bokningsbekräftelse" method="post">
-          <label for="startDatum1">Startdatum:</label>
-          <input type="date" id="startDatum1" name="startDatum1">
-          <label for="slutDatum1">Slutdatum:</label>
-          <input type="date" id="slutDatum1" name="slutDatum1">
-          <button type="submit" class="button2">Sök</button>
-        </form>
+
+        <label for="startDatum1">Startdatum:</label>
+        <input type="date" id="aloituspvm1" name="startDatum1">
+        <label for="slutDatum1">Slutdatum:</label>
+        <input type="date" id="lopetuspvm1" name="slutDatum1">
+        <button id="haeRaport" class="button2">Sök</button>
 
         <table>
-          <p>Rapporten för den valda perioden visas här.</p>
-          <tbody id="rapport">
+          <tbody id="raportList">
+            <p>Rapporten för den valda perioden visas här.</p>
           </tbody>
         </table>
       </div>
       <hr>
+
       <div>
         <h1>Återkoppling</h1>
         <label for="aloituspvm">Startdatum:</label>

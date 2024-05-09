@@ -1,27 +1,13 @@
-
-
-const userId = 69;
-
 const tilausIdList = [];
 const allIdFromTs = [];
 const uusiIdList = [];
 
-// // const userId = getUserId() || addVierasUser();
-// const userId = getUserId();
-// console.log('userId:', userId);
-// logOut();
-
 const tilausList = document.getElementById('tilaus-list');
-
-console.log('userId:', userId);
-
 
 const fetchAndDisplayTuotteet = async () => {
   const tilausIdList = await findTilausIdByUserId(userId);
 
   const allIdFromTs = await getAllTilausIdFromTilaus();
-  console.log('allIdFromTs:', allIdFromTs);
-
 
   allIdFromTs.forEach(id => {
     if (tilausIdList.includes(id)) {
@@ -34,33 +20,24 @@ const fetchAndDisplayTuotteet = async () => {
     await displayTuotteet(tuotteet);
 
   });
-  console.log("Uusi ID-lista:", uusiIdList);
 };
 
-
 const findTilausIdByUserId = async (userId) => {
-  console.log('userId:', userId);
   try {
     const response = await fetch(`http://localhost:3000/api/v1/tilaus/asiakas/${userId}`, {
       method: 'GET',
     });
 
-    if (!response.ok) {
-      throw new Error('Virhe tilausten hakemisessa');
-    }
     const result = await response.json();
     if (!Array.isArray(result)) {
       const tilausId = result.tilaus_id;
-      console.log('tilaus id:', tilausId);
       return tilausId;
 
     } else {
       const tilausIdList = result.map((item) => item.tilaus_id);
-      console.log('tilauksen list:', tilausIdList);
       return tilausIdList;
     }
   } catch (error) {
-    console.error('Virhe tilausten hakemisessa:', error.message);
   }
   return [];
 };
@@ -72,24 +49,15 @@ const getAllTilausIdFromTilaus = async () => {
       method: 'GET',
     });
 
-    if (!response.ok) {
-      throw new Error('Virhe tilauksen hakemisessa');
-    }
-
     const result = await response.json();
     const allTilausIdFronTilausSisalto = result.map((item) => item.tilaus_id);
-    console.log('all id tilaus_sisalto:', allTilausIdFronTilausSisalto);
 
     allTilausIdFronTilausSisalto.forEach(async (tilaus_id) => {
       allIdFromTs.push(tilaus_id);
-
-      console.log('allIdFromTs: 81', allIdFromTs);
     });
     return allIdFromTs;
 
   } catch (error) {
-
-    console.error('Virhe tilauksen hakemisessa:', error.message);
   }
 };
 
@@ -101,18 +69,14 @@ const getTuoteListFromTsByTilausId = async (tilaus_id) => {
 
     if (!response.ok) {
       if (response.status === 404) {
-        console.log(`Tilaus sisältöä tilaus_id:lle ${tilaus_id} ei löydy. Jatketaan seuraavaan tilaus_id:hen.`);
         return;
       }
-      throw new Error('Virhe tuotteen hakemisessa');
     }
 
     const tuotteet = await response.json();
-    console.log('tuotteet:', tuotteet);
     return tuotteet;
 
   } catch (error) {
-    console.error('Virhe tuotteen hakemisessa:', error.message);
   }
 }
 
@@ -120,7 +84,6 @@ const displayTuotteet = async (tuotteet) => {
 
   if (tuotteet.length > 0) {
     tuotteet.forEach(async (tuote) => {
-      console.log('Tuote 139:', tuote);
 
       const nimi_hinta = await getTuoteNimiJaHintaByTuoteId(tuote.tuote_id);
       const tuote_nimi = nimi_hinta.tuote_nimi;
@@ -129,7 +92,6 @@ const displayTuotteet = async (tuotteet) => {
       const date = new Date(tilaus_pvm);
       const pvmIlmanAikaa = date.toISOString().split('T')[0]
 
-      // Luodaan uusi rivi (tr) taulukkoon
       const tilausList = document.getElementById('tilaus-list');
       const tuoteElement = document.createElement('td');
       tuoteElement.classList.add('tilaus-item');
@@ -171,10 +133,6 @@ const tilausTarkistus = async (userId) => {
       method: 'GET',
     });
 
-    if (!response.ok) {
-      throw new Error('Ei tilauksia');
-    }
-
     const tilaukset = await response.json();
 
     if (tilaukset.length === 0) {
@@ -183,7 +141,6 @@ const tilausTarkistus = async (userId) => {
       return true;
     }
   } catch (error) {
-    console.error('Virhe ostoskorin hakemisessa:', error.message);
   }
 };
 
@@ -192,16 +149,12 @@ const findTuoteIdByUserId = async (userId) => {
     const response = await fetch(`http://localhost:3000/api/v1/tilaus/${userId}`, {
       method: 'GET',
     });
-    if (!response.ok) {
-      throw new Error('Virhe tuotteiden hakemisessa');
-    }
+
     const result = await response.json();
     const tilausIdList = result.map((item) => item.tuote_id);
-    console.log('tilaus id:', tilausIdList);
     return tilausIdList;
 
   } catch (error) {
-    console.error('Virhe tuotteiden hakemisessa:', error.message);
   }
 };
 
@@ -211,26 +164,19 @@ const getTuoteNimiJaHintaByTuoteId = async (tuote_id) => {
       method: 'GET',
     });
 
-    if (!response.ok) {
-      throw new Error('Virhe tuotteen hakemisessa');
-    }
-
     const result = await response.json();
     if (!Array.isArray(result)) {
       const nimi_hinta = {
         tuote_nimi: result.tuote_nimi,
         tuote_hinta: result.tuote_hinta
       };
-      console.log('nimi ja hinta:', nimi_hinta);
       return nimi_hinta;
     } else {
       const tuote_nimi = result.map((item) => item.tuote_nimi);
-      console.log('tuote nimi:', tuote_nimi);
       return tuote_nimi;
     }
 
   } catch (error) {
-    console.error('Virhe tuotteen hakemisessa:', error.message);
   }
 };
 
@@ -321,11 +267,10 @@ const fetchAndDisplayTuotteet2 = async () => {
 
     tilausList.appendChild(tuoteElement);
 
-
   } catch (error) {
-    console.error('Virhe raportin hakemisessa:', error);
   };
 };
 
 fetchAndDisplayTuotteet2();
 fetchAndDisplayTuotteet();
+
