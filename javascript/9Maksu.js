@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.getElementById('applyDiscountButton').addEventListener('click', () => {
+
+
     const discountCode = document.getElementById('alennus').value.trim();
 
     let discountResult = 'Virheellinen alennuskoodi';
@@ -33,3 +35,6 @@ document.getElementById('applyDiscountButton').addEventListener('click', () => {
 
     document.getElementById('discountResult').innerText = discountResult;
 });
+
+
+

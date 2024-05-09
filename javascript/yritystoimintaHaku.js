@@ -11,8 +11,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const startDate = startDateElement.value;
     const endDate = endDateElement.value;
 
-
-
   try {
     const response = await fetch(`http://localhost:3000/api/v1/yritystoiminta/${startDate}/${endDate}`, {
       method: 'GET',
@@ -24,7 +22,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const raports = await response.json();
     const raportList = document.getElementById('raportList');
-
 
     raportList.innerHTML = "";
     await displayRaportit2();
@@ -50,8 +47,6 @@ const displayRaportit = async (raport) => {
   const tilaus_pvm = raport.tapahtu_pvm;
   const date = new Date(tilaus_pvm);
   const pvmIlmanAikaa = date.toISOString().split('T')[0]
-
-
 
   try {
     // const kieli = document.getElementById('kieli');
