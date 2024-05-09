@@ -37,20 +37,18 @@ tuoteRouter.route('/')
 tuoteRouter.route('/:tuote_id')
   .get(getTuoteById)
   .delete(deleteTuote)
-  .put(upload.single('tuote_kuva'), (req, res, next) => {
-    console.log("req.file", req.file);
-    const inputFile = req.file.path;
-    const outputFile = req.file.filename;
-    putTuote(req, res, next);
-  });
+
+tuoteRouter
+  .route("/:id")
+  .put(upload.single("tuote_kuva"), putTuote);
 
 tuoteRouter.route('/name/:tuote_nimi').get(getTuoteByname);
 tuoteRouter.route('/lastid/').get(getLastTuoteId);
 tuoteRouter.route('/tyyppi_id/:tyyppi_id').get(getTuoteByTyyppiId);
 
 tuoteRouter.route('/:tuote_kuva/:kieli').get((req, res) => {
-  const { tuote_kuva, kieli } = req.params; // Tässä käytetään parametreja URL-osasta
-  return getTuoteByKuva({ query: { tuote_kuva, kieli } }, res); // Lähetä parametrit kontrollerille
+  const { tuote_kuva, kieli } = req.params;
+  return getTuoteByKuva({ query: { tuote_kuva, kieli } }, res);
 });
 
 

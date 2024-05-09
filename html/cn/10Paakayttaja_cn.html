@@ -162,41 +162,68 @@
       </div>
     </dialog>
 
+    <dialog id="updateTuoteModal">
+      <div>
+        <h2>编辑产品</h2>
+        <form id="updateTuoteForm" enctype="multipart/form-data">
+          <input type="hidden" id="tuote_id" name="tuote_id">
+          <label for="tuote_nimi">产品名称：</label>
+          <input type="text" id="update_tuote_nimi" name="tuote_nimi"><br>
+          <label for="tuote_kuvaus">产品描述：</label><br>
+          <textarea id="update_tuote_kuvaus" name="tuote_kuvaus" rows="4"></textarea><br>
+
+          <label for="tuote_kuva">新图片（可选）：</label>
+          <input type="file" id="update_tuote_kuva" name="tuote_kuva" accept="image/*"><br>
+
+          <label for="tuote_hinta">价格 (€)：</label>
+          <input type="number" step="0.01" id="update_tuote_hinta" name="tuote_hinta"><br>
+
+          <label for="tuote_kustannus">成本 (€)：</label>
+          <input type="number" step="0.01" id="update_tuote_kustannus" name="tuote_kustannus"><br>
+
+          <button id="updateButton" type="button">更新产品</button>
+          <button id="closeUpdateButton" type="button">关闭</button>
+        </form>
+      </div>
+
+    </dialog>
+
+
     <dialog id="kategoriatModal">
       <h2>添加特殊饮食</h2>
       <div id="tuote_kategoriat">
         <p>类别：</p>
-        <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="22">
         <label for="gluteeniton">无麸质</label><br>
-        <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="23">
         <label for="laktoositon">无乳糖</label><br>
 
-        <input type="checkbox" id="maidoton" name="kategoriat" value="4">
+        <input type="checkbox" id="maidoton" name="kategoriat" value="24">
         <label for="maidoton">不含乳制品</label><br>
 
-        <input type="checkbox" id="munaton" name="kategoriat" value="5">
+        <input type="checkbox" id="munaton" name="kategoriat" value="25">
         <label for="munaton">不含蛋</label><br>
 
-        <input type="checkbox" id="kasvis" name="kategoriat" value="6">
+        <input type="checkbox" id="kasvis" name="kategoriat" value="26">
         <label for="kasvis">素食</label><br>
       </div>
       <button id="addKategoriat" type="button">添加</button>
 
       <div id="tuote_kategoriat2">
         <h2>删除特殊饮食</h2>
-        <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="22">
         <label for="gluteeniton">无麸质</label><br>
 
-        <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="23">
         <label for="laktoositon">无乳糖</label><br>
 
-        <input type="checkbox" id="maidoton" name="kategoriat" value="4">
+        <input type="checkbox" id="maidoton" name="kategoriat" value="24">
         <label for="maidoton">不含乳制品</label><br>
 
-        <input type="checkbox" id="munaton" name="kategoriat" value="5">
+        <input type="checkbox" id="munaton" name="kategoriat" value="25">
         <label for="munaton">不含蛋</label><br>
 
-        <input type="checkbox" id="kasvis" name="kategoriat" value="6">
+        <input type="checkbox" id="kasvis" name="kategoriat" value="26">
         <label for="kasvis">素食</label><br>
 
       </div>

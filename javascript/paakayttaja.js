@@ -11,33 +11,75 @@ function getSelectedLanguage() {
 let virhetuote = '';
 let virhetuote2 = '';
 let virhekategoria = '';
+let kategorialisatty = '';
+let kategoriajo = '';
+let kategoriapoistettu = '';
+let virhepoisto = '';
+let tuote = '';
+let tuote3 = '';
+let tuote4 = '';
 const selectedLanguage = getSelectedLanguage();
 switch (selectedLanguage) {
     case 'EN':
         virhetuote = 'Error fetching product!';
         virhetuote2 = 'Error adding product!';
         virhekategoria = 'Error removing category!';
+        kategorialisatty = 'Category added successfully!';
+        kategoriajo = "Category already added";
+        kategoriapoistettu = 'Category removed successfully!';
+        virhepoisto = 'Error removing product!';
+        tuote = 'Product added successfully!';
+        tuote3 = 'Product update successful!';
+        tuote4 = 'Product update failed!';
         break;
     case 'CN':
         virhetuote = '获取产品时出错！';
         virhetuote2 = '添加产品时出错！';
         virhekategoria = '删除类别时出错！';
+        kategorialisatty = '类别已成功添加！';
+        kategoriajo = "类别已添加";
+        kategoriapoistettu = '类别已成功删除！';
+        virhepoisto = '删除产品时出错！';
+        tuote = '产品已成功添加！';
+        tuote3 = '产品更新成功！';
+        tuote4 = '产品更新失败！';
         break;
     case 'ET':
         virhetuote = 'Viga toote laadimisel!';
         virhetuote2 = 'Viga toote lisamisel!';
         virhekategoria = 'Viga kategooria eemaldamisel!';
+        kategorialisatty = 'Kategooria lisatud edukalt!';
+        kategoriajo = "Kategooria on juba lisatud";
+        kategoriapoistettu = 'Kategooria eemaldatud edukalt!';
+        virhepoisto = 'Viga toote eemaldamisel!';
+        tuote = 'Toode lisatud edukalt!';
+        tuote3 = 'Toote uuendamine õnnestus!';
+        tuote4 = 'Toote uuendamine ebaõnnestus!';
         break;
     case 'SV':
         virhetuote = 'Fel vid hämtning av produkt!';
         virhetuote2 = 'Fel vid lägg till produkt!';
         virhekategoria = 'Fel vid borttagning av kategori!';
+        kategorialisatty = 'Kategori tillagd framgångsrikt!';
+        kategoriajo = "Kategori har redan lagts till";
+        kategoriapoistettu = 'Kategori borttagen framgångsrikt!';
+        virhepoisto = 'Fel vid borttagning av produkt!';
+        tuote = 'Produkt tillagd framgångsrikt!';
+        tuote3 = 'Produktuppdatering lyckades!';
+        tuote4 = 'Produktuppdatering misslyckades!';
         break;
     case 'FI':
     default:
         virhetuote = 'Virhe tuotteen hakemisessa!';
         virhetuote2 = 'Virhe tuotteen lisäämisessä!';
         virhekategoria = 'Virhe kategorian poistamisessa!';
+        kategorialisatty = 'Kategoria lisätty onnistuneesti!';
+        kategoriajo = "Kategoria on jo lisätty";
+        kategoriapoistettu = 'Kategoria poistettu onnistuneesti!';
+        virhepoisto = 'Virhe tuotteen poistamisessa!';
+        tuote = 'Tuote lisätty onnistuneesti!';
+        tuote3 = 'Tuotteen päivittäminen onnistui!';
+        tuote4 = 'Tuotteen päivittäminen epäonnistui!';
         break;
 }
 
@@ -521,7 +563,6 @@ const displaySingleTuote = async (tuote) => {
                 try {
                     return await getKategoriaById(kategoria);
                 } catch (error) {
-                    console.error("Virhe kategoriahaussa:", error);
                     return null;
                 }
             })
@@ -543,14 +584,17 @@ const displaySingleTuote = async (tuote) => {
     pElement3.appendChild(hintaElement);
     tuoteElement.appendChild(pElement3);
 
-    const buttonElement = document.createElement('button');
+    const buttonElement = document.createElement("button");
     buttonElement.textContent = button;
     buttonElement.style.backgroundColor = 'rgb(192, 160, 122)';
+
     tuoteElement.appendChild(buttonElement);
+
+    buttonElement.addEventListener("click", () => openUpdateModal(tuote, buttonElement));
 
     const buttonElement2 = document.createElement('button');
     buttonElement2.textContent = button2;
-    buttonElement.style.backgroundColor = 'rgb(192, 160, 122)';
+    buttonElement2.classList.add('category-button');
 
     buttonElement2.addEventListener('click', () => openKategoriatModal(tuote.tuote_id, existingKategoriat, pElement2));
 
@@ -603,14 +647,9 @@ const getKategoriatuoteIdByTuoteAndKategoria = async (tuoteId, kategoriaId) => {
             { method: 'GET' }
         );
 
-        if (!response.ok) {
-            throw new Error("Virhe haettaessa kategoriatuote_id");
-        }
-
         const data = await response.json();
         return data;
     } catch (error) {
-        console.error("Virhe:", error);
         return null;
     }
 };
@@ -647,12 +686,11 @@ const deleteKategoriaFromTuote = async (kategoriatuote_id) => {
         });
 
         if (!response.ok) {
-            throw new Error("Virhe poistettaessa kategoria_tuote");
+            throw new Error(virhepoisto);
         }
 
         return true;
     } catch (error) {
-        console.error("Virhe:", error);
         return false;
     }
 };
@@ -687,16 +725,15 @@ const openKategoriatModal = (tuoteId, existingKategoriat, updateKategoriaElement
                 const kategoriaId = parseInt(checkbox.value, 10);
 
                 if (existingKategoriat.includes(kategoriaId)) {
-                    alert(`Kategoria ${checkbox.labels[0].textContent} on jo lisätty.`);
+                    alert(kategoriajo);
                 } else {
-                    alert('Kategoria lisätty onnistuneesti');
+                    alert(kategorialisatty);
                     kategoriatModal.close();
                     resetKategoriatCheckboxes();
                     const success = await addKategoriaToTuote(tuoteId, kategoriaId);
                     if (success) {
                         newKategoriat.push(checkbox.labels[0].textContent);
                     } else {
-                        console.error(`Virhe kategorian lisäämisessä: ${checkbox.value}`);
                         errors = true;
                     }
                 }
@@ -730,7 +767,7 @@ const openKategoriatModal = (tuoteId, existingKategoriat, updateKategoriaElement
                 const kategoriatuoteData = await getKategoriatuoteIdByTuoteAndKategoria(tuoteId, kategoriaId);
 
                 if (!kategoriatuoteData || !kategoriatuoteData.kategoriatuote_id) {
-                    alert("Virhe poistettaessa kategoriaa: tuntematon ID");
+                    alert(virhekategoria);
                     errors = true;
                 }
 
@@ -743,17 +780,13 @@ const openKategoriatModal = (tuoteId, existingKategoriat, updateKategoriaElement
                 }
             }
         }
-
         if (!errors) {
-            alert('Kategoria poistettu onnistuneesti');
+            alert(kategoriapoistettu);
             kategoriatModal.close();
             resetKategoriatCheckboxes();
         }
     });
-
-
 };
-
 
 document.addEventListener('DOMContentLoaded', () => {
     const cakeSearch = document.getElementById('cakeSearch');
@@ -812,8 +845,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (!response.ok) {
-                    console.error(virhetuote2);
+                    alert(virhetuote2)
                 } else {
+                    alert(tuote);
                     tuoteModal?.close();
                 }
             } catch (error) {
@@ -822,7 +856,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+/* tuote update */
 
+const openUpdateModal = (tuote, buttonElement) => {
+    const updateTuoteModal = document.getElementById("updateTuoteModal");
+    const updateForm = document.getElementById("updateTuoteForm");
 
+    const closeUpdateButton = document.getElementById("closeUpdateButton");
+    closeUpdateButton?.addEventListener("click", () => {
+        updateTuoteModal.close();
+    });
 
+    updateTuoteModal.showModal();
+
+    const updateButton = document.getElementById("updateButton");
+    updateButton?.addEventListener("click", async () => {
+        const formData = new FormData(updateForm);
+        const tuoteId = tuote.tuote_id;
+
+        try {
+            const response = await fetch(`http://localhost:3000/api/v1/tuote/${tuoteId}`, {
+                method: "PUT",
+                body: formData,
+            });
+
+            if (response.ok) {
+                alert(tuote3);
+                updateTuoteModal.close();
+            } else {
+                alert(tuote4);
+            }
+        } catch (error) {
+        }
+    });
+};
 

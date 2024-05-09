@@ -164,41 +164,94 @@
       </div>
     </dialog>
 
+
+    <dialog id="updateTuoteModal">
+      <div>
+        <h2>Redigera produkt</h2>
+        <form id="updateTuoteForm" enctype="multipart/form-data">
+          <input type="hidden" id="tuote_id" name="tuote_id">
+          <label for="tuote_nimi">Produktens namn:</label>
+          <input type="text" id="update_tuote_nimi" name="tuote_nimi"><br>
+          <label for="tuote_kuvaus">Produktens beskrivning:</label><br>
+          <textarea id="update_tuote_kuvaus" name="tuote_kuvaus" rows="4"></textarea><br>
+
+          <label for="tuote_kuva">Ny bild (valfri):</label>
+          <input type="file" id="update_tuote_kuva" name="tuote_kuva" accept="image/*"><br>
+
+          <label for="tuote_hinta">Pris (€):</label>
+          <input type="number" step="0.01" id="update_tuote_hinta" name="tuote_hinta"><br>
+
+          <label for="tuote_kustannus">Kostnad (€):</label>
+          <input type="number" step="0.01" id="update_tuote_kustannus" name="tuote_kustannus"><br>
+
+          <button id="updateButton" type="button">Uppdatera produkt</button>
+          <button id="closeUpdateButton" type="button">Stäng</button>
+        </form>
+      </div>
+
+    </dialog>
+
+    <dialog id="updateTuoteModal">
+      <div>
+        <h2>Muokkaa tuotetta</h2>
+        <form id="updateTuoteForm" enctype="multipart/form-data">
+          <input type="hidden" id="tuote_id" name="tuote_id">
+          <label for="tuote_nimi">Tuotteen nimi:</label>
+          <input type="text" id="update_tuote_nimi" name="tuote_nimi"><br>
+
+          <label for="tuote_kuvaus">Tuotteen kuvaus:</label><br>
+          <textarea id="update_tuote_kuvaus" name="tuote_kuvaus" rows="4"></textarea><br>
+
+          <label for="tuote_kuva">Uusi kuva:</label>
+          <input type="file" id="update_tuote_kuva" name="tuote_kuva" accept="image/*"><br>
+
+          <label for="tuote_hinta">Hinta (€):</label>
+          <input type="number" step="0.01" id="update_tuote_hinta" name="tuote_hinta"><br>
+
+          <label for="tuote_kustannus">Kustannus (€):</label>
+          <input type="number" step="0.01" id="update_tuote_kustannus" name="tuote_kustannus"><br>
+
+          <button id="updateButton" type="button">Päivitä tuote</button>
+          <button id="closeUpdateButton" type="button">Sulje</button>
+        </form>
+      </div>
+    </dialog>
+
     <dialog id="kategoriatModal">
       <h2>Lägg till specialdieter</h2>
       <div id="tuote_kategoriat">
         <p>Kategorier:</p>
-        <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="12">
         <label for="gluteeniton">Glutenfri</label><br>
-        <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="13">
         <label for="laktoositon">Laktosfri</label><br>
 
-        <input type="checkbox" id="maidoton" name="kategoriat" value="4">
+        <input type="checkbox" id="maidoton" name="kategoriat" value="14">
         <label for="maidoton">Mjölkfri</label><br>
 
-        <input type="checkbox" id="munaton" name="kategoriat" value="5">
+        <input type="checkbox" id="munaton" name="kategoriat" value="15">
         <label for="munaton">Äggfri</label><br>
 
-        <input type="checkbox" id="kasvis" name="kategoriat" value="6">
+        <input type="checkbox" id="kasvis" name="kategoriat" value="16">
         <label for="kasvis">Vegetarisk</label><br>
       </div>
       <button id="addKategoriat" type="button">Lägg till</button>
 
       <div id="tuote_kategoriat2">
         <h2>Ta bort specialdieter</h2>
-        <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="12">
         <label for="gluteeniton">Glutenfri</label><br>
 
-        <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="13">
         <label for="laktoositon">Laktosfri</label><br>
 
-        <input type="checkbox" id="maidoton" name="kategoriat" value="4">
+        <input type="checkbox" id="maidoton" name="kategoriat" value="14">
         <label for="maidoton">Mjölkfri</label><br>
 
-        <input type="checkbox" id="munaton" name="kategoriat" value="5">
+        <input type="checkbox" id="munaton" name="kategoriat" value="15">
         <label for="munaton">Äggfri</label><br>
 
-        <input type="checkbox" id="kasvis" name="kategoriat" value="6">
+        <input type="checkbox" id="kasvis" name="kategoriat" value="16">
         <label for="kasvis">Vegetarisk</label><br>
 
       </div>
@@ -206,7 +259,6 @@
 
       <button id="closeKategoriat" type="button">Stäng</button>
     </dialog>
-
 
     <div>
       <p>Kontrollera redigeringsinformation genom att söka efter produkter.</p>

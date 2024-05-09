@@ -80,26 +80,23 @@ const postTuote = async (req, res) => {
 };
 
 
-const putTuote = async (req, res, next) => {
-  const data = {
-    tuote_nimi: req.body.tuote_nimi,
-    tuote_kuvaus: req.body.tuote_kuvaus,
-    tuote_hinta: req.body.tuote_hinta,
-    tuote_kustannus: req.body.tuote_kustannus,
-    tuote_tyyppi: req.body.tyyppi_id,
-    tuote_kuva: req.file.filename
-  };
+const putTuote = async (req, res) => {
+  const tuoteId = req.params.id;
 
-  console.log("body", req.body);
-  console.log("file", req.file);
+  try {
+    const updateSuccess = await updateTuote(tuoteId, req.body, req.file);
 
-  const result = await updateTuote(data, req.params.tuote_id, res.locals.tuote);
-  if (!result) {
-    res.sendStatus(400);
-    return;
+    if (!updateSuccess) {
+      console.error("Tuotteen päivittäminen epäonnistui");
+      return res.sendStatus(400);
+    }
+
+    console.log("Tuote päivitetty onnistuneesti");
+    return res.sendStatus(200);
+  } catch (error) {
+    console.error("Virhe PATCH-pyynnössä:", error);
+    return res.sendStatus(500);
   }
-  res.status(200);
-  res.json(result)
 };
 
 const deleteTuote = async (req, res) => {
@@ -114,7 +111,6 @@ const deleteTuote = async (req, res) => {
 const getTuoteByKuva = async (req, res) => {
   const { tuote_kuva, kieli } = req.query;
 
-  // Tarkistetaan, että molemmat parametrit ovat määritettyjä
   if (!tuote_kuva || !kieli) {
     return res.status(400).json({ message: 'Puuttuvat parametrit: tuote_kuva tai kieli.' });
   }

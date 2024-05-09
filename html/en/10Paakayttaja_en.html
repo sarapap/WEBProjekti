@@ -177,41 +177,66 @@
       </div>
     </dialog>
 
+    <dialog id="updateTuoteModal">
+      <div>
+        <h2>Edit Product</h2>
+        <form id="updateTuoteForm" enctype="multipart/form-data">
+          <input type="hidden" id="tuote_id" name="tuote_id">
+          <label for="tuote_nimi">Product Name:</label>
+          <input type="text" id="update_tuote_nimi" name="tuote_nimi"><br>
+          <label for="tuote_kuvaus">Product Description:</label><br>
+          <textarea id="update_tuote_kuvaus" name="tuote_kuvaus" rows="4"></textarea><br>
+
+          <label for="tuote_kuva">New Image (optional):</label>
+          <input type="file" id="update_tuote_kuva" name="tuote_kuva" accept="image/*"><br>
+
+          <label for="tuote_hinta">Price (€):</label>
+          <input type="number" step="0.01" id="update_tuote_hinta" name="tuote_hinta"><br>
+
+          <label for="tuote_kustannus">Cost (€):</label>
+          <input type="number" step="0.01" id="update_tuote_kustannus" name="tuote_kustannus"><br>
+
+          <button id="updateButton" type="button">Update Product</button>
+          <button id="closeUpdateButton" type="button">Close</button>
+        </form>
+      </div>
+    </dialog>
+
     <dialog id="kategoriatModal">
       <h2>Add Special Diets</h2>
       <div id="tuote_kategoriat">
         <p>Categories:</p>
-        <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="7">
         <label for="gluteeniton">Gluten-Free</label><br>
-        <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="8">
         <label for="laktoositon">Lactose-Free</label><br>
 
-        <input type="checkbox" id="maidoton" name="kategoriat" value="4">
+        <input type="checkbox" id="maidoton" name="kategoriat" value="9">
         <label for="maidoton">Dairy-Free</label><br>
 
-        <input type="checkbox" id="munaton" name="kategoriat" value="5">
+        <input type="checkbox" id="munaton" name="kategoriat" value="10">
         <label for="munaton">Egg-Free</label><br>
 
-        <input type="checkbox" id="kasvis" name="kategoriat" value="6">
+        <input type="checkbox" id="kasvis" name="kategoriat" value="11">
         <label for="kasvis">Vegetarian</label><br>
       </div>
       <button id="addKategoriat" type="button">Add</button>
 
       <div id="tuote_kategoriat2">
         <h2>Remove Special Diets</h2>
-        <input type="checkbox" id="gluteeniton" name="kategoriat" value="2">
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="7">
         <label for="gluteeniton">Gluten-Free</label><br>
 
-        <input type="checkbox" id="laktoositon" name="kategoriat" value="3">
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="8">
         <label for="laktoositon">Lactose-Free</label><br>
 
-        <input type="checkbox" id="maidoton" name="kategoriat" value="4">
+        <input type="checkbox" id="maidoton" name="kategoriat" value="9">
         <label for="maidoton">Dairy-Free</label><br>
 
-        <input type="checkbox" id="munaton" name="kategoriat" value="5">
+        <input type="checkbox" id="munaton" name="kategoriat" value="10">
         <label for="munaton">Egg-Free</label><br>
 
-        <input type="checkbox" id="kasvis" name="kategoriat" value="6">
+        <input type="checkbox" id="kasvis" name="kategoriat" value="11">
         <label for="kasvis">Vegetarian</label><br>
 
       </div>

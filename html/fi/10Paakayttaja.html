@@ -125,7 +125,6 @@
         <label for="tuote_nimi">Tuotteen nimi:</label>
         <input type="text" id="tuote_nimi" name="tuote_nimi"><br>
 
-
         <label for="tuote_kuvaus">Tuote kuvaus:</label><br>
         <textarea id="tuote_kuvaus" name="tuote_kuvaus" rows="4"></textarea><br>
 
@@ -160,6 +159,32 @@
 
         <button id="saveButton" type="button">Lisää tuote</button>
         <button id="closeButton" type="button">Sulje</button>
+      </form>
+    </div>
+  </dialog>
+
+  <dialog id="updateTuoteModal">
+    <div>
+      <h2>Muokkaa tuotetta</h2>
+      <form id="updateTuoteForm" enctype="multipart/form-data">
+        <input type="hidden" id="tuote_id" name="tuote_id">
+        <label for="tuote_nimi">Tuotteen nimi:</label>
+        <input type="text" id="update_tuote_nimi" name="tuote_nimi"><br>
+
+        <label for="tuote_kuvaus">Tuotteen kuvaus:</label><br>
+        <textarea id="update_tuote_kuvaus" name="tuote_kuvaus" rows="4"></textarea><br>
+
+        <label for="tuote_kuva">Uusi kuva (valinnainen):</label>
+        <input type="file" id="update_tuote_kuva" name="tuote_kuva" accept="image/*"><br>
+
+        <label for="tuote_hinta">Hinta (€):</label>
+        <input type="number" step="0.01" id="update_tuote_hinta" name="tuote_hinta"><br>
+
+        <label for="tuote_kustannus">Kustannus (€):</label>
+        <input type="number" step="0.01" id="update_tuote_kustannus" name="tuote_kustannus"><br>
+
+        <button id="updateButton" type="button">Päivitä tuote</button>
+        <button id="closeUpdateButton" type="button">Sulje</button>
       </form>
     </div>
   </dialog>

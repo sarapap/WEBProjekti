@@ -378,6 +378,7 @@ const deleteTuoteFromTilauksenTuotelist = (tuote_id) => {
   const index = tilauksenTuoteList.findIndex((tuote) => tuote.tuote_id === tuote_id);
   if (index !== -1) {
     tilauksenTuoteList.splice(index, 1);
+    console.log('Tuote poistettu tilaukslistasta:', tilauksenTuoteList);
   }
 };
 
@@ -387,7 +388,7 @@ const lisaaTilausSisalto = async (tilaus_id, tuote_id, tuote_hinta, tuote_kustan
   const kustannus_summa = maara * tuote_kustannus;
   const voitto = myynti_summa - kustannus_summa;
   const tilaus_pvm = new Date().toISOString().slice(0, 10);
-  const statusTeksti = statusText;
+  const statusTeksti = 'Tilaus vastaanotettu';
 
   await lisaaYritystoiminta(tilaus_pvm, tilaus_id, myynti_summa, kustannus_summa, voitto);
 
@@ -414,11 +415,15 @@ const lisaaTilausSisalto = async (tilaus_id, tuote_id, tuote_hinta, tuote_kustan
     });
 
     if (!response.ok) {
-      throw new Error(virheTilaus);
+      throw new Error('Virhe tilauksen tekemisessä');
     }
-
     const data = await response.json();
+    console.log('data', data);
+    console.log('Tilaus tehty');
+    alert('Kiitos! Tilaus tehty');
+
   } catch (error) {
+    console.error('Virhe tilauksen tekemisessä:', error.message);
   }
 };
 
@@ -435,14 +440,14 @@ const lisaaTilaus = async (userId, tuote_id) => {
     });
 
     if (!response.ok) {
-      throw new Error(virheTilaus);
+      throw new Error('Virhe tilauksen tekemisessä');
     }
 
   } catch (error) {
+    console.error('Virhe tilauksen tekemisessä:', error.message);
     return null;
   }
 };
-
 
 const getLastTilausId = async (userId) => {
   try {
@@ -451,7 +456,7 @@ const getLastTilausId = async (userId) => {
     });
 
     if (!response.ok) {
-      throw new Error(tilausvirhe);
+      throw new Error('Virhe tilauksen hakemisessa');
     }
 
     const data = await response.json();
@@ -459,9 +464,13 @@ const getLastTilausId = async (userId) => {
       const tilaus_id = data.tilaus_id;
     } else if (Array.isArray(data)) {
       const tilaus_id = data[data.length - 1].tilaus_id;
+
+      console.log('Tilaus id:', tilaus_id);
       return tilaus_id;
+
     }
   } catch (error) {
+    console.error('Virhe tilauksen hakemisessa:', error.message);
   }
 }
 
@@ -483,11 +492,13 @@ const lisaaYritystoiminta = async (tilais_pvm, tilaus_id, myynti_hinta, kustannu
       }),
     });
     if (!response.ok) {
-      throw new Error(yritystoimintavirhe);
+      throw new Error('Virhe yritystoiminnan lisäämisessä');
     }
     alert('Yritystoiminta lisätty');
     fetchAndDisplayYritystoiminta();
   } catch (error) {
+    console.error('Virhe yritystoiminnan lisäämisessä:', error.message);
+
   }
 }
 
@@ -511,7 +522,7 @@ function getPaymentPageUrl(kieli) {
 
 payButton.addEventListener('click', async () => {
   if (tilauksenTuoteList.length < 1) {
-    alert(tyhjaOstoskori);
+    alert('Ostoskori on tyhjä');
     return;
   }
 

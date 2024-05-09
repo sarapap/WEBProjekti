@@ -115,21 +115,48 @@ const removeTuoteById = async (tuote_id) => {
   }
 };
 
-const updateTuote = async (tuote, file, tuote_id) => {
-  const sql = promisePool.format(`UPDATE tuote SET ? WHERE tuote_id = ?`, [
-    tuote,
-    file,
-    tuote_id,
-  ]);
+const updateTuote = async (tuoteId, tuote, file) => {
+  const sqlSet = [];
+  const params = [];
+
+  if (tuote.tuote_nimi) {
+    sqlSet.push("tuote_nimi = ?");
+    params.push(tuote.tuote_nimi);
+  }
+  if (tuote.tuote_kuvaus) {
+    sqlSet.push("tuote_kuvaus = ?");
+    params.push(tuote.tuote_kuvaus);
+  }
+  if (tuote.tuote_hinta) {
+    sqlSet.push("tuote_hinta = ?");
+    params.push(tuote.tuote_hinta);
+  }
+  if (tuote.tuote_kustannus) {
+    sqlSet.push("tuote_kustannus = ?");
+    params.push(tuote.tuote_kustannus);
+  }
+  if (tuote.tyyppi_id) {
+    sqlSet.push("tyyppi_id = ?");
+    params.push(tuote.tyyppi_id);
+  }
+  if (file?.filename) {
+    sqlSet.push("tuote_kuva = ?");
+    params.push(file.filename);
+  }
+
+  if (sqlSet.length === 0) {
+    console.error("Ei päivitettäviä kenttiä");
+    return false;
+  }
+
+  const sql = `UPDATE tuote SET ${sqlSet.join(", ")} WHERE tuote_id = ?`;
+  params.push(tuoteId);
+
   try {
-    const rows = await promisePool.execute(sql);
-    console.log('updatetuote', rows);
-    if (rows.affectedRows === 0) {
-      return false;
-    }
-    return { message: 'success' };
-  } catch (e) {
-    console.error('error', e.message);
+    const [rows] = await promisePool.execute(sql, params);
+    return rows.affectedRows > 0;
+  } catch (error) {
+    console.error("Virhe SQL-kyselyssä:", error);
     return false;
   }
 };

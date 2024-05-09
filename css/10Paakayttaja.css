@@ -492,10 +492,6 @@ nav li {
   cursor: pointer;
 }
 
-.cake-item button:hover {
-  background-color: rgb(208, 194, 178);
-}
-
 /* uusi tuote modaali */
 
 #tuoteModal {
@@ -656,6 +652,72 @@ dialog button#closeKategoriat {
 
 dialog button#closeKategoriat:hover {
   background-color: #5a6268;
+}
+
+.category-button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(192, 160, 122);
+}
+
+/* muokkaus modaali */
+
+#updateTuoteModal {
+  border: none;
+  background: white;
+  padding: 20px;
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#updateTuoteModal form {
+  display: flex;
+  flex-direction: column;
+}
+
+#updateTuoteModal form label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#updateTuoteModal form input,
+#updateTuoteModal form select,
+#updateTuoteModal form textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#updateTuoteModal form button {
+  background-color: rgb(217, 124, 48);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+#updateTuoteModal form button:hover {
+  background-color: rgb(190, 99, 25);
+}
+
+#updateTuoteModal form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }
 
 
