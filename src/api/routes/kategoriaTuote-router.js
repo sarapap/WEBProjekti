@@ -15,6 +15,7 @@ const KategoriaTuoteRouter = express.Router();
 KategoriaTuoteRouter.route('/').get(getKategoriaTuoteeet).post(postKategoriaTuote);
 KategoriaTuoteRouter.route('/kategoria/:kategoria_id').get(getKategoriaTuoteByKategoriaId);
 KategoriaTuoteRouter.route('/tuote/:tuote_id').get(getKategoriaTuoteByTuoteId);
-KategoriaTuoteRouter.route('/:id').get(getKategoriaTuoteById).put(putKategoriaTuoteById).delete(deleteKategoriaTuoteById);
+KategoriaTuoteRouter.route('/:id').get(getKategoriaTuoteById).put(putKategoriaTuoteById);
+KategoriaTuoteRouter.route('/:kategoriatuote_id').delete(deleteKategoriaTuoteById);
 
 export default KategoriaTuoteRouter;

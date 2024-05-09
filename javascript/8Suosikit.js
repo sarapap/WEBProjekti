@@ -34,7 +34,62 @@ nextButton.addEventListener('click', () => {
 
 updateCarousel();
 
-
+const selectedLanguage = getSelectedLanguage();
+let virhesuosikit = '';
+let virhesuosikit2 = '';
+let virhesuosikit3 = '';
+let virhetuote = '';
+let virheostoskori = '';
+let virheostoskori2 = '';
+let virheostoskori3 = '';
+switch (selectedLanguage) {
+  case 'EN':
+    virhesuosikit = 'Error fetching favorites!';
+    virhesuosikit2 = 'Error adding favorite!';
+    virhesuosikit3 = 'Error removing favorite!';
+    virhetuote = 'Error fetching product!';
+    virheostoskori = 'Error fetching cart!';
+    virheostoskori2 = 'Error adding product to cart!';
+    virheostoskori3 = 'Error updating product in cart!';
+    break;
+  case 'CN':
+    virhesuosikit = '获取收藏夹时出错！';
+    virhesuosikit2 = '添加收藏夹时出错！';
+    virhesuosikit3 = '删除收藏夹时出错！';
+    virhetuote = '获取产品时出错！';
+    virheostoskori = '获取购物车时出错！';
+    virheostoskori2 = '将产品添加到购物车时出错！';
+    virheostoskori3 = '在购物车中更新产品时出错！';
+    break;
+  case 'ET':
+    virhesuosikit = 'Viga lemmikute laadimisel!';
+    virhesuosikit2 = 'Viga lemmiku lisamisel!';
+    virhesuosikit3 = 'Viga lemmiku eemaldamisel!';
+    virhetuote = 'Viga toote laadimisel!';
+    virheostoskori = 'Viga ostukorvi laadimisel!';
+    virheostoskori2 = 'Viga toote lisamisel ostukorvi!';
+    virheostoskori3 = 'Viga toote uuendamisel ostukorvis!';
+    break;
+  case 'SV':
+    virhesuosikit = 'Fel vid hämtning av favoriter!';
+    virhesuosikit2 = 'Fel vid lägg till favorit!';
+    virhesuosikit3 = 'Fel vid borttagning av favorit!';
+    virhetuote = 'Fel vid hämtning av produkt!';
+    virheostoskori = 'Fel vid hämtning av kundvagn!';
+    virheostoskori2 = 'Fel vid lägg till produkt i kundvagn!';
+    virheostoskori3 = 'Fel vid uppdatering av produkt i kundvagn!';
+    break;
+  case 'FI':
+  default:
+    virhesuosikit = 'Virhe suosikkien hakemisessa!';
+    virhesuosikit2 = 'Virhe suosikin lisäämisessä!';
+    virhesuosikit3 = 'Virhe suosikin poistamisessa!';
+    virhetuote = 'Virhe tuotteen hakemisessa!';
+    virheostoskori = 'Virhe ostoskorin hakemisessa!';
+    virheostoskori2 = 'Virhe tuotteen lisäämisessä ostoskoriin!';
+    virheostoskori3 = 'Virhe tuotteen päivittämisessä ostoskoriin!';
+    break;
+}
 let tuote_id = null;
 const fetchAndDisplayTuotteet = async () => {
   const userId = getUserId();
@@ -92,10 +147,6 @@ const getTuoteByTuoteId = async (tuote_id, userId) => {
     h3Element.textContent = tuote.tuote_nimi;
     tuoteElement.appendChild(h3Element);
 
-    const pElement = document.createElement('p');
-    pElement.textContent = tuote.tuote_kuvaus;
-    tuoteElement.appendChild(pElement);
-
     // lisää ostoskori- ja suosikkipainikkeet
     const buttonElement = document.createElement('button');
     buttonElement.innerHTML = '<i class="fas fa-shopping-cart"></i>';
@@ -108,6 +159,7 @@ const getTuoteByTuoteId = async (tuote_id, userId) => {
     } else {
       buttonElement2.innerHTML = '<i class="far fa-heart"></i>';
     }
+
     buttonElement2.classList.add('favorite-button');
 
     const buttonContainer = document.createElement('div');
@@ -117,6 +169,7 @@ const getTuoteByTuoteId = async (tuote_id, userId) => {
 
     tuoteElement.appendChild(buttonContainer);
     cakeList.appendChild(tuoteElement);
+
 
     buttonElement.addEventListener('click', async () => {
       const tarkista = await ostoskoriTarkistus(userId, tuote_id);
@@ -145,6 +198,7 @@ const getTuoteByTuoteId = async (tuote_id, userId) => {
   }
 };
 
+
 const isFavorite = async (userId, tuote_id) => {
   try {
     const response = await fetch(`http://localhost:3000/api/v1/suosikit/${userId}`, {
@@ -152,7 +206,7 @@ const isFavorite = async (userId, tuote_id) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe suosikkien hakemisessa');
+      throw new Error(virhesuosikit);
     }
 
     const favorites = await response.json();
@@ -160,7 +214,6 @@ const isFavorite = async (userId, tuote_id) => {
 
     return favoriteTuoteIds.includes(tuote_id);
   } catch (error) {
-    console.error('Virhe suosikkien hakemisessa:', error.message);
     return false;
   }
 };
@@ -191,11 +244,10 @@ const addFavorite = async (asiakas_id, tuote_id) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe suosikkien lisäämisessä');
+      throw new Error(virhesuosikit2);
     }
-    console.log('Tuote lisätty suosikkeihin');
+
   } catch (error) {
-    console.error('Virhe suosikkien lisäämisessä:', error.message);
   }
 };
 
@@ -206,11 +258,9 @@ const removeSuosikista = async (userId, tuote_id) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe tuotteen poistamisessa suosikeista');
+      throw new Error(virhesuosikit3);
     }
-    console.log('Tuote poistettu suosikkeista');
   } catch (error) {
-    console.error('Virhe tuotteen poistamisessa suosikeista:', error.message);
   }
 };
 
@@ -221,14 +271,13 @@ const ostoskoriTarkistus = async (userId, tuote_id) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe ostoskorin hakemisessa');
+      throw new Error(virheostoskori);
     }
     const ostoskoriList = await response.json();
     const tuoteIdList = ostoskoriList.map((tuote) => tuote.tuote_id);
 
     return tuoteIdList.includes(tuote_id);
   } catch (error) {
-    console.error('Virhe ostoskorin hakemisessa:', error.message);
     return false;
   }
 };
@@ -248,11 +297,9 @@ const addToCart = async (userId, tuote_id, tuote_maara) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe tuotteen lisäämisessä ostoskoriin');
+      throw new Error(virheostoskori2);
     }
-    console.log('Tuote lisätty ostoskoriin');
   } catch (error) {
-    console.error('Virhe tuotteen lisäämisessä ostoskoriin:', error.message);
   }
 };
 
@@ -271,11 +318,9 @@ const updateCart = async (userId, tuote_id, tuote_maara) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe tuotteen päivittämisessä ostoskoriin');
+      throw new Error(virheostoskori3);
     }
-    console.log('Tuote päivitetty ostoskoriin');
   } catch (error) {
-    console.error('Virhe tuotteen päivittämisessä ostoskoriin:', error.message);
   }
 };
 

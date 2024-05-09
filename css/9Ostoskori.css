@@ -41,6 +41,10 @@ header {
 .image-container {
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin: 0;
+  max-height: 100px;
+  max-width: 100px;
 }
 
 .logo {
@@ -89,7 +93,6 @@ header {
   border-radius: 5px;
   padding: 5px;
   font-family: 'Tahoma', sans-serif;
-
 }
 
 #kieli {
@@ -232,8 +235,8 @@ nav li {
 .table table td {
   padding-left: 80px;
   text-align: left;
-
 }
+
 
 .table table tr:nth-child(even) {
   background-color: #f2f2f2;
@@ -257,10 +260,25 @@ nav li {
   color: white;
   padding: 10px;
   border-radius: 1rem;
-  font-size: large;
   margin-bottom: 20px;
+  font-size: 14px;
   border: none;
-  box-shadow: 0 15px 25px 0 rgba(117, 115, 111, 0.939)
+  cursor: pointer;
+}
+
+.pay_btn:hover {
+  background-color: rgb(174, 94, 30);
+}
+
+.update-button {
+  background-color: rgb(192, 160, 122);
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 5px 10px 5px 10px;
+  font-size: 12px;
+  border-radius: 3px;
 }
 
 .div-class {
@@ -334,10 +352,12 @@ footer {
     margin-top: 0;
   }
 
-  .footer-container {
-    margin: 0;
+  .cake-item td:first-child {
+    width: 200px;
+    height: 200px;
   }
 }
+
 
 @media screen and (max-width:534px) {
   .table {

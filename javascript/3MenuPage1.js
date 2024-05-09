@@ -1,3 +1,19 @@
+// const getUserId = () => {
+//   const token = localStorage.getItem('authToken');
+//   if (token) {
+//     const base64Payload = token.split('.')[1];
+//     const payload = atob(base64Payload);
+//     const parsedPayload = JSON.parse(payload);
+//     let userId = parsedPayload.asiakas_id;
+//     return userId;
+//   }
+// }
+
+// function getSelectedLanguage() {
+//   const kieli = document.getElementById('kieli');
+//   return kieli && kieli.value ? kieli.value : 'FI';
+// }
+
 
 // const generateUniqueIdentifier = () => {
 //   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
@@ -50,7 +66,7 @@
 //   }
 // };
 
-// let userId = getUserId() || addVierasUser();
+
 // console.log('userId:', userId);
 
 // const removeOstoskoristaById = async (userId) => {
@@ -75,15 +91,77 @@
 //   window.location.href = '11Login.html';
 // };
 
+const selectedLanguage = getSelectedLanguage();
+let virhesuosikit = '';
+let virhesuosikit2 = '';
+let virhesuosikit3 = '';
+let virhetuote = '';
+let virhetuote2 = '';
+let virheostoskori = '';
+let virheostoskori2 = '';
+let virheostoskori3 = '';
+switch (selectedLanguage) {
+  case 'EN':
+    virhesuosikit = 'Error fetching favorites!';
+    virhesuosikit2 = 'Error adding favorite!';
+    virhesuosikit3 = 'Error removing favorite!';
+    virhetuote = 'Error fetching product!';
+    virhetuote2 = 'Error removing product';
+    virheostoskori = 'Error fetching cart!';
+    virheostoskori2 = 'Error adding product to cart!';
+    virheostoskori3 = 'Error updating product in cart!';
+    break;
+  case 'CN':
+    virhesuosikit = '获取收藏夹时出错！';
+    virhesuosikit2 = '添加收藏夹时出错！';
+    virhesuosikit3 = '删除收藏夹时出错！';
+    virhetuote = '获取产品时出错！';
+    virhetuote2 = '删除产品时出错';
+    virheostoskori = '获取购物车时出错！';
+    virheostoskori2 = '将产品添加到购物车时出错！';
+    virheostoskori3 = '在购物车中更新产品时出错！';
+    break;
+  case 'ET':
+    virhesuosikit = 'Viga lemmikute laadimisel!';
+    virhesuosikit2 = 'Viga lemmiku lisamisel!';
+    virhesuosikit3 = 'Viga lemmiku eemaldamisel!';
+    virhetuote = 'Viga toote laadimisel!';
+    virhetuote2 = 'Viga toote eemaldamisel';
+    virheostoskori = 'Viga ostukorvi laadimisel!';
+    virheostoskori2 = 'Viga toote lisamisel ostukorvi!';
+    virheostoskori3 = 'Viga toote uuendamisel ostukorvis!';
+    break;
+  case 'SV':
+    virhesuosikit = 'Fel vid hämtning av favoriter!';
+    virhesuosikit2 = 'Fel vid lägg till favorit!';
+    virhesuosikit3 = 'Fel vid borttagning av favorit!';
+    virhetuote = 'Fel vid hämtning av produkt!';
+    virhetuote2 = 'Fel vid borttagning av produkt';
+    virheostoskori = 'Fel vid hämtning av kundvagn!';
+    virheostoskori2 = 'Fel vid lägg till produkt i kundvagn!';
+    virheostoskori3 = 'Fel vid uppdatering av produkt i kundvagn!';
+    break;
+  case 'FI':
+  default:
+    virhesuosikit = 'Virhe suosikkien hakemisessa!';
+    virhesuosikit2 = 'Virhe suosikin lisäämisessä!';
+    virhesuosikit3 = 'Virhe suosikin poistamisessa!';
+    virhetuote = 'Virhe tuotteen hakemisessa!';
+    virhetuote2 = 'Virhe tuotteen poistamisessa'
+    virheostoskori = 'Virhe ostoskorin hakemisessa!';
+    virheostoskori2 = 'Virhe tuotteen lisäämisessä ostoskoriin!';
+    virheostoskori3 = 'Virhe tuotteen päivittämisessä ostoskoriin!';
+    break;
+}
+
 const handleNewValue = async () => {
-  const alatyyppi = getSelectedAlaTyyppi();
+  const alatyyppi = await getSelectedAlaTyyppi();
   await updateSubtypes(alatyyppi);
 };
 
 const updateSelectedAlatyyppi = () => {
   const selectedAlatyyppi = document.getElementById('cakeType').value;
   cakeList.innerHTML = '';
-  console.log('Valittu tyyppi:', selectedAlatyyppi);
   return selectedAlatyyppi;
 }
 
@@ -93,14 +171,12 @@ document.getElementById('cakeType').addEventListener('change', async () => {
 
 const getSelectedAlaTyyppi = async () => {
   const selectedAlatyyppi = await updateSelectedAlatyyppi('cakeType').value;
-  console.log('selectedAlatyyppi:', selectedAlatyyppi);
   return selectedAlatyyppi;
 };
 
 const getTyyppiIdLista = async () => {
   try {
     const selectedAlatyyppi = await updateSelectedAlatyyppi();
-    console.log('Valittu alatyyppi get id listassa:', selectedAlatyyppi);
 
     let url;
     if (selectedAlatyyppi === 'kaikki') {
@@ -149,6 +225,16 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/koogid/soolasedkoogid';
     } else if (selectedAlatyyppi === 'magusadkoogid') {
       url = 'http://localhost:3000/api/v1/tyyppi/koogid/magusadkoogid';
+
+    } else if (selectedAlatyyppi === 'kaikkicn') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/kakutcn';
+    } else if (selectedAlatyyppi === 'juhlakakutcn') {
+      url = 'http://localhost:3000/api/v1/tyyppi/kakutcn/juhlakakutcn';
+    } else if (selectedAlatyyppi === 'suolaisetkakutcn') {
+      url = 'http://localhost:3000/api/v1/tyyppi/kakutcn/suolaisetkakutcn';
+    } else if (selectedAlatyyppi === 'makeatkakutcn') {
+      url = 'http://localhost:3000/api/v1/tyyppi/kakutcn/makeatkakutcn';
+
     }
 
     else if (selectedAlatyyppi === 'kaikki2') {
@@ -175,6 +261,13 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/kuumtoit/kanaroad';
     } else if (selectedAlatyyppi === 'muudkuumadtoidud') {
       url = 'http://localhost:3000/api/v1/tyyppi/kuumtoit/muudkuumadtoidud';
+
+    } else if (selectedAlatyyppi === 'kaikkicn4') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/lammintaruokaacn';
+    } else if (selectedAlatyyppi === 'kanaruuatcn') {
+      url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaacn/kanaruuatcn';
+    } else if (selectedAlatyyppi === 'muutlampimatruuatcn') {
+      url = 'http://localhost:3000/api/v1/tyyppi/lammintaruokaacn/muutlampimatruuatcn';
 
     } else if (selectedAlatyyppi === 'kaikki3') {
       url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/juotavaa';
@@ -216,6 +309,17 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/joogid/teed';
     } else if (selectedAlatyyppi === 'karastusjoogid') {
       url = 'http://localhost:3000/api/v1/tyyppi/joogid/karastusjoogid';
+
+    } else if (selectedAlatyyppi === 'kaikkicn5') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/juotavaacn';
+    } else if (selectedAlatyyppi === 'lammintajuotavaacn') {
+      url = 'http://localhost:3000/api/v1/tyyppi/juotavaacn/lammintajuotavaacn';
+    } else if (selectedAlatyyppi === 'jääkahvitcn') {
+      url = 'http://localhost:3000/api/v1/tyyppi/juotavaacn/jääkahvitcn';
+    } else if (selectedAlatyyppi === 'teetcn') {
+      url = 'http://localhost:3000/api/v1/tyyppi/juotavaacn/teetcn';
+    } else if (selectedAlatyyppi === 'virvoitusjuomatcn') {
+      url = 'http://localhost:3000/api/v1/tyyppi/juotavaacn/virvoitusjuomatcn';
     }
 
     else if (selectedAlatyyppi === 'kaikki4') {
@@ -242,6 +346,12 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/magus/saiakesed';
     } else if (selectedAlatyyppi === 'muudmaiustused') {
       url = 'http://localhost:3000/api/v1/tyyppi/magus/muudmaiustused';
+    } else if (selectedAlatyyppi === 'kaikkicn3') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/makeaacn';
+    } else if (selectedAlatyyppi === 'leivonnaisetcn') {
+      url = 'http://localhost:3000/api/v1/tyyppi/makeaacn/leivoinnaisetcn';
+    } else if (selectedAlatyyppi === 'muutmakeatcn') {
+      url = 'http://localhost:3000/api/v1/tyyppi/makeaacn/muutmakeatcn';
     }
 
     else if (selectedAlatyyppi === 'kaikki5') {
@@ -276,18 +386,21 @@ const getTyyppiIdLista = async () => {
       url = 'http://localhost:3000/api/v1/tyyppi/soolane/salatid';
     } else if (selectedAlatyyppi === 'stritslid') {
       url = 'http://localhost:3000/api/v1/tyyppi/soolane/stritslid';
+    } else if (selectedAlatyyppi === 'kaikkicn2') {
+      url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/suolaistacn';
+    } else if (selectedAlatyyppi === 'piirakatcn') {
+      url = 'http://localhost:3000/api/v1/tyyppi/suolaistacn/piirakatcn';
+    } else if (selectedAlatyyppi === 'salaatitcn') {
+      url = 'http://localhost:3000/api/v1/tyyppi/suolaistacn/salaatitcn';
+    } else if (selectedAlatyyppi === 'pasteijatcn') {
+      url = 'http://localhost:3000/api/v1/tyyppi/suolaistacn/pasteijatcn';
     }
 
     const response = await fetch(url, {
       method: 'GET',
     });
 
-    if (!response.ok) {
-      throw new Error('Virhe alatyyppien hakemisessa');
-    }
-
     const tyyppiList = await response.json();
-    console.log("Palvelimen vastaus:", tyyppiList);
 
     if (Array.isArray(tyyppiList)) {
       const tyyppiIdList = tyyppiList.map((tyyppi) => tyyppi.tyyppi_id);
@@ -297,7 +410,6 @@ const getTyyppiIdLista = async () => {
       return tyyppiList.tyyppi_id;
     }
   } catch (error) {
-    console.error('Virhe tuote_id hakemisessa:', error.message);
     return [];
   }
 };
@@ -307,7 +419,6 @@ const fetchAndDisplayTuotteet = async () => {
 
   if (!Array.isArray(IdResult)) {
     const tyyppiId = IdResult;
-    console.log('Tyyppi id_ not list:', tyyppiId);
 
     await fetchAndDisplayByTyyppiId(tyyppiId);
   } else {
@@ -324,27 +435,26 @@ const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
     });
 
     if (!response.ok) {
-      throw new Error("Virhe tuotteiden hakemisessa");
+      throw new Error(virhetuote);
     }
 
     const tuotteet = await response.json();
 
     if (Array.isArray(tuotteet)) {
-      tuotteet.forEach((tuote) => {
-        displaySingleTuote(tuote);
+      tuotteet.forEach(async (tuote) => {
+        await displaySingleTuote(tuote);
       });
     } else {
       displaySingleTuote(tuotteet);
     }
   } catch (error) {
-    console.error("Virhe tuotteiden hakemisessa:", error.message);
   }
 };
 
 const displaySingleTuote = async (tuote) => {
-  const kieli = document.getElementById('kieli');
-  const selectedLanguage = kieli && kieli.value ? kieli.value : 'FI';
   let addCartText = '';
+  let addToCartText = '';
+  let removeCart = '';
   let addFavoriteText = '';
   let unfavorateText = '';
   let addfavorite = '';
@@ -354,6 +464,8 @@ const displaySingleTuote = async (tuote) => {
   switch (selectedLanguage) {
     case 'EN':
       addCartText = 'Add to cart';
+      addToCartText = 'Added to cart!';
+      removeCart = 'Remove from cart';
       addFavoriteText = 'Add to favorites';
       unfavorateText = 'Unlike';
       addfavorite = 'Product added to favorites!';
@@ -363,6 +475,8 @@ const displaySingleTuote = async (tuote) => {
       break;
     case 'CN':
       addCartText = '添加到购物车';
+      addToCartText = '已添加到购物车！';
+      removeCart = '从购物车中删除';
       addFavoriteText = '添加收藏';
       unfavorateText = '删除收藏';
       addfavorite = '产品已添加到收藏夹！';
@@ -372,6 +486,8 @@ const displaySingleTuote = async (tuote) => {
       break;
     case 'ET':
       addCartText = 'Lisa ostukorvi';
+      addToCartText = 'Lisatud ostukorvi!';
+      removeCart = 'Eemalda ostukorvist';
       addFavoriteText = 'Lisa lemmikutesse';
       unfavorateText = 'Eemalda';
       addfavorite = 'Toode on lisatud lemmikutesse!';
@@ -381,6 +497,8 @@ const displaySingleTuote = async (tuote) => {
       break;
     case 'SV':
       addCartText = 'Lägg till i kundvagnen';
+      addToCartText = 'Lagt till i kundvagnen!';
+      removeCart = 'Ta bort från kundvagnen';
       addFavoriteText = 'Lägg till i favoriter';
       unfavorateText = 'Olikt';
       addfavorite = 'Produkten har lagts till i favoriter!';
@@ -391,6 +509,8 @@ const displaySingleTuote = async (tuote) => {
     case 'FI':
     default:
       addCartText = 'Lisää ostoskoriin';
+      addToCartText = 'Lisätty ostoskoriin!';
+      removeCart = 'Poista ostoskorista';
       addFavoriteText = 'Tallenna suosikkeihin';
       unfavorateText = 'Poista suosikkeista';
       addfavorite = 'Tuote lisätty suosikkeihin!';
@@ -422,23 +542,24 @@ const displaySingleTuote = async (tuote) => {
   pElement.textContent = tuote.tuote_kuvaus;
   tuoteElement.appendChild(pElement);
 
-  // Lisää kategoria
   const pElement2 = document.createElement('p');
   const kategoriaIdResult = await getKategoriaIdByTuoteId(tuote.tuote_id);
 
-  console.log('Kaikki kategoria-id:t:', kategoriaIdResult);
+  if (kategoriaIdResult.length > 0) {
+    const kategoriaNimet = await Promise.all(
+      kategoriaIdResult.map(async (kategoria) => {
+        try {
+          return await getKategoriaById(kategoria);
+        } catch (error) {
+          return null;
+        }
+      })
+    );
 
-  if (kategoriaIdResult.length > 1) {
-    for (const kategoria of kategoriaIdResult) {
-      console.log('Kategorian id-silmukka:', kategoria);
-      const kategoriaNimi = await getKategoriaById(kategoria);
-      pElement2.textContent += kategoriaNimi + ', ';
-    }
-  } else if (kategoriaIdResult.length === 1) {
-    const kategoriaNimi = await getKategoriaById(kategoriaIdResult[0]);
-    pElement2.textContent = kategoriaNimi;
+    const validKategoriaNimet = kategoriaNimet.filter(Boolean);
+    pElement2.textContent = validKategoriaNimet.join(', ');
   } else {
-    pElement2.textContent = "Kategoriaa ei löytynyt.";
+    pElement2.textContent = "-";
   }
 
   tuoteElement.appendChild(pElement2);
@@ -451,6 +572,24 @@ const displaySingleTuote = async (tuote) => {
   pElement3.appendChild(hintaElement);
   tuoteElement.appendChild(pElement3);
 
+  const numberInput = document.createElement('input');
+  numberInput.id = 'maara';
+  numberInput.type = 'number';
+  numberInput.name = 'maara';
+  numberInput.value = '1';
+  numberInput.min = '1';
+  numberInput.max = '100';
+
+  numberInput.addEventListener('input', () => {
+    const tuote_maara = parseInt(numberInput.value);
+  });
+
+  const maaraElement = document.createElement('span');
+  maaraElement.textContent = maaraTeksti;
+
+  tuoteElement.appendChild(maaraElement);
+  tuoteElement.appendChild(numberInput);
+
   // Lisää "Lisää ostoskoriin" -painike
   const buttonElement = document.createElement('button');
   buttonElement.textContent = addCartText;
@@ -461,43 +600,61 @@ const displaySingleTuote = async (tuote) => {
   const buttonElement2 = document.createElement('button');
   buttonElement2.style.backgroundColor = 'rgb(192, 160, 122)';
 
-  // Päivitä suosikkipainikkeen tila sivun latautuessa
   const isFavorite = await favorateTarkistus(userId, tuote.tuote_id);
   buttonElement2.textContent = isFavorite ? unfavorateText : addFavoriteText;
 
   tuoteElement.appendChild(buttonElement2);
 
   buttonElement.addEventListener('click', async () => {
-    const lisaaTuoteMaara = numberInput.value;
+    const tuoteMaara = parseInt(numberInput.value, 10);
+    const userId = getUserId();
+    const tuoteId = tuote.tuote_id;
 
-    const tarkista = await ostoskoriTarkistus(userId, tuote.tuote_id);
+    const ostoskoriTarkistusTulos = await ostoskoriTarkistus(userId, tuoteId);
 
-    if (tarkista === false) {
-      await addToCart(userId, tuote.tuote_id, lisaaTuoteMaara);
-    } else {
-      await updateCart(userId, tuote.tuote_id, lisaaTuoteMaara);
+    try {
+      if (ostoskoriTarkistusTulos === false) {
+        await addToCart(userId, tuoteId, tuoteMaara);
+      } else {
+        alert(addToCartText);
+        await updateCart(userId, tuoteId, tuoteMaara);
+        await paivitaOstoskorinNumero();
+      }
+    } catch (error) {
     }
   });
+
 
   buttonElement2.addEventListener('click', async () => {
     const isCurrentlyFavorite = await favorateTarkistus(userId, tuote.tuote_id);
 
     if (isCurrentlyFavorite) {
       buttonElement2.textContent = addFavoriteText;
-      alert(removefavorite);
       await removeSuosikista(userId, tuote.tuote_id);
     } else {
       buttonElement2.textContent = unfavorateText;
-      alert(addfavorite);
       await addFavorite(userId, tuote.tuote_id);
-
     }
   });
 
   cakeList.appendChild(tuoteElement);
 };
 
-
+const deleteTuoteFromCart = async (userId, tuote_id) => {
+  const onTuoteKorissa = await ostoskoriTarkistus(userId, tuote_id);
+  if (onTuoteKorissa) {
+    try {
+      const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}/${tuote_id}`, {
+        method: 'DELETE',
+      });
+      if (!response.ok) {
+        throw new Error(virhetuote2);
+      }
+      fetchAndDisplayTuotteet();
+    } catch (error) {
+    }
+  }
+};
 
 const favorateTarkistus = async (userId, tuote_id) => {
   try {
@@ -506,7 +663,7 @@ const favorateTarkistus = async (userId, tuote_id) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe suosikkien hakemisessa');
+      throw new Error(virhesuosikit);
     }
 
     const favortateList = await response.json();
@@ -514,13 +671,11 @@ const favorateTarkistus = async (userId, tuote_id) => {
     const tuoteIds = favortateList.map((item) => item.tuote_id);
 
     if (!userIds.includes(userId) || !tuoteIds.includes(tuote_id)) {
-      console.log('Suosikkeja ei löytynyt');
       return false;
     } else {
       return true;
     }
   } catch (error) {
-    console.error('Virhe suosikkien hakemisessa:', error.message);
     return false;
   }
 };
@@ -539,12 +694,9 @@ const addFavorite = async (asiakas_id, tuote_id) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe tuote hakemisessa');
-    } else {
-      console.log('Tuote lisätty suosikkeihin');
+      throw new Error(virhetuote);
     }
   } catch (error) {
-    console.error('Virhe tuotteen hakemisessa:', error.message);
   }
 };
 
@@ -555,24 +707,28 @@ const geTuoteMaaraFromCart = async (userId, tuote_id) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe tuotteen hakemisessa');
+      throw new Error(virhetuote);
+    }
+
+    const data = await response.json();
+    if (!data || !data.tuote_maara) {
       return 0;
     }
 
-    const tuoteMaara = await response.json();
-    const maara = tuoteMaaratuote_maara;
-    console.log('Tuote maara:', tuoteMaara);
+    const maara = data.tuote_maara;
     return maara;
+
   } catch (error) {
-    console.error('Virhe tuotteen hakemisessa:', error.message);
     return 0;
   }
-}
+};
+
 
 const addToCart = async (userId, tuote_id, tuote_maara) => {
-  const maaraKorissa = await geTuoteMaaraFromCart(userId, tuote_id);
-  const uusimaara = tuote_maara + maaraKorissa;
   try {
+    const maaraKorissa = await geTuoteMaaraFromCart(userId, tuote_id);
+    const uusimaara = maaraKorissa ? tuote_maara + maaraKorissa : tuote_maara;
+
     const response = await fetch(`http://localhost:3000/api/v1/ostoskori`, {
       method: 'POST',
       headers: {
@@ -586,55 +742,46 @@ const addToCart = async (userId, tuote_id, tuote_maara) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe tuote hakemisessa');
+      throw new Error(virheostoskori3);
     }
-    console.log('Tuote lisätty ostoskoriin');
+
   } catch (error) {
-    console.error('Virhe tuotteen hakemisessa:', error.message);
   }
 };
 
 const getTuoteIdFromFavorates = async (userID) => {
-  console.log('userID get suosikki id:', userID);
-
   try {
     const response = await fetch(`http://localhost:3000/api/v1/suosikit/${userID}`, {
       method: 'GET',
     });
 
     if (!response.ok) {
-      throw new Error('Virhe suosikkien hakemisessa');
+      throw new Error(virhesuosikit);
     }
 
     const suosikitTuoteId = await response.json();
 
     if (!suosikitTuoteId) {
-      console.log('Suosikkeja ei löytynyt');
       return [];
     } else {
       return suosikitTuoteId;
     }
 
   } catch (error) {
-    console.error('Virhe suosikkien hakemisessa:', error.message);
     return [];
   }
 }
 
 const removeSuosikista = async (userId, tuote_id) => {
-  console.log('RemoveTuote id:', tuote_id);
-  console.log('RemoveAsiakas id:', userId);
   try {
     const response = await fetch(`http://localhost:3000/api/v1/suosikit/${userId}/${tuote_id}`, {
       method: 'DELETE',
     });
 
     if (!response.ok) {
-      throw new Error('Virhe tuote hakemisessa');
+      throw new Error(virhetuote);
     }
-    console.log('Tuote poistettu suosikeista');
   } catch (error) {
-    console.error('Virhe tuotteen hakemisessa:', error.message);
   }
 };
 
@@ -645,73 +792,61 @@ const getTuoteIdFromCart = async (userId) => {
     });
 
     if (!response.ok) {
-      throw new Error('Virhe ostoskorin hakemisessa');
+      throw new Error(virheostoskori);
     }
     const data = await response.json();
     const ostoskoriTuoteId = data.map((tuote) => tuote.tuote_id);
 
     if (!ostoskoriTuoteId) {
-      console.log('Ostoskorissa ei ole tuotteita');
       return [];
     } else {
       return ostoskoriTuoteId;
     }
   } catch (error) {
-    onsole.error('Virhe ostoskorin hakemisessa:', error.message);
-    console.log('Ostoskorin tuotteet:', ostoskoriTuoteId);
   }
 }
 
-const ostoskoriTarkistus = async (userId, tuote_id) => {
+const ostoskoriTarkistus = async (userId, tuoteId) => {
   try {
     const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
       method: 'GET',
     });
 
     if (!response.ok) {
-      throw new Error('Virhe ostoskorin hakemisessa');
+      throw new Error(virheostoskori);
     }
+
     const ostoskoriList = await response.json();
     const tuoteIdList = ostoskoriList.map((tuote) => tuote.tuote_id);
-    const asiakasIdList = ostoskoriList.map((asiakas) => asiakas.asiakas_id);
 
-    if (!asiakasIdList.includes(userId) || !tuoteIdList.includes(tuote_id)) {
-      return false;
-    } else {
-      return true
-    }
-
+    return tuoteIdList.includes(tuoteId);
   } catch (error) {
-    console.error('Virhe ostoskorin hakemisessa:', error.message);
+    return false;
   }
 };
 
-const updateCart = async (userID, tuote_id, lisaamaara) => {
-  const tuoteMaaraKorissa = await getTuoteMaaraFromCart(userID, tuote_id);
-
-  const uusimaara = parseInt(tuoteMaaraKorissa) + parseInt(lisaamaara);
-  console.log('korissa oleva määrä11:', tuoteMaaraKorissa);
-  console.log('Tuote maara:11', lisaamaara);
-  console.log('Tuote uusi määrä  id11:', uusimaara);
-
+const updateCart = async (userId, tuoteId, lisamaara) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}/${tuote_id}`, {
+    const tuoteMaaraKorissa = await getTuoteMaaraFromCart(userId, tuoteId);
+
+    const uusimaara = (tuoteMaaraKorissa || 0) + parseInt(lisamaara, 10);
+
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}/${tuoteId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         asiakas_id: userId,
-        tuote_id: tuote_id,
+        tuote_id: tuoteId,
         tuote_maara: uusimaara,
       }),
     });
+
     if (!response.ok) {
-      throw new Error('Virhe tuote hakemisessa');
+      throw new Error(virheostoskori3);
     }
-    console.log('Tuote päivitetty ostoskoriin');
   } catch (error) {
-    console.error('Virhe tuotteen hakemisessa:', error.message);
   }
 };
 
@@ -721,53 +856,48 @@ const getTuoteMaaraFromCart = async (userId, tuote_id) => {
       method: 'GET',
     });
     if (!response.ok) {
-      throw new Error('Virhe tuotteen hakemisessa');
+      throw new Error(virhetuote);
     }
     const data = await response.json();
     const maara = data.tuote_maara;
-    console.log('Tuote maara5, oikein :', maara);
     return maara;
   } catch (error) {
-    console.error('Virhe tuotteen hakemisessa:', error.message);
   }
 };
 
 const getKategoriaIdByTuoteId = async (tuoteId) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/v1/kategoria_tuote/tuote/${tuoteId}`, {
-      method: 'GET',
-    });
-    if (!response.ok) {
-      throw new Error('Virhe kategorian hakemisessa');
+    const response = await fetch(`http://localhost:3000/api/v1/kategoria_tuote/tuote/${tuoteId}`);
+
+    if (response.status === 404) {
+      return [];
     }
+
+    if (!response.ok) {
+      return [];
+    }
+
     const data = await response.json();
     if (Array.isArray(data)) {
-      const kategoriaIdList = data.map((item) => item.kategoria_id);
-      return kategoriaIdList;
+      return data.map(item => item.kategoria_id);
     } else {
-      const kategoriaId = data.kategoria_id;
-      return kategoriaId;
+      return [data.kategoria_id];
     }
   } catch (error) {
-    console.error('Virhe kategorian hakemisessa:', error.message);
     return [];
   }
-}
+};
 
 const getKategoriaById = async (kategoriaId) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/v1/kategoria/${kategoriaId}`, {
-      method: 'GET',
-    });
+    const response = await fetch(`http://localhost:3000/api/v1/kategoria/${kategoriaId}`);
     if (!response.ok) {
-      throw new Error('Virhe kategorian hakemisessa');
+      return '';
     }
     const data = await response.json();
-    console.log('Kategoria nimet:', data.kategoria_nimi);
     return data.kategoria_nimi;
-
   } catch (error) {
-    console.error('Virhe kategorian hakemisessa:', error.message);
+    return '';
   }
 };
 

@@ -361,6 +361,7 @@ footer {
   }
 }
 
+
 @media screen and (max-width:800px) {
   .table .table2 {
     width: 100%;
@@ -383,10 +384,6 @@ footer {
     margin-bottom: 20px;
   }
 
-  /* .cakeImg {
-    margin-top: 0;
-  } */
-
   .cake-item {
     width: 45%;
   }
@@ -396,7 +393,7 @@ footer {
   }
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:730px) {
   .table {
     width: 100%;
     padding-bottom: 5%;

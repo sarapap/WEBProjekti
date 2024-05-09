@@ -87,33 +87,35 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = redirectPage;
       });
     }
-    window.location.href = redirectPage;
   });
+
 }
 );
 
 // get asiakas id from local storage
 const getUserId = () => {
   const token = localStorage.getItem('authToken');
-  const base64Payload = token.split('.')[1];
-  const payload = atob(base64Payload);
-  const parsedPayload = JSON.parse(payload);
-  let userId = parsedPayload.asiakas_id;
-  console.log('asiakas id:', userId);
-  return userId;
+  if (token) {
+    const base64Payload = token.split('.')[1];
+    const payload = atob(base64Payload);
+    const parsedPayload = JSON.parse(payload);
+    let userId = parsedPayload.asiakas_id;
+    return userId;
+  }
 }
 
 const userId = getUserId();
-console.log('userId:', userId);
 
-// Päivitä ostoskorin numero
+
 const paivitaOstoskorinNumero = async () => {
   const userId = getUserId();
-
   const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
+
   const tuotteet = await getTuotteenMaaraByUserId(userId);
-  ostoskoriLkmElement.textContent = tuotteet.length.toString();
-}
+  const tuotteenLkm = tuotteet.reduce((sum, tuote) => sum + tuote.tuote_maara, 0);
+
+  ostoskoriLkmElement.textContent = tuotteenLkm.toString();
+};
 
 const paivitaSuosikkiMaara = async () => {
   await getSuosikinMaaraByUserId(userId);
@@ -130,7 +132,6 @@ const getSuosikinMaaraByUserId = async (userId) => {
     }
 
     if (response.status === 404) {
-      console.log('Suosikkeja ei löytynyt');
       const suosikit = 0;
       const suosikkiLkmElement = document.getElementById('suosikki-lkm');
       suosikkiLkmElement.textContent = suosikit.toString();
@@ -138,7 +139,6 @@ const getSuosikinMaaraByUserId = async (userId) => {
     }
 
     const suosikit = await response.json();
-    console.log('Suosikkien määrä:', suosikit.length.toString());
 
     const suosikkiLkmElement = document.getElementById('suosikki-lkm');
     suosikkiLkmElement.textContent = suosikit.length.toString();
@@ -152,32 +152,27 @@ const getSuosikinMaaraByUserId = async (userId) => {
 }
 
 const getTuotteenMaaraByUserId = async (userId) => {
-
   try {
     const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
       method: 'GET',
     });
 
-
     if (!response.ok) {
-      if (response.status === 404) { // Jos ostoskoria ei löydy, palautetaan tyhjä taulukko
+      if (response.status === 404) {
         const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
         ostoskoriLkmElement.textContent = '0';
-        console.log('Ostoskoria ei löydy tai se on tyhjä.');
         return [];
       }
       throw new Error('Virhe ostoskorin hakemisessa');
-
     }
 
     const tuotteet = await response.json();
     const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
     ostoskoriLkmElement.textContent = tuotteet.length.toString();
-    console.log('Tuoteen määrä ostoskorissa:', tuotteet.length.toString());
-    return tuotteet; // Palautetaan tuotteet
+    return tuotteet;
   } catch (error) {
     console.error('Virhe ostoskorin hakemisessa:', error.message);
-    return 0; // Palautetaan tyhjä taulukko virhetilanteessa
+    return 0;
   }
 }
 
@@ -186,5 +181,51 @@ const disPlayIconNumerot = async () => {
   await paivitaSuosikkiMaara();
 }
 
-disPlayIconNumerot();
+const tyhjennaOstoskori = async (userId) => {
+  try {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
+      method: 'DELETE',
+    });
 
+    if (!response.ok) {
+      throw new Error('Virhe ostoskorin tyhjentämisessä');
+    }
+
+    const ostoskoriLkmElement = document.getElementById('ostoskori-lkm');
+    ostoskoriLkmElement.textContent = '0';
+
+    return true;
+  } catch (error) {
+    console.error('Virhe ostoskorin tyhjentämisessä:', error.message);
+    return false;
+  }
+};
+
+const vahvistaJaTyhjenna = async () => {
+  const userId = getUserId();
+  await tyhjennaOstoskori(userId);
+  const kieli = getSelectedLanguage();
+  let targetPage = '';
+  switch (kieli) {
+    case 'EN':
+      targetPage = '../../html/en/9Vahvistus_en.html';
+      break;
+    case 'CN':
+      targetPage = '../../html/cn/9Vahvistus_cn.html';
+      break;
+    case 'ET':
+      targetPage = '../../html/et/9Vahvistus_et.html';
+      break;
+    case 'SV':
+      targetPage = '../../html/sv/9Vahvistus_sv.html';
+      break;
+    case 'FI':
+    default:
+      targetPage = '../../html/fi/9Vahvistus.html';
+      break;
+  }
+  window.location.href = targetPage;
+};
+
+
+disPlayIconNumerot();

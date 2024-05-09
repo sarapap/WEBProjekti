@@ -181,14 +181,69 @@ nav li {
 
 /* main */
 .main {
-  width: 90%;
-  display: block;
+  width: 100%;
+  display: flex;
   height: 100px;
   margin: 20px 0px 20px 0px;
   text-align: center;
   border-radius: 1rem;
   margin-top: 20px;
 }
+
+.aside1 {
+  text-align: center;
+  font-size: 20px;
+  height: 100%;
+  border-radius: 2rem;
+  margin-top: 30px;
+  width: 20%;
+
+}
+
+.aside2 {
+  background-color: #efece4;
+  height: 70%;
+  min-width: 100%;
+  border-radius: 10px;
+
+}
+
+/* .tilaus-item td {
+ min-width: max-content;
+
+}
+
+.tilaus-lis td {
+  padding-left: 300px;
+} */
+
+.tilaus-item {
+  min-width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px 60px 10px 10px;
+  border: 1px solid #d9cfcf;
+  border-radius: 5px;
+
+
+
+}
+.tilaus-item > td {
+  width: 15%;  /* Vähennetään paddingin leveys */
+  padding-left: 5px;
+
+}
+
+/* .tilaus-item tbody {
+  display: flex;
+  min-width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 2rem;
+
+} */
 
 /* kuvat */
 
@@ -200,6 +255,7 @@ nav li {
   grid-template-columns: repeat(3, 1fr);
   margin-bottom: 50px;
   height: fit-content;
+  padding-left: 0;
 }
 
 .tiedot {
@@ -230,6 +286,10 @@ nav li {
   background-size: cover;
 
 }
+
+table, th, td {
+  border:0.3px solid rgb(229, 199, 124);
+  }
 
 
 .tiedot_cn {
@@ -337,27 +397,6 @@ nav li {
   background-image: url('kuvat/kupongit_sv.png');
 }
 
-
-.aside1 {
-  text-align: center;
-  font-size: 20px;
-  height: 100%;
-  border-radius: 2rem;
-  margin-top: 30px;
-
-}
-
-.aside2 {
-  padding-left: 5%;
-  height: 100%;
-  border-radius: 1rem;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  padding: 20px;
-  margin-left: 5%;
-  margin-top: 30px;
-}
-
 #name {
   border: 1px solid #123456;
 }
@@ -387,25 +426,28 @@ footer {
   }
 
   .aside1 {
-    width: 40%;
+    width: 20%;
     margin-bottom: 2rem;
   }
 
   .aside2 {
-    width: 60%;
+    width: 75%;
+
   }
 
 }
 
 @media screen and (max-width:800px) {
   .aside1 {
-    width: 90%;
+    width: 20%;
     margin-bottom: 2rem;
+    margin-left: 2%;
   }
 
   .aside2 {
-    width: 100%;
+    width: 75%;
     margin-bottom: 10rem;
+    margin-left: 30%;
 
   }
 
@@ -430,12 +472,12 @@ footer {
   }
 
   .aside1 {
-    width: 35%;
+    width: 20%;
 
   }
 
   .aside2 {
-    width: 60%;
+    width: 80%;
     height: auto;
   }
 
@@ -464,7 +506,7 @@ footer {
 
   .cakeImg {
     width: 250px;
-    height: 100px;
+    height: 200px;
   }
 
 }

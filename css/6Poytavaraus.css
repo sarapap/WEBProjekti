@@ -63,6 +63,7 @@ header {
   background-size: cover;
 
 }
+
 .suosikit {
   display: inline-block;
   margin: 10px;
@@ -199,6 +200,8 @@ nav li {
 
 .tila1 {
   border-radius: 1rem;
+  width: 50%;
+  height: auto;
 }
 
 table {
@@ -449,7 +452,20 @@ footer {
 
 }
 
-@media (max-width: 470px) {
+@media (max-width: 720px) {
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .cakeImg {
+    width: 500px;
+    height: 200px;
+  }
+
+}
+
+@media (max-width: 400px) {
   .logo {
     width: 100px;
     height: 100px;

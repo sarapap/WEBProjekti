@@ -1,42 +1,66 @@
 'use strict';
 
-/*funktio kielen vaihtoon */
+/**
+ * Hakee valitun kielen ja palauttaa sen.
+ * 
+ * @returns {string} Valittu kieli. Oletusarvoisesti 'FI'.
+ */
 function getSelectedLanguage() {
     const kieli = document.getElementById('kieli');
     return kieli && kieli.value ? kieli.value : 'FI';
 }
 
-/* modaali lomakkeelle */
+/**
+ * Modaalin käsittely lomaketta varten.
+ * Tämä osio asettaa tapahtumakuuntelijat modaalin avaamiselle, sulkemiselle ja sulkemiselle klikkauksella modaalin ulkopuolella.
+ */
 const modal = document.getElementById("myModal");
 const openModalButton = document.getElementById("open-modal");
 const closeModalButton = document.getElementById("close-modal");
 
+/**
+ * Avaa modaalin.
+ */
 openModalButton.addEventListener("click", (e) => {
     e.preventDefault();
     modal.classList.add("open");
 });
 
+/**
+ * Sulkee modaalin.
+ */
 closeModalButton.addEventListener("click", () => {
     modal.classList.remove("open");
 });
 
+/**
+ * Sulkee modaalin, jos käyttäjä klikkaa sen ulkopuolella.
+ */
 window.addEventListener("click", (e) => {
     if (e.target === modal) {
         modal.classList.remove("open");
     }
 });
 
-/* lomake */
-
+/**
+ * Sähköpostin lähetys asetukset.
+ * Tämä alustaa EmailJS:ää käytettäväksi lomakkeen lähettämiseen sähköpostilla.
+ */
 (function () {
     emailjs.init({
         publicKey: "mGRHyPrtmHQmZuMpt",
     });
 })();
 
+/**
+ * Lähettää lomakkeen sähköpostitse EmailJS:n avulla.
+ * 
+ * @returns {boolean} Väärä, jotta lomake ei aiheuta sivun uudelleenlatausta.
+ */
 function sendEmail() {
     const selectedLanguage = getSelectedLanguage();
 
+    // Määritetään, mihin sivulle siirrytään onnistuneen lähetyksen jälkeen
     let targetPage = '';
     switch (selectedLanguage) {
         case 'EN':
@@ -57,10 +81,12 @@ function sendEmail() {
             break;
     }
 
+    // Lähetetään lomake EmailJS:n avulla
     emailjs
         .sendForm("service_r413uj9", "template_gxtq4ji", "#bookingForm")
         .then(
             function (response) {
+                // Käsitellään onnistunut vastaus valitun kielen perusteella
                 switch (selectedLanguage) {
                     case 'EN':
                         alert("Form submitted successfully!");
@@ -79,9 +105,11 @@ function sendEmail() {
                         alert("Lomake lähetetty onnistuneesti!");
                         break;
                 }
+                // Ohjaa valittuun sivuun onnistumisen jälkeen
                 window.location.href = targetPage;
             },
             function (error) {
+                // Käsitellään virhe valitun kielen perusteella
                 switch (selectedLanguage) {
                     case 'EN':
                         alert("Failed to send the form. Please try again later.");
@@ -103,5 +131,5 @@ function sendEmail() {
             }
         );
 
-    return false;
+    return false;  // Estää lomakkeen oletustehon, kuten sivun uudelleenlatauksen
 }

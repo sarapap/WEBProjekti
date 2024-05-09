@@ -8,9 +8,9 @@ import {
   postTuote,
   putTuote,
   deleteTuote,
+  getTuoteByKuva
 } from '../controllers/tuote-controller.js';
 import multer from 'multer';
-import {authenticateToken, createThumbnail} from '../../middlewares.js';
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     console.log("file in multer filename", file);
-    cb(null, file.fieldname + '-' + Date.now()+".png");
+    cb(null, file.fieldname + '-' + Date.now() + ".png");
   }
 });
 
@@ -34,7 +34,7 @@ tuoteRouter.route('/')
     postTuote(req, res, next);
   });
 
-  tuoteRouter.route('/:tuote_id')
+tuoteRouter.route('/:tuote_id')
   .get(getTuoteById)
   .delete(deleteTuote)
   .put(upload.single('tuote_kuva'), (req, res, next) => {
@@ -47,6 +47,11 @@ tuoteRouter.route('/')
 tuoteRouter.route('/name/:tuote_nimi').get(getTuoteByname);
 tuoteRouter.route('/lastid/').get(getLastTuoteId);
 tuoteRouter.route('/tyyppi_id/:tyyppi_id').get(getTuoteByTyyppiId);
+
+tuoteRouter.route('/:tuote_kuva/:kieli').get((req, res) => {
+  const { tuote_kuva, kieli } = req.params; // Tässä käytetään parametreja URL-osasta
+  return getTuoteByKuva({ query: { tuote_kuva, kieli } }, res); // Lähetä parametrit kontrollerille
+});
 
 
 export default tuoteRouter;

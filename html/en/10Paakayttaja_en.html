@@ -117,7 +117,7 @@
 
   <div>
     <p>Check editing details by searching for products.</p>
-    <input type="text" id="cakeSearch" placeholder="Search for cake...">
+    <input type="text" id="cakeSearch" placeholder="Search for product...">
     <div class="filter-options">
       <label for="cakeType">Select type:</label>
       <select id="cakeType">
@@ -129,7 +129,53 @@
         <option value="beverages">Beverages</option>
       </select>
     </div>
+    <div id="cakeList" class="cake-list"></div>
     <hr>
+
+    <dialog id="tuoteModal">
+      <div>
+        <h2>Add a new product</h2>
+        <form id="tuoteForm" enctype="multipart/form-data">
+          <label for="tuote_nimi">Product name:</label>
+          <input type="text" id="tuote_nimi" name="tuote_nimi"><br>
+
+
+          <label for="tuote_kuvaus">Product description: </label><br>
+          <textarea id="tuote_kuvaus" name="tuote_kuvaus" rows="4"></textarea><br>
+
+          <label for="tuote_kuva">Picture: </label>
+          <input type="file" id="tuote_kuva" name="tuote_kuva" accept="image/*"><br>
+
+          <label for="tuote_hinta">Price (€):</label>
+          <input type="number" step="0.01" id="tuote_hinta" name="tuote_hinta"><br>
+
+          <label for="tuote_kustannus">Cost (€):</label>
+          <input type="number" step="0.01" id="tuote_kustannus" name="tuote_kustannus"><br>
+
+          <label for="tuote_tyyppi">Product type:</label>
+          <select id="tuote_tyyppi" name="tyyppi_id">
+            <option value="16">Celebration Cakes</option>
+            <option value="17">Sweet Cakes</option>
+            <option value="18">Savory Cakes</option>
+            <option value="19">Salads</option>
+            <option value="20">Pastries</option>
+            <option value="22">Pies</option>
+            <option value="23">Sweet Pastries</option>
+            <option value="24">Other Sweets</option>
+            <option value="25">Chicken Dishes</option>
+            <option value="26">Other Hot Dishes</option>
+            <option value="12">Hot Drinks</option>
+            <option value="13">Ice Coffees</option>
+            <option value="14">Teas</option>
+            <option value="15">Refreshments</option>
+          </select>
+          <br>
+
+          <button id="saveButton" type="button">Add a product</button>
+          <button id="closeButton" type="button">Close</button>
+        </form>
+      </div>
+    </dialog>
 
     <div>
       <h1>Business Monitoring</h1>
@@ -211,8 +257,11 @@
 
           <br>
           <br>
-          <label for="ehdot_hyvaksytty">Terms Accepted:</label>
-          <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
+
+          <div class="form-group checkbox-group">
+            <label for="ehdot_hyvaksytty">Terms Accepted</label>
+            <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
+          </div>
 
           <button class="userButton" type="submit">Add User</button>
         </form>

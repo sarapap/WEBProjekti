@@ -1,6 +1,7 @@
 import {
   getTilausSisalto,
 getTilausSisaltoById,
+getTilausPvmByTilausId,
 getTilausSisaltoByTilausId,
 getTilausSisaltoByTilausPvm,
 getTilasSisaltoByDateRange,
@@ -18,5 +19,6 @@ tilausSisaltoRouter.route('/:id').get(getTilausSisaltoById).put(putTilausSisalto
 tilausSisaltoRouter.route('/tilaus/:tilaus_id').get(getTilausSisaltoByTilausId);
 tilausSisaltoRouter.route('/pvm/:tilaus_pvm').get(getTilausSisaltoByTilausPvm);
 tilausSisaltoRouter.route('/:startDate/:endDate').get(getTilasSisaltoByDateRange);
+tilausSisaltoRouter.route('/pvm/tilaus_pvm/:tilaus_id').get(getTilausPvmByTilausId);
 
 export default tilausSisaltoRouter;

@@ -41,7 +41,7 @@
   </style>
 
   <script src="/javascript/default.js" defer></script>
-  <script src="/javascript/3MenuPage4.js" defer></script>
+  <script src="/javascript/3MenuPage1.js" defer></script>
 </head>
 
 <body>
@@ -109,52 +109,25 @@
     <div class="hot-food-section">
       <h2>热食</h2>
 
-      <input type="text" id="hotFoodSearch" placeholder="搜索热食...">
       <div class="filter-options">
-        <label for="hotFoodType">选择种类：</label>
-        <select id="hotFoodType">
-          <option value="kaikki">全部</option>
-          <option value="kana">鸡肉类</option>
-          <option value="muut_ruuat">其他热食</option>
-          <!-- Lisää -->
+
+        <label for="cakeType">选择种类：</label>
+        <select id="cakeType">
+          <option value="kaikkicn4">全部</option>
+          <option value="kanaruuatcn">鸡肉类</option>
+          <option value="muutlampimatruuatcn">其他热食</option>
         </select>
       </div>
 
-      <div class="hot-food-category">
-        <h3>鸡肉卷</h3>
-        <div class="hot-food-list">
-          <div class="hot-food-item">
-            <img src="kanacurry.jpg" alt="鸡肉卷图片">
-            <h4>Kanacurry</h4>
-            <p>-</p>
-            <button>加入购物筐</button>
-          </div>
-          <!-- Lisää -->
+      <div class="hot-food-category" id="cakeList">
+      </div>
+
+      <footer>
+        <p>&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
         </div>
-      </div>
+      </footer>
 
-      <div class="hot-food-category">
-        <h3>其他热食</h3>
-        <div class="hot-food-list">
-          <div class="hot-food-item">
-            <img src="lasagne.jpg" alt="意大利千层面">
-            <h4>意大利千层面</h4>
-            <p>私房意大利千层面</p>
-            <button>加入购物筐</button>
-          </div>
-          <!-- Lisää-->
-        </div>
-      </div>
-
-      <!-- Lisää-->
-
-    </div>
-
-    <footer>
-      <p>&copy; S&A CAFE 2024</p>
-      <div class="changecontent">
-      </div>
-    </footer>
   </main>
 </body>
 
