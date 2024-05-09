@@ -3,8 +3,6 @@
 
 *.env
 
-uploads/*
-!uploads/.gitkeep
 
 
 ### macOS ###
