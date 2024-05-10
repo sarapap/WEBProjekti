@@ -1,3 +1,7 @@
+[Linkki serveriin](https://users.metropolia.fi/~annagao/WEBProjekti/)
+[Linkki ecloud](http://10.120.32.72/app/fi/1Etusivu.html)
+
+
 Sovelluksemme on ravintolateemainen verkkosivusto, joka antaa käyttäjille mahdollisuuden tutustua S&A Cafe -kahvilamme tuotteisiin, tehdä tilauksia ja varata pöytiä. Tarjontaamme kuuluu monipuolinen valikoima kakkuja, suolaisia leivonnaisia, salaatteja, leipiä ja makeita leivonnaisia. Äskettäin lisäsimme valikoimaamme myös lämpimiä aterioita, joita voi nauttia lounaaksi tai illalliseksi. Koska olemme pääasiassa kahvila, tarjoamme myös laajan valikoiman kahveja ja muita kahvilajuomia. 
 
 Kohderyhmä: Kahvilassa kävijät, kuten opiskelijat ja työssäkäyvät aikuiset (kun etsii esimerkiksi opiskelu-, lounas- tai illallispaikkaa). Koska hinnat ovat melko kalliita, niin kohderyhmä keskittyy täysikäisiin. Myös ihmiset, jotka tilaavat ruokaa verkosta ja tekevät tilavarauksia.

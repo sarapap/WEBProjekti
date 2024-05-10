@@ -3,7 +3,8 @@
 
 *.env
 
-
+.gitkeep
+uploads
 
 ### macOS ###
 # General
