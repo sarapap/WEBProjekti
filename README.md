@@ -5,11 +5,15 @@
 
 Suosittelemme laittamaan noden pyörimään testausta varten (ecloudin kanssa ollut ongelmia). 
 
+
 Terminaaliin: 
 
 git clone https://github.com/sarapap/WEBProjekti.git
+
 npm i
+
 npm run dev
+
 
 S&A CAFE - ANNA & SARA
 
