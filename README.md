@@ -5,6 +5,12 @@
 
 Suosittelemme laittamaan noden pyörimään testausta varten (ecloudin kanssa ollut ongelmia). 
 
+Terminaaliin: 
+
+git clone https://github.com/sarapap/WEBProjekti.git
+npm i
+npm run dev
+
 S&A CAFE - ANNA & SARA
 
 Sovelluksemme on ravintolateemainen verkkosivusto, joka antaa käyttäjille mahdollisuuden tutustua S&A Cafe -kahvilamme tuotteisiin, tehdä tilauksia ja varata pöytiä. Tarjontaamme kuuluu monipuolinen valikoima kakkuja, suolaisia leivonnaisia, salaatteja, leipiä ja makeita leivonnaisia. Äskettäin lisäsimme valikoimaamme myös lämpimiä aterioita, joita voi nauttia lounaaksi tai illalliseksi. Koska olemme pääasiassa kahvila, tarjoamme myös laajan valikoiman kahveja ja muita kahvilajuomia. 
