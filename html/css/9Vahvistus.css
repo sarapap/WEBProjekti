@@ -282,14 +282,14 @@ footer {
     .footer-container {
         margin: 0;
     }
+
+    .redirect-info {
+        margin-bottom: 100px;
+    }
 }
 
 @media screen and (max-width: 470px) {
 
-    .footer-container {
-        text-align: center;
-        padding: 10px;
-    }
 
     .icons ul li {
         display: block;
@@ -309,10 +309,24 @@ footer {
 
     footer {
         width: 100%;
+        height: auto;
         margin-left: -8px;
     }
 
-    .changecontent {
+    main {
+        height: auto;
+    }
+
+    .redirect-info {
+        margin-bottom: 80px;
+    }
+
+    .footer-container {
+        width: 120%;
+        margin-left: -28px;
+    }
+
+    .changecontent2 {
         font-size: 13px;
     }
 }

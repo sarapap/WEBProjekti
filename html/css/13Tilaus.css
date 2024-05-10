@@ -63,6 +63,7 @@ header {
   background-size: cover;
 
 }
+
 .suosikit {
   display: inline-block;
   margin: 10px;
@@ -203,19 +204,12 @@ nav li {
 .aside2 {
   background-color: #efece4;
   height: 70%;
-  min-width: 100%;
+  min-width: 80%;
+  height: auto;
   border-radius: 10px;
-
+  box-sizing: border-box;
 }
 
-/* .tilaus-item td {
- min-width: max-content;
-
-}
-
-.tilaus-lis td {
-  padding-left: 300px;
-} */
 
 .tilaus-item {
   min-width: 80%;
@@ -225,25 +219,13 @@ nav li {
   padding: 10px 60px 10px 10px;
   border: 1px solid #d9cfcf;
   border-radius: 5px;
-
-
-
 }
-.tilaus-item > td {
-  width: 15%;  /* Vähennetään paddingin leveys */
+
+.tilaus-item>td {
+  width: 15%;
   padding-left: 5px;
 
 }
-
-/* .tilaus-item tbody {
-  display: flex;
-  min-width: 100%;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  border: 1px solid #ccc;
-  border-radius: 2rem;
-
-} */
 
 /* kuvat */
 
@@ -287,9 +269,11 @@ nav li {
 
 }
 
-table, th, td {
-  border:0.3px solid rgb(229, 199, 124);
-  }
+table,
+th,
+td {
+  border: 0.3px solid rgb(229, 199, 124);
+}
 
 
 .tiedot_cn {
@@ -338,8 +322,9 @@ table, th, td {
 
 .kupongit_en {
   display: inline-block;
-  width: 150px;
-  height: 150px;
+  width: 165px;
+  height: 165px;
+  margin-right: 25px;
   background-size: cover;
   background-image: url('kuvat/kupongit_en.png');
 }
@@ -498,15 +483,64 @@ footer {
 
 }
 
-@media (max-width: 470px) {
+@media screen and (max-width: 470px) {
+  .cakeImg {
+    width: 60%;
+    height: auto;
+  }
+
   .logo {
     width: 100px;
-    height: 100px;
+    height: auto;
   }
 
-  .cakeImg {
-    width: 250px;
-    height: 200px;
+  .footer-container {
+    text-align: center;
+    padding: 10px;
   }
 
+  nav {
+    flex-direction: column;
+  }
+
+  .dropdown,
+  .navItem {
+    padding: 10px;
+    border: 1px solid black;
+  }
+
+  footer {
+    width: 100%;
+    margin-left: -8px;
+  }
+
+  .changecontent {
+    font-size: 13px;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  .aside2 {
+    width: 105%;
+    height: auto;
+    flex-direction: column;
+    margin-left: -7px;
+  }
+
+  .tilaus-item {
+    width: 100%;
+    text-wrap: wrap;
+  }
+
+  td {
+    width: 100%;
+  }
+
+  .aside1 {
+    width: 100%;
+    height: auto;
+    margin-left: -25px;
+  }
 }

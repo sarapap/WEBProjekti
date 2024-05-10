@@ -305,24 +305,20 @@ footer {
     margin: 19%;
   }
 
-}
 
-.mainTaustakuva {
-  width: 100%;
-}
 
-.sosicals {
-  padding-left: 10%;
-}
+  .mainTaustakuva {
+    width: 100%;
+  }
 
-.contact-info img {
-  margin-left: 5px;
-  padding-left: 20%;
-}
+  .sosicals {
+    padding-left: 10%;
+  }
 
-.mainTautskuva {
-  width: 90%;
-
+  .contact-info img {
+    margin-left: 5px;
+    padding-left: 20%;
+  }
 }
 
 
@@ -371,80 +367,82 @@ footer {
       margin-left: 0;
     }
   }
+}
 
 
-  @media (max-width: 750px) {
+@media (max-width: 750px) {
 
-    header {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .title {
-      flex-direction: column;
-      text-align: center;
-      margin-left: 0;
-    }
-
-    .contact-item {
-      display: block;
-      align-items: center;
-      padding-left: 20%;
-    }
-
-
-    .socials {
-      padding-left: 0;
-      margin-left: 0;
-    }
-
-    .mainTaustakuva {
-      width: 100%;
-    }
-
-    nav {
-
-      width: 90%;
-    }
-
-    .map {
-
-      width: 90%;
-    }
-
-    .contact-info {
-      margin-left: 30%;
-      padding-left: 10%;
-    }
+  header {
+    flex-direction: column;
+    align-items: center;
   }
 
-  @media (max-width: 400px) {
-    body {
-      width: 100%;
-      padding: 5px;
-    }
+  .title {
+    flex-direction: column;
+    text-align: center;
+    margin-left: 0;
+  }
 
-    cantact-info {
-      margin-left: 10%;
-      padding-left: 10%;
-    }
+  .contact-item {
+    display: block;
+    align-items: center;
+    padding-left: 20%;
+  }
 
-    header {
-      flex-direction: column;
-      text-align: center;
-    }
 
-    nav {
-      flex-direction: column;
-      width: 95%;
-    }
+  .socials {
+    padding-left: 0;
+    margin-left: 0;
+  }
 
-    .icons {
-      justify-content: center;
-      padding-left: 0;
-    }
+  .mainTaustakuva {
+    width: 100%;
+  }
 
-    socials {
-      padding-left: 0;
-      margin-left: 0;
-    }
+  nav {
+
+    width: 90%;
+  }
+
+  .map {
+
+    width: 90%;
+  }
+
+  .contact-info {
+    margin-left: 30%;
+    padding-left: 10%;
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    width: 100%;
+    padding: 5px;
+  }
+
+  cantact-info {
+    margin-left: 10%;
+    padding-left: 10%;
+  }
+
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav {
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .icons {
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  socials {
+    padding-left: 0;
+    margin-left: 0;
+  }
+}

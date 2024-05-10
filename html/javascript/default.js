@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * Endings for login page URLs.
      * @type {Array<string>}
      */
-  const loginEndings = ['11Login.html', '11Login_en.html', '11login_cn.html', '11Login_et.html', '11Login_sv.html'];
+  const loginEndings = ['11Login.html', '11Login_en.html', '11Login_cn.html', '11Login_et.html', '11Login_sv.html'];
 
   links.forEach(link => {
     const isLoginLink = loginEndings.some(ending => link.href.endsWith(ending));
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
               redirectPage = '../../html/en/11Login_en.html';
               break;
             case 'CN':
-              redirectPage = '../../html/cn/11login_cn.html';
+              redirectPage = '../../html/cn/11Login_cn.html';
               break;
             case 'ET':
               redirectPage = '../../html/et/11Login_et.html';
