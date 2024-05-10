@@ -27,16 +27,16 @@ POST http://localhost:3000/api/v1/tilaus_sisalto
 Content-Type: application/json
 
 {
-
-    "tilaus_id": "4",
-    "tuote_id": "9",
-    "maara": "1",
-    "myynti_summa": "48.00",
-    "kustannus_summa": "22.00",
-    "tilaus_pvm": "2024-05-09",
-    "status": "Tilaus vastaanotettu",
-    "voitto": "26.00"
+  "tilaus_id": "23",
+  "tuote_id": "9",
+  "maara": "3",
+  "myynti_summa": "48.00",
+  "kustannus_summa": "22.00",
+  "tilaus_pvm": "2024-05-09",
+  "status": "Tilaus vastaanotettu",
+  "voitto": "26.00"
 }
+
 
 
 ###Delete tilaus_sisalto by id

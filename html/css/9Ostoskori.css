@@ -405,4 +405,32 @@ footer {
   .changecontent {
     font-size: 13px;
   }
+
+  .update-button {
+    margin: 20px 0px 0px 60px;
+  }
+
+  table {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  th {
+    display: none;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .button-container {
+    margin-left: -160px;
+  }
+
+  input {
+    margin-top: 10px;
+  }
+
+  img {
+    height: 400px;
+    width: auto;
+  }
 }

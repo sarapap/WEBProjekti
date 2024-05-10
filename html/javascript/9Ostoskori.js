@@ -289,7 +289,6 @@ const getTuoteByTuoteId = async (tuote_id) => {
     deleteButtonElement.addEventListener('click', async () => {
       await deleteTuoteFromCart(userId, tuote_id);
       deleteTuoteFromTilauksenTuotelist(tuote_id);
-      paivitaLoppusumma();
     });
 
     const buttonContainer = document.createElement('div');
@@ -410,6 +409,24 @@ const getTuoteMaaraFromOstoskori = async (userId, tuote_id) => {
 
     const data = await response.json();
     return data.tuote_maara;
+  } catch (error) {
+    return 0;
+  }
+};
+
+//TODO
+const getKokoTuoteMaara = async (userId) => {
+  try {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      throw new Error(virhetuote);
+    }
+
+    const data = await response.json();
+    return data;
   } catch (error) {
     return 0;
   }

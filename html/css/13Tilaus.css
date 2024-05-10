@@ -203,16 +203,17 @@ nav li {
 
 .aside2 {
   background-color: #efece4;
-  height: 70%;
-  min-width: 80%;
   height: auto;
+  min-width: 120%;
   border-radius: 10px;
   box-sizing: border-box;
+  padding-right: 224px;
+  margin-top: 50px;
 }
 
-
 .tilaus-item {
-  min-width: 80%;
+  min-width: 100%;
+  width: 120%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -221,10 +222,10 @@ nav li {
   border-radius: 5px;
 }
 
+.tilaus-item>th,
 .tilaus-item>td {
   width: 15%;
   padding-left: 5px;
-
 }
 
 /* kuvat */
@@ -467,7 +468,7 @@ footer {
   }
 
   .footer-container {
-    margin: 0;
+    height: auto;
   }
 }
 
@@ -495,8 +496,7 @@ footer {
   }
 
   .footer-container {
-    text-align: center;
-    padding: 10px;
+    margin-top: 2000px;
   }
 
   nav {
@@ -531,7 +531,6 @@ footer {
 
   .tilaus-item {
     width: 100%;
-    text-wrap: wrap;
   }
 
   td {
@@ -541,6 +540,6 @@ footer {
   .aside1 {
     width: 100%;
     height: auto;
-    margin-left: -25px;
+    margin-left: -8px;
   }
 }
