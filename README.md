@@ -1,4 +1,4 @@
-[Linkki serveriin](https://users.metropolia.fi/~annagao/WEBProjekti/)
+[Linkki serveriin](https://users.metropolia.fi/~sarapap/WEBProjekti/html/)
 
 
 [Linkki ecloud](http://10.120.32.72/app/fi/1Etusivu.html)
