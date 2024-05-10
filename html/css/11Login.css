@@ -63,6 +63,7 @@ header {
   background-size: cover;
 
 }
+
 .suosikit {
   display: inline-block;
   margin: 10px;
@@ -376,4 +377,48 @@ p {
   }
 
 
+}
+
+@media screen and (max-width: 470px) {
+  .cakeImg {
+    width: 60%;
+    height: auto;
+  }
+
+  .logo {
+    width: 100px;
+    height: auto;
+  }
+
+  .footer-container {
+    text-align: center;
+    padding: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  .dropdown,
+  .navItem {
+    padding: 10px;
+    border: 1px solid black;
+  }
+
+  footer {
+    width: 100%;
+    margin-left: -8px;
+  }
+
+  .changecontent {
+    font-size: 13px;
+  }
+
+  .aside1 {
+    margin-left: -5px;
+  }
+
+  #register-form {
+    padding: 10px;
+  }
 }

@@ -538,6 +538,7 @@ const displaySingleTuote = async (tuote) => {
   // Lisää "Lisää ostoskoriin" -painike
   const buttonElement = document.createElement('button');
   buttonElement.textContent = addCartText;
+  buttonElement.classList.add('add-cart-button');
   buttonElement.style.backgroundColor = 'rgb(192, 160, 122)';
   tuoteElement.appendChild(buttonElement);
 

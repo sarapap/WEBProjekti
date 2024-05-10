@@ -465,15 +465,44 @@ footer {
 
 }
 
-@media (max-width: 400px) {
+@media screen and (max-width: 470px) {
+  .cakeImg {
+    width: 60%;
+    height: auto;
+  }
+
   .logo {
     width: 100px;
-    height: 100px;
+    height: auto;
   }
 
-  .cakeImg {
-    width: 250px;
-    height: 100px;
+  .footer-container {
+    text-align: center;
+    padding: 10px;
   }
 
+  nav {
+    flex-direction: column;
+  }
+
+  .dropdown,
+  .navItem {
+    padding: 10px;
+    border: 1px solid black;
+  }
+
+  footer {
+    width: 100%;
+    margin-left: -8px;
+  }
+
+  .changecontent {
+    font-size: 13px;
+  }
+
+  .aside2 {
+    width: 80%;
+    height: auto;
+    margin: 10px 0px 10px 20px;
+  }
 }

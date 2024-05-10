@@ -283,16 +283,65 @@ footer {
     }
 }
 
-@media screen and (max-width:470px) {
+@media screen and (max-width: 600px) {
+    .cakeImg {
+        width: 70%;
+        height: auto;
+    }
+
     .logo {
         width: 100px;
-        height: 100px;
+        height: auto;
     }
 
+    .footer-container {
+        text-align: center;
+        padding: 10px;
+    }
+
+    footer {
+        width: 100%;
+        margin-left: -8px;
+    }
+
+    .changecontent {
+        font-size: 13px;
+    }
+}
+
+
+@media screen and (max-width: 470px) {
     .cakeImg {
-        margin-top: 10px;
-        width: 200px;
-        height: 100px;
+        width: 60%;
+        height: auto;
     }
 
+    .logo {
+        width: 100px;
+        height: auto;
+    }
+
+    .footer-container {
+        text-align: center;
+        padding: 10px;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    .dropdown,
+    .navItem {
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    footer {
+        width: 100%;
+        margin-left: -8px;
+    }
+
+    .changecontent {
+        font-size: 13px;
+    }
 }

@@ -57,28 +57,29 @@ header {
 }
 
 .käyttäjä {
-display: inline-block;
-margin: 10px;
-font-size: 20px;
-background-size: cover;
+  display: inline-block;
+  margin: 10px;
+  font-size: 20px;
+  background-size: cover;
 
 }
+
 .suosikit {
-display: inline-block;
-margin: 10px;
-font-size: 20px;
-background-size: cover;
+  display: inline-block;
+  margin: 10px;
+  font-size: 20px;
+  background-size: cover;
 }
 
 .ostoskori {
-display: inline-block;
-margin: 10px;
-font-size: 20px;
-background-size: cover;
+  display: inline-block;
+  margin: 10px;
+  font-size: 20px;
+  background-size: cover;
 }
 
 .kieli {
-margin: 7px 10px 0px 0px;
+  margin: 7px 10px 0px 0px;
 }
 
 #kieli {
@@ -356,97 +357,123 @@ footer {
 
 @media screen and (min-width:801px) {
   .etusivu {
-      height: auto;
-      display: flex;
-      width: 90%;
+    height: auto;
+    display: flex;
+    width: 90%;
   }
 
   .cakeImg {
-      width: 80%
-
+    width: 80%
   }
+
   .logo {
-      width: 90%;
-      height: 240px;
-      padding: 7% 0;
-      margin-right: 20px;
+    width: 90%;
+    height: 240px;
+    padding: 7% 0;
+    margin-right: 20px;
   }
 
   .aside1 {
-      width: 70%;
-      height: auto;
+    width: 70%;
+    height: auto;
   }
 
   .aside2 {
-      width: 25%;
-      height: auto;
+    width: 25%;
+    height: auto;
   }
 
   .image-container {
-      display: flex;
-      align-items: center;
-      width: 100%;
+    display: flex;
+    align-items: center;
+    width: 100%;
   }
+
   video,
   .imageFrontPage {
-      width: 90%;
+    width: 90%;
   }
 
   .footer-container {
-      margin: 0;
+    margin: 0;
   }
 }
 
 @media screen and (max-width:800px) {
   .etusivu {
-      min-height: 100vh;
-      display: block;
-      width: 100%;
+    min-height: 100vh;
+    display: block;
+    width: 100%;
   }
 
   video,
   .imageFrontPage {
-      width: 90%;
+    width: 90%;
   }
 
-  .icons ul li {
-      display: block;
-      text-align: center;
-      margin-bottom: 10px;
-  }
   nav {
 
-      width: 97%;
+    width: 97%;
   }
 
   .icons ul li a {
-      display: block;
-      padding: 5px;
+    display: block;
+    padding: 5px;
   }
 
   .logo {
-      position: static;
-      margin-bottom: 20px;
+    position: static;
+    margin-bottom: 20px;
   }
 
   .cakeImg {
-      margin-top: 0;
+    margin-top: 0;
   }
 
   .aside1,
   .aside2 {
-      width: 95%;
-      margin-bottom: 40px;
-      height: auto;
+    width: 95%;
+    margin-bottom: 40px;
+    height: auto;
   }
 
   .footer-container {
-      margin: 0;
+    margin: 0;
   }
 }
 
-@media screen and (max-width:330px) {
+@media screen and (max-width: 470px) {
+
+  .logo {
+    width: 90%;
+    height: auto;
+  }
+
+  .cakeImg {
+    width: 60%;
+    height: auto;
+  }
+
   .content h2 {
-      font-size: 30px;
+    font-size: 30px;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  .dropdown,
+  .navItem {
+    padding: 10px;
+    border: 1px solid black;
+  }
+
+  footer {
+    width: 100%;
+    margin-left: -8px;
+  }
+
+  .changecontent2 {
+    font-size: 13px;
   }
 }

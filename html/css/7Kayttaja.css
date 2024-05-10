@@ -473,6 +473,12 @@ footer {
     height: auto;
   }
 
+  .icons ul li {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
   .aside1 {
     width: 40%;
     margin-bottom: 2rem;
@@ -531,31 +537,47 @@ footer {
 
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 470px) {
+  .cakeImg {
+    width: 60%;
+    height: auto;
+  }
+
+  .icons ul li a {
+    display: block;
+    padding: 5px;
+  }
+
   .logo {
     width: 100px;
-    height: 100px;
-  }
-
-  .cakeImg {
-    width: 250px;
-    height: 100px;
-  }
-
-  .main {
-    padding: 10px;
-  }
-
-  .aside2 {
-    width: 80%;
-    margin-left: 20px;
-  }
-
-  .aside1 {
-    width: 100%;
+    height: auto;
   }
 
   .footer-container {
-    margin: 0;
+    text-align: center;
+    padding: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  .dropdown,
+  .navItem {
+    padding: 10px;
+    border: 1px solid black;
+  }
+
+  footer {
+    width: 100%;
+    margin-left: -8px;
+  }
+
+  .changecontent {
+    font-size: 13px;
+  }
+
+  .aside1 {
+    margin-left: -20px;
   }
 }

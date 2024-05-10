@@ -475,9 +475,10 @@ footer {
 
 @media screen and (min-width: 801px) {
     .main {
-        height: auto;
         display: flex;
-        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        height: auto;
     }
 
     .aside1 {
@@ -489,111 +490,116 @@ footer {
         width: 60%;
     }
 
-    form {
-        display: flex;
-        flex-direction: column;
+    .footer-container {
+        margin: 0;
     }
 
-    input label {
-        margin-bottom: 0.5rem;
-    }
-
-    button {
-        margin-top: 0.5rem;
-    }
-
-    input,
-    button {
-        appearance: 0.5rem;
+    .allergiaLabel,
+    .allergia {
+        width: 80%;
     }
 }
 
-@media screen and (max-width:800px) {
+@media screen and (max-width: 800px) {
+    .main {
+        display: block;
+        height: auto;
+    }
+
     .aside1 {
-        width: 90%;
-        margin-bottom: 2rem;
+        width: 100%;
+        height: auto;
     }
 
     .aside2 {
         width: 100%;
-        margin-bottom: 10rem;
-
+        height: auto;
     }
 
-    .icons ul li {
-        display: block;
-        text-align: center;
-        margin-bottom: 10px;
+    .footer-container {
+        height: auto;
+        margin: 0;
     }
+}
 
-    .icons ul li a {
-        display: block;
-        padding: 5px;
-    }
-
-    .logo {
-        position: static;
-        margin-bottom: 20px;
-    }
-
-    .cakeImg {
-        margin-top: 0;
-    }
-
-    .aside1 {
-        width: 35%;
-
-    }
-
-    form {
-        display: flex;
-        flex-direction: column;
+@media screen and (max-width: 680px) {
+    .main {
+        padding: 10px;
+        height: auto;
     }
 
     .aside2 {
-        width: 60%;
+        width: 80%;
+        height: auto;
+    }
+
+    .aside1 {
+        width: 100%;
         height: auto;
     }
 
     .footer-container {
         margin: 0;
     }
+
 }
 
-@media (min-width: 650px) {
-    form {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        grid-gap: 1rem;
+@media screen and (max-width: 470px) {
+    .cakeImg {
+        width: 60%;
+        height: auto;
     }
 
-    .aside1 .checkbox-container {
-        grid-column: 2 / -1;
+    .icons ul li a {
+        display: block;
+        padding: 10px;
     }
 
-    button label {
-        order: 2;
+    .logo {
+        width: 100px;
+        height: auto;
     }
 
     .footer-container {
-        margin: 0;
+        text-align: center;
+        padding: 10px;
     }
 
-}
-
-@media (max-width: 470px) {
-    .logo {
-        width: 100px;
-        height: 100px;
+    nav {
+        flex-direction: column;
     }
 
-    .cakeImg {
-        width: 250px;
-        height: 100px;
+    .dropdown,
+    .navItem {
+        padding: 10px;
+        border: 1px solid black;
     }
 
-    form {
-        height: 200px;
+    footer {
+        width: 100%;
+        margin-left: -8px;
     }
 
+    .changecontent {
+        font-size: 13px;
+    }
+
+    .aside1 {
+        margin-left: -25px;
+    }
+
+    .allergiaLabel,
+    .allergia {
+        width: 70%;
+    }
+
+    .tietoButton {
+        width: 70%;
+        height: 7vh;
+
+    }
+
+    .aside2 {
+        width: 90%;
+    }
 }

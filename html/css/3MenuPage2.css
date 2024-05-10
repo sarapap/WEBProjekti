@@ -354,3 +354,50 @@ footer {
 
 
 }
+
+@media screen and (max-width: 470px) {
+
+    .cakeImg {
+        width: 35%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        width: 60px;
+        height: auto;
+    }
+
+    .cakeImg2 {
+        width: 35%;
+        height: auto;
+    }
+
+    .footer-container {
+        text-align: center;
+        padding: 10px;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    .dropdown,
+    .navItem {
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    .menu-links {
+        margin-left: 50px;
+    }
+
+    footer {
+        width: 100%;
+        margin-left: -8px;
+    }
+
+    .changecontent {
+        font-size: 13px;
+    }
+}

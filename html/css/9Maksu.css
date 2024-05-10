@@ -368,8 +368,26 @@ hr {
     }
 }
 
-@media screen and (max-width:330px) {
+@media screen and (max-width: 470px) {
     .content h2 {
         font-size: 20px;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    .dropdown,
+    .navItem {
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    .form-container {
+        width: 90%;
+    }
+
+    .form-group {
+        width: 90%;
     }
 }
