@@ -1,5 +1,7 @@
 [Linkki serveriin](https://users.metropolia.fi/~sarapap/WEBProjekti/)
 
+[Linkki suoraan etusivulle](https://users.metropolia.fi/~sarapap/WEBProjekti/html/fi/1Etusivu.html)
+
 
 [Linkki ecloud](http://10.120.32.72/app/fi/1Etusivu.html)
 
