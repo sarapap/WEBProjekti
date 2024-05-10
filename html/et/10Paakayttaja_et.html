@@ -104,6 +104,7 @@
 
     <div id="backgroundOverlay" class="background-overlay"></div>
 
+
     <!-- Mukautettu modal -->
     <div id="customModal" class="custom-modal">
       <div class="custom-modal-content">
@@ -114,12 +115,16 @@
 
     <div class="ajan-section">
       <h1>Tootehaldus</h1>
-      <button class="button" id="newProductButton">Uus toode</button>
+      <br>
+      <button class="button" id="userButton">Uus toode</button>
+
     </div>
 
     <dialog id="tuoteModal">
       <div>
         <h2>Lisa uus toode</h2>
+
+
         <form id="tuoteForm" enctype="multipart/form-data">
           <label for="tuote_nimi">Toote nimi:</label>
           <input type="text" id="tuote_nimi" name="tuote_nimi" required><br>
@@ -188,6 +193,7 @@
 
     </dialog>
 
+
     <dialog id="kategoriatModal">
       <h2>Lisa eridieedid</h2>
       <div id="tuote_kategoriat">
@@ -255,10 +261,9 @@
         <label for="periood">Valige periood: </label>
 
         <label for="algusKuupäev1">Alguskuupäev:</label>
-        <input type="date" id="aloituspvm1" name="algusKuupäev1">
+        <input type="date" id="aloituspvm1" name="algusKuupäev1">&nbsp; &nbsp; &nbsp;
         <label for="loppKuupäev1">Lõppkuupäev:</label>
-        <input type="date" id="lopetuspvm1" name="loppKuupäev1">
-        <button id="haeRaport" class="button2">Otsi</button>
+        <input type="date" id="lopetuspvm1" name="loppKuupäev1"><br>
 
 
         <table>
@@ -266,6 +271,7 @@
           <tbody id="raportList">
             <p>Raport valitud perioodil kuvatakse siin.</p>
           </tbody>
+          <button id="haeRaport" class="button2">Otsi</button>
         </table>
       </div>
       <hr>
@@ -278,11 +284,12 @@
         <label for="lopetuspvm">Lõppkuupäev:</label>
         <input type="date" id="lopetuspvm" name="endDate">
 
-        <button id="haePalaute" class="button2">Otsi</button>
+
         <table>
           <tbody id="palaute"></tbody>
         </table>
-      </div>
+      </div><br>
+      <button id="haePalaute" class="button2">Otsi</button>
     </div>
 
     <h1>Lisa kasutaja</h1>

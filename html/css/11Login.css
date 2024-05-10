@@ -328,7 +328,8 @@ p {
   }
 
   input label {
-    margin: o.5rem 0;
+    margin: o.3rem 0;
+    width: 90%;
   }
 
   button {
@@ -340,6 +341,7 @@ p {
     appearance: 0.5rem;
   }
 }
+
 
 @media (min-width: 500.1px) {
   form {

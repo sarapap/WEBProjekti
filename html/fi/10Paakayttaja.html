@@ -115,7 +115,8 @@
 
   <div class="ajan-section">
     <h1>Tuotehallinta</h1>
-    <button class="button" id="newProductButton">Uusi tuote</button>
+    <br>
+    <button class="button" id="button2">Uusi tuote</button>
   </div>
 
   <dialog id="tuoteModal">
@@ -256,16 +257,18 @@
     <hr>
 
     <div>
-      <h1>Yritystoiminnan seuranta</h1>
+      <h1>Yritystoiminnan seuranta</h1><br>
+
       <h4>Tarkista raportti valitulla ajanjaksolla.</h4>
 
       <label for="aloituspvm1">Aloituspäivämäärä:</label>
-      <input type="date" id="aloituspvm1" name="startDate">
+      <input type="date" id="aloituspvm1" name="startDate">&nbsp;&nbsp; &nbsp;&nbsp;
       <label for="lopetuspvm1">Lopetuspäivämäärä:</label>
       <input type="date" id="lopetuspvm1" name="endDate">
-      <button id="haeRaport" class="button2">Hae</button>
 
-      <table>
+
+      <table><br>
+        <button id="haeRaport" class="button2">Hae</button>
         <tbody id="raportList">
 
           <p>Tähän tulee raportti valitulla ajanjaksolla.</p>
@@ -279,15 +282,16 @@
   <div>
     <h1>Palaute</h1>
     <label for="aloituspvm">Aloituspäivämäärä:</label>
-    <input type="date" id="aloituspvm" name="startDate">
+    <input type="date" id="aloituspvm" name="startDate">&nbsp;&nbsp; &nbsp;&nbsp;
 
     <label for="lopetuspvm">Lopetuspäivämäärä:</label>
     <input type="date" id="lopetuspvm" name="endDate">
 
-    <button id="haePalaute" class="button2">Hae</button>
+
     <table>
       <tbody id="palaute" class="palaute-item"></tbody>
-    </table>
+    </table><br>
+    <button id="haePalaute" class="button2">Hae</button>
   </div>
 
   </div>
