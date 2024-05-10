@@ -3,6 +3,7 @@
 
 [Linkki ecloud](http://10.120.32.72/app/fi/1Etusivu.html)
 
+Suosittelemme laittamaan noden pyörimään testausta varten (ecloudin kanssa ollut ongelmia). 
 
 Sovelluksemme on ravintolateemainen verkkosivusto, joka antaa käyttäjille mahdollisuuden tutustua S&A Cafe -kahvilamme tuotteisiin, tehdä tilauksia ja varata pöytiä. Tarjontaamme kuuluu monipuolinen valikoima kakkuja, suolaisia leivonnaisia, salaatteja, leipiä ja makeita leivonnaisia. Äskettäin lisäsimme valikoimaamme myös lämpimiä aterioita, joita voi nauttia lounaaksi tai illalliseksi. Koska olemme pääasiassa kahvila, tarjoamme myös laajan valikoiman kahveja ja muita kahvilajuomia. 
 
