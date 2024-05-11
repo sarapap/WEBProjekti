@@ -107,47 +107,47 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 );
 
-const addVierasUser = async () => {
-  try {
-    localStorage.removeItem('authToken');
+// const addVierasUser = async () => {
+//   try {
+//     localStorage.removeItem('authToken');
 
-    const response = await fetch('http://localhost:3000/api/v1/asiakas/vieras', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        etunimi: 'vierasUser',
-        sukunimi: 'vieras',
-        tunnus: 'vierasTunnus',
-        salasana: '123',
-        email: '',
-        puhelin: '123',
-        syntymapaiva: '1923-02-25',
-        ehdot_hyvaksytty: '0',
-        allennus_ryhma: ''
-      }),
-    });
+//     const response = await fetch('http://localhost:3000/api/v1/asiakas/vieras', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({
+//         etunimi: 'vierasUser',
+//         sukunimi: 'vieras',
+//         tunnus: 'vierasTunnus',
+//         salasana: '123',
+//         email: '',
+//         puhelin: '123',
+//         syntymapaiva: '1923-02-25',
+//         ehdot_hyvaksytty: '0',
+//         allennus_ryhma: ''
+//       }),
+//     });
 
-    if (!response.ok) {
-      throw new Error('Virhe vierasasiakkaan lisäämisessä');
-    }
+//     if (!response.ok) {
+//       throw new Error('Virhe vierasasiakkaan lisäämisessä');
+//     }
 
-    const data = await response.json();
-    console.log('Vierasasiakas lisätty onnistuneesti:', data);
+//     const data = await response.json();
+//     console.log('Vierasasiakas lisätty onnistuneesti:', data);
 
-    if (data.token) {
-      localStorage.setItem('authToken', data.token);
-    }
+//     if (data.token) {
+//       localStorage.setItem('authToken', data.token);
+//     }
 
-    return data;
-  } catch (error) {
-    console.error('Error adding guest user:', error);
-    return null;
-  }
-};
+//     return data;
+//   } catch (error) {
+//     console.error('Error adding guest user:', error);
+//     return null;
+//   }
+// };
 
-addVierasUser();
+// addVierasUser();
 
 
 

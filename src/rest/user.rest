@@ -8,15 +8,15 @@ POST http://localhost:3000/api/v1/asiakas
 Content-Type: application/json
 
 {
-    "etunimi": "vierasUser",
-    "sukunimi": "vieras",
-    "tunnus": "1",
-    "salasana": "123",
-    "rooli": "vieras",
-    "email": " ",
-    "puhelin": " 1234",
+    "etunimi": "Anna",
+    "sukunimi": "Gao-Mäkinen",
+    "tunnus": "annagaom",
+    "salasana": "12345",
+    "rooli": "admin",
+    "email": "annagao@ascafe.fi",
+    "puhelin": "12345",
     "syntymapaiva": " 2002-01-01",
-    "ehdot_hyvaksytty": "0",
+    "ehdot_hyvaksytty": "1",
     "allennus_ryhma": ""
 }
 ###
