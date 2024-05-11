@@ -185,9 +185,7 @@ nav li {
   margin: 10px 0px 0px 5px;
   display: flex;
   margin-bottom: 0;
-  text-align:
 }
-
 
 #cakeSearch {
   width: 50%;
@@ -212,6 +210,7 @@ nav li {
   border-radius: 5px;
 
 }
+
 .button {
   width: 100px;
   height: 48px;
@@ -220,7 +219,7 @@ nav li {
   padding: 10px;
   border-radius: 1rem;
   font-size: medium;
-  margin-left: 630px;
+  margin-left: 50px;
   margin-top: 20px;
   border: none;
   cursor: pointer;
@@ -233,7 +232,7 @@ nav li {
   color: white;
   border-radius: 1rem;
   font-size: medium;
-
+  margin-left: 20px;
   border: none;
   cursor: pointer;
 }
@@ -303,8 +302,7 @@ nav li {
   transition: background-color 0.3s;
   min-width: 150px;
   margin-top: 15px;
-  margin-left:1rem
-
+  margin-left: 1rem
 }
 
 .userButton:hover {
@@ -678,8 +676,9 @@ dialog::backdrop {
   border-radius: 5px;
 }
 
-
-
+#closeUpdateButton {
+  margin-top: 10px;
+}
 
 /* footer */
 
@@ -693,7 +692,7 @@ footer {
 
 /* media */
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1200px) {
   .icons ul li {
     display: block;
     text-align: center;
@@ -705,28 +704,60 @@ footer {
     padding: 5px;
   }
 
-  .logo {
-    width: 125px;
-  }
-
-  .cakeImg {
-    margin-top: 10px;
-  }
-
   .footer-container {
     margin: 0;
   }
-}
 
-@media screen and (max-width:470px) {
-  .logo {
-    width: 100px;
-    height: 100px;
+  .modal-content {
+    width: 80%;
+    margin-left: 10%;
   }
 
-  .cakeImg {
-    margin-top: 10px;
-    width: 250px;
-    height: 100px;
+}
+
+@media screen and (max-width: 470px) {
+
+  .footer-container {
+    text-align: center;
+    padding: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  .dropdown,
+  .navItem {
+    padding: 10px;
+    border: 1px solid black;
+  }
+
+  footer {
+    width: 100%;
+    margin-left: -8px;
+  }
+
+  .changecontent {
+    font-size: 13px;
+  }
+
+  .button {
+    width: 100px;
+    height: 50px;
+    font-size: small;
+    border-radius: 0.5rem;
+  }
+
+  .button2 {
+    width: 80px;
+    height: 35px;
+    font-size: small;
+    margin: 15px 15px;
+    border-radius: 0.5rem;
+  }
+
+  .modal-content {
+    width: 70%;
+    margin-left: 10%;
   }
 }

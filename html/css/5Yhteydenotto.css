@@ -54,7 +54,7 @@ header {
   border: 1px solid rgb(184, 170, 170);
   box-shadow: 0 5px 40px 0 rgba(147, 144, 144, 0.578);
   height: 50vh;
-  width: 1000px;
+  width: 90%;
 }
 
 .käyttäjä {
@@ -149,6 +149,7 @@ nav li {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   top: 100%;
   left: 0;
+  z-index: 2;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -178,6 +179,7 @@ nav li {
 
 .dropdown-menu a:hover {
   background-color: #eceae9;
+
 }
 
 /* main */

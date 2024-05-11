@@ -1,6 +1,5 @@
 // test/userController.test.js
 import request from 'supertest';
-import jest from 'jest';
 import app from '../src/app.js';
 import {
     listAllUsers,
@@ -12,7 +11,7 @@ import {
     removeUser,
     updateUserPassword,
     getAlennusRyhma,
-} from '../models/user-model';
+} from '../src/api/models/user-model.js';
 
 beforeEach(() => {
     jest.clearAllMocks();

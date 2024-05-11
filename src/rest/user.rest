@@ -19,6 +19,22 @@ Content-Type: application/json
     "ehdot_hyvaksytty": "0",
     "allennus_ryhma": ""
 }
+###
+POST http://localhost:3000/api/v1/asiakas/vieras
+Content-Type: application/json
+
+{
+    "etunimi": "vierasUser",
+    "sukunimi": "vieras",
+    "tunnus": "3",
+    "salasana": "123",
+    "rooli": "vieras",
+    "email": " ",
+    "puhelin": " 1234",
+    "syntymapaiva": " 2002-01-01",
+    "ehdot_hyvaksytty": "0",
+    "allennus_ryhma": ""
+}
 
 ### uusi kirjautuminen
 POST http://localhost:3000/api/v1/asiakas/login

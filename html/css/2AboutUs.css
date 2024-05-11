@@ -56,11 +56,6 @@ header {
   height: 300px;
 }
 
-.background-image {
-  width: 100%;
-  height: 100%;
-}
-
 .käyttäjä {
   display: inline-block;
   margin: 10px;
@@ -259,23 +254,15 @@ footer {
 
 /* media */
 
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
   .container {
     width: 100%;
     padding: 5px;
   }
 
-  .title {
-    text-align: left;
-  }
 
   .logo {
-    width: 200%;
-    height: auto;
-  }
-
-  .cakeImg {
-    width: 100%;
+    width: 150%;
     height: auto;
   }
 
@@ -290,21 +277,17 @@ footer {
     width: 100%;
     margin-bottom: 10px;
   }
-
-  .logo-container {
-    padding: 100px 300px 100px 300px;
-  }
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
   main {
     flex-direction: column;
     align-items: center;
   }
 
   .logo {
-    width: 80%;
+    width: 70%;
     height: auto;
   }
 
@@ -326,15 +309,34 @@ footer {
   }
 }
 
-@media (max-width: 600px) {
-  body {
-    font-size: 14px;
+@media (max-width: 650px) {
+  .logo {
+    width: 50%;
+    height: auto;
   }
-}
 
-@media (max-width: 600px) {
-  .container {
-    padding: 1% 3%;
+  .logo-container {
+    padding: 50px 150px 50px 150px;
+  }
+
+  .icons {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .services {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .contact {
+    width: 100%;
+  }
+
+  nav {
+    width: 100%;
   }
 }
 
@@ -364,8 +366,12 @@ footer {
     font-size: 13px;
   }
 
+  .background-image {
+    width: 50%;
+    height: auto;
+  }
+
   .logo-container {
-    padding: 100px 220px 100px 200px;
-    margin-right: 100px;
+    padding: 50px 100px 50px 100px;
   }
 }

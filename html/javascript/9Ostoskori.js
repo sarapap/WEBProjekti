@@ -710,4 +710,3 @@ function getPaymentPageUrl(kieli) {
 
 
 fetchAndDisplayTuotteet();
-

@@ -407,7 +407,7 @@ footer {
   }
 
   .update-button {
-    margin: 20px 0px 0px 60px;
+    margin: 20px 0px 0px 10px;
   }
 
   table {
@@ -426,11 +426,17 @@ footer {
   }
 
   input {
-    margin-top: 10px;
+    margin-top: 10px 0px 0px 10px;
+  }
+
+  span {
+    padding: 10px;
+    margin-right: 20px;
   }
 
   img {
     height: 400px;
     width: auto;
   }
+
 }

@@ -247,3 +247,52 @@ function getAllergiat() {
     }
 }
 
+function base64Decode(str) {
+    return atob(str.replace(/-/g, '+').replace(/_/g, '/'));
+}
+
+/**
+ * Gets the user role from a JWT token.
+ * @param {string} token - The JWT token.
+ * @returns {string} The user role extracted from the token.
+ */
+function getUserRoleFromToken(token) {
+    const parts = token.split('.');
+    const payload = base64Decode(parts[1]);
+    const payloadObject = JSON.parse(payload);
+    return payloadObject.role;
+}
+/**
+ * Checks the user role and redirects to the appropriate page based on their role.
+ */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const token = localStorage.getItem("authToken");
+    const userRole = getUserRoleFromToken(token);
+    const selectedLanguage = getSelectedLanguage();
+    if (userRole === "vieras") {
+
+        let redirectPage;
+        switch (selectedLanguage) {
+            case 'EN':
+                redirectPage = '../../html/en/11Login_en.html';
+                break;
+            case 'CN':
+                redirectPage = '../../html/cn/11login_cn.html';
+                break;
+            case 'ET':
+                redirectPage = '../../html/et/11Login_et.html';
+                break;
+            case 'SV':
+                redirectPage = '../../html/sv/11Login_sv.html';
+                break;
+            case 'FI':
+            default:
+                redirectPage = '../../html/fi/11Login.html';
+                break;
+        }
+
+        window.location.href = redirectPage;
+        return;
+    }
+});
