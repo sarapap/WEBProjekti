@@ -3,9 +3,6 @@
 
 *.env
 
-.gitkeep
-uploads
-
 ### macOS ###
 # General
 .DS_Store
