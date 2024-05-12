@@ -41,10 +41,7 @@ header {
 .image-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 0;
-  max-height: 100px;
-  max-width: 100px;
+  width: 100%;
 }
 
 .logo {
@@ -84,15 +81,6 @@ header {
 
 .kieli {
   margin: 7px 10px 0px 0px;
-}
-
-#kieli {
-  background-color: rgb(192, 160, 122);
-  color: white;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 5px;
-  font-family: 'Tahoma', sans-serif;
 }
 
 #kieli {
@@ -376,6 +364,11 @@ footer {
     text-align: center;
     padding: 20px;
     font-size: 13px;
+  }
+
+  header {
+    width: 110%;
+    height: auto;
   }
 
   .content h2 {

@@ -107,49 +107,64 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 );
 
-// const addVierasUser = async () => {
-//   try {
-//     localStorage.removeItem('authToken');
+const generateVierasUser = () => {
+  const allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
+  let vierasUser = '';
 
-//     const response = await fetch('http://localhost:3000/api/v1/asiakas/vieras', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({
-//         etunimi: 'vierasUser',
-//         sukunimi: 'vieras',
-//         tunnus: 'vierasTunnus',
-//         salasana: '123',
-//         email: '',
-//         puhelin: '123',
-//         syntymapaiva: '1923-02-25',
-//         ehdot_hyvaksytty: '0',
-//         allennus_ryhma: ''
-//       }),
-//     });
+  for (let i = 0; i < 12; i++) {
+    const randomIndex = Math.floor(Math.random() * allowedChars.length);
+    const randomChar = allowedChars[randomIndex];
+    vierasUser += randomChar;
+  }
 
-//     if (!response.ok) {
-//       throw new Error('Virhe vierasasiakkaan lisäämisessä');
-//     }
+  return vierasUser;
+};
 
-//     const data = await response.json();
-//     console.log('Vierasasiakas lisätty onnistuneesti:', data);
+const addVierasUser = async () => {
+  try {
+    let userId = localStorage.getItem('authToken');
 
-//     if (data.token) {
-//       localStorage.setItem('authToken', data.token);
-//     }
+    if (!userId) {
+      userId = generateVierasUser();
+      localStorage.setItem('authToken', userId);
+    }
 
-//     return data;
-//   } catch (error) {
-//     console.error('Error adding guest user:', error);
-//     return null;
-//   }
-// };
+    const response = await fetch('http://localhost:3000/api/v1/asiakas/vieras', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        etunimi: 'vierasUser',
+        sukunimi: 'vieras',
+        tunnus: 'vierasTunnus',
+        salasana: '123',
+        email: '',
+        puhelin: '123',
+        syntymapaiva: '1923-02-25',
+        ehdot_hyvaksytty: '0',
+        allennus_ryhma: '',
+        userId: userId
+      }),
+    });
 
-// addVierasUser();
+    if (!response.ok) {
+      throw new Error('Virhe');
+    }
 
+    const data = await response.json();
 
+    if (data.token) {
+      localStorage.setItem('authToken', data.token);
+    }
+
+    return data;
+  } catch (error) {
+    return null;
+  }
+};
+
+addVierasUser();
 
 /**
  * Retrieves the user ID from a JWT token stored in localStorage.

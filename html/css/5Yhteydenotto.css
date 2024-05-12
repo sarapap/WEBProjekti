@@ -54,7 +54,7 @@ header {
   border: 1px solid rgb(184, 170, 170);
   box-shadow: 0 5px 40px 0 rgba(147, 144, 144, 0.578);
   height: 50vh;
-  width: 90%;
+  width: 100%;
 }
 
 .käyttäjä {
@@ -222,7 +222,6 @@ h3 {
 main {
   border: 1px solid rgb(184, 170, 170);
   box-shadow: 0 15px 25px 0 rgb(184, 170, 170);
-  /* padding: 0px 100px 0px 100px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -232,11 +231,6 @@ main {
 
 }
 
-.map {
-  display: flex;
-  justify-content: center;
-  width: 90%;
-}
 
 .mainTaustakuva {
 
@@ -264,9 +258,7 @@ main {
 /* footer */
 
 footer {
-  margin-top: 15px;
-  width: 90%;
-  ;
+  margin: 25px 10px 0px 25px;
   padding: 5px;
   text-align: center;
   background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
@@ -289,31 +281,11 @@ footer {
     margin-left: 100px;
   }
 
-  nav {
-    justify-content: right;
-    width: 90%;
-  }
-
-  nav ul {
-    justify-content: right;
-  }
-
-  .map {
-    width: 90%;
-    height: 200px;
-    margin: 0 auto;
-    align-items: center;
-    padding: 10%;
-    margin: 19%;
-  }
-
-
-
   .mainTaustakuva {
     width: 100%;
   }
 
-  .sosicals {
+  .socials {
     padding-left: 10%;
   }
 
@@ -341,15 +313,6 @@ footer {
 
     nav ul {
       justify-content: right;
-    }
-
-    .map {
-      width: 90%;
-      height: 200px;
-    }
-
-    .sosicals {
-      padding-left: 10%;
     }
 
     .contact-info img {
@@ -417,25 +380,20 @@ footer {
   }
 }
 
-@media (max-width: 400px) {
-  body {
-    width: 100%;
-    padding: 5px;
+@media screen and (max-width: 470px) {
+  .cakeImg {
+    width: 60%;
+    height: auto;
   }
 
-  cantact-info {
+  .logo {
+    width: 100px;
+    height: auto;
+  }
+
+  contact-info {
     margin-left: 10%;
     padding-left: 10%;
-  }
-
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  nav {
-    flex-direction: column;
-    width: 95%;
   }
 
   .icons {
@@ -443,8 +401,36 @@ footer {
     padding-left: 0;
   }
 
-  socials {
-    padding-left: 0;
-    margin-left: 0;
+  .socials {
+    margin-right: 100px;
+  }
+
+  .contact-info {
+    margin-right: 60px;
+  }
+
+  .footer-container {
+    text-align: center;
+    padding: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .dropdown,
+  .navItem {
+    padding: 10px;
+    border: 1px solid black;
+  }
+
+  footer {
+    width: 100%;
+    margin-left: -8px;
+  }
+
+  .changecontent {
+    font-size: 13px;
   }
 }

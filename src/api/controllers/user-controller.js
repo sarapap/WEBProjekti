@@ -129,6 +129,54 @@ const userLoginPost = async (req, res) => {
     }
 };
 
+const postVieras = async (req, res) => {
+    try {
+        const {
+            etunimi,
+            sukunimi,
+            tunnus,
+            salasana,
+            email,
+            puhelin,
+            syntymapaiva,
+            ehdot_hyvaksytty,
+            allennus_ryhma,
+        } = req.body;
+
+
+        const result = await addUser({
+            etunimi,
+            sukunimi,
+            tunnus,
+            salasana: bcrypt.hashSync(salasana, 10),
+            rooli: 'vieras',
+            email,
+            puhelin,
+            syntymapaiva,
+            ehdot_hyvaksytty,
+            allennus_ryhma,
+        });
+
+        if (!result) {
+            throw new Error("Vierasasiakkaan lisääminen epäonnistui");
+        }
+
+        const token = jwt.sign(
+            {
+                asiakas_id: result.asiakas_id,
+                username: tunnus,
+                role: result.rooli,
+            },
+            SECRET_KEY
+        );
+
+        res.status(201).json({ success: true, token, asiakas_id: result.asiakas_id });
+    } catch (error) {
+        console.error('Virhe vierasasiakkaan lisäämisessä:', error.message);
+        res.status(400).json({ error: error.message });
+    }
+};
+
 const putUser = async (req, res) => {
     try {
         const asiakas_id = req.params.id;
@@ -264,5 +312,6 @@ export {
     deleteUser,
     getUserInfo,
     updatePasswordController,
-    checkAlennus
+    checkAlennus,
+    postVieras
 };
