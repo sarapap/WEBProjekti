@@ -33,7 +33,7 @@ async function submitForm(event) {
     const userId = parsedPayload.asiakas_id;
 
     try {
-        const response = await fetch(`http://localhost:3000/api/v1/asiakas/info/${userId}`, {
+        const response = await fetch(`http://10.120.32.68/app/api/v1/asiakas/info/${userId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const parsedPayload = JSON.parse(payload);  // Parsii JSON-muodossa
     const userId = parsedPayload.asiakas_id;
 
-    const response = await fetch(`http://localhost:3000/api/v1/asiakas/info/${userId}`);
+    const response = await fetch(`http://10.120.32.68/app/api/v1/asiakas/info/${userId}`);
 
     if (response.ok) {
         const userData = await response.json();  // Hakee tiedot JSON-muodossa
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 /**
  * Käsittelee salasanan vaihtolomakkeen lähettämisen.
- * 
+ *
  * @param {Event} event - Lomakkeen lähetyksen tapahtuma.
  */
 document.getElementById("changePasswordForm").addEventListener("submit", function (event) {
@@ -180,7 +180,7 @@ document.getElementById("changePasswordForm").addEventListener("submit", functio
     }
 
     // Päivitä salasana API:n avulla
-    fetch(`http://localhost:3000/api/v1/asiakas/password/${userID}`, {
+    fetch(`http://10.120.32.68/app/api/v1/asiakas/password/${userID}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -310,7 +310,7 @@ function updateAllergiaList() {
     allergies.forEach((allergia, index) => {
         const allergiaItem = document.createElement("div");
         allergiaItem.innerHTML = `
-            ${allergia} 
+            ${allergia}
             <button data-index="${index}" class="deleteButton">${getDeleteButtonText()}</button>
         `;
         allergiaList.appendChild(allergiaItem);  // Lisää jokaisen allergian listaan

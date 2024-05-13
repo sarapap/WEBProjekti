@@ -12,7 +12,7 @@ function getSelectedLanguage() {
 
 /**
  * Näyttää tai piilottaa kupongin käyttäjän statuksen perusteella.
- * 
+ *
  * Kun sivu on ladattu, tarkistaa käyttäjän statuksen ja asettaa kupongin näkyvyyden.
  */
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const userStatusElement = document.getElementById('userStatus');  // Kupongin HTML-elementti
 
     if (token) {
-        fetch(`http://localhost:3000/api/v1/asiakas/alennus/${userID}`, {
+        fetch(`http://10.120.32.68/app/api/v1/asiakas/alennus/${userID}`, {
             headers: {
                 'Authorization': `Bearer ${token}`,  // Käyttää Bearer-tokenia
             },
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /**
  * Kopioi annetun tekstin leikepöydälle ja näyttää vahvistusviestin.
- * 
+ *
  * @param {string} text - Teksti, joka kopioidaan.
  */
 function copyToClipboard(text) {
