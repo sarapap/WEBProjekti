@@ -19,18 +19,18 @@
 
     <h1 class="page-title">Source: 1Etusivu.js</h1>
 
-    
 
 
 
-    
+
+
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
 
 /**
  * Hakee valitun kielen dropdownista.
- * 
+ *
  * @returns {string} Valittu kieli. Oletus on 'FI'.
  */
 function getSelectedLanguage() {
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /**
      * Lähettää palautetta backendille.
-     * 
+     *
      * @param {Event} e - Lomakkeen lähetyksen tapahtuma.
      */
     feedbackForm.addEventListener("submit", async (e) => {
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         try {
-            const response = await fetch("http://localhost:3000/api/v1/palaute", {
+            const response = await fetch("http://10.120.32.68/app/api/v1/palaute", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /**
      * Käsittelee virheitä palautteen lähetyksessä.
-     * 
+     *
      * @param {string} language - Valittu kieli.
      */
     function handleError(language) {
@@ -174,7 +174,7 @@ let currentIndex = 0;
 
 /**
  * Näyttää kuvan indeksin perusteella.
- * 
+ *
  * @param {number} index - Kuvaindeksi.
  */
 function showImage(index) {
