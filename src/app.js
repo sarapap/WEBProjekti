@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-pp.use('/api/v1', api);
+app.use('/api/v1', api);
 app.use(express.static(path.join(__dirname, '../html')));
 app.use('/uploads', express.static('uploads'));
 
