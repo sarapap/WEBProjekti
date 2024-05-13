@@ -221,7 +221,7 @@ const getTuoteByTuoteId = async (tuote_id) => {
     tuoteElement.classList.add('cake-item');
 
     const imgElement = document.createElement('img');
-    imgElement.src = `../../uploads/${tuote.tuote_kuva}`;
+    imgElement.src = `../uploads/${tuote.tuote_kuva}`;
 
     imgElement.style.maxWidth = '200px';
 
@@ -515,6 +515,7 @@ const lisaaTilausSisalto = async (tilaus_id, tuote_id, tuote_hinta, tuote_kustan
     if (!response.ok) {
       throw new Error(virheTilaus);
     }
+
 
     const data = await response.json();
     console.log('Tilaus_sisalto lisätty:', data);
