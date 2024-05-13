@@ -14,17 +14,17 @@ function getSelectedLanguage() {
 document.getElementById("kieli").addEventListener("change", function () {
   var selectedLanguage = this.value;
   if (selectedLanguage === 'FI') {
-    window.location.href = '../../html/fi/1Etusivu.html';
+    window.location.href = '../fi/1Etusivu.html';
   } else if (selectedLanguage === 'EN') {
-    window.location.href = '../../html/en/1Etusivu_en.html';
+    window.location.href = '../en/1Etusivu_en.html';
   } else if (selectedLanguage === 'CN') {
-    window.location.href = "../../html/cn/1Etusivu_cn.html";
+    window.location.href = "../cn/1Etusivu_cn.html";
   }
   else if (selectedLanguage === 'ET') {
-    window.location.href = "../../html/et/1Etusivu_et.html";
+    window.location.href = "../et/1Etusivu_et.html";
   }
   else if (selectedLanguage === 'SV') {
-    window.location.href = "../../html/sv/1Etusivu_sv.html";
+    window.location.href = "../sv/1Etusivu_sv.html";
   }
 });
 
@@ -63,39 +63,39 @@ document.addEventListener('DOMContentLoaded', function () {
         if (authToken) {
           switch (selectedLanguage) {
             case 'EN':
-              redirectPage = '../../html/en/7Kayttaja_en.html';
+              redirectPage = '../en/7Kayttaja_en.html';
               break;
             case 'CN':
-              redirectPage = '../../html/cn/7Kayttaja_cn.html';
+              redirectPage = '../cn/7Kayttaja_cn.html';
               break;
             case 'ET':
-              redirectPage = '../../html/et/7Kayttaja_et.html';
+              redirectPage = '../et/7Kayttaja_et.html';
               break;
             case 'SV':
-              redirectPage = '../../html/sv/7Kayttaja_sv.html';
+              redirectPage = '../sv/7Kayttaja_sv.html';
               break;
             case 'FI':
             default:
-              redirectPage = '../../html/fi/7Kayttaja.html';
+              redirectPage = '../fi/7Kayttaja.html';
               break;
           }
         } else {
           switch (selectedLanguage) {
             case 'EN':
-              redirectPage = '../../html/en/11Login_en.html';
+              redirectPage = '../en/11Login_en.html';
               break;
             case 'CN':
-              redirectPage = '../../html/cn/11Login_cn.html';
+              redirectPage = '../cn/11Login_cn.html';
               break;
             case 'ET':
-              redirectPage = '../../html/et/11Login_et.html';
+              redirectPage = '../et/11Login_et.html';
               break;
             case 'SV':
-              redirectPage = '../../html/sv/11Login_sv.html';
+              redirectPage = '../sv/11Login_sv.html';
               break;
             case 'FI':
             default:
-              redirectPage = '../../html/fi/11Login.html';
+              redirectPage = '../fi/11Login.html';
               break;
           }
         }
@@ -345,20 +345,20 @@ const vahvistaJaTyhjenna = async () => {
   let targetPage = '';
   switch (kieli) {
     case 'EN':
-      targetPage = '../../html/en/9Vahvistus_en.html';
+      targetPage = '../en/9Vahvistus_en.html';
       break;
     case 'CN':
-      targetPage = '../../html/cn/9Vahvistus_cn.html';
+      targetPage = '../cn/9Vahvistus_cn.html';
       break;
     case 'ET':
-      targetPage = '../../html/et/9Vahvistus_et.html';
+      targetPage = '../et/9Vahvistus_et.html';
       break;
     case 'SV':
-      targetPage = '../../html/sv/9Vahvistus_sv.html';
+      targetPage = '../sv/9Vahvistus_sv.html';
       break;
     case 'FI':
     default:
-      targetPage = '../../html/fi/9Vahvistus.html';
+      targetPage = '../fi/9Vahvistus.html';
       break;
   }
   // Redirect to the confirmation page

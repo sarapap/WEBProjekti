@@ -25,6 +25,8 @@ const tilausList = document.getElementById('tilaus-list');
  * @async
  * @function fetchAndDisplayTuotteet
  */
+
+
 const fetchAndDisplayTuotteet = async () => {
   const tilausIdList = await findTilausIdByUserId(userId);
 

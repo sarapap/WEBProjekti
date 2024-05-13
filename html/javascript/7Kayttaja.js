@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             <p>${t.birthday}: ${displayDate}</p>
             <p>${t.discountGroup}: ${translatedDiscountGroup}</p>
             <label for="allergia">${t.foodAllergies}:</label><br>
-            <li name="allergia" id="allergia" 
+            <li name="allergia" id="allergia"
             style="color: rgb(219, 146, 56); font-weight: bold; list-style: none;
             border: 1px solid black; border-radius: 5px; font-size: 14px;">
             ${allergiaText}

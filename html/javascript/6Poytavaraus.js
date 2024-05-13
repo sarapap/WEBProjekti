@@ -2,7 +2,7 @@
 
 /**
  * Hakee valitun kielen ja palauttaa sen.
- * 
+ *
  * @returns {string} Valittu kieli. Oletusarvoisesti 'FI'.
  */
 function getSelectedLanguage() {
@@ -54,7 +54,7 @@ window.addEventListener("click", (e) => {
 
 /**
  * Lähettää lomakkeen sähköpostitse EmailJS:n avulla.
- * 
+ *
  * @returns {boolean} Väärä, jotta lomake ei aiheuta sivun uudelleenlatausta.
  */
 function sendEmail() {
@@ -64,20 +64,20 @@ function sendEmail() {
     let targetPage = '';
     switch (selectedLanguage) {
         case 'EN':
-            targetPage = '../../html/en/6Poytavaraus_en.html';
+            targetPage = '../en/6Poytavaraus_en.html';
             break;
         case 'CN':
-            targetPage = '../../html/cn/6Poytavaraus_cn.html';
+            targetPage = '../cn/6Poytavaraus_cn.html';
             break;
         case 'ET':
-            targetPage = '../../html/et/6Poytavaraus_et.html';
+            targetPage = '../et/6Poytavaraus_et.html';
             break;
         case 'SV':
-            targetPage = '../../html/sv/6Poytavaraus_sv.html';
+            targetPage = '../sv/6Poytavaraus_sv.html';
             break;
         case 'FI':
         default:
-            targetPage = '../../html/fi/6Poytavaraus.html';
+            targetPage = '../fi/6Poytavaraus.html';
             break;
     }
 

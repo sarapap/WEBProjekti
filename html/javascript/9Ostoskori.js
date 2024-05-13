@@ -1,5 +1,5 @@
 /**
- * @file This script handles a shopping cart system with multiple functionalities including fetching products, 
+ * @file This script handles a shopping cart system with multiple functionalities including fetching products,
  *       adding them to a cart, updating quantities, removing items, and placing orders. It also includes
  *       support for different languages with error messages and status texts tailored to each language.
  */
@@ -21,7 +21,7 @@ let lisattytoiminta = '';
 
 /**
  * Sets error and status messages based on the selected language.
- * 
+ *
  * @returns {void}
  */
 const selectedLanguage = getSelectedLanguage();
@@ -113,7 +113,7 @@ let tuote_id = null;
 
 /**
  * Fetches products and displays them in the shopping cart.
- * 
+ *
  * @async
  * @function fetchAndDisplayTuotteet
  * @returns {Promise<void>} A promise that resolves when products are fetched and displayed.
@@ -133,7 +133,7 @@ const fetchAndDisplayTuotteet = async () => {
 
 /**
  * Finds product IDs based on user ID.
- * 
+ *
  * @async
  * @function findTuoteIdByUserId
  * @param {number} userId - The ID of the user.
@@ -161,7 +161,7 @@ const tilauksenTuoteList = [];
 
 /**
  * Gets product details based on product ID.
- * 
+ *
  * @async
  * @function getTuoteByTuoteId
  * @param {number} tuote_id - The ID of the product.
@@ -264,7 +264,7 @@ const getTuoteByTuoteId = async (tuote_id) => {
       await updateCart(getUserId(), tuote_id, uusiMaara);
       /**
  * Updates the displayed number of items in the cart.
- * 
+ *
  * @function paivitaOstoskorinNumero
  * @returns {void}
  */
@@ -329,7 +329,7 @@ const ostoskoriTarkistus = async (userId, tuote_id) => {
 
 /**
  * Deletes a product from the cart based on its ID.
- * 
+ *
  * @async
  * @function deleteTuoteFromCart
  * @param {number} userId - The ID of the user.
@@ -356,7 +356,7 @@ const deleteTuoteFromCart = async (userId, tuote_id) => {
 
 /**
  * Updates the quantity of a product in the cart.
- * 
+ *
  * @async
  * @function updateCart
  * @param {number} userId - The ID of the user.
@@ -389,7 +389,7 @@ const updateCart = async (userId, tuote_id, uusiMaara) => {
 
 /**
  * Gets the quantity of a product in the cart.
- * 
+ *
  * @async
  * @function getTuoteMaaraFromOstoskori
  * @param {number} userId - The ID of the user.
@@ -434,7 +434,7 @@ const getKokoTuoteMaara = async (userId) => {
 
 /**
  * Deletes a product from the order list.
- * 
+ *
  * @function deleteTuoteFromTilauksenTuotelist
  * @param {number} tuote_id - The ID of the product to delete.
  * @returns {void}
@@ -449,7 +449,7 @@ const deleteTuoteFromTilauksenTuotelist = (tuote_id) => {
 
 /**
  * Checks if an order ID is valid.
- * 
+ *
  * @async
  * @function tarkistaTilausId
  * @param {number} tilaus_id - The ID of the order.
@@ -471,7 +471,7 @@ const tarkistaTilausId = async (tilaus_id) => {
 
 /**
  * Adds order content to an order.
- * 
+ *
  * @async
  * @function lisaaTilausSisalto
  * @param {number} tilaus_id - The ID of the order.
@@ -530,7 +530,7 @@ const lisaaTilausSisalto = async (tilaus_id, tuote_id, tuote_hinta, tuote_kustan
 
 /**
  * Creates a new order for a given user.
- * 
+ *
  * @async
  * @function lisaaTilaus
  * @param {number} userId - The ID of the user.
@@ -560,7 +560,7 @@ const lisaaTilaus = async (userId, tuote_id) => {
 
 /**
  * Gets the last order ID for a given user, creating a new one if necessary.
- * 
+ *
  * @async
  * @function getLastTilausId
  * @param {number} userId - The ID of the user.
@@ -622,7 +622,7 @@ const getLastTilausId = async (userId) => {
 
 /**
  * Adds business activity details to an order.
- * 
+ *
  * @async
  * @function lisaaYritystoiminta
  * @param {string} tilais_pvm - The date of the business activity.
@@ -687,7 +687,7 @@ payButton.addEventListener('click', async () => {
 
 /**
  * Redirects to the appropriate payment page based on the selected language.
- * 
+ *
  * @function getPaymentPageUrl
  * @param {string} kieli - The selected language.
  * @returns {string} The URL of the payment page.
@@ -695,16 +695,16 @@ payButton.addEventListener('click', async () => {
 function getPaymentPageUrl(kieli) {
   switch (kieli) {
     case 'EN':
-      return '../../html/en/9Maksu_en.html';
+      return '../en/9Maksu_en.html';
     case 'CN':
-      return '../../html/cn/9Maksu_cn.html';
+      return '../cn/9Maksu_cn.html';
     case 'ET':
-      return '../../html/et/9Maksu_et.html';
+      return '../et/9Maksu_et.html';
     case 'SV':
-      return '../../html/sv/9Maksu_sv.html';
+      return '../sv/9Maksu_sv.html';
     case 'FI':
     default:
-      return '../../html/fi/9Maksu.html';
+      return '../fi/9Maksu.html';
   }
 }
 

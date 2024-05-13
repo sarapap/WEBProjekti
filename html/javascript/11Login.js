@@ -58,20 +58,20 @@ document.addEventListener('DOMContentLoaded', function () {
                         let targetPage = '';
                         switch (selectedLanguage) {
                             case 'EN':
-                                targetPage = '../../html/en/7Kayttaja_en.html';
+                                targetPage = '../en/7Kayttaja_en.html';
                                 break;
                             case 'CN':
-                                targetPage = '../../html/cn/7Kayttaja_cn.html';
+                                targetPage = '../cn/7Kayttaja_cn.html';
                                 break;
                             case 'ET':
-                                targetPage = '../../html/et/7Kayttaja_et.html';
+                                targetPage = '../et/7Kayttaja_et.html';
                                 break;
                             case 'SV':
-                                targetPage = '../../html/sv/7Kayttaja_sv.html';
+                                targetPage = '../sv/7Kayttaja_sv.html';
                                 break;
                             case 'FI':
                             default:
-                                targetPage = '../../html/fi/7Kayttaja.html';
+                                targetPage = '../fi/7Kayttaja.html';
                                 break;
                         }
 

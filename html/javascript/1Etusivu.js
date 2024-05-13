@@ -2,7 +2,7 @@
 
 /**
  * Hakee valitun kielen dropdownista.
- * 
+ *
  * @returns {string} Valittu kieli. Oletus on 'FI'.
  */
 function getSelectedLanguage() {
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /**
      * Lähettää palautetta backendille.
-     * 
+     *
      * @param {Event} e - Lomakkeen lähetyksen tapahtuma.
      */
     feedbackForm.addEventListener("submit", async (e) => {
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /**
      * Käsittelee virheitä palautteen lähetyksessä.
-     * 
+     *
      * @param {string} language - Valittu kieli.
      */
     function handleError(language) {
@@ -146,7 +146,7 @@ let currentIndex = 0;
 
 /**
  * Näyttää kuvan indeksin perusteella.
- * 
+ *
  * @param {number} index - Kuvaindeksi.
  */
 function showImage(index) {

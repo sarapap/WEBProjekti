@@ -276,20 +276,20 @@ document.addEventListener("DOMContentLoaded", function () {
         let redirectPage;
         switch (selectedLanguage) {
             case 'EN':
-                redirectPage = '../../html/en/11Login_en.html';
+                redirectPage = '../en/11Login_en.html';
                 break;
             case 'CN':
-                redirectPage = '../../html/cn/11login_cn.html';
+                redirectPage = '../cn/11login_cn.html';
                 break;
             case 'ET':
-                redirectPage = '../../html/et/11Login_et.html';
+                redirectPage = '../et/11Login_et.html';
                 break;
             case 'SV':
-                redirectPage = '../../html/sv/11Login_sv.html';
+                redirectPage = '../sv/11Login_sv.html';
                 break;
             case 'FI':
             default:
-                redirectPage = '../../html/fi/11Login.html';
+                redirectPage = '../fi/11Login.html';
                 break;
         }
 
@@ -317,20 +317,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 let redirectPage;
                 switch (selectedLanguage) {
                     case 'EN':
-                        redirectPage = '../../html/en/1Etusivu_en.html';
+                        redirectPage = '../en/1Etusivu_en.html';
                         break;
                     case 'CN':
-                        redirectPage = '../../html/cn/1Etusivu_cn.html';
+                        redirectPage = '../cn/1Etusivu_cn.html';
                         break;
                     case 'ET':
-                        redirectPage = '../../html/et/1Etusivu_et.html';
+                        redirectPage = '../et/1Etusivu_et.html';
                         break;
                     case 'SV':
-                        redirectPage = '../../html/sv/1Etusivu_sv.html';
+                        redirectPage = '../sv/1Etusivu_sv.html';
                         break;
                     case 'FI':
                     default:
-                        redirectPage = '../../html/fi/1Etusivu.html';
+                        redirectPage = '../fi/1Etusivu.html';
                         break;
                 }
 
