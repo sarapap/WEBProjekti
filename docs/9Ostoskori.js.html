@@ -19,15 +19,15 @@
 
     <h1 class="page-title">Source: 9Ostoskori.js</h1>
 
-    
 
 
 
-    
+
+
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file This script handles a shopping cart system with multiple functionalities including fetching products, 
+ * @file This script handles a shopping cart system with multiple functionalities including fetching products,
  *       adding them to a cart, updating quantities, removing items, and placing orders. It also includes
  *       support for different languages with error messages and status texts tailored to each language.
  */
@@ -49,7 +49,7 @@ let lisattytoiminta = '';
 
 /**
  * Sets error and status messages based on the selected language.
- * 
+ *
  * @returns {void}
  */
 const selectedLanguage = getSelectedLanguage();
@@ -141,7 +141,7 @@ let tuote_id = null;
 
 /**
  * Fetches products and displays them in the shopping cart.
- * 
+ *
  * @async
  * @function fetchAndDisplayTuotteet
  * @returns {Promise&lt;void>} A promise that resolves when products are fetched and displayed.
@@ -161,7 +161,7 @@ const fetchAndDisplayTuotteet = async () => {
 
 /**
  * Finds product IDs based on user ID.
- * 
+ *
  * @async
  * @function findTuoteIdByUserId
  * @param {number} userId - The ID of the user.
@@ -170,7 +170,7 @@ const fetchAndDisplayTuotteet = async () => {
  */
 const findTuoteIdByUserId = async (userId) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
+    const response = await fetch(`http://10.120.32.68/app/api/v1/ostoskori/${userId}`, {
       method: 'GET',
     });
 
@@ -189,7 +189,7 @@ const tilauksenTuoteList = [];
 
 /**
  * Gets product details based on product ID.
- * 
+ *
  * @async
  * @function getTuoteByTuoteId
  * @param {number} tuote_id - The ID of the product.
@@ -199,7 +199,7 @@ const tilauksenTuoteList = [];
  */
 const getTuoteByTuoteId = async (tuote_id) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/v1/tuote/${tuote_id}`, {
+    const response = await fetch(`http://10.120.32.68/app/api/v1/tuote/${tuote_id}`, {
       method: 'GET',
     });
 
@@ -292,7 +292,7 @@ const getTuoteByTuoteId = async (tuote_id) => {
       await updateCart(getUserId(), tuote_id, uusiMaara);
       /**
  * Updates the displayed number of items in the cart.
- * 
+ *
  * @function paivitaOstoskorinNumero
  * @returns {void}
  */
@@ -336,7 +336,7 @@ const getTuoteByTuoteId = async (tuote_id) => {
 
 const ostoskoriTarkistus = async (userId, tuote_id) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
+    const response = await fetch(`http://10.120.32.68/app/api/v1/ostoskori/${userId}`, {
       method: 'GET',
     });
 
@@ -358,7 +358,7 @@ const ostoskoriTarkistus = async (userId, tuote_id) => {
 
 /**
  * Deletes a product from the cart based on its ID.
- * 
+ *
  * @async
  * @function deleteTuoteFromCart
  * @param {number} userId - The ID of the user.
@@ -370,7 +370,7 @@ const deleteTuoteFromCart = async (userId, tuote_id) => {
   const onTuoteKorissa = await ostoskoriTarkistus(userId, tuote_id);
   if (onTuoteKorissa) {
     try {
-      const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}/${tuote_id}`, {
+      const response = await fetch(`http://10.120.32.68/app/api/v1/ostoskori/${userId}/${tuote_id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
@@ -385,7 +385,7 @@ const deleteTuoteFromCart = async (userId, tuote_id) => {
 
 /**
  * Updates the quantity of a product in the cart.
- * 
+ *
  * @async
  * @function updateCart
  * @param {number} userId - The ID of the user.
@@ -396,7 +396,7 @@ const deleteTuoteFromCart = async (userId, tuote_id) => {
  */
 const updateCart = async (userId, tuote_id, uusiMaara) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}/${tuote_id}`, {
+    const response = await fetch(`http://10.120.32.68/app/api/v1/ostoskori/${userId}/${tuote_id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -418,7 +418,7 @@ const updateCart = async (userId, tuote_id, uusiMaara) => {
 
 /**
  * Gets the quantity of a product in the cart.
- * 
+ *
  * @async
  * @function getTuoteMaaraFromOstoskori
  * @param {number} userId - The ID of the user.
@@ -428,7 +428,7 @@ const updateCart = async (userId, tuote_id, uusiMaara) => {
  */
 const getTuoteMaaraFromOstoskori = async (userId, tuote_id) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}/${tuote_id}`, {
+    const response = await fetch(`http://10.120.32.68/app/api/v1/ostoskori/${userId}/${tuote_id}`, {
       method: 'GET',
     });
 
@@ -445,7 +445,7 @@ const getTuoteMaaraFromOstoskori = async (userId, tuote_id) => {
 
 /**
  * Deletes a product from the order list.
- * 
+ *
  * @function deleteTuoteFromTilauksenTuotelist
  * @param {number} tuote_id - The ID of the product to delete.
  * @returns {void}
@@ -460,7 +460,7 @@ const deleteTuoteFromTilauksenTuotelist = (tuote_id) => {
 
 /**
  * Checks if an order ID is valid.
- * 
+ *
  * @async
  * @function tarkistaTilausId
  * @param {number} tilaus_id - The ID of the order.
@@ -469,7 +469,7 @@ const deleteTuoteFromTilauksenTuotelist = (tuote_id) => {
  */
 const tarkistaTilausId = async (tilaus_id) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/v1/tilaus/${tilaus_id}`);
+    const response = await fetch(`http://10.120.32.68/app/api/v1/tilaus/${tilaus_id}`);
     if (!response.ok) {
       return false;
     }
@@ -482,7 +482,7 @@ const tarkistaTilausId = async (tilaus_id) => {
 
 /**
  * Adds order content to an order.
- * 
+ *
  * @async
  * @function lisaaTilausSisalto
  * @param {number} tilaus_id - The ID of the order.
@@ -506,7 +506,7 @@ const lisaaTilausSisalto = async (tilaus_id, tuote_id, tuote_hinta, tuote_kustan
       return;
     }
 
-    const response = await fetch(`http://localhost:3000/api/v1/tilaus_sisalto`, {
+    const response = await fetch(`http://10.120.32.68/app/api/v1/tilaus_sisalto`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -541,7 +541,7 @@ const lisaaTilausSisalto = async (tilaus_id, tuote_id, tuote_hinta, tuote_kustan
 
 /**
  * Creates a new order for a given user.
- * 
+ *
  * @async
  * @function lisaaTilaus
  * @param {number} userId - The ID of the user.
@@ -550,7 +550,7 @@ const lisaaTilausSisalto = async (tilaus_id, tuote_id, tuote_hinta, tuote_kustan
  */
 const lisaaTilaus = async (userId, tuote_id) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/v1/tilaus`, {
+    const response = await fetch(`http://10.120.32.68/app/api/v1/tilaus`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -571,7 +571,7 @@ const lisaaTilaus = async (userId, tuote_id) => {
 
 /**
  * Gets the last order ID for a given user, creating a new one if necessary.
- * 
+ *
  * @async
  * @function getLastTilausId
  * @param {number} userId - The ID of the user.
@@ -579,7 +579,7 @@ const lisaaTilaus = async (userId, tuote_id) => {
  */
 const getLastTilausId = async (userId) => {
   const fetchLastTilausId = async () => {
-    const response = await fetch(`http://localhost:3000/api/v1/tilaus`, {
+    const response = await fetch(`http://10.120.32.68/app/api/v1/tilaus`, {
       method: 'GET',
     });
 
@@ -597,7 +597,7 @@ const getLastTilausId = async (userId) => {
   };
 
   const createNewTilaus = async (asiakas_id) => {
-    const response = await fetch('http://localhost:3000/api/v1/tilaus', {
+    const response = await fetch('http://10.120.32.68/app/api/v1/tilaus', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -633,7 +633,7 @@ const getLastTilausId = async (userId) => {
 
 /**
  * Adds business activity details to an order.
- * 
+ *
  * @async
  * @function lisaaYritystoiminta
  * @param {string} tilais_pvm - The date of the business activity.
@@ -647,7 +647,7 @@ const getLastTilausId = async (userId) => {
 const lisaaYritystoiminta = async (tilais_pvm, tilaus_id, myynti_hinta, kustannus, voitto) => {
 
   try {
-    const response = await fetch('http://localhost:3000/api/v1/yritystoiminta', {
+    const response = await fetch('http://10.120.32.68/app/api/v1/yritystoiminta', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -698,7 +698,7 @@ payButton.addEventListener('click', async () => {
 
 /**
  * Redirects to the appropriate payment page based on the selected language.
- * 
+ *
  * @function getPaymentPageUrl
  * @param {string} kieli - The selected language.
  * @returns {string} The URL of the payment page.

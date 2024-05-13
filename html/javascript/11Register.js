@@ -12,7 +12,7 @@ function getSelectedLanguage() {
 
 /**
  * Käsittelee rekisteröintilomakkeen lähetyksen ja suorittaa käyttäjän rekisteröinnin.
- * 
+ *
  * Kun sivu on ladattu, liitetään tapahtumakuuntelija lomakkeen lähettämiseen.
  */
 document.addEventListener('DOMContentLoaded', function () {
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Lähettää rekisteröintitiedot palvelimelle
-            fetch('http://localhost:3000/api/v1/asiakas', {
+            fetch('http://10.120.32.68/app/api/v1/asiakas', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
