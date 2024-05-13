@@ -201,7 +201,7 @@ const getTuoteByTuoteId = async (tuote_id, userId) => {
     tuoteElement.classList.add('cake-item');
 
     const imgElement = document.createElement('img');
-    imgElement.src = `../../uploads/${tuote.tuote_kuva}`;
+    imgElement.src = `../uploads/${tuote.tuote_kuva}`;
     tuoteElement.appendChild(imgElement);
 
     const h3Element = document.createElement('h3');
