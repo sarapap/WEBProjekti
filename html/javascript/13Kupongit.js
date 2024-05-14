@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const userStatusElement = document.getElementById('userStatus');  // Kupongin HTML-elementti
 
     if (token) {
-        fetch(`http:/localhost:3000/api/v1/asiakas/alennus/${userID}`, {
+        fetch(`http://10.120.32.68/app/api/v1/asiakas/alennus/${userID}`, {
             headers: {
                 'Authorization': `Bearer ${token}`,  // Käyttää Bearer-tokenia
             },
