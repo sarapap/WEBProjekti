@@ -5,8 +5,8 @@
 
 [Linkki ecloud](http://10.120.32.68/app/fi/11Login.html)
 
-Suosittelemme laittamaan noden pyörimään testausta varten (ecloudin kanssa ollut ongelmia).
 
+Jos käytät serveriä:
 
 Terminaaliin:
 
