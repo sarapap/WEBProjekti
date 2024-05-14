@@ -596,7 +596,7 @@ const displaySingleTuote = async (tuote) => {
 
     // Lisää kuvakehys
     const imgElement = document.createElement('img');
-    imgElement.src = `../uploads/${tuote.tuote_kuva}`;
+    imgElement.src = `../../uploads/${tuote.tuote_kuva}`;
     tuoteElement.appendChild(imgElement);
 
     // Lisää tuotteen nimi
