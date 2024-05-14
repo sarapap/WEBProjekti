@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 );
 
+//TODO
 const generateVierasUser = () => {
   const allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
   let vierasUser = '';

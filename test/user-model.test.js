@@ -27,23 +27,23 @@ test('findUserById returns a user by id', async () => {
 
 // testi addUser
 
-// test('addUser adds a new user to the database', async () => {
-//     const newUser = {
-//         etunimi: 'testi',
-//         sukunimi: 'kayttaja',
-//         tunnus: 'testi2',
-//         salasana: 'password',
-//         rooli: 'user',
-//         email: 'testi@example.com',
-//         puhelin: '123456789',
-//         syntymapaiva: '1990-01-01',
-//         ehdot_hyvaksytty: true,
-//         allennus_ryhma: 'Opiskelija'
-//     };
+test('addUser adds a new user to the database', async () => {
+    const newUser = {
+        etunimi: 'testi',
+        sukunimi: 'kayttaja',
+        tunnus: 'testi3',
+        salasana: 'password',
+        rooli: 'user',
+        email: 'testi@example.com',
+        puhelin: '123456789',
+        syntymapaiva: '1990-01-01',
+        ehdot_hyvaksytty: true,
+        allennus_ryhma: 'Opiskelija'
+    };
 
-//     const addedUser = await addUser(newUser);
-//     expect(addedUser).toBeDefined();
-// });
+    const addedUser = await addUser(newUser);
+    expect(addedUser).toBeDefined();
+});
 
 
 // testi findUserByUsername

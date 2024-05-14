@@ -4,7 +4,7 @@ module.exports = {
             '@babel/preset-env',
             {
                 targets: {
-                    node: 'current', // Tämä määrittää Babelin kohdistamaan nykyiseen Node.js -versioon
+                    node: 'current',
                 },
             },
         ],
