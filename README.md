@@ -1,12 +1,12 @@
-[Linkki serveriin](https://users.metropolia.fi/~sarapap/WEBProjekti/)
+[Linkki serveriin](https://users.metropolia.fi/~sarapap/WEBProjekti/) (päivitetään vielä...)
 
-[Linkki suoraan etusivulle](https://users.metropolia.fi/~sarapap/WEBProjekti/html/fi/1Etusivu.html)
+[Linkki suoraan etusivulle](https://users.metropolia.fi/~sarapap/WEBProjekti/html/fi/1Etusivu.html) (päivitetään vielä...)
 
 
 [Linkki ecloud](http://10.120.32.68/app/fi/11Login.html)
 
-Suosittelemme laittamaan noden pyörimään testausta varten (ecloudin kanssa ollut ongelmia).
 
+Jos testaa serverin kautta: 
 
 Terminaaliin:
 
